@@ -30,9 +30,14 @@ def search():
 
 def citation_lookup(citation):
     params = {'query': citation.strip()}
-    rv = requests.get(app.config['CROSSREF_URI'], params=params).json()
+    url = app.config['CROSSREF_URI']
+    pp = PrettyPrinter(indent=4)
 
-    return rv['message']['items'][0]['URL']
+    rv = requests.get(url, params=params).json()
+    result = rv['message']['items'][0]['URL']
+    pp.pprint(rv['message']['items'][0])
+
+    return result
 
 
 if __name__ == '__main__':
