@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body
+    {
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
+    }
+
+    .search_form
+    {
+        margin-left: auto;
+        margin-right: auto;
+        width: 500px;
+    }
+
+    .input
+    {
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+    }
+
+    .submit_button
+    {
+        width: 10%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>CrossRef Citation Search</title>
+</head>
+<body>
+<form method="POST" action="/search" class="search_form">
+    <div class="input">{{ form.query.label }}:
+        {{ form.query(style="width: 75%") }}
+        <input type="submit" value="Go" class="submit_button"></div>
+</form>
+</body>
+</html>
