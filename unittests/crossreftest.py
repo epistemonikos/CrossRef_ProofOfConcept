@@ -17,8 +17,9 @@ class CrossRefTest(unittests.basetest.BaseTest):
         jdata = json.loads(ret.data)
         assert jdata
 
-        url = jdata['URL']
+        url = jdata.get('URL', None)
         assert url
+        assert url == self.cr_doi
 
 
 if __name__ == '__main__':
