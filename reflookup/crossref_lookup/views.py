@@ -31,6 +31,9 @@ class CrossRefLookupResource(Resource):
 
         return cr_citation_lookup(ref)
 
+    def get(self):
+        return self.post()
+
 
 class CrossRefSearchForm(Resource):
     def __init__(self):
