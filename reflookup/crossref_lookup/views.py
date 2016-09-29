@@ -6,6 +6,8 @@ from werkzeug.utils import redirect
 from reflookup import app, api
 from urllib.parse import unquote
 
+from reflookup.rating.rating import Rating
+
 from reflookup.search_form import CrossRefForm
 from reflookup.ris_utils.convert import dict2ris
 
@@ -16,6 +18,8 @@ def cr_citation_lookup(citation):
 
     rv = requests.get(url, params=params).json()
     result = rv['message']['items'][0]
+
+    result['rating'] = Rating(citation, result).value()
 
     return result
 
