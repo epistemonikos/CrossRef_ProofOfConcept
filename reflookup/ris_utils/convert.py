@@ -1,3 +1,5 @@
+import json
+
 __map_crTypes_RIS = {
     'book-section': 'CHAP',
     'monograph': None,
@@ -133,3 +135,16 @@ def dict2ris(in_data):
                                            end=ris_end)
 
     return ris_final
+
+
+def json2ris(in_json):
+
+    """
+    Converts a citation reference in JSON format into RIS.
+    :param in_json: A bibligraphical reference in JSON format.
+    :return: Python string containing the bibliographic information in RIS
+    format.
+    """
+
+    pjson = json.loads(in_json)
+    return dict2ris(pjson)
