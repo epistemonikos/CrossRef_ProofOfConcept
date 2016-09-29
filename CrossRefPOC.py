@@ -32,7 +32,7 @@ def citation_lookup(citation):
     params = {'query': citation.strip()}
     url = app.config['CROSSREF_URI']
     pp = PrettyPrinter(indent=4)
-
+    
     rv = requests.get(url, params=params).json()
     result = rv['message']['items'][0]['URL']
     pp.pprint(rv['message']['items'][0])
