@@ -56,28 +56,80 @@ def dict2ris(in_data):
     for k, v in in_data.items():
         if k == 'DOI':
             ris_body += 'DOI  - {doi}\n'.format(doi=v)
+
         elif k == 'ISSN':
             ris_body += 'SN  - {issn}\n'.format(issn=v)
+
         elif k == 'URL':
             ris_body += 'UR  - {url}\n'.format(url=v)
+
         elif k == 'author':
-            if type(in_data[k]) == list:
-                for author in in_data[k]:
-                    name = '{ln}, {fn}'.format(ln=author['family'],
-                                               fn=author['given'])
-                    ris_body += 'AU  - {au}\n'.format(au=name)
-            else:
-                name = '{ln}, {fn}'.format(ln=v['family'],
-                                           fn=v['given'])
+            for author in in_data[k]:
+                name = '{ln}, {fn}'.format(ln=author['family'],
+                                           fn=author['given'])
                 ris_body += 'AU  - {au}\n'.format(au=name)
+
         elif k == 'container-title':
             javb = v[0]
             jfull = v[1]
 
-            ris_body += 'JA  - {ja}\nJF  - {jf}\n'.format(ja=javb, jf=jfull)
+            ris_body += 'JO  - {ja}\nJF  - {jf}\n'.format(ja=javb, jf=jfull)
 
-        ris_final = '{head}{body}{end}'.format(head=ris_header,
-                                               body=ris_body,
-                                               end=ris_end)
+        elif k == 'short-container-title':
+            for title in v:
+                ris_body += 'JO  - {jo}\n'.format(jo=title)
 
-        return ris_final
+        elif k == 'publisher':
+            ris_body += 'PB  - {pb}\n'.format(pb=v)
+
+        elif k == 'short-title':
+            for title in v:
+                ris_body += 'ST  - {st}\n'.format(st=title)
+
+        elif k == 'title':
+            for title in v:
+                ris_body += 'TI  - {st}\n'.format(st=title)
+
+        elif k == 'subtitle':
+            for title in v:
+                ris_body += 'T2  - {st}\n'.format(st=title)
+
+        elif k == 'volume':
+            ris_body +=  'VL  - {vol}\n'.format(vol=v)
+
+        elif k == 'issue':
+            ris_body += 'IS  - {i}\n'.format(i=v)
+
+        elif k == 'pages':
+            pages = v.split("-")
+            ris_body += 'SP  - {sp}\n'.format(sp=pages[0])
+            ris_body += 'EP  - {ep}\n'.format(ep=pages[1])
+
+        elif k == 'created':
+            date_parts = v['date-parts']
+            for date in date_parts:
+                y = date[0]
+                m = ''
+                d = ''
+
+                if len(date) > 1:
+                    m = date[1]
+                if len(date) > 2:
+                    d = date[2]
+
+                ris_body += 'Y1  - {y}/{d}/{m}\n'.format(y=y,d=d,m=m)
+
+        elif k == 'link':
+            for link in v:
+                url = link['URL']
+                ris_body += 'LK  - {url}\n'.format(url=url)
+
+        elif k == 'subject':
+            for subject in v:
+                ris_body += 'RN  - {rn}\n'.format(rn=subject)
+
+    ris_final = '{head}{body}{end}'.format(head=ris_header,
+                                           body=ris_body,
+                                           end=ris_end)
+
+    return ris_final
