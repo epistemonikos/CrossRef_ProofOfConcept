@@ -3,10 +3,11 @@ from flask import render_template, make_response
 from flask_restful import Resource, reqparse
 from werkzeug.utils import redirect
 
-from reflookup import app
+from reflookup import app, api
 from urllib.parse import unquote
 
 from reflookup.search_form import CrossRefForm
+from reflookup.ris_utils.convert import dict2ris
 
 
 def cr_citation_lookup(citation):
@@ -17,6 +18,14 @@ def cr_citation_lookup(citation):
     result = rv['message']['items'][0]
 
     return result
+
+
+@api.representation('application/x-research-info-systems')
+def serve_ris(data, code, headers=None):
+    ris_data = dict2ris(data)
+    resp = make_response(ris_data, code)
+    resp.headers.extend(headers or {})
+    return resp
 
 
 class CrossRefLookupResource(Resource):
@@ -56,4 +65,3 @@ class CrossRefSearchForm(Resource):
 
         url = cr_citation_lookup(query.strip())['URL']
         return redirect(url)
-
