@@ -1,0 +1,140 @@
+{
+    "DOI": "10.1111/j.1600-0838.2011.01292.x",
+    "ISSN": [
+        "0905-7188"
+    ],
+    "URL": "http://dx.doi.org/10.1111/j.1600-0838.2011.01292.x",
+    "author": [
+        {
+            "affiliation": [],
+            "family": "Costello",
+            "given": "J. T."
+        },
+        {
+            "affiliation": [],
+            "family": "Algar",
+            "given": "L. A."
+        },
+        {
+            "affiliation": [],
+            "family": "Donnelly",
+            "given": "A. E."
+        }
+    ],
+    "container-title": [
+        "Scand J Med Sci Sports",
+        "Scandinavian Journal of Medicine & Science in Sports"
+    ],
+    "content-domain": {
+        "crossmark-restriction": false,
+        "domain": []
+    },
+    "created": {
+        "date-parts": [
+            [
+                2011,
+                4,
+                8
+            ]
+        ],
+        "date-time": "2011-04-08T12:30:56Z",
+        "timestamp": 1302265856000
+    },
+    "deposited": {
+        "date-parts": [
+            [
+                2015,
+                10,
+                21
+            ]
+        ],
+        "date-time": "2015-10-21T14:18:59Z",
+        "timestamp": 1445437139000
+    },
+    "indexed": {
+        "date-parts": [
+            [
+                2015,
+                12,
+                23
+            ]
+        ],
+        "date-time": "2015-12-23T21:07:01Z",
+        "timestamp": 1450904821044
+    },
+    "issue": "2",
+    "issued": {
+        "date-parts": [
+            [
+                2011,
+                4,
+                8
+            ]
+        ]
+    },
+    "license": [
+        {
+            "URL": "http://doi.wiley.com/10.1002/tdm_license_1",
+            "content-version": "tdm",
+            "delay-in-days": 1607,
+            "start": {
+                "date-parts": [
+                    [
+                        2015,
+                        9,
+                        1
+                    ]
+                ],
+                "date-time": "2015-09-01T00:00:00Z",
+                "timestamp": 1441065600000
+            }
+        }
+    ],
+    "link": [
+        {
+            "URL": "http://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1111%2Fj.1600-0838.2011.01292.x",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+        }
+    ],
+    "member": "http://id.crossref.org/member/311",
+    "original-title": [],
+    "page": "190-198",
+    "prefix": "http://id.crossref.org/prefix/10.1111",
+    "published-online": {
+        "date-parts": [
+            [
+                2011,
+                4,
+                8
+            ]
+        ]
+    },
+    "published-print": {
+        "date-parts": [
+            [
+                2012,
+                4
+            ]
+        ]
+    },
+    "publisher": "Wiley-Blackwell",
+    "reference-count": 40,
+    "score": 1.8601571,
+    "short-container-title": [],
+    "short-title": [],
+    "source": "CrossRef",
+    "subject": [
+        "Physical Therapy, Sports Therapy and Rehabilitation",
+        "Orthopedics and Sports Medicine"
+    ],
+    "subtitle": [
+        "Effects of whole-body cryotherapy"
+    ],
+    "title": [
+        "Effects of whole-body cryotherapy (\u2212110 \u00b0C) on proprioception and indices of muscle damage"
+    ],
+    "type": "journal-article",
+    "volume": "22"
+}
