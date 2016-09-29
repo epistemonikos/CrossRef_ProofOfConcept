@@ -7,11 +7,6 @@ app.secret_key = 'blah blah'  # TODO: Replace with real, pseudorandom, string
 app.config['API_PREFIX'] = '/api/v1'
 api = Api(app)
 
-
-@app.route('/')
-def root():
-    return 'Hello World!'
-
 from reflookup import views
 
 
