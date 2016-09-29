@@ -127,4 +127,4 @@ def app(cita):
     print ''
     rating(json, cita)
 
-app(reference)
+# app(reference)
