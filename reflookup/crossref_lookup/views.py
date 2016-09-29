@@ -6,6 +6,8 @@ from werkzeug.utils import redirect
 from reflookup import app
 from urllib.parse import unquote
 
+from reflookup.rating.rating import Rating
+
 from reflookup.search_form import CrossRefForm
 
 
@@ -15,6 +17,8 @@ def cr_citation_lookup(citation):
 
     rv = requests.get(url, params=params).json()
     result = rv['message']['items'][0]
+
+    result['rating'] = Rating(citation, result).value()
 
     return result
 
@@ -56,4 +60,3 @@ class CrossRefSearchForm(Resource):
 
         url = cr_citation_lookup(query.strip())['URL']
         return redirect(url)
-
