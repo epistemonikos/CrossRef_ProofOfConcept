@@ -1,5 +1,5 @@
 import requests
-from flask import render_template, make_response
+from flask import render_template, make_response, json
 from flask_restful import Resource, reqparse
 from werkzeug.utils import redirect
 
@@ -9,7 +9,7 @@ from urllib.parse import unquote
 from rating.rating import Rating
 
 from reflookup.search_form import CrossRefForm
-from reflookup.ris_utils.convert import dict2ris
+from reflookup.ris_utils.convert import dict2ris, RISTypeException
 
 
 def cr_citation_lookup(citation):
@@ -26,8 +26,12 @@ def cr_citation_lookup(citation):
 
 @api.representation('application/x-research-info-systems')
 def serve_ris(data, code, headers=None):
-    ris_data = dict2ris(data)
-    resp = make_response(ris_data, code)
+    try:
+        ris_data = dict2ris(data)
+        resp = make_response(ris_data, code)
+    except RISTypeException:
+        resp = make_response(json.dumps(data), 501)
+
     resp.headers.extend(headers or {})
     return resp
 

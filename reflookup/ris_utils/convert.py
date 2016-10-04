@@ -35,6 +35,12 @@ class RISTypeException(Exception):
         super().__init__()
         self.message = 'No matching RIS type found for ' + message
 
+    def __repr__(self):
+        return self.message
+
+    def __str__(self):
+        return self.message
+
 
 def dict2ris(in_data):
 
