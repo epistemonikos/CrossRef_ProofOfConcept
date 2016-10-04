@@ -3,3 +3,4 @@ flask-wtf
 requests
 stop-words
 flask-restful
+gunicorn
