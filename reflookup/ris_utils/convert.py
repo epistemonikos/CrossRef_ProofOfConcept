@@ -60,7 +60,8 @@ def dict2ris(in_data):
             ris_body += 'DOI  - {doi}\n'.format(doi=v)
 
         elif k == 'ISSN':
-            ris_body += 'SN  - {issn}\n'.format(issn=v)
+            for issn in v:
+                ris_body += 'SN  - {issn}\n'.format(issn=issn)
 
         elif k == 'URL':
             ris_body += 'UR  - {url}\n'.format(url=v)
@@ -72,10 +73,8 @@ def dict2ris(in_data):
                 ris_body += 'AU  - {au}\n'.format(au=name)
 
         elif k == 'container-title':
-            javb = v[0]
-            jfull = v[1]
-
-            ris_body += 'JO  - {ja}\nJF  - {jf}\n'.format(ja=javb, jf=jfull)
+            for title in v:
+                ris_body += 'JF  - {jf}\n'.format(jf=title)
 
         elif k == 'short-container-title':
             for title in v:
