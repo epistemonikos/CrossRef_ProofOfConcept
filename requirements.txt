@@ -1,6 +1,8 @@
 flask
 flask-wtf
 requests
-stop-words
 flask-restful
 gunicorn
+stop-words
+unidecode
+

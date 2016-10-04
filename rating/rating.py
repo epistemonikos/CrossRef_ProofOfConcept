@@ -7,9 +7,13 @@ class Rating:
         self.cita = cita
         self.json = json
 
-        authors_given = [aut['given'] for aut in json['author']]
-        authors_family = [aut['family'] for aut in json['author']]
-        year = str(json['created']['date-parts'][0][0])
+        authors_given = [aut.get('given', '') for aut in json.get('author', [])]
+        authors_family = [aut.get('family', '') for aut in json.get('author',[])]
+        year = ''
+        try:
+            year = str(json['created']['date-parts'][0][0])
+        except:
+            pass
         title = ''
         try:
             title = json['title'][-1] or json['short-title'][-1]
@@ -17,12 +21,12 @@ class Rating:
             pass
         self.authors_rating = AuthorsRating(cita, authors_given, authors_family)
         self.title_rating = TitleRating(cita, title)
-        self.year_rating = YearRating(cita, year)
+        self.year_rating = YearRating(cita, year, title)
 
     def value(self, verbose=False):
-        title_rating = self.title_rating.value() * 0.65
-        authors_rating = self.authors_rating.value() * 0.25
-        year_rating = self.year_rating.value() * 0.1
+        title_rating = self.title_rating.value()
+        authors_rating = self.authors_rating.value()
+        year_rating = self.year_rating.value()
         if verbose:
             print(pretty_cita(cita))
             print(self.json)
@@ -30,4 +34,9 @@ class Rating:
             print("year: %s" % y_rate)
             print("t_rate: %s" % t_rate)
             print("final_rate: %s" % final_rate)
-        return authors_rating + title_rating + year_rating
+        return {
+            'total' : title_rating*0.65 + authors_rating*0.25 + year_rating*0.1,
+            'title' : title_rating,
+            'authors' : authors_rating,
+            'year' : year_rating
+        }
