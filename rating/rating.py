@@ -1,7 +1,6 @@
-from reflookup.rating.ratings.authors_rating import AuthorsRating
-from reflookup.rating.ratings.title_rating import TitleRating
-from reflookup.rating.ratings.year_rating import YearRating
-from reflookup.rating.reference_helpers import pretty_reference
+from rating.ratings.authors_rating import AuthorsRating
+from rating.ratings.title_rating import TitleRating
+from rating.ratings.year_rating import YearRating
 
 class Rating:
     def __init__(self, cita, json):
