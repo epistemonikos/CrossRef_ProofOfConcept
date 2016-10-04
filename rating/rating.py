@@ -20,9 +20,9 @@ class Rating:
         self.year_rating = YearRating(cita, year)
 
     def value(self, verbose=False):
-        title_rating = self.title_rating.value() * 0.65
-        authors_rating = self.authors_rating.value() * 0.25
-        year_rating = self.year_rating.value() * 0.1
+        title_rating = self.title_rating.value()
+        authors_rating = self.authors_rating.value()
+        year_rating = self.year_rating.value()
         if verbose:
             print(pretty_cita(cita))
             print(self.json)
@@ -30,4 +30,9 @@ class Rating:
             print("year: %s" % y_rate)
             print("t_rate: %s" % t_rate)
             print("final_rate: %s" % final_rate)
-        return authors_rating + title_rating + year_rating
+        return {
+            'total' : title_rating*0.65 + authors_rating*0.25 + year_rating*0.1,
+            'title' : title_rating,
+            'authors' : authors_rating,
+            'year' : year_rating
+        }

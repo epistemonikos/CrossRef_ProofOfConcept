@@ -1,8 +1,8 @@
-from rating.reference_helpers import cita_without_stop_words
+from rating.reference_helpers import without_stop_words
 
 class YearRating:
     def __init__(self, raw_cita, year):
-        self.cita = cita_without_stop_words(raw_cita)
+        self.cita = without_stop_words(raw_cita)
         self.year = year
     def value(self):
         rates = [{
