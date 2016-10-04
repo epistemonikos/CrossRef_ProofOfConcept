@@ -1,4 +1,4 @@
-from reflookup.rating.reference_helpers import cita_without_stop_words
+from rating.reference_helpers import cita_without_stop_words
 
 class YearRating:
     def __init__(self, raw_cita, year):

@@ -6,7 +6,7 @@ from werkzeug.utils import redirect
 from reflookup import app, api
 from urllib.parse import unquote
 
-from reflookup.rating.rating import Rating
+from rating.rating import Rating
 
 from reflookup.search_form import CrossRefForm
 from reflookup.ris_utils.convert import dict2ris
