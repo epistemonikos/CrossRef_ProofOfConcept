@@ -1,5 +1,6 @@
 flask
 flask-wtf
 requests
-stop-words
 flask-restful
+stop-words
+unidecode

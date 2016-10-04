@@ -2,8 +2,8 @@ from rating.reference_helpers import without_stop_words
 
 class TitleRating:
     def __init__(self, raw_cita, raw_title):
-        self.raw_cita = raw_cita
-        self.raw_title = raw_title
+        self.raw_cita = raw_cita.lower()
+        self.raw_title = raw_title.lower()
     def value(self):
         if self.raw_title in self.raw_cita:
             return 1

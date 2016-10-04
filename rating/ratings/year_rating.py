@@ -1,28 +1,17 @@
 from rating.reference_helpers import without_stop_words
+import re
 
 class YearRating:
-    def __init__(self, raw_cita, year):
+    def __init__(self, raw_cita, year, raw_title):
         self.cita = without_stop_words(raw_cita)
+        self.title = without_stop_words(raw_title)
         self.year = year
     def value(self):
-        rates = [{
-            'char' : '/',
-            'val' : 1
-        },{
-            'char' : '-',
-            'val' : 1
-        },{
-            'char' : ' ',
-            'val' : 0.75
-        },{
-            'char' : '',
-            'val' : 0.25
-        }]
-        for rate in rates:
-            en_year = rate['char'] + self.year
-            latin_year = self.year + rate['char']
-            if en_year in self.cita:
-                return rate['val'] if ((en_year+' ') in self.cita) or ((en_year+'.') in self.cita) else 0.5*rate['val']
-            if latin_year in self.cita:
-                return rate['val'] if (' '+latin_year) in self.cita else 0.5*rate['val']
+        year1 = r"(\s|\-|/|\.|\\|\(|^)" + re.escape(self.year) + r"([^\d]|$)"
+        year2 = r"([^\d]|^)" + re.escape(self.year) + r"(\s|\-|/|\.|\\|\)|$)"
+        if re.search(year1, self.cita) or re.search(year2, self.cita):
+            if re.search(year1, self.title) or re.search(year2, self.title):
+                # TODO: ver si está igual en la cita, porque podria estar 2 veces.
+                return 0
+            return 1
         return 0
