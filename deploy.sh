@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-echo "Deploying...\n"
+echo "Deploying Reference Lookup Service\n"
+git pull
+git checkout master
 if [ ! -d "./venv" ]; then
     virtualenv --python=python3.5 ./venv
 fi
