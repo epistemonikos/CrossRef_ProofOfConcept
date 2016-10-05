@@ -18,13 +18,12 @@ def cr_citation_lookup(citation):
 
     req = requests.get(url, params=params)
     if req.status_code != 200:
-        abort(req.status_code, "Remote service returned an unexpected HTTP "
-                               "status code.")
+        abort(req.status_code, 'Remote API error.')
 
     rv = req.json()
 
     if len(rv['message']['items']) < 1:
-        abort(404, 'No results found for query "{q}".'.format(q=citation))
+        abort(404,'No results found for query.')
 
     result = rv['message']['items'][0]
     result['rating'] = Rating(citation, result).value()
