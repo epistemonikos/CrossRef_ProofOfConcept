@@ -16,7 +16,12 @@ def cr_citation_lookup(citation):
     params = {'query': citation}
     url = app.config['CROSSREF_URI']
 
-    rv = requests.get(url, params=params).json()
+    req = requests.get(url, params=params)
+    if req.status_code != 200:
+        abort(req.status_code, "Remote service returned an unexpected HTTP "
+                               "status code.")
+
+    rv = req.json()
 
     if len(rv['message']['items']) < 1:
         abort(404, 'No results found for query "{q}".'.format(q=citation))
