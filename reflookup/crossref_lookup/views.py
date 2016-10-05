@@ -1,5 +1,5 @@
 import requests
-from flask import render_template, make_response, json
+from flask import render_template, make_response, json, abort
 from flask_restful import Resource, reqparse
 from werkzeug.utils import redirect
 
@@ -17,8 +17,11 @@ def cr_citation_lookup(citation):
     url = app.config['CROSSREF_URI']
 
     rv = requests.get(url, params=params).json()
-    result = rv['message']['items'][0]
 
+    if len(rv['message']['items']) < 1:
+        abort(404, 'No results found for query "{q}".'.format(q=citation))
+
+    result = rv['message']['items'][0]
     result['rating'] = Rating(citation, result).value()
 
     return result
