@@ -5,7 +5,7 @@
 1. Agregar clave pública RSA asociada a la cuenta github en uso a `~/.ssh/authorized_keys` en el servidor.
 2. Debe existir un archivo `.env` en `/home/ubuntu` con el siguiente contenido:
 ```
-export REFSERVICE_SECRETKEY='<secret_key>
+export REFSERVICE_SECRETKEY='<secret_key>'
 ```
 Donde `<secret_key>` es un string aleatorio y secreto. Se utiliza en el servicio para serializar cosas, y en el futuro podría ocuparse para la segurida del mismo.
 3. Agregar la siguiente línea al principio de `/home/ubuntu/.bashrc` en el servidor:
