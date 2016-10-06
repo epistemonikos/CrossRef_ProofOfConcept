@@ -1,5 +1,5 @@
 import requests
-from flask import render_template, make_response, json, abort
+from flask import render_template, make_response, json, abort, jsonify
 from flask_restful import Resource, reqparse
 from werkzeug.utils import redirect
 
@@ -79,4 +79,4 @@ class CrossRefSearchForm(Resource):
             return self.get()
 
         json = cr_citation_lookup(query.strip())
-        return make_response(render_template('json_result.html', json=json))
+        return jsonify(data=json)
