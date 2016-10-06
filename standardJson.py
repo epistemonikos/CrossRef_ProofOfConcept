@@ -1,7 +1,7 @@
 __author__ = 'fmosso'
 import json
-with open('crossrefjson.json') as data_file:
-    data = json.load(data_file)
+#with open('crossrefjson.json') as data_file:
+#    data = json.load(data_file)
 
 #try-catchs if there not
 def tryAccessdict(dict,arg):
@@ -42,5 +42,5 @@ def crossRefToStandard(crossrefJson):
         standard['authors'].append(names)
     return json.dumps(standard)
 
-print(crossRefToStandard(data))
+#print(crossRefToStandard(data))
 
