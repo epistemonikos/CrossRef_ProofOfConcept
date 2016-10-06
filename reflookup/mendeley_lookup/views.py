@@ -18,12 +18,12 @@ class MendeleyLookupResource(Resource):
         citation = self.parser.parse_args().get('ref')
         params = {'query': citation}
         headers = {
-            'Authorization': "Bearer " + self.get_access_token(),
-            "Accept": 'application/vnd.mendeley-document.1+json'
+            'Authorization': 'Bearer ' + self.get_access_token(),
+            'Accept': 'application/vnd.mendeley-document.1+json'
         }
         res = requests.get(app.config['MENDELEY_URI'],
                            params=params, headers=headers)
-        # req["rating"] = Rating(citation, result).value()
+        # req['rating'] = Rating(citation, result).value()
         # TODO: Fix rating to work with Mendeley.
         # TODO: Fix RIS parser to work with Mendeley.
         std = self.standardize_json(res.json()) # TODO: Standardize JSON.
@@ -34,7 +34,7 @@ class MendeleyLookupResource(Resource):
 
     @staticmethod
     def get_access_token():
-        token = app.config.get("MENDELEY_ACCESS_TOKEN")
+        token = app.config.get('MENDELEY_ACCESS_TOKEN')
         if not token:
             token = MendeleyLookupResource.refresh_token()
 
@@ -48,15 +48,15 @@ class MendeleyLookupResource(Resource):
 
     @staticmethod
     def refresh_token():
-        r = requests.post(app.config["MENDELEY_AUTH_URI"],
+        r = requests.post(app.config['MENDELEY_AUTH_URI'],
                           data={'grant_type': 'client_credentials',
                                 'scope': 'all'},
                           auth=app.config['MENDELEY_AUTH'])
 
         if r.status_code == 200:
             app.config['MENDELEY_ACCESS_TOKEN'] = {
-                'token': r.json()["access_token"],
-                'expires_in': r.json()["expires_in"],
+                'token': r.json()['access_token'],
+                'expires_in': r.json()['expires_in'],
                 'created': datetime.now()
             }
 
@@ -69,42 +69,42 @@ class MendeleyLookupResource(Resource):
         result = []
         for r in resp:
             std = {
-                "title": r["title"],
-                "abstract": r["abstract"],
-                "language": ''
+                'title': r['title'],
+                'abstract': r['abstract'],
+                'language': ''
             }
 
-            ids = r.get("identifiers")
+            ids = r.get('identifiers')
             if not ids:
-                std["ids"] = {
-                    "doi": None,
-                    "pubmed": None,
-                    "scopus": None
+                std['ids'] = {
+                    'doi': None,
+                    'pubmed': None,
+                    'scopus': None
                 }
             else:
-                std["ids"] = {
-                    "doi": ids.get("doi", None),
-                    "pubmed": ids.get("pmid", None),
-                    "scopus": ids.get("scopus", None)
+                std['ids'] = {
+                    'doi': ids.get('doi', None),
+                    'pubmed': ids.get('pmid', None),
+                    'scopus': ids.get('scopus', None)
                 }
 
-            std["publication_type"] = {
-                "pagination": '',
-                "cited_medium": '',
-                "title": r["source"],
-                "type": '',
-                "volume": '',
-                "issue": '',
-                "year": r["year"]
+            std['publication_type'] = {
+                'pagination': '',
+                'cited_medium': '',
+                'title': r['source'],
+                'type': '',
+                'volume': '',
+                'issue': '',
+                'year': r['year']
             }
             if ids:
-                std["publication_type"]["issn"] = ids.get("issn", None)
+                std['publication_type']['issn'] = ids.get('issn', None)
 
-            std["authors"] = []
-            for a in r["authors"]:
-                std["authors"].append({
-                    "given_name": a.get("first_name", None),
-                    "family_name": a.get("last_name", None)
+            std['authors'] = []
+            for a in r['authors']:
+                std['authors'].append({
+                    'given_name': a.get('first_name', None),
+                    'family_name': a.get('last_name', None)
                 })
 
             result.append(std)
