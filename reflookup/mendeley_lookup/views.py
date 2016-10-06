@@ -2,6 +2,7 @@ from datetime import datetime
 from flask_restful import Resource, reqparse
 
 import requests
+import json
 from werkzeug.exceptions import abort
 
 from reflookup import app
@@ -25,8 +26,8 @@ class MendeleyLookupResource(Resource):
         # req["rating"] = Rating(citation, result).value()
         # TODO: Fix rating to work with Mendeley.
         # TODO: Fix RIS parser to work with Mendeley.
-        # TODO: Standardize JSON.
-        return res.json()
+        std = self.standardize_json(res.json()) # TODO: Standardize JSON.
+        return std
 
     def post(self):
         return self.get()
@@ -62,3 +63,53 @@ class MendeleyLookupResource(Resource):
             return app.config['MENDELEY_ACCESS_TOKEN']
 
         abort(500, 'Error when renewing Mendeley access token.')
+
+    @staticmethod
+    def standardize_json(resp):
+        result = []
+        for r in resp:
+            std = {
+                "title": r["title"],
+                "abstract": r["abstract"],
+                "language": ''
+            }
+
+            ids = r.get("identifiers")
+            if not ids:
+                std["ids"] = {
+                    "doi": "",
+                    "pubmed": "",
+                    "scopus": ""
+                }
+            else:
+                std["ids"] = {
+                    "doi": ids.get("doi", ""),
+                    "pubmed": ids.get("pmid", ""),
+                    "scopus": ids.get("scopus", "")
+                }
+
+            std["publication_type"] = {
+                "pagination": '',
+                "cited_medium": '',
+                "title": r["source"],
+                "type": '',
+                "volume": '',
+                "issue": '',
+                "year": r["year"]
+            }
+            if ids:
+                std["publication_type"]["issn"] = ids.get("issn", "")
+
+            std["authors"] = []
+            for a in r["authors"]:
+                std["authors"].append({
+                    "given_name": a.get("first_name", ""),
+                    "family_name": a.get("last_name", "")
+                })
+
+            result.append(std)
+
+        return json.dumps(result)
+
+
+
