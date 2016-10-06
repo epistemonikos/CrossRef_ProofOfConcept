@@ -78,5 +78,5 @@ class CrossRefSearchForm(Resource):
         if not query:
             return self.get()
 
-        url = cr_citation_lookup(query.strip())['URL']
-        return redirect(url)
+        json = cr_citation_lookup(query.strip())
+        return make_response(render_template('json_result.html', json=json))
