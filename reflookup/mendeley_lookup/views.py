@@ -77,15 +77,15 @@ class MendeleyLookupResource(Resource):
             ids = r.get("identifiers")
             if not ids:
                 std["ids"] = {
-                    "doi": "",
-                    "pubmed": "",
-                    "scopus": ""
+                    "doi": None,
+                    "pubmed": None,
+                    "scopus": None
                 }
             else:
                 std["ids"] = {
-                    "doi": ids.get("doi", ""),
-                    "pubmed": ids.get("pmid", ""),
-                    "scopus": ids.get("scopus", "")
+                    "doi": ids.get("doi", None),
+                    "pubmed": ids.get("pmid", None),
+                    "scopus": ids.get("scopus", None)
                 }
 
             std["publication_type"] = {
@@ -98,13 +98,13 @@ class MendeleyLookupResource(Resource):
                 "year": r["year"]
             }
             if ids:
-                std["publication_type"]["issn"] = ids.get("issn", "")
+                std["publication_type"]["issn"] = ids.get("issn", None)
 
             std["authors"] = []
             for a in r["authors"]:
                 std["authors"].append({
-                    "given_name": a.get("first_name", ""),
-                    "family_name": a.get("last_name", "")
+                    "given_name": a.get("first_name", None),
+                    "family_name": a.get("last_name", None)
                 })
 
             result.append(std)
