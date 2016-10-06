@@ -22,7 +22,6 @@ Host epistemonikos 52.3.221.80
     ForwardAgent yes
 ```
 
-
 ###Comando para hacer deploy:
 `ssh epistemonikos "cd ReferenceLookupService && sh deploy.sh"`
 
