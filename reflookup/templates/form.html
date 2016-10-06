@@ -10,21 +10,30 @@
 
     .search_form
     {
+        margin-top: 100px;
         margin-left: auto;
         margin-right: auto;
         width: 500px;
     }
 
-    .input
+    .input_div, .input_label, .text_area
     {
         margin-left: auto;
         margin-right: auto;
         width: auto;
+        text-align: center;
+    }
+
+    .input_label
+    {
+        margin-bottom: 20px;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        font-size: 20px;
     }
 
     .submit_button
     {
-        width: 10%;
+        width: 30%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -36,9 +45,10 @@
 </head>
 <body>
 <form method="POST" action="/" class="search_form">
-    <div class="input">{{ form.query.label }}:
-        {{ form.query(style="width: 75%") }}
-        <input type="submit" value="Go" class="submit_button"></div>
+    <div class="input_div">
+      <div class="input_label">{{ form.query.label }}</div>
+      <div class="text_area">{{ form.query(rows= 10, style="width: 75%; resize: none; font-family: 'Comic Sans MS', cursive, sans-serif;")}}</div>  
+      <div class="button_div"></div>  <input type="submit" value="Go" class="submit_button"></div>
 </form>
 </body>
 </html>
