@@ -7,8 +7,16 @@ from werkzeug.exceptions import abort
 
 from reflookup import app
 
+"""
+This file contains the endpoint resources for looking up references in
+Mendeley.
+"""
+
 
 class MendeleyLookupResource(Resource):
+    """
+        This resource represents the /mdsearch endpoint on the API.
+        """
     def __init__(self):
         self.parser = reqparse.RequestParser()
         self.parser.add_argument('ref', type=str, required=True,
@@ -17,6 +25,7 @@ class MendeleyLookupResource(Resource):
     def get(self):
         citation = self.parser.parse_args().get('ref')
         params = {'query': citation}
+        # Note that Mendeley requires authentication:
         headers = {
             'Authorization': 'Bearer ' + self.get_access_token(),
             'Accept': 'application/vnd.mendeley-document.1+json'
@@ -26,7 +35,7 @@ class MendeleyLookupResource(Resource):
         # req['rating'] = Rating(citation, result).value()
         # TODO: Fix rating to work with Mendeley.
         # TODO: Fix RIS parser to work with Mendeley.
-        std = self.standardize_json(res.json()) # TODO: Standardize JSON.
+        std = self.standardize_json(res.json())  # TODO: Standardize JSON.
         return std
 
     def post(self):
@@ -34,6 +43,12 @@ class MendeleyLookupResource(Resource):
 
     @staticmethod
     def get_access_token():
+        """
+        Helper function. Verifies the status of the current access token and
+        renews it if necessary, storing it.
+        TODO: Fix errors related to Mendeley not returning an access token.
+        :return: A valid access token.
+        """
         token = app.config.get('MENDELEY_ACCESS_TOKEN')
         if not token:
             token = MendeleyLookupResource.refresh_token()
@@ -48,6 +63,10 @@ class MendeleyLookupResource(Resource):
 
     @staticmethod
     def refresh_token():
+        """
+        Calls the Mendeley API to renew the access token and stores it.
+        :return: A new access token.
+        """
         r = requests.post(app.config['MENDELEY_AUTH_URI'],
                           data={'grant_type': 'client_credentials',
                                 'scope': 'all'},
@@ -66,6 +85,11 @@ class MendeleyLookupResource(Resource):
 
     @staticmethod
     def standardize_json(resp):
+        """
+        Standardizes the Mendeley return JSON into our own format.
+        :param resp: The Mendeley return JSON in dict format.
+        :return: An Epistemonikos standard JSON in dict format.
+        """
         result = []
         for r in resp:
             std = {
@@ -110,6 +134,3 @@ class MendeleyLookupResource(Resource):
             result.append(std)
 
         return json.dumps(result)
-
-
-
