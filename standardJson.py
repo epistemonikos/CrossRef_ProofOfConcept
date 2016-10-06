@@ -1,7 +1,7 @@
 __author__ = 'fmosso'
 import json
-#with open('crossrefjson2.json') as data_file:
-#    data = json.load(data_file)
+with open('crossrefjson.json') as data_file:
+    data = json.load(data_file)
 
 #try-catchs if there not
 def tryAccessdict(dict,arg):
@@ -36,8 +36,11 @@ def crossRefToStandard(crossrefJson):
     standard['publication_type']['issue'] = tryAccessdict(crossrefJson,'issue')
     standard['authors'] = []
     for author in tryAccessdict(crossrefJson,'author'):
-        standard['authors'].append(tryAccessdict(author,'family')  +" " +tryAccessdict(author,'given'))
+        names ={}
+        names['given'] = tryAccessdict(author,'given')
+        names['family'] = tryAccessdict(author,'family')
+        standard['authors'].append(names)
     return json.dumps(standard)
 
-
+print(crossRefToStandard(data))
 
