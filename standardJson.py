@@ -7,14 +7,14 @@ import json
 def tryAccessdict(dict,arg):
     try:
         return dict[arg]
-    except IndexError:
-        return ""
+    except:
+        return ''
 
 def tryAccesslist(list,index):
     try:
         return list[index]
-    except KeyError:
-        return ""
+    except:
+        return ''
 
 def crossRefToStandard(crossrefJson):
     standard = {}
@@ -43,4 +43,3 @@ def crossRefToStandard(crossrefJson):
     return json.dumps(standard)
 
 #print(crossRefToStandard(data))
-

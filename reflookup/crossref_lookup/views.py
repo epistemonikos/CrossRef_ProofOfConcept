@@ -11,6 +11,7 @@ from rating.rating import Rating
 from reflookup.search_form import CrossRefForm
 from reflookup.ris_utils.convert import dict2ris, RISTypeException
 
+from standardJson import crossRefToStandard
 
 def cr_citation_lookup(citation):
     params = {'query': citation}
@@ -26,6 +27,7 @@ def cr_citation_lookup(citation):
         abort(404,'No results found for query.')
 
     result = rv['message']['items'][0]
+    result = json.loads(crossRefToStandard(result))
     result['rating'] = Rating(citation, result).value()
 
     return result

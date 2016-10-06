@@ -16,6 +16,6 @@ while line:
             'ref' : reference
         })
         rating = x.json().get('rating', {}).get('total', 0)
-        crossRef_doi = x.json().get('DOI', '-')
+        crossRef_doi = x.json().get('ids', {}).get('doi', '-')
         print("%.2f\t%s\t%s\t%s" % (rating, crossRef_doi, episte_doi, reference))
     line = rrsr.readline()
