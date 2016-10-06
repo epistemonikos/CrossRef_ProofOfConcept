@@ -76,7 +76,11 @@ class MendeleyLookupResource(Resource):
 
             ids = r.get("identifiers")
             if not ids:
-                std["ids"] = {}
+                std["ids"] = {
+                    "doi": "",
+                    "pubmed": "",
+                    "scopus": ""
+                }
             else:
                 std["ids"] = {
                     "doi": ids.get("doi", ""),
@@ -98,11 +102,10 @@ class MendeleyLookupResource(Resource):
 
             std["authors"] = []
             for a in r["authors"]:
-                fn = a.get("first_name")
-                if fn:
-                    std["authors"].append(a["last_name"] + ", " + a.get("first_name", ""))
-                else:
-                    std["authors"].append(a["last_name"])
+                std["authors"].append({
+                    "given_name": a.get("first_name", ""),
+                    "family_name": a.get("last_name", "")
+                })
 
             result.append(std)
 
