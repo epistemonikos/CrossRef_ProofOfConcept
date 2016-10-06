@@ -7,6 +7,8 @@ class YearRating:
         self.title = without_stop_words(raw_title)
         self.year = year
     def value(self):
+        if not self.year:
+            return 0
         year1 = r"(\s|\-|/|\.|\\|\(|^)" + re.escape(self.year) + r"([^\d]|$)"
         year2 = r"([^\d]|^)" + re.escape(self.year) + r"(\s|\-|/|\.|\\|\)|$)"
         if re.search(year1, self.cita) or re.search(year2, self.cita):
