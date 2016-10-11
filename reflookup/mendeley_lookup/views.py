@@ -1,9 +1,11 @@
 from datetime import datetime
+from urllib.parse import unquote
 
 import requests
 from flask_restful import Resource, reqparse
 from werkzeug.exceptions import abort
 
+from rating.rating import Rating
 from reflookup import app
 from reflookup.standardize_json import mendeley_to_standard
 
@@ -20,10 +22,22 @@ def mendeley_lookup(citation):
         'Authorization': 'Bearer ' + MendeleyLookupResource.get_access_token(),
         'Accept': 'application/vnd.mendeley-document.1+json'
     }
-    res = requests.get(app.config['MENDELEY_URI'],
+    req = requests.get(app.config['MENDELEY_URI'],
                        params=params, headers=headers)
 
-    return mendeley_to_standard(res.json())
+    if req.status_code != 200:
+        abort(req.status_code, 'Remote API error.')
+
+    rv = req.json()
+
+    if len(rv) < 1:
+        abort(404, 'No results found for query.')
+
+    result = rv[0]
+    result = mendeley_to_standard(result)
+    result['rating'] = Rating(citation, result).value()
+
+    return result
 
 
 class MendeleyLookupResource(Resource):
@@ -37,8 +51,9 @@ class MendeleyLookupResource(Resource):
                                  location='values')
 
     def get(self):
-        citation = self.parser.parse_args().get('ref')
-        return mendeley_lookup(citation)
+        data = self.parser.parse_args()
+        ref = unquote(data['ref']).strip()
+        return mendeley_lookup(ref)
 
     def post(self):
         return self.get()
