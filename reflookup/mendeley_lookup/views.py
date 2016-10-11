@@ -1,11 +1,11 @@
 from datetime import datetime
-from flask_restful import Resource, reqparse
-from standardJson import mendeley_to_standard
 
 import requests
+from flask_restful import Resource, reqparse
 from werkzeug.exceptions import abort
 
 from reflookup import app
+from reflookup.standardize_json import mendeley_to_standard
 
 """
 This file contains the endpoint resources for looking up references in
