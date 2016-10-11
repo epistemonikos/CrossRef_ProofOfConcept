@@ -13,10 +13,24 @@ Mendeley.
 """
 
 
+def mendeley_lookup(citation):
+    params = {'query': citation}
+    # Note that Mendeley requires authentication:
+    headers = {
+        'Authorization': 'Bearer ' + MendeleyLookupResource.get_access_token(),
+        'Accept': 'application/vnd.mendeley-document.1+json'
+    }
+    res = requests.get(app.config['MENDELEY_URI'],
+                       params=params, headers=headers)
+
+    return mendeley_to_standard(res.json())
+
+
 class MendeleyLookupResource(Resource):
     """
         This resource represents the /mdsearch endpoint on the API.
         """
+
     def __init__(self):
         self.parser = reqparse.RequestParser()
         self.parser.add_argument('ref', type=str, required=True,
@@ -24,19 +38,7 @@ class MendeleyLookupResource(Resource):
 
     def get(self):
         citation = self.parser.parse_args().get('ref')
-        params = {'query': citation}
-        # Note that Mendeley requires authentication:
-        headers = {
-            'Authorization': 'Bearer ' + self.get_access_token(),
-            'Accept': 'application/vnd.mendeley-document.1+json'
-        }
-        res = requests.get(app.config['MENDELEY_URI'],
-                           params=params, headers=headers)
-        # req['rating'] = Rating(citation, result).value()
-        # TODO: Fix rating to work with Mendeley.
-        # TODO: Fix RIS parser to work with Mendeley.
-        std = mendeley_to_standard(res.json())  # TODO: Standardize JSON.
-        return std
+        return mendeley_lookup(citation)
 
     def post(self):
         return self.get()
