@@ -40,7 +40,7 @@ def cr_citation_lookup(citation):
         abort(404, 'No results found for query.')
 
     result = rv['message']['items'][0]
-    result = json.loads(crossref_to_standard(result))
+    result = crossref_to_standard(result)
     result['rating'] = Rating(citation, result).value()
 
     return result
