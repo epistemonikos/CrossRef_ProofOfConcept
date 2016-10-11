@@ -112,4 +112,4 @@ class CrossRefSearchForm(Resource):
             return self.get()
 
         json = cr_citation_lookup(query.strip())
-        return jsonify(data=json)
+        return json
