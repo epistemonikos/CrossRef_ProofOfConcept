@@ -12,8 +12,8 @@ class Chooser:
         for json in self.jsons:
             rating = Rating(self.cita, json)
             json['rating'] = rating.value()
-            if rating > max_rating:
-                max_rating = rating
+            if rating.value()['total'] > max_rating:
+                max_rating = rating.value()['total']
                 best_json = json
         # TODO: fusionar jsons si refieren a lo mismo que la mejor opción
         return best_json

@@ -3,5 +3,5 @@ from wtforms import TextAreaField
 from wtforms.validators import DataRequired
 
 
-class CrossRefForm(Form):
+class ReferenceLookupForm(Form):
     query = TextAreaField(u'Query:', validators=[DataRequired()])

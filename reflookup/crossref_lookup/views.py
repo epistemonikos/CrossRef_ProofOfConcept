@@ -1,14 +1,11 @@
 from urllib.parse import unquote
 
 import requests
-from flask import render_template, make_response, json, abort
+from flask import abort
 from flask_restful import Resource, reqparse
-from werkzeug.utils import redirect
 
 from rating.rating import Rating
-from reflookup import app, api
-from reflookup.ris_utils.convert import dict2ris, RISTypeException
-from reflookup.search_form import CrossRefForm
+from reflookup import app
 
 """
 This file contains the endpoint resources for looking up references in
@@ -87,28 +84,3 @@ class CrossRefLookupResource(Resource):
         return self.post()
 
 
-class CrossRefSearchForm(Resource):
-    """
-    This resource represents the / endpoint, and its associated form.
-    """
-
-    def __init__(self):
-        self.parser = reqparse.RequestParser()
-        self.parser.add_argument('query', location='form')
-
-    def get(self):
-        form = CrossRefForm()
-        if form.validate_on_submit():
-            return redirect('/')
-
-        res = make_response(render_template('form.html', form=form))
-        return res
-
-    def post(self):
-        data = self.parser.parse_args()
-        query = data.get('query', None)
-        if not query:
-            return self.get()
-
-        json = cr_citation_lookup(query.strip())
-        return json
