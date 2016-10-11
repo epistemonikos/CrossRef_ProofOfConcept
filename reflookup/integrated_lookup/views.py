@@ -45,6 +45,11 @@ def integrated_lookup(citation):
 
 
 class IntegratedLookupResource(ExtResource):
+    """
+    Endpoint in charge of doing the integrated lookup between Mendeley and
+    Crossref
+    """
+
     def __init__(self):
         self.parser = RequestParser()
         self.parser.add_argument('ref', type=str, required=True,

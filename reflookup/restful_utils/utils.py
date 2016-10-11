@@ -4,6 +4,7 @@ from flask_restful import Resource
 
 
 def find_pubmedid_wrapper(func):
+    # wrapper function that adds pubmed id to requests
     @wraps(func)
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
