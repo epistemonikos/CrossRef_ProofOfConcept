@@ -1,11 +1,13 @@
 from rating.reference_helpers import without_stop_words
 import re
 
+
 class YearRating:
     def __init__(self, raw_cita, year, raw_title):
         self.cita = without_stop_words(raw_cita)
         self.title = without_stop_words(raw_title)
         self.year = year
+
     def value(self):
         if not self.year:
             return 0
