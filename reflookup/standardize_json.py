@@ -1,4 +1,4 @@
-__author__ = 'fmosso'
+from copy import deepcopy
 
 
 class StandardDict:
@@ -31,7 +31,7 @@ class StandardDict:
     }
 
     def getEmpty(self):
-        return self.d.copy()
+        return deepcopy(self.d)
 
 
 def crossref_to_standard(crossrefJson):

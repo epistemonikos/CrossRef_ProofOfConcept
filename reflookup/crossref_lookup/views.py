@@ -1,22 +1,21 @@
+from urllib.parse import unquote
+
 import requests
-from flask import render_template, make_response, json, abort, jsonify
+from flask import render_template, make_response, json, abort
 from flask_restful import Resource, reqparse
 from werkzeug.utils import redirect
 
-from reflookup import app, api
-from urllib.parse import unquote
-
 from rating.rating import Rating
-
-from reflookup.search_form import CrossRefForm
+from reflookup import app, api
 from reflookup.ris_utils.convert import dict2ris, RISTypeException
+from reflookup.search_form import CrossRefForm
 
 """
 This file contains the endpoint resources for looking up references in
 CrossRef.
 """
 
-from standardJson import crossref_to_standard
+from reflookup.standardize_json import crossref_to_standard
 
 
 def cr_citation_lookup(citation):
