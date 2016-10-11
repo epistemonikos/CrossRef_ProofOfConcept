@@ -11,6 +11,8 @@ from flask_restful import Resource
 from flask_restful.reqparse import RequestParser
 
 from reflookup.search_form import ReferenceLookupForm
+from reflookup.restful_utils.utils import ExtResource
+from reflookup.pubmed_id import getPubMedID
 
 
 def lookup_crossref(ref, ret):
@@ -42,7 +44,7 @@ def integrated_lookup(citation):
     return chooser.select()
 
 
-class IntegratedLookupResource(Resource):
+class IntegratedLookupResource(ExtResource):
     def __init__(self):
         self.parser = RequestParser()
         self.parser.add_argument('ref', type=str, required=True,
@@ -82,4 +84,4 @@ class SearchFormResource(Resource):
             return self.get()
 
         json = integrated_lookup(query.strip())
-        return json
+        return getPubMedID(json)

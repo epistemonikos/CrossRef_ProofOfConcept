@@ -2,7 +2,8 @@ from datetime import datetime
 from urllib.parse import unquote
 
 import requests
-from flask_restful import Resource, reqparse
+from flask_restful import reqparse
+from reflookup.restful_utils.utils import ExtResource
 from werkzeug.exceptions import abort
 
 from rating.rating import Rating
@@ -40,7 +41,7 @@ def mendeley_lookup(citation):
     return result
 
 
-class MendeleyLookupResource(Resource):
+class MendeleyLookupResource(ExtResource):
     """
         This resource represents the /mdsearch endpoint on the API.
         """

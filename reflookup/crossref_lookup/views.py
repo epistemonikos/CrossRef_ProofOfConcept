@@ -2,10 +2,11 @@ from urllib.parse import unquote
 
 import requests
 from flask import abort
-from flask_restful import Resource, reqparse
+from flask_restful import reqparse
 
 from rating.rating import Rating
 from reflookup import app
+from reflookup.restful_utils.utils import ExtResource
 
 """
 This file contains the endpoint resources for looking up references in
@@ -64,7 +65,7 @@ def cr_citation_lookup(citation):
 #     return resp
 
 
-class CrossRefLookupResource(Resource):
+class CrossRefLookupResource(ExtResource):
     """
     This resource represents the /crsearch endpoint on the API.
     """
