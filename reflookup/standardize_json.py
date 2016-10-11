@@ -27,7 +27,8 @@ class StandardDict:
             #     'given': None,
             #     'family': None
             # }
-        ]
+        ],
+        'source': None
     }
 
     def getEmpty(self):
@@ -36,6 +37,7 @@ class StandardDict:
 
 def crossref_to_standard(crossrefJson):
     standard = StandardDict().getEmpty()
+    standard['source'] = 'CrossRef'
 
     title = crossrefJson.get('title', [None])
     standard['title'] = title[0] if len(title) > 0 else None
@@ -72,6 +74,7 @@ def mendeley_to_standard(mjson):
     """
 
     std = StandardDict().getEmpty()
+    std['source'] = 'Mendeley'
 
     std['title'] = mjson['title']
     std['abstract'] = mjson['abstract']
