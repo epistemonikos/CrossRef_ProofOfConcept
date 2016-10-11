@@ -1,9 +1,11 @@
 from datetime import datetime
+from urllib.parse import unquote
 
 import requests
 from flask_restful import Resource, reqparse
 from werkzeug.exceptions import abort
 
+from rating.rating import Rating
 from reflookup import app
 from reflookup.standardize_json import mendeley_to_standard
 
@@ -13,30 +15,45 @@ Mendeley.
 """
 
 
+def mendeley_lookup(citation):
+    params = {'query': citation}
+    # Note that Mendeley requires authentication:
+    headers = {
+        'Authorization': 'Bearer ' + MendeleyLookupResource.get_access_token(),
+        'Accept': 'application/vnd.mendeley-document.1+json'
+    }
+    req = requests.get(app.config['MENDELEY_URI'],
+                       params=params, headers=headers)
+
+    if req.status_code != 200:
+        abort(req.status_code, 'Remote API error.')
+
+    rv = req.json()
+
+    if len(rv) < 1:
+        abort(404, 'No results found for query.')
+
+    result = rv[0]
+    result = mendeley_to_standard(result)
+    result['rating'] = Rating(citation, result).value()
+
+    return result
+
+
 class MendeleyLookupResource(Resource):
     """
         This resource represents the /mdsearch endpoint on the API.
         """
+
     def __init__(self):
         self.parser = reqparse.RequestParser()
         self.parser.add_argument('ref', type=str, required=True,
                                  location='values')
 
     def get(self):
-        citation = self.parser.parse_args().get('ref')
-        params = {'query': citation}
-        # Note that Mendeley requires authentication:
-        headers = {
-            'Authorization': 'Bearer ' + self.get_access_token(),
-            'Accept': 'application/vnd.mendeley-document.1+json'
-        }
-        res = requests.get(app.config['MENDELEY_URI'],
-                           params=params, headers=headers)
-        # req['rating'] = Rating(citation, result).value()
-        # TODO: Fix rating to work with Mendeley.
-        # TODO: Fix RIS parser to work with Mendeley.
-        std = mendeley_to_standard(res.json())  # TODO: Standardize JSON.
-        return std
+        data = self.parser.parse_args()
+        ref = unquote(data['ref']).strip()
+        return mendeley_lookup(ref)
 
     def post(self):
         return self.get()
