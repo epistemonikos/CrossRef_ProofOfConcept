@@ -53,7 +53,7 @@ def crossref_to_standard(crossrefJson):
 
     issued_date = crossrefJson.get('issued', {'date-parts': [0]})
     standard['publication_type']['year'] = issued_date.get('date-parts',
-                                                           [0])[0]
+                                                           [0])[0][0]
 
     standard['publication_type']['issue'] = crossrefJson.get('issue', None)
     for author in crossrefJson.get('author', []):
