@@ -16,7 +16,7 @@ This file contains the endpoint resources for looking up references in
 CrossRef.
 """
 
-from standardJson import crossRefToStandard
+from standardJson import crossref_to_standard
 
 
 def cr_citation_lookup(citation):
@@ -40,7 +40,7 @@ def cr_citation_lookup(citation):
         abort(404, 'No results found for query.')
 
     result = rv['message']['items'][0]
-    result = json.loads(crossRefToStandard(result))
+    result = json.loads(crossref_to_standard(result))
     result['rating'] = Rating(citation, result).value()
 
     return result
@@ -90,7 +90,7 @@ class CrossRefLookupResource(Resource):
 
 class CrossRefSearchForm(Resource):
     """
-    This resource represents the / endpoint, and it's associated form.
+    This resource represents the / endpoint, and its associated form.
     """
 
     def __init__(self):

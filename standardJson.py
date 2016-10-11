@@ -1,38 +1,97 @@
 __author__ = 'fmosso'
-import json
 
 
-def crossRefToStandard(crossrefJson):
-    standard = {}
-    title = crossrefJson.get('title', [''])
-    standard['title'] = title[0] if len(title) > 0 else ''
-    standard['type'] = crossrefJson.get('type', '')
-    standard['abstract'] = ''
-    standard['language'] = ''
-    standard['ids'] = {}
-    standard['ids']['doi'] = crossrefJson.get('DOI', '')
-    standard['ids']['embase'] = ''
-    standard['ids']['pubmed'] = ''
-    standard['publication_type'] = {}
-    standard['publication_type']['pagination'] = crossrefJson.get('page', '')
-    standard['publication_type']['cited_medium'] = ''
+class StandardDict:
+    d = {
+        'title': None,
+        'abstract': None,
+        'language': None,
+        'type': None,
+        'ids': {
+            'doi': None,
+            'embase': None,
+            'pubmed': None,
+            'scopus': None
+        },
+        'publication_type': {
+            'pagination': None,
+            'cited_medium': None,
+            'title': None,
+            'issn': None,
+            'volume': None,
+            'year': None,
+            'issue': None
+        },
+        'authors': [
+            # {
+            #     'given': None,
+            #     'family': None
+            # }
+        ]
+    }
 
-    title_of_pub = crossrefJson.get('container-title', [''])
+    def getEmpty(self):
+        return self.d.copy()
+
+
+def crossref_to_standard(crossrefJson):
+    standard = StandardDict().getEmpty()
+
+    title = crossrefJson.get('title', [None])
+    standard['title'] = title[0] if len(title) > 0 else None
+    standard['type'] = crossrefJson.get('type', None)
+    standard['ids']['doi'] = crossrefJson.get('DOI', None)
+    standard['publication_type']['pagination'] = crossrefJson.get('page', None)
+
+    title_of_pub = crossrefJson.get('container-title', [None])
     standard['publication_type']['title'] = title_of_pub[0] if len(
-        title_of_pub) > 0 else ''
+        title_of_pub) > 0 else None
 
-    issn = crossrefJson.get('ISSN', '')
-    standard['publication_type']['ISSN'] = issn[0] if len(issn) > 0 else ''
-    standard['publication_type']['volume'] = crossrefJson.get('volume', '')
+    issn = crossrefJson.get('ISSN', None)
+    standard['publication_type']['issn'] = issn[0] if len(issn) > 0 else None
+    standard['publication_type']['volume'] = crossrefJson.get('volume', None)
 
     issued_date = crossrefJson.get('issued', {'date-parts': [0]})
     standard['publication_type']['year'] = issued_date.get('date-parts',
                                                            [0])[0]
 
-    standard['publication_type']['issue'] = crossrefJson.get('issue', '')
-    standard['authors'] = []
+    standard['publication_type']['issue'] = crossrefJson.get('issue', None)
     for author in crossrefJson.get('author', []):
-        names = {'given': author.get('given', ''),
-                 'family': author.get('family', '')}
+        names = {'given': author.get('given', None),
+                 'family': author.get('family', None)}
         standard['authors'].append(names)
-    return json.dumps(standard)
+
+    return standard
+
+
+def mendeley_to_standard(mjson):
+    """
+    Standardizes the Mendeley return JSON into our own format.
+    :param mjson: The Mendeley return JSON in dict format.
+    :return: An Epistemonikos standard JSON in dict format.
+    """
+
+    std = StandardDict().getEmpty()
+
+    std['title'] = mjson['title']
+    std['abstract'] = mjson['abstract']
+
+    ids = mjson.get('identifiers')
+    if ids:
+        std['ids']['doi'] = ids.get('doi', None)
+        std['ids']['pubmed'] = ids.get('pmid', None)
+        std['ids']['scopus'] = ids.get('scopus', None)
+
+    std['publication_type']['title'] = mjson['source']
+    std['publication_type']['year'] = int(mjson['year'])
+
+    if ids:
+        std['publication_type']['issn'] = ids.get('issn', None)
+
+    for a in mjson['authors']:
+        std['authors'].append({
+            'given': a.get('first_name', None),
+            'family': a.get('last_name', None)
+        })
+
+    return std
