@@ -12,7 +12,7 @@ class AuthorsRating:
             'abrev_name_2' : "%s, %s." % (self.authors_family[i], self.authors_given[i][0]),
             'given_name' : "%s" % (self.authors_given[i]),
             'familyname' : "%s" % (self.authors_family[i])
-        } for i in range(len(self.authors_given))]
+        } for i in range(len(self.authors_given)) if self.authors_family[i] or self.authors_given[i]]
         raw_rating = 0
         matchs = 0
         for author in authors:

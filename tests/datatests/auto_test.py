@@ -31,6 +31,6 @@ while line:
         rating = x.json().get('rating',0)
         pretty_reference(reference)
         Color.puts("EpisteDOI: %s" % episte_doi, Color.BOLD)
-        Color.puts("DOI: %s" % x.json().get('DOI','-'), Color.PINK)
+        Color.puts("DOI: %s" % x.json().get('ids',{}).get('doi','-'), Color.PINK)
         Color.puts("Rating: %.2f%%\n\n" % (rating['total']*100), Color.YELLOW)
     line = rrsr.readline()

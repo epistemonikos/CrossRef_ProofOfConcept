@@ -7,18 +7,10 @@ class Rating:
         self.cita = cita
         self.json = json
 
-        authors_given = [aut.get('given', '') for aut in json.get('author', [])]
-        authors_family = [aut.get('family', '') for aut in json.get('author',[])]
-        year = ''
-        try:
-            year = str(json['created']['date-parts'][0][0])
-        except:
-            pass
-        title = ''
-        try:
-            title = json['title'][-1] or json['short-title'][-1]
-        except:
-            pass
+        authors_given = [aut.get('given', '') for aut in json.get('authors', [])]
+        authors_family = [aut.get('family', '') for aut in json.get('authors',[])]
+        year = json.get('publication_type', {}).get('title', '')
+        title = json.get('title', '')
         self.authors_rating = AuthorsRating(cita, authors_given, authors_family)
         self.title_rating = TitleRating(cita, title)
         self.year_rating = YearRating(cita, year, title)
