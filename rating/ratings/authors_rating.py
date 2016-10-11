@@ -13,18 +13,21 @@ class AuthorsRating:
         for x in authors_family:
             self.authors_family.append(unidecode(x.lower()) if x else '')
 
+    def full_name(self, family, given):
+        return "%s %s" % (family, given) if given and family else None
+    def abrev_name(self, family, given):
+        return "%s, %s." % (family, given[0]) if given and family else None
+    def abrev_name_2(self, family, given):
+        return "%s %s." % (family, given[0]) if given and family else None
+
     def value(self):
         authors = [{
-                       'full_name': "%s %s" % (
-                           self.authors_family[i], self.authors_given[i]),
-                       'abrev_name': "%s %s." % (
-                           self.authors_family[i], self.authors_given[i][0]),
-                       'abrev_name_2': "%s, %s." % (
-                           self.authors_family[i], self.authors_given[i][0]),
-                       'given_name': "%s" % (self.authors_given[i]),
-                       'familyname': "%s" % (self.authors_family[i])
-                   } for i in range(len(self.authors_given)) if
-                   self.authors_family[i] and self.authors_given[i]]
+               'full_name': self.full_name(self.authors_family[i], self.authors_given[i]),
+               'abrev_name': self.abrev_name(self.authors_family[i], self.authors_given[i]),
+               'abrev_name_2': self.abrev_name_2(self.authors_family[i], self.authors_given[i]),
+               'given_name': self.authors_given[i],
+               'familyname': self.authors_family[i]
+           } for i in range(len(self.authors_given))]
         raw_rating = 0
         matchs = 0
         for author in authors:
@@ -57,7 +60,7 @@ class AuthorsRating:
         }]
         cita = raw_cita.encode('ascii', 'ignore')
         for rate in rates:
-            auth = author[rate['style']].encode('ascii', 'ignore')
-            if auth in cita:
+            auth = (author[rate['style']] or '').encode('ascii', 'ignore')
+            if auth and auth in cita:
                 return rate['val']
         return 0
