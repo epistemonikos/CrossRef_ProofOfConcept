@@ -24,7 +24,7 @@ class AuthorsRating:
                        'given_name': "%s" % (self.authors_given[i]),
                        'familyname': "%s" % (self.authors_family[i])
                    } for i in range(len(self.authors_given)) if
-                   self.authors_family[i] or self.authors_given[i]]
+                   self.authors_family[i] and self.authors_given[i]]
         raw_rating = 0
         matchs = 0
         for author in authors:
@@ -37,7 +37,8 @@ class AuthorsRating:
         else:
             return raw_rating / len(authors) if len(authors) > 0 else 0
 
-    def author_rate(self, author, raw_cita):
+    @staticmethod
+    def author_rate(author, raw_cita):
         rates = [{
             'style': 'full_name',
             'val': 1
