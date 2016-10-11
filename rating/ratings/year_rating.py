@@ -4,9 +4,9 @@ import re
 
 class YearRating:
     def __init__(self, raw_cita, year, raw_title):
-        self.cita = without_stop_words(raw_cita)
-        self.title = without_stop_words(raw_title)
-        self.year = year
+        self.cita = raw_cita or ''
+        self.title = raw_title or ''
+        self.year = str(year or '')
 
     def value(self):
         if not self.year:
