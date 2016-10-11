@@ -47,7 +47,7 @@ def crossref_to_standard(crossrefJson):
     standard['publication_type']['title'] = title_of_pub[0] if len(
         title_of_pub) > 0 else None
 
-    issn = crossrefJson.get('ISSN', None)
+    issn = crossrefJson.get('ISSN', [None])
     standard['publication_type']['issn'] = issn[0] if len(issn) > 0 else None
     standard['publication_type']['volume'] = crossrefJson.get('volume', None)
 
