@@ -1,40 +1,73 @@
 from datetime import datetime
-from flask_restful import Resource, reqparse
+from urllib.parse import unquote
 
 import requests
-import json
+from flask_restful import reqparse
+from reflookup.restful_utils.utils import ExtResource
 from werkzeug.exceptions import abort
 
+from rating.rating import Rating
 from reflookup import app
+from reflookup.standardize_json import mendeley_to_standard
+
+"""
+This file contains the endpoint resources for looking up references in
+Mendeley.
+"""
 
 
-class MendeleyLookupResource(Resource):
+def mendeley_lookup(citation):
+    params = {'query': citation}
+    # Note that Mendeley requires authentication:
+    headers = {
+        'Authorization': 'Bearer ' + MendeleyLookupResource.get_access_token(),
+        'Accept': 'application/vnd.mendeley-document.1+json'
+    }
+    req = requests.get(app.config['MENDELEY_URI'],
+                       params=params, headers=headers)
+
+    if req.status_code != 200:
+        abort(req.status_code, 'Remote API error.')
+
+    rv = req.json()
+
+    if len(rv) < 1:
+        abort(404, 'No results found for query.')
+
+    result = rv[0]
+    result = mendeley_to_standard(result)
+    result['rating'] = Rating(citation, result).value()
+
+    return result
+
+
+class MendeleyLookupResource(ExtResource):
+    """
+        This resource represents the /mdsearch endpoint on the API.
+        """
+
     def __init__(self):
         self.parser = reqparse.RequestParser()
         self.parser.add_argument('ref', type=str, required=True,
                                  location='values')
 
     def get(self):
-        citation = self.parser.parse_args().get('ref')
-        params = {'query': citation}
-        headers = {
-            'Authorization': "Bearer " + self.get_access_token(),
-            "Accept": 'application/vnd.mendeley-document.1+json'
-        }
-        res = requests.get(app.config['MENDELEY_URI'],
-                           params=params, headers=headers)
-        # req["rating"] = Rating(citation, result).value()
-        # TODO: Fix rating to work with Mendeley.
-        # TODO: Fix RIS parser to work with Mendeley.
-        std = self.standardize_json(res.json()) # TODO: Standardize JSON.
-        return std
+        data = self.parser.parse_args()
+        ref = unquote(data['ref']).strip()
+        return mendeley_lookup(ref)
 
     def post(self):
         return self.get()
 
     @staticmethod
     def get_access_token():
-        token = app.config.get("MENDELEY_ACCESS_TOKEN")
+        """
+        Helper function. Verifies the status of the current access token and
+        renews it if necessary, storing it.
+        TODO: Fix errors related to Mendeley not returning an access token.
+        :return: A valid access token.
+        """
+        token = app.config.get('MENDELEY_ACCESS_TOKEN')
         if not token:
             token = MendeleyLookupResource.refresh_token()
         else:
@@ -47,68 +80,22 @@ class MendeleyLookupResource(Resource):
 
     @staticmethod
     def refresh_token():
-        r = requests.post(app.config["MENDELEY_AUTH_URI"],
+        """
+        Calls the Mendeley API to renew the access token and stores it.
+        :return: A new access token.
+        """
+        r = requests.post(app.config['MENDELEY_AUTH_URI'],
                           data={'grant_type': 'client_credentials',
                                 'scope': 'all'},
                           auth=app.config['MENDELEY_AUTH'])
 
         if r.status_code == 200:
             app.config['MENDELEY_ACCESS_TOKEN'] = {
-                'token': r.json()["access_token"],
-                'expires_in': r.json()["expires_in"],
+                'token': r.json()['access_token'],
+                'expires_in': r.json()['expires_in'],
                 'created': datetime.now()
             }
 
             return app.config['MENDELEY_ACCESS_TOKEN']
 
         abort(500, 'Error when renewing Mendeley access token.')
-
-    @staticmethod
-    def standardize_json(resp):
-        result = []
-        for r in resp:
-            std = {
-                "title": r["title"],
-                "abstract": r["abstract"],
-                "language": ''
-            }
-
-            ids = r.get("identifiers")
-            if not ids:
-                std["ids"] = {
-                    "doi": "",
-                    "pubmed": "",
-                    "scopus": ""
-                }
-            else:
-                std["ids"] = {
-                    "doi": ids.get("doi", ""),
-                    "pubmed": ids.get("pmid", ""),
-                    "scopus": ids.get("scopus", "")
-                }
-
-            std["publication_type"] = {
-                "pagination": '',
-                "cited_medium": '',
-                "title": r["source"],
-                "type": '',
-                "volume": '',
-                "issue": '',
-                "year": r["year"]
-            }
-            if ids:
-                std["publication_type"]["issn"] = ids.get("issn", "")
-
-            std["authors"] = []
-            for a in r["authors"]:
-                std["authors"].append({
-                    "given_name": a.get("first_name", ""),
-                    "family_name": a.get("last_name", "")
-                })
-
-            result.append(std)
-
-        return json.dumps(result)
-
-
-

@@ -5,4 +5,4 @@ flask-restful
 gunicorn
 stop-words
 unidecode
-
+bs4

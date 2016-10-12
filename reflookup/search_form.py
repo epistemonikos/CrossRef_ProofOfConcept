@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm as Form
-from wtforms import StringField
+from wtforms import TextAreaField
 from wtforms.validators import DataRequired
 
 
-class CrossRefForm(Form):
-    query = StringField('Query', validators=[DataRequired()])
+class ReferenceLookupForm(Form):
+    query = TextAreaField(u'Query:', validators=[DataRequired()])
