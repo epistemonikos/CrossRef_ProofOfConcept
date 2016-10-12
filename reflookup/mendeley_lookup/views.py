@@ -37,13 +37,12 @@ class MendeleyLookupResource(Resource):
         token = app.config.get("MENDELEY_ACCESS_TOKEN")
         if not token:
             token = MendeleyLookupResource.refresh_token()
-
-        then = token['created']
-        delta = token['expires_in'] - 100
-        now = datetime.now()
-        if (then - now).total_seconds() > delta:
-            token = MendeleyLookupResource.refresh_token()
-
+        else:
+            then = token['created']
+            delta = token['expires_in'] - 100
+            now = datetime.now()
+            if (now - then).total_seconds() > delta:
+                token = MendeleyLookupResource.refresh_token()
         return token['token']
 
     @staticmethod
