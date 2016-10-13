@@ -27,7 +27,11 @@ def mendeley_lookup(citation):
                        params=params, headers=headers)
 
     if req.status_code != 200:
-        abort(req.status_code, 'Remote API error.')
+        if req.status_code == 401:
+            MendeleyLookupResource.refresh_token()
+            return mendeley_lookup(citation)
+        else:
+            abort(req.status_code, 'Remote API error.')
 
     rv = req.json()
 
