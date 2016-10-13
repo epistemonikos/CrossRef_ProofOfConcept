@@ -6,7 +6,8 @@ from flask_restful import Resource
 from flask_restful.reqparse import RequestParser
 from werkzeug.utils import redirect
 
-from reflookup.resources.crossref_lookup.views import cr_citation_lookup
+from reflookup.resources.lookup_functions import cr_citation_lookup, \
+    mendeley_lookup
 from reflookup.resources.mendeley_lookup.views import mendeley_lookup
 from reflookup.search_form import ReferenceLookupForm
 from reflookup.utils.pubmed_id import getPubMedID
