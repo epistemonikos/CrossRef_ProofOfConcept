@@ -8,7 +8,14 @@ def find_pubmedid_wrapper(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
-        return getPubMedID(result)
+        if not result.get('list_result', False):
+            return getPubMedID(result)
+        else:
+            nresults = []
+            for r in result.get('results', []):
+                nresults.append(getPubMedID(r))
+            result['results'] = nresults
+            return result
 
     return wrapper
 

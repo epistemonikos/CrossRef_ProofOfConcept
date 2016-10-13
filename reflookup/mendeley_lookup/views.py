@@ -16,7 +16,7 @@ Mendeley.
 """
 
 
-def mendeley_lookup(citation):
+def mendeley_lookup(citation, return_all=False):
     params = {'query': citation}
     # Note that Mendeley requires authentication:
     headers = {
@@ -34,11 +34,19 @@ def mendeley_lookup(citation):
     if len(rv) < 1:
         abort(404, 'No results found for query.')
 
-    result = rv[0]
-    result = mendeley_to_standard(result)
-    result['rating'] = Rating(citation, result).value()
+    if return_all:
+        result = []
+        for r in rv:
+            std = mendeley_to_standard(r)
+            std['rating'] = Rating(citation, std).value()
+            result.append(std)
+        return result
 
-    return result
+    else:
+        result = rv[0]
+        result = mendeley_to_standard(result)
+        result['rating'] = Rating(citation, result).value()
+        return result
 
 
 class MendeleyLookupResource(ExtResource):

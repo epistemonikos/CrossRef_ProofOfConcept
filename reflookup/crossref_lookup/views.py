@@ -16,11 +16,12 @@ CrossRef.
 from reflookup.standardize_json import crossref_to_standard
 
 
-def cr_citation_lookup(citation):
+def cr_citation_lookup(citation, return_all=False):
     """
     This function does the actual CrossRef API call to search for a given
     citation, and returns the first (and thus, according to CR, the best)
     result.
+    :param return_all: Optional parameter indicating to return whole list of results instead of only the first.
     :param citation: Citation to look up in CR.
     :return: A Python dict representing the best result offered by CrossRef.
     """
@@ -36,11 +37,20 @@ def cr_citation_lookup(citation):
     if len(rv['message']['items']) < 1:
         abort(404, 'No results found for query.')
 
-    result = rv['message']['items'][0]
-    result = crossref_to_standard(result)
-    result['rating'] = Rating(citation, result).value()
+    if return_all:
+        result = []
+        for r in rv['message']['items']:
+            std = crossref_to_standard(r)
+            std['rating'] = Rating(citation, std).value()
+            result.append(std)
+        return result
 
-    return result
+    else:
+        result = rv['message']['items'][0]
+        result = crossref_to_standard(result)
+        result['rating'] = Rating(citation, result).value()
+        return result
+
 
 
 # # TODO: FIX
