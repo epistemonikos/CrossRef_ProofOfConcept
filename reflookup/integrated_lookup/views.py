@@ -103,6 +103,7 @@ class SearchFormResource(Resource):
     def __init__(self):
         self.parser = RequestParser()
         self.parser.add_argument('query', location='form')
+        self.parser.add_argument('chkbox', type=bool, location='form')
 
     def get(self):
         form = ReferenceLookupForm()
@@ -115,13 +116,18 @@ class SearchFormResource(Resource):
     def post(self):
         data = self.parser.parse_args()
         query = data.get('query', None)
+        get_all = data.get('chkbox', False)
         if not query:
             return self.get()
 
-        json = integrated_lookup(query.strip(), return_all=True)
+        json = integrated_lookup(query.strip(), return_all=get_all)
 
-        nresults = []
-        for r in json.get('results', []):
-            nresults.append(getPubMedID(r))
-        json['results'] = nresults
-        return json
+        if get_all:
+            nresults = []
+            for r in json.get('results', []):
+                nresults.append(getPubMedID(r))
+            json['results'] = nresults
+            return json
+        else:
+            return getPubMedID(json)
+

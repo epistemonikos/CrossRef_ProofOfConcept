@@ -47,7 +47,8 @@
 <form method="POST" action="/" class="search_form">
     <div class="input_div">
       <div class="input_label">{{ form.query.label }}</div>
-      <div class="text_area">{{ form.query(rows= 10, style="width: 75%; resize: none; font-family: 'Comic Sans MS', cursive, sans-serif;")}}</div>  
+      <div class="text_area">{{ form.query(rows= 10, style="width: 75%; resize: none; font-family: 'Comic Sans MS', cursive, sans-serif;")}}</div>
+        <div class="checkbox">{{ form.chkbox.label }} {{ form.chkbox }}</div>
       <div class="button_div"></div>  <input type="submit" value="Go" class="submit_button"></div>
 </form>
 </body>
