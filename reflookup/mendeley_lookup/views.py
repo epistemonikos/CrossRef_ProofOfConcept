@@ -27,7 +27,11 @@ def mendeley_lookup(citation, return_all=False):
                        params=params, headers=headers)
 
     if req.status_code != 200:
-        abort(req.status_code, 'Remote API error.')
+        if req.status_code == 401:
+            MendeleyLookupResource.refresh_token()
+            return mendeley_lookup(citation)
+        else:
+            abort(req.status_code, 'Remote API error.')
 
     rv = req.json()
 
@@ -78,13 +82,12 @@ class MendeleyLookupResource(ExtResource):
         token = app.config.get('MENDELEY_ACCESS_TOKEN')
         if not token:
             token = MendeleyLookupResource.refresh_token()
-
-        then = token['created']
-        delta = token['expires_in'] - 100
-        now = datetime.now()
-        if (then - now).total_seconds() > delta:
-            token = MendeleyLookupResource.refresh_token()
-
+        else:
+            then = token['created']
+            delta = token['expires_in'] - 100
+            now = datetime.now()
+            if (now - then).total_seconds() > delta:
+                token = MendeleyLookupResource.refresh_token()
         return token['token']
 
     @staticmethod
@@ -93,6 +96,7 @@ class MendeleyLookupResource(ExtResource):
         Calls the Mendeley API to renew the access token and stores it.
         :return: A new access token.
         """
+        print("Renovando Token")
         r = requests.post(app.config['MENDELEY_AUTH_URI'],
                           data={'grant_type': 'client_credentials',
                                 'scope': 'all'},
