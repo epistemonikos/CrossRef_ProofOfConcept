@@ -65,8 +65,9 @@ chart2 = [{
 #     ]
 # }]
 
+interval = 1
 def cround_rating(rating):
-    return 80 if rating == 1 else rating*100//20*20
+    return (100 - interval) if rating == 1 else rating*100//interval*interval
     # if rating < 0.2:
     #     return 0
     # if rating < 0.5:
@@ -96,15 +97,15 @@ with open(name_wrong_file) as f:
 chart3 = [{
     'key' : 'success',
     'values' : [{
-            'x' : "%d%% - %d%%" % (x,x+20),
+            'x' : "%d%% - %d%%" % (x,x+interval),
             'y' : number_success.get(x, 0)
-        } for x in [20*x for x in range(5)]]
+        } for x in [interval*x for x in range(100//interval)]]
     },{
     'key' : 'wrong',
     'values' : [{
-            'x' : "%d%% - %d%%" % (x,x+20),
+            'x' : "%d%% - %d%%" % (x,x+interval),
             'y' : number_wrong.get(x, 0)
-        } for x in [20*x for x in range(5)]]
+        } for x in [interval*x for x in range(100//interval)]]
 }]
 
 print(chart1)
