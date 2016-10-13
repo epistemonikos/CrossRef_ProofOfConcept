@@ -8,8 +8,17 @@
     <script src="lib/stream_layers.js"></script>
 
     <style>
-        text {
-            font: 12px sans-serif;
+        .nv-legendWrap text {
+          font-size: 25px;
+        }
+        .nv-controlsWrap text{
+          font-size: 0px;
+        }
+        .nv-x text{
+          font-size: 30px;
+        }
+        .nv-y text{
+          font-size: 30px;
         }
         svg {
             display: block;
@@ -24,15 +33,15 @@
 </head>
 <body>
 
-  <div id="chart1" style="height: 700px" class='with-3d-shadow with-transitions'>
+  <div id="chart1" style="height: 700px;width: 1400px;" class='with-3d-shadow with-transitions'>
       <svg></svg>
   </div>
 
-  <div id="chart2" style="height: 700px" class='with-3d-shadow with-transitions'>
+  <div id="chart2" style="height: 700px;width: 1400px;" class='with-3d-shadow with-transitions'>
       <svg></svg>
   </div>
 
-  <div id="chart3" style="height: 700px" class='with-3d-shadow with-transitions'>
+  <div id="chart3" style="height: 700px;width: 1400px;" class='with-3d-shadow with-transitions'>
       <svg></svg>
   </div>
 
@@ -77,7 +86,7 @@
       nv.addGraph(function() {
           chart = nv.models.multiBarChart()
               .duration(300)
-              .margin({bottom: 100, left: 70})
+              .margin({bottom: 120, left: 200})
               .groupSpacing(0.1)
           ;
 
@@ -85,13 +94,13 @@
 
           chart.xAxis
               .axisLabel("Rating [%]")
-              .axisLabelDistance(35)
+              .axisLabelDistance(50)
               .showMaxMin(false)
           ;
 
           chart.yAxis
               .axisLabel("Cantidad de referencias")
-              .axisLabelDistance(-5)
+              .axisLabelDistance(100)
               .tickFormat(d3.format(',.0f'))
           ;
 
