@@ -4,8 +4,8 @@ import requests
 import pprint
 import os
 
-with open('output_correctos.tsv', 'w') as output_correctos:
-    with open('output_incorrectos.tsv', 'w') as output_incorrectos:
+with open('src/output_correctos.tsv', 'w') as output_correctos:
+    with open('src/output_incorrectos.tsv', 'w') as output_incorrectos:
         with open('./src/random_results_systematic_review') as rrsr:
             count = 0
             for line in rrsr:
