@@ -4,8 +4,8 @@ import requests
 import pprint
 import os
 
-with open('src/output_universal_correctos.tsv', 'w') as output_correctos:
-    with open('src/output_universal_incorrectos.tsv', 'w') as output_incorrectos:
+with open('result/output_universal_correctos.tsv', 'w') as output_correctos:
+    with open('result/output_universal_incorrectos.tsv', 'w') as output_incorrectos:
         with open('./src/random_results_systematic_review') as rrsr:
             count = 0
             for line in rrsr:
@@ -23,7 +23,7 @@ with open('src/output_universal_correctos.tsv', 'w') as output_correctos:
                         rating = x.json().get('rating', {}).get('total', 0)
                         result_doi = x.json().get('ids', {}).get('doi', '-')
                         source = x.json().get('source',{})
-                        if "doi.org" in result_doi:
+                        if result_doi and "doi.org" in result_doi:
                             index = result_doi.index(".org/") + 5
                             result_doi = result_doi[index:]
 
