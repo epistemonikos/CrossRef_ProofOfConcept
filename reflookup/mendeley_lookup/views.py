@@ -88,6 +88,7 @@ class MendeleyLookupResource(ExtResource):
         Calls the Mendeley API to renew the access token and stores it.
         :return: A new access token.
         """
+        print("Renovando Token")
         r = requests.post(app.config['MENDELEY_AUTH_URI'],
                           data={'grant_type': 'client_credentials',
                                 'scope': 'all'},
