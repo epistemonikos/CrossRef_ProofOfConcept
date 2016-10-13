@@ -1,4 +1,5 @@
 from rating.rating import Rating
+from reflookup.standardize_json import StandardDict
 
 
 class Chooser:
@@ -8,7 +9,7 @@ class Chooser:
 
     def select(self):
         max_rating = 0
-        best_json = {}
+        best_json = StandardDict().getEmpty()
         for json in self.jsons:
             rating = Rating(self.cita, json)
             json['rating'] = rating.value()
