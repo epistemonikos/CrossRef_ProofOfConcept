@@ -1,5 +1,5 @@
-from rating.rating import Rating
-from reflookup.standardize_json import StandardDict
+from reflookup.utils.rating.rating import Rating
+from reflookup.utils.standardize_json import StandardDict
 
 
 class Chooser:

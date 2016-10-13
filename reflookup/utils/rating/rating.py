@@ -1,6 +1,7 @@
-from rating.ratings.authors_rating import AuthorsRating
-from rating.ratings.title_rating import TitleRating
-from rating.ratings.year_rating import YearRating
+from reflookup.utils.rating.ratings.authors_rating import AuthorsRating
+from reflookup.utils.rating.ratings.title_rating import TitleRating
+
+from reflookup.utils.rating.ratings.year_rating import YearRating
 
 
 class Rating:

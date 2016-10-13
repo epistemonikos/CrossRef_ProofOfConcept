@@ -1,8 +1,8 @@
 from reflookup import api, app
-from reflookup.crossref_lookup.views import CrossRefLookupResource
-from reflookup.mendeley_lookup.views import MendeleyLookupResource
-from reflookup.integrated_lookup.views import IntegratedLookupResource, \
-    SearchFormResource
+from reflookup.resources.crossref_lookup.views import CrossRefLookupResource
+from reflookup.resources.integrated_lookup.views import \
+    IntegratedLookupResource, SearchFormResource
+from reflookup.resources.mendeley_lookup.views import MendeleyLookupResource
 
 prefix = app.config['API_PREFIX']
 api.add_resource(CrossRefLookupResource, prefix + '/crsearch')

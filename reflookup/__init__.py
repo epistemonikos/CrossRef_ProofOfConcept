@@ -1,6 +1,7 @@
+import os
+
 from flask import Flask
 from flask_restful import Api
-import os
 
 app = Flask(__name__)
 
@@ -12,8 +13,7 @@ app.secret_key = os.environ.get('REFSERVICE_SECRETKEY', '12345')
 app.config['API_PREFIX'] = '/api/v1'
 api = Api(app)
 
-from reflookup import views
-
+from reflookup.resources import views
 
 if __name__ == '__main__':
     app.run(debug=True)

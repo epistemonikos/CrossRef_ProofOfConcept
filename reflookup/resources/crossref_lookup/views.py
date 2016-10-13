@@ -4,16 +4,16 @@ import requests
 from flask import abort
 from flask_restful import reqparse
 
-from rating.rating import Rating
 from reflookup import app
-from reflookup.restful_utils.utils import ExtResource
+from reflookup.utils.rating.rating import Rating
+from reflookup.utils.restful.utils import ExtResource
 
 """
 This file contains the endpoint resources for looking up references in
 CrossRef.
 """
 
-from reflookup.standardize_json import crossref_to_standard
+from reflookup.utils.standardize_json import crossref_to_standard
 
 
 def cr_citation_lookup(citation, return_all=False):

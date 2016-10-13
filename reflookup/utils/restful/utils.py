@@ -1,6 +1,8 @@
 from functools import wraps
-from reflookup.pubmed_id import getPubMedID
+
 from flask_restful import Resource
+
+from reflookup.utils.pubmed_id import getPubMedID
 
 
 def find_pubmedid_wrapper(func):

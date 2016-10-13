@@ -3,12 +3,12 @@ from urllib.parse import unquote
 
 import requests
 from flask_restful import reqparse
-from reflookup.restful_utils.utils import ExtResource
 from werkzeug.exceptions import abort
 
-from rating.rating import Rating
 from reflookup import app
-from reflookup.standardize_json import mendeley_to_standard
+from reflookup.utils.rating.rating import Rating
+from reflookup.utils.restful.utils import ExtResource
+from reflookup.utils.standardize_json import mendeley_to_standard
 
 """
 This file contains the endpoint resources for looking up references in

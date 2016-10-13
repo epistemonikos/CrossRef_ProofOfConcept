@@ -1,4 +1,4 @@
-from rating.reference_helpers import without_stop_words
+
 import re
 
 

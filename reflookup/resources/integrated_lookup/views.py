@@ -2,18 +2,17 @@ import threading
 from email.utils import unquote
 
 from flask import make_response, render_template
-from werkzeug.utils import redirect
-
-from rating.chooser import Chooser
-from reflookup.crossref_lookup.views import cr_citation_lookup
-from reflookup.mendeley_lookup.views import mendeley_lookup
 from flask_restful import Resource
 from flask_restful.reqparse import RequestParser
+from werkzeug.utils import redirect
 
+from reflookup.resources.crossref_lookup.views import cr_citation_lookup
+from reflookup.resources.mendeley_lookup.views import mendeley_lookup
 from reflookup.search_form import ReferenceLookupForm
-from reflookup.restful_utils.utils import ExtResource
-from reflookup.pubmed_id import getPubMedID
-from reflookup.standardize_json import StandardDict
+from reflookup.utils.pubmed_id import getPubMedID
+from reflookup.utils.rating.chooser import Chooser
+from reflookup.utils.restful.utils import ExtResource
+from reflookup.utils.standardize_json import StandardDict
 
 
 def lookup_crossref(ref, ret, return_all=False):

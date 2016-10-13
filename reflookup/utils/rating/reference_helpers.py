@@ -1,5 +1,6 @@
 from stop_words import get_stop_words
 
+
 def without_stop_words(raw):
     if not raw:
         return ''
