@@ -93,3 +93,5 @@ ENV/
 
 # mac
 .DS_Store
+
+*.tsv

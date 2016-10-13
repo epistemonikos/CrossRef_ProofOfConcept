@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="../build/nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+    <script src="../build/nv.d3.js"></script>
+    <script src="lib/stream_layers.js"></script>
+
+    <style>
+        text {
+            font: 12px sans-serif;
+        }
+        svg {
+            display: block;
+        }
+        html, body, #chart1, svg {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+  <div id="chart1" style="height: 700px" class='with-3d-shadow with-transitions'>
+      <svg></svg>
+  </div>
+
+  <div id="chart2" style="height: 700px" class='with-3d-shadow with-transitions'>
+      <svg></svg>
+  </div>
+
+  <div id="chart3" style="height: 700px" class='with-3d-shadow with-transitions'>
+      <svg></svg>
+  </div>
+
+<script>
+
+    var test_data_x = stream_layers(3,10+Math.random()*100,.1).map(function(data, i) {
+        return {
+            key: 'Stream' + i,
+            values: data
+        };
+    });
+
+    // var test_data = [
+    //   {
+    //     'values': [
+    //       {'y': 30, 'x': 0},
+    //       {'y': 241, 'x': 20},
+    //       {'y': 389, 'x': 40},
+    //       {'y': 4355, 'x': 60},
+    //       {'y': 119150, 'x': 80}
+    //     ],
+    //     'key': 'success'
+    //   }, {
+    //     'values': [
+    //       {'y': 741, 'x': 0},
+    //       {'y': 703, 'x': 20},
+    //       {'y': 1070, 'x': 40},
+    //       {'y': 993, 'x': 60},
+    //       {'y': 2580, 'x': 80}
+    //     ],
+    //     'key': 'wrong'
+    //   }
+    //   ]
+
+    // var test_data = [{'values': [{'y': 30, 'x': 0}, {'y': 241, 'x': 20}, {'y': 389, 'x': 40}, {'y': 4355, 'x': 60}, {'y': 119150, 'x': 80}], 'key': 'success'}, {'values': [{'y': 741, 'x': 0}, {'y': 703, 'x': 20}, {'y': 1070, 'x': 40}, {'y': 993, 'x': 60}, {'y': 2580, 'x': 80}], 'key': 'wrong'}]
+    // var test_data = [{'values': [{'x': 0, 'y': 30}, {'x': 20, 'y': 415}, {'x': 50, 'y': 4570}, {'x': 80, 'y': 35955}, {'x': 90, 'y': 77901}], 'key': 'success'}, {'values': [{'x': 0, 'y': 741}, {'x': 20, 'y': 1225}, {'x': 50, 'y': 1541}, {'x': 80, 'y': 1466}, {'x': 90, 'y': 1045}], 'key': 'wrong'}]
+    // var test_data = [{'values': [{'x': '0% - 10%', 'y': 30}, {'x': '20% - 30%', 'y': 415}, {'x': '50% - 60%', 'y': 4570}, {'x': '80% - 90%', 'y': 35955}, {'x': '90% - 100%', 'y': 77901}], 'key': 'success'}, {'values': [{'x': '0% - 10%', 'y': 741}, {'x': '20% - 30%', 'y': 1225}, {'x': '50% - 60%', 'y': 1541}, {'x': '80% - 90%', 'y': 1466}, {'x': '90% - 100%', 'y': 1045}], 'key': 'wrong'}]
+
+    function graficate(test_data, div, colors){
+
+      var chart;
+      nv.addGraph(function() {
+          chart = nv.models.multiBarChart()
+              .duration(300)
+              .margin({bottom: 100, left: 70})
+              .groupSpacing(0.1)
+          ;
+
+          chart.reduceXTicks(false).staggerLabels(true).color(colors);
+
+          chart.xAxis
+              .axisLabel("Rating [%]")
+              .axisLabelDistance(35)
+              .showMaxMin(false)
+          ;
+
+          chart.yAxis
+              .axisLabel("Cantidad de referencias")
+              .axisLabelDistance(-5)
+              .tickFormat(d3.format(',.0f'))
+          ;
+
+          chart.dispatch.on('renderEnd', function(){
+              nv.log('Render Complete');
+          });
+
+          d3.select(div)
+              .datum(test_data)
+              .call(chart);
+
+          nv.utils.windowResize(chart.update);
+
+          chart.dispatch.on('stateChange', function(e) {
+              nv.log('New State:', JSON.stringify(e));
+          });
+          chart.state.dispatch.on('change', function(state){
+              nv.log('state', JSON.stringify(state));
+          });
+
+          return chart;
+      });
+
+    }
+
+
+    var test_data = [{'key': 'success', 'values': [{'y': 124165, 'x': 'success'}, {'y': 0, 'x': 'wrong'}]}, {'key': 'wrong', 'values': [{'y': 0, 'x': 'success'}, {'y': 6087, 'x': 'wrong'}]}]
+    graficate(test_data, '#chart2 svg', ['#388E3C', '#F44336'])
+    var test_data =[{'key': 'success_cross_ref', 'values': [{'x': 'success_mendeley', 'y': 0}, {'x': 'success_cross_ref', 'y': 124165}, {'x': 'wrong', 'y': 0}]}, {'key': 'success_mendeley', 'values': [{'x': 'success_mendeley', 'y': 0}, {'x': 'success_cross_ref', 'y': 0}, {'x': 'wrong', 'y': 0}]}, {'key': 'wrong', 'values': [{'x': 'success_mendeley', 'y': 0}, {'x': 'success_cross_ref', 'y': 0}, {'x': 'wrong', 'y': 6087}]}]
+    graficate(test_data, '#chart3 svg', ['#388E3C','#388E3C', '#F44336'])
+    var test_data = [{'key': 'success', 'values': [{'y': 30, 'x': '0% - 20%'}, {'y': 241, 'x': '20% - 40%'}, {'y': 389, 'x': '40% - 60%'}, {'y': 4355, 'x': '60% - 80%'}, {'y': 119150, 'x': '80% - 100%'}]}, {'key': 'wrong', 'values': [{'y': 741, 'x': '0% - 20%'}, {'y': 703, 'x': '20% - 40%'}, {'y': 1070, 'x': '40% - 60%'}, {'y': 993, 'x': '60% - 80%'}, {'y': 2580, 'x': '80% - 100%'}]}]
+    graficate(test_data, '#chart1 svg', ['#388E3C', '#F44336'])
+
+</script>
+</body>
+</html>
