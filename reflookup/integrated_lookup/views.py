@@ -13,6 +13,7 @@ from flask_restful.reqparse import RequestParser
 from reflookup.search_form import ReferenceLookupForm
 from reflookup.restful_utils.utils import ExtResource
 from reflookup.pubmed_id import getPubMedID
+from reflookup.standardize_json import StandardDict
 
 
 def lookup_crossref(ref, ret):
@@ -39,7 +40,10 @@ def integrated_lookup(citation):
     t1.join()
     t2.join()
 
-    chooser = Chooser(citation, [cr['result'], md['result']])
+    chooser = Chooser(citation, [cr.get('result',
+                                        StandardDict().getEmpty()),
+                                 md.get('result',
+                                        StandardDict().getEmpty())])
 
     return chooser.select()
 
