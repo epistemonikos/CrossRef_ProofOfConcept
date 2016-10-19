@@ -14,7 +14,7 @@ from reflookup.utils.pubmed_id import getPubMedID
 from reflookup.utils.rating.chooser import Chooser
 from reflookup.utils.restful.utils import ExtResource
 from reflookup.utils.standardize_json import StandardDict
-from itsdangerous import URLSafeSerializer
+from itsdangerous import URLSafeSerializer, BadSignature
 from reflookup import app, rq
 
 taskserializer = URLSafeSerializer(app.secret_key, salt='task')
@@ -184,9 +184,14 @@ class BatchLookupResource(Resource):
 
     def get(self):
         job_id = self.get_parser.parse_args()['id']
-        job_id = taskserializer.loads(job_id)
+        try:
+            job_id = taskserializer.loads(job_id)
+        except BadSignature:
+            abort(400, message='Invalid job id')
 
         job = rq.fetch_job(job_id)
+        if not job:
+            abort(400, message='Invalid job id')
 
         if not job.result:
             return {
