@@ -75,6 +75,7 @@ def mendeley_to_standard(mjson):
 
     std = StandardDict().getEmpty()
     std['source'] = 'Mendeley'
+    std['type'] = mjson['type']
 
     std['title'] = mjson['title']
     std['abstract'] = mjson['abstract']

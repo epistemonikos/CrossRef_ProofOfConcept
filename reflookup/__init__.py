@@ -2,6 +2,8 @@ import os
 
 from flask import Flask
 from flask_restful import Api
+from redis import Redis
+from rq import Queue
 
 app = Flask(__name__)
 
@@ -12,6 +14,9 @@ app.config['MENDELEY_AUTH_URI'] = 'https://api.mendeley.com/oauth/token'
 app.secret_key = os.environ.get('REFSERVICE_SECRETKEY', '12345')
 app.config['API_PREFIX'] = '/api/v1'
 api = Api(app)
+
+# Redis queue:
+rq = Queue(connection=Redis())
 
 from reflookup.resources import views
 

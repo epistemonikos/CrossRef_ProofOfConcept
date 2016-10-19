@@ -8,7 +8,6 @@ from werkzeug.utils import redirect
 
 from reflookup.resources.lookup_functions import cr_citation_lookup, \
     mendeley_lookup
-from reflookup.resources.mendeley_lookup.views import mendeley_lookup
 from reflookup.search_form import ReferenceLookupForm
 from reflookup.utils.pubmed_id import getPubMedID
 from reflookup.utils.rating.chooser import Chooser
