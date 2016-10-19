@@ -1,8 +1,9 @@
 import threading
+from datetime import datetime
 from email.utils import unquote
 
 from flask import make_response, render_template
-from flask_restful import Resource
+from flask_restful import Resource, abort
 from flask_restful.reqparse import RequestParser
 from werkzeug.utils import redirect
 
@@ -13,6 +14,10 @@ from reflookup.utils.pubmed_id import getPubMedID
 from reflookup.utils.rating.chooser import Chooser
 from reflookup.utils.restful.utils import ExtResource
 from reflookup.utils.standardize_json import StandardDict
+from itsdangerous import URLSafeSerializer
+from reflookup import app, rq
+
+taskserializer = URLSafeSerializer(app.secret_key, salt='task')
 
 
 def lookup_crossref(ref, ret, return_all=False):
@@ -68,6 +73,17 @@ def integrated_lookup(citation, return_all=False):
             'mendeley': lmd,
             'results': results
         }
+
+
+def batch_lookup(refl):
+    results = []
+
+    for ref in refl:
+        res = integrated_lookup(ref, return_all=False)
+        res = getPubMedID(res)
+        results.append(res)
+
+    return results
 
 
 class IntegratedLookupResource(ExtResource):
@@ -130,3 +146,61 @@ class SearchFormResource(Resource):
         else:
             return getPubMedID(json)
 
+
+class BatchLookupResource(Resource):
+    """
+    Endpoint for batch lookups.
+    POST -> Receives a json containing a list of references to check,
+    returns a job ID to check on.
+    GET -> Receives a job ID and returns the completion status and results.
+    """
+
+    def __init__(self):
+        self.post_parser = RequestParser()
+        self.post_parser.add_argument('refs', type=list, location='json',
+                                      required=True)
+        self.post_parser.add_argument('length', type=int, location='json',
+                                      required=True)
+
+        self.get_parser = RequestParser()
+        self.get_parser.add_argument('id', type=str, location='values',
+                                     required=True)
+
+        self.result_ttl = app.config['RESULT_TTL_SECONDS']
+
+    def post(self):
+        params = self.post_parser.parse_args()
+        refs = params['refs']
+        if params['length'] != len(refs):
+            abort(400)
+
+        job = rq.enqueue(batch_lookup, refs, result_ttl=self.result_ttl)
+        job_id = taskserializer.dumps(job.id)
+
+        return {
+                   'job': job_id,
+                   'submitted': datetime.now().isoformat()
+               }, 202
+
+    def get(self):
+        job_id = self.get_parser.parse_args()['id']
+        job_id = taskserializer.loads(job_id)
+
+        job = rq.fetch_job(job_id)
+
+        if not job.result:
+            return {
+                'done': False,
+                'result': None,
+                'length': 0,
+                'result_ttl': self.result_ttl,
+                'timestamp': None
+            }, 202
+        else:
+            return {
+                'done': True,
+                'result': job.result,
+                'length': len(job.result),
+                'result_ttl': self.result_ttl,
+                'timestamp': job.ended_at.isoformat()
+            }, 200
