@@ -1,5 +1,5 @@
 import threading
-from datetime import datetime
+from datetime import datetime, timezone
 from email.utils import unquote
 
 from flask import make_response, render_template
@@ -179,7 +179,7 @@ class BatchLookupResource(Resource):
 
         return {
                    'job': job_id,
-                   'submitted': datetime.now().isoformat()
+                   'submitted': datetime.now(timezone.utc).isoformat()
                }, 202
 
     def get(self):
