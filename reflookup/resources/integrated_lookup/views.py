@@ -190,6 +190,8 @@ class BatchLookupResource(Resource):
             abort(400, message='Invalid job id')
 
         job = rq.fetch_job(job_id)
+        if not job:
+            abort(400, message='Invalid job id')
 
         if not job.result:
             return {
