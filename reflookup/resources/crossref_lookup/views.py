@@ -2,7 +2,7 @@ from urllib.parse import unquote
 
 from flask_restful import reqparse
 
-from reflookup.resources.lookup_functions import cr_citation_lookup
+from reflookup.resources.lookup_functions import cr_citation_lookup, cr_doi_lookup
 from reflookup.utils.restful.utils import ExtResource
 
 """
@@ -48,6 +48,25 @@ class CrossRefLookupResource(ExtResource):
         ref = unquote(data['ref']).strip()
 
         return cr_citation_lookup(ref)
+
+    def get(self):
+        return self.post()
+
+class CrossRefDoiLookupResource(ExtResource):
+    """
+    This resource represents the /crsearch endpoint on the API.
+    """
+
+    def __init__(self):
+        self.post_parser = reqparse.RequestParser()
+        self.post_parser.add_argument('doi', type=str, required=True,
+                                      location='values')
+
+    def post(self):
+        data = self.post_parser.parse_args()
+        doi = unquote(data['doi']).strip()
+
+        return cr_doi_lookup(doi)
 
     def get(self):
         return self.post()
