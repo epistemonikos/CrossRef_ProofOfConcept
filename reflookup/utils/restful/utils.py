@@ -34,13 +34,17 @@ def b64_encode_response(func):
         headers = request.headers
 
         if headers.get('Accept-Encoding', False) == 'base64':
-            result64 = base64.b64encode(json.dumps(result))
+            code = 200
+            if type(result) == tuple:
+                result, code = result
+
+            result64 = base64.b64encode(json.dumps(result).encode())
             headers = {
                 'Content-Type': 'application/json',
                 'Content-Encoding': 'base64'
             }
 
-            return make_response(result64, 200, headers)
+            return make_response(result64, code, headers)
         else:
             return result
 
