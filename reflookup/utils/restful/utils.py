@@ -1,5 +1,9 @@
+import base64
 from functools import wraps
 
+from flask import json
+from flask import make_response
+from flask import request
 from flask_restful import Resource
 
 from reflookup.utils.pubmed_id import getPubMedID
@@ -22,5 +26,30 @@ def find_pubmedid_wrapper(func):
     return wrapper
 
 
-class ExtResource(Resource):
+def b64_encode_response(func):
+    # wrapper to automatically base64 encode response
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        headers = request.headers
+
+        if headers.get('Accept-Encoding', False) == 'base64':
+            result64 = base64.b64encode(json.dumps(result))
+            headers = {
+                'Content-Type': 'application/json',
+                'Content-Encoding': 'base64'
+            }
+
+            return make_response(result64, 200, headers)
+        else:
+            return result
+
+    return wrapper
+
+
+class EncodingResource(Resource):
+    method_decorators = [b64_encode_response]
+
+
+class ExtResource(EncodingResource):
     method_decorators = [find_pubmedid_wrapper]
