@@ -45,6 +45,24 @@ def cr_citation_lookup(citation, return_all=False):
         return result
 
 
+def cr_doi_lookup(doi):
+    """
+    This function retrieves the metadata for the specified CrossRef DOI
+    :param doi: DOI to look up in CR.
+    :return: A Python dict representing the metadata for the specified DOI.
+    """
+    url = app.config['CROSSREF_URI'] + "/" + doi
+    req = requests.get(url)
+    if req.status_code == 400:
+        abort(404, 'Resource not found')
+    elif req.status_code != 200:
+        abort(req.status_code, 'Remote API error.')
+    else:
+        result = req.json()['message']
+        result = crossref_to_standard(result)
+        return result
+
+
 def mendeley_lookup(citation, return_all=False):
     params = {'query': citation}
     # Note that Mendeley requires authentication:
