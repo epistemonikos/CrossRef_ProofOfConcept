@@ -23,7 +23,7 @@ def find_pubmedid_wrapper(func):
             result['results'] = nresults
             return result
 
-    return wrapper
+    return b64_encode_response(wrapper)
 
 
 def b64_encode_response(func):
