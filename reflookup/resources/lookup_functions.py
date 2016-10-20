@@ -70,7 +70,7 @@ def mendeley_lookup(citation, return_all=False):
         'Authorization': 'Bearer ' + get_mendeley_access_token(),
         'Accept': 'application/vnd.mendeley-document.1+json'
     }
-    req = requests.get(app.config['MENDELEY_URI'],
+    req = requests.get(app.config['MENDELEY_SEARCH_URI'],
                        params=params, headers=headers)
 
     if req.status_code != 200:
@@ -98,6 +98,30 @@ def mendeley_lookup(citation, return_all=False):
         result = mendeley_to_standard(result)
         result['rating'] = Rating(citation, result).value()
         return result
+
+
+def mendeley_doi_lookup(doi):
+    params = {'doi': doi}
+    # Note that Mendeley requires authentication:
+    headers = {
+        'Authorization': 'Bearer ' + get_mendeley_access_token(),
+        'Accept': 'application/vnd.mendeley-document.1+json'
+    }
+    req = requests.get(app.config['MENDELEY_CATALOG_URI'],
+                       params=params, headers=headers)
+
+    if req.status_code != 200:
+        if req.status_code == 401:
+            refresh_mendeley_token()
+            return mendeley_doi_lookup(doi)
+        else:
+            abort(req.status_code, 'Remote API error.')
+
+    rv = req.json()
+
+    result = rv[0]
+    result = mendeley_to_standard(result)
+    return result
 
 
 def refresh_mendeley_token():
