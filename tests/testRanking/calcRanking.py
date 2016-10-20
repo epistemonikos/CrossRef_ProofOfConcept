@@ -30,11 +30,11 @@ with open('data.tsv') as tsvin, open('rankingResults2.tsv', 'wt') as csvout:
     for row in tsvin:
         numberOfCollum = len(row)
         citlength = len(row[0])
-        print(row)
+
         ratings = ast.literal_eval(row[numberOfCollum-1])
-        rankings = [ratings.get('rating').get('total')]
+        rankings = [ratings.get('rating',{}).get('total',0)]
         for weight in weights:
-            rankings.append(calcRating(ratings.get('rating'),weight,citlength))
+            rankings.append(calcRating(ratings.get('rating',{'year': 0, 'title': 0, 'total': 0, 'authors': 0}),weight,citlength))
         csvout.writerow(rankings)
 
 
