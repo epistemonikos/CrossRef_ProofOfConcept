@@ -12,7 +12,7 @@ from reflookup.resources.lookup_functions import cr_citation_lookup, \
 from reflookup.search_form import ReferenceLookupForm
 from reflookup.utils.pubmed_id import getPubMedID
 from reflookup.utils.rating.chooser import Chooser
-from reflookup.utils.restful.utils import ExtResource
+from reflookup.utils.restful.utils import ExtResource, EncodingResource
 from reflookup.utils.standardize_json import StandardDict
 from itsdangerous import URLSafeSerializer, BadSignature
 from reflookup import app, rq
@@ -147,7 +147,7 @@ class SearchFormResource(Resource):
             return getPubMedID(json)
 
 
-class BatchLookupResource(Resource):
+class BatchLookupResource(EncodingResource):
     """
     Endpoint for batch lookups.
     POST -> Receives a json containing a list of references to check,
