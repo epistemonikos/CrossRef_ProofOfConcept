@@ -1,5 +1,5 @@
 #Reference Lookup Service
-
+[![Build Status](https://travis-ci.org/epistemonikos/ReferenceLookupService.svg?branch=master)](https://travis-ci.org/epistemonikos/ReferenceLookupService)
 ##Deploy
 ###Configuraciones previas para hacer deploy automático:
 1. Agregar clave pública RSA asociada a la cuenta github en uso a `~/.ssh/authorized_keys` en el servidor.
