@@ -7,6 +7,7 @@ from tests.unittests import basetest
 
 
 class CrossRefTest(basetest.BaseTest):
+    #is the crossref endpoint works?
     def test_crossreflookup(self):
         citation = quote(self.test_cite, safe='')
         params = {'ref': citation}
