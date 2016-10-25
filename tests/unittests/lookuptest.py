@@ -1,9 +1,8 @@
 import unittest
 
 from flask import json
-import tests.unittests.basetest
+from tests.unittests import basetest
 
-from urllib.parse import quote
 
 class LookupTest(basetest.BaseTest):
     #this test check an especial reference where crossref service must win

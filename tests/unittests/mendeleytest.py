@@ -1,9 +1,9 @@
 import unittest
 
 from flask import json
-import tests.unittests.basetest
 
-from urllib.parse import quote
+from tests.unittests import basetest
+
 
 class MendeleyTest(basetest.BaseTest):
     def test_mendeleylookup(self):
