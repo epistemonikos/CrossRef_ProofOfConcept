@@ -17,10 +17,12 @@ class CrossRefTest(basetest.BaseTest):
 
         jdata = json.loads(ret.data)
         assert jdata
+        print(jdata)
 
-        url = jdata.get('ids', None)
+        url = jdata.get('result', None)
+
         assert url
-        assert url.get('doi', None) == self.cr_doi
+        assert url[0].get('ids', None).get('doi', None) == self.cr_doi
 
 
 

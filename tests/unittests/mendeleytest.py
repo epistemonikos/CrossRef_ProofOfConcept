@@ -13,11 +13,10 @@ class MendeleyTest(tests.unittests.basetest.BaseTest):
         assert ret
         jdata = json.loads(ret.data)
         assert jdata
-        url = jdata.get('ids', None)
-        if url:
-            url = url.get('doi',None)
+        url = jdata.get('result', None)
+
         assert url
-        assert url == self.md_doi
+        assert url[0].get('ids', None).get('doi',None) == self.md_doi
 
 if __name__ == '__main__':
     unittest.main()
