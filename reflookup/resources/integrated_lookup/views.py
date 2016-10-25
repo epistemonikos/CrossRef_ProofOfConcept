@@ -17,6 +17,7 @@ from reflookup.utils.restful.utils import ExtResource, EncodingResource
 from reflookup.utils.standardize_json import StandardDict
 from itsdangerous import URLSafeSerializer, BadSignature
 from reflookup import app, rq
+from flask_restful import HTTPException
 
 taskserializer = URLSafeSerializer(app.secret_key, salt='task')
 
@@ -26,8 +27,10 @@ def lookup_crossref(ref, ret, return_all=False):
 
 
 def lookup_mendeley(ref, ret, return_all=False):
-    ret['result'] = mendeley_lookup(ref, return_all)
-
+    try:
+        ret['result'] = mendeley_lookup(ref, return_all)
+    except HTTPException:
+        ret = {}
 
 def integrated_lookup(citation, return_all=False, return_both=False):
     # create threads to get results from Mendeley and Crossref at the
