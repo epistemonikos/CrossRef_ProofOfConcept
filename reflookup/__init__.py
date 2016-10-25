@@ -16,9 +16,10 @@ app.config['RESULT_TTL_SECONDS'] = 300
 app.secret_key = os.environ.get('REFSERVICE_SECRETKEY', '12345')
 app.config['API_PREFIX'] = '/api/v1'
 api = Api(app)
+conn = Redis()
 
 # Redis queue:
-rq = Queue(connection=Redis())
+rq = Queue(connection=conn)
 
 from reflookup.resources import views
 

@@ -1,36 +1,25 @@
-import unittest
 
 from flask import json
-
-import unittests.basetest
+import unittest
 from urllib.parse import quote
 
+from tests.unittests import basetest
 
-class CrossRefTest(unittests.basetest.BaseTest):
+
+class CrossRefTest(basetest.BaseTest):
+    #is the crossref endpoint works?
     def test_crossreflookup(self):
         citation = quote(self.test_cite, safe='')
         params = {'ref': citation}
 
         ret = self.app.post(self.prefix + '/crsearch', data=params)
         assert ret
-
         jdata = json.loads(ret.data)
         assert jdata
-
-        url = jdata.get('URL', None)
+        url = jdata.get('result', None)
         assert url
-        assert url == self.cr_doi
+        assert url[0].get('ids', None).get('doi', None) == self.cr_doi
 
-    def test_crossreflookup_ris(self):
-        citation = quote(self.test_cite, safe='')
-        params = {'ref': citation}
-        headers = {'Accept': 'application/x-research-info-systems'}
-
-        ret = self.app.post(self.prefix + '/crsearch', data=params,
-                            headers=headers)
-
-        assert ret.headers[
-                   'Content-Type'] == 'application/x-research-info-systems'
 
 
 if __name__ == '__main__':
