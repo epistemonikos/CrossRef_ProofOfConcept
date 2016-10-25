@@ -9,4 +9,4 @@ services:
 - redis-server
 before_script:
 - "rq worker &"
-
+script: python app_run.py
