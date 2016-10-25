@@ -2,6 +2,7 @@ import threading
 from datetime import datetime, timezone
 from email.utils import unquote
 
+import redis
 from flask import make_response, render_template
 from flask_restful import Resource, abort
 from flask_restful.reqparse import RequestParser
@@ -28,7 +29,7 @@ def lookup_mendeley(ref, ret, return_all=False):
     ret['result'] = mendeley_lookup(ref, return_all)
 
 
-def integrated_lookup(citation, return_all=False):
+def integrated_lookup(citation, return_all=False, return_both=False):
     # create threads to get results from Mendeley and Crossref at the
     # same time
 
@@ -46,21 +47,31 @@ def integrated_lookup(citation, return_all=False):
     t1.join()
     t2.join()
 
-    if not return_all:
+    if return_all:
+        def get_rating(result):
+            return result.get('rating', {}).get('total', 0)
+
+        results = cr.get('result', []) + md.get('result', [])
+        results = sorted(results, key=get_rating)
+        results.reverse()
+        return results
+
+    elif return_both:
+        results = []
+        if md.get('result', None):
+            results.append(md.get('result'))
+        if cr.get('result', None):
+            results.append(cr.get('result'))
+
+        return results
+
+    else:
         chooser = Chooser(citation, [cr.get('result',
                                             StandardDict().getEmpty()),
                                      md.get('result',
                                             StandardDict().getEmpty())])
 
         return chooser.select()
-
-    else:
-        def get_rating(result):
-            return result.get('rating', {}).get('total', 0)
-
-        results = cr.get('result', []) + md.get('result', [])
-        results = sorted(results, key=get_rating)
-        return results.reverse()
 
 
 def batch_lookup(refl):
@@ -86,13 +97,16 @@ class IntegratedLookupResource(ExtResource):
                                  location='values')
         self.parser.add_argument('getall', type=bool, required=False,
                                  location='values')
+        self.parser.add_argument('getboth', type=bool, required=False,
+                                 location='values')
 
     def get(self):
         data = self.parser.parse_args()
         ref = unquote(data['ref']).strip()
         get_all = data.get('getall', False)
+        get_both = data.get('getboth', False)
 
-        return integrated_lookup(ref, return_all=get_all)
+        return integrated_lookup(ref, return_all=get_all, return_both=get_both)
 
     def post(self):
         return self.get()
@@ -168,8 +182,11 @@ class BatchLookupResource(EncodingResource):
         if params['length'] != len(refs):
             abort(400)
 
-        job = rq.enqueue(batch_lookup, refs, result_ttl=self.result_ttl)
-        job_id = taskserializer.dumps(job.id)
+        try:
+            job = rq.enqueue(batch_lookup, refs, result_ttl=self.result_ttl)
+            job_id = taskserializer.dumps(job.id)
+        except redis.exceptions.ConnectionError:
+            abort(500)
 
         return {
                    'job': job_id,
