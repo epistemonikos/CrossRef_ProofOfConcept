@@ -14,12 +14,20 @@ class LookupTest(tests.unittests.basetest.BaseTest):
         assert ret
         jdata = json.loads(ret.data)
         assert jdata
-        url = jdata.get('result', None)
+        res = jdata.get('result', None)
+        assert res
+        assert res[0].get('ids').get('doi', None) == self.cr_doi
 
-        assert url
-        url = url[0].get('ids')
-        assert url.get('doi', None) == self.cr_doi
+    def test_lookup2(self):
+        # citation = quote(self.test_cite, safe='')
+        params = {'ref': self.test_cite_mendeley}
+        ret = self.app.post(self.prefix + '/search', data=params)
+        assert ret
+        jdata = json.loads(ret.data)
+        assert jdata
+        res = jdata.get('result', None)
+        assert res
+        assert res[0].get('ids').get('doi', None) == self.md_doi
 
-    
 if __name__ == '__main__':
     unittest.main()
