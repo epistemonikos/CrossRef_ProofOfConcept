@@ -5,7 +5,7 @@ import tests.unittests.basetest
 
 from urllib.parse import quote
 
-class MendeleyTest(tests.unittests.basetest.BaseTest):
+class MendeleyTest(basetest.BaseTest):
     def test_mendeleylookup(self):
         citation = quote(self.test_cite_mendeley, safe='')
         params = {'ref': citation}
