@@ -12,9 +12,6 @@ with open('data.tsv', 'w') as output_citas:
       count += 1
       line.replace ("\n", " ")
 
-      if count == 2:
-        break
-
       if count%20 == 0:
         print("Estoy vivo. Llevo: {0}".format(count))
       sline = line.split('\t')
