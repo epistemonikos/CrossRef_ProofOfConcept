@@ -14,13 +14,9 @@ class CrossRefTest(basetest.BaseTest):
 
         ret = self.app.post(self.prefix + '/crsearch', data=params)
         assert ret
-
         jdata = json.loads(ret.data)
         assert jdata
-        print(jdata)
-
         url = jdata.get('result', None)
-
         assert url
         assert url[0].get('ids', None).get('doi', None) == self.cr_doi
 

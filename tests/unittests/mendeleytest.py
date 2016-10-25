@@ -5,10 +5,9 @@ import tests.unittests.basetest
 
 from urllib.parse import quote
 
-class MendeleyTest(tests.unittests.basetest.BaseTest):
+class MendeleyTest(basetest.BaseTest):
     def test_mendeleylookup(self):
-        citation = quote(self.test_cite_mendeley, safe='')
-        params = {'ref': citation}
+        params = {'ref': self.test_cite_mendeley}
         ret = self.app.post(self.prefix + '/mdsearch', data=params)
         assert ret
         jdata = json.loads(ret.data)
