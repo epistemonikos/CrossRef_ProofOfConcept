@@ -58,21 +58,9 @@ def integrated_lookup(citation, return_all=False):
         def get_rating(result):
             return result.get('rating', {}).get('total', 0)
 
-        lcr = len(cr.get('result', []))
-        lmd = len(md.get('result', []))
-
         results = cr.get('result', []) + md.get('result', [])
         results = sorted(results, key=get_rating)
-        l = len(results)
-        results.reverse()
-
-        return {
-            'list_result': True,
-            'total': l,
-            'crossref': lcr,
-            'mendeley': lmd,
-            'results': results
-        }
+        return results.reverse()
 
 
 def batch_lookup(refl):
@@ -137,14 +125,20 @@ class SearchFormResource(Resource):
 
         json = integrated_lookup(query.strip(), return_all=get_all)
 
+        ret_dict = {
+            'length': 0,
+            'result': []
+        }
+
         if get_all:
-            nresults = []
             for r in json.get('results', []):
-                nresults.append(getPubMedID(r))
-            json['results'] = nresults
-            return json
+                ret_dict['result'].append(getPubMedID(r))
+            ret_dict['length'] = len(ret_dict['result'])
         else:
-            return getPubMedID(json)
+            ret_dict['result'].append(getPubMedID(json))
+            ret_dict['length'] = 1
+
+        return ret_dict
 
 
 class BatchLookupResource(EncodingResource):
@@ -195,17 +189,17 @@ class BatchLookupResource(EncodingResource):
 
         if not job.result:
             return {
-                'done': False,
-                'result': None,
-                'length': 0,
-                'result_ttl': self.result_ttl,
-                'timestamp': None
-            }, 202
+                       'done': False,
+                       'result': None,
+                       'length': 0,
+                       'result_ttl': self.result_ttl,
+                       'timestamp': None
+                   }, 202
         else:
             return {
-                'done': True,
-                'result': job.result,
-                'length': len(job.result),
-                'result_ttl': self.result_ttl,
-                'timestamp': job.ended_at.isoformat()
-            }, 200
+                       'done': True,
+                       'result': job.result,
+                       'length': len(job.result),
+                       'result_ttl': self.result_ttl,
+                       'timestamp': job.ended_at.isoformat()
+                   }, 200

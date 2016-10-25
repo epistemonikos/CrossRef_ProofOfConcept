@@ -14,14 +14,22 @@ def find_pubmedid_wrapper(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
-        if not result.get('list_result', False):
-            return getPubMedID(result)
+        ret_dict = {
+            'length': 0,
+            'result': []
+        }
+
+        if type(result) == list:
+            for r in result:
+                ret_dict['result'].append(getPubMedID(r))
+
+            ret_dict['length'] = len(ret_dict['result'])
+
         else:
-            nresults = []
-            for r in result.get('results', []):
-                nresults.append(getPubMedID(r))
-            result['results'] = nresults
-            return result
+            ret_dict['result'].append(getPubMedID(result))
+            ret_dict['length'] = 1
+
+        return ret_dict
 
     return b64_encode_response(wrapper)
 
