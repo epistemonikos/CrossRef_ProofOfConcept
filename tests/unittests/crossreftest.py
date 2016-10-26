@@ -19,7 +19,16 @@ class CrossRefTest(basetest.BaseTest):
         url = jdata.get('result', None)
         assert url
         assert url[0].get('ids', None).get('doi', None) == self.cr_doi
-
+#/crsearch/doi
+    def test_crossreflookupbydoi(self):
+        params = {'doi': self.cr_doi}
+        ret = self.app.post(self.prefix + '/crsearch/doi', data=params)
+        assert ret
+        jdata = json.loads(ret.data)
+        assert jdata
+        pubmed = jdata.get('result', None)[0].get('ids', None).get('pubmed', None)
+        assert pubmed
+        assert pubmed == self.cr_pubmed
 
 
 if __name__ == '__main__':
