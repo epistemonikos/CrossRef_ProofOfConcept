@@ -1,10 +1,14 @@
 language: python
 python:
-  - "3.5"
-# command to install dependencies
-install: "pip install -r requirements.txt"
-# command to run tests
-#script: nosetests
+- '3.5'
+install: pip install -r requirements.txt
 services:
 - redis-server
 script: invoke test
+notifications:
+  slack:
+    on_success: always
+    on_failure: always
+    rooms:
+      secure: ue9PFUOi6qz57RW8RYGrJaW6zkO/dfPgEeaO30Hum5Qka7n41e65TNBCzZqHaTp9gPAnaXA3D0ys0O97rt1t1gZeR6SCbLyiL5xxLqoR5SK9qq0rYrMdPm1HvkLAwVj1Tq1V4+Tzc8N6YjAe9PmHzTYNZZ96ePgGMA2xG2fOYCRVjplL2nSn+PSdF8zRk70dra4NlyKUk3v3xf4wX0XnxO73ClbrVUPIbZCkAj5pCpu9AZseV/SkGyKKP8kU7XcjIWknvO4ktypOq4B/Zu6vs5C3BCDlG/KleETTTFnNtvH8uf6btSgmKVSpqkhkfhy0vziUzUK19sLDWHYPMrTkC8hRF/J8jbr/gtlB8AfG4DnSszinaf0vJYMAYRWl6jJChyfZFH/Aq1WWuoZGaTcITGUeRETCQC0jc7ME9KB8muYIYaUaPvR7UnTBtALP5P0kGNX9nbwL8FWBZ186Vy+RaVilGnywA8tdL9NW5dX9HCO7lZ6iRBBtdKWgUMaVnKMaL+8vLpYGTaPv7mPkP2MBEdPRvEG3fg+N0SBqEycLqvO2oT3/AbUNihMJM/viHsqvYgfT74Iao95JJOech34z1US8cKFxSaAci3h48fA3ircqS+xdEr85rrcmvdhmNCDYT6a+uDYi9j9Zisz37scx/RpTlNc0eUhr7uVBFq+kPwU=
+  email: false
