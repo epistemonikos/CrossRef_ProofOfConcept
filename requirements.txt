@@ -8,3 +8,4 @@ unidecode
 bs4
 rq
 redis
+invoke

@@ -17,6 +17,7 @@ setup(
         'unidecode',
         'bs4',
         'rq',
-        'redis'
+        'redis',
+        'invoke'
     ]
 )
