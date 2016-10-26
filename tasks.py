@@ -9,5 +9,15 @@ from tests.unittests import *
 def test(ctx):
     ctx.run('rq worker &')
     suite = unittest.TestLoader().loadTestsFromModule(tests)
-    unittest.TextTestRunner(verbosity=2).run(suite)
+    results = unittest.TextTestRunner(verbosity=2).run(suite)
     ctx.run('killall rq')
+
+    if len(results.errors) > 0 or len(results.failures) > 0:
+        exit(-1)
+    else:
+        exit(0)
+
+
+@task
+def deploy(ctx):
+    ctx.run('ssh 52.3.221.80 "cd ReferenceLookupService && sh ./deploy.sh"')
