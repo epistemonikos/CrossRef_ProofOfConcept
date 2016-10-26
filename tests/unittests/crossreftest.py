@@ -19,8 +19,9 @@ class CrossRefTest(basetest.BaseTest):
         url = jdata.get('result', None)
         assert url
         assert url[0].get('ids', None).get('doi', None) == self.cr_doi
-#/crsearch/doi
+
     def test_crossreflookupbydoi(self):
+    #this test checks the correctness of endpoint '/crsearch/doi'
         params = {'doi': self.cr_doi}
         ret = self.app.post(self.prefix + '/crsearch/doi', data=params)
         assert ret
