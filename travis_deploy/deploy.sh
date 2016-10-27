@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-if [ "$TRAVIS_BRANCH" == "master" ]; then
+if [ "$TRAVIS_BRANCH" = "master" ]; then
     echo "Starting deploy on server."
     eval "$(ssh-agent -s)" #start the ssh agent
     echo "Adding key to ssh-agent."
