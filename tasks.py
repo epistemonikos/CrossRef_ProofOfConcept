@@ -20,5 +20,5 @@ def test(ctx):
 
 @task
 def deploy(ctx):
-    ctx.run('ssh -o StrictHostKeyChecking=no -i ./travis_deploy/travis_ci.rsa '
+    ctx.run('ssh -o StrictHostKeyChecking=no '
             'ubuntu@52.3.221.80 "cd ReferenceLookupService && sh ./deploy.sh"')
