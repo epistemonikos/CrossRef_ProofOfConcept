@@ -28,23 +28,31 @@ with open('data.tsv', 'w') as output_citas:
           episte_ref_id = '-'
         else:
           episte_ref_id = sline[5] or '-'
+        
+        try:
+          x = requests.get('http://52.3.221.80/api/v1/crsearch', params={
+            'ref' : cita
+            },
+            headers= {
+            'Accept-Encoding': 'base64'
+            })
+          data_x = x.text
+        except HTTPException:
+          data_x = 'ERROR'
 
-        x = requests.get('http://52.3.221.80/api/v1/crsearch', params={
-          'ref' : cita
-          },
-          headers= {
-          'Accept-Encoding': 'base64'
-          })
+        try:
+          y = requests.get('http://52.3.221.80/api/v1/mdsearch', params={
+            'ref' : cita
+            },
+            headers= {
+            'Accept-Encoding': 'base64'
+            })
+          data_y = y.text
+        except HTTPException:
+          data_y = 'ERROR'
 
-        y = requests.get('http://52.3.221.80/api/v1/mdsearch', params={
-          'ref' : cita
-          },
-          headers= {
-          'Accept-Encoding': 'base64'
-          })
-       
-        crossref_json = x.text
-        mendeley_json = y.text
+        crossref_json = data_x
+        mendeley_json = data_y
 
         cr_line = u"{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(cita, episte_doi, episte_pubmedId, episte_clasification, episte_id, episte_ref_id.replace("\n","_"), crossref_json)
         md_line = u"{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(cita, episte_doi, episte_pubmedId, episte_clasification, episte_id, episte_ref_id.replace("\n","_"), mendeley_json)
