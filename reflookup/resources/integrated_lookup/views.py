@@ -32,6 +32,7 @@ def lookup_mendeley(ref, ret, return_all=False):
     except HTTPException:
         ret = {}
 
+
 def integrated_lookup(citation, return_all=False, return_both=False):
     # create threads to get results from Mendeley and Crossref at the
     # same time
@@ -140,7 +141,7 @@ class SearchFormResource(Resource):
         if not query:
             return self.get()
 
-        json = integrated_lookup(query.strip(), return_all=get_all)
+        result = integrated_lookup(query.strip(), return_all=get_all)
 
         ret_dict = {
             'length': 0,
@@ -148,11 +149,11 @@ class SearchFormResource(Resource):
         }
 
         if get_all:
-            for r in json.get('results', []):
+            for r in result:
                 ret_dict['result'].append(getPubMedID(r))
             ret_dict['length'] = len(ret_dict['result'])
         else:
-            ret_dict['result'].append(getPubMedID(json))
+            ret_dict['result'].append(getPubMedID(result))
             ret_dict['length'] = 1
 
         return ret_dict
