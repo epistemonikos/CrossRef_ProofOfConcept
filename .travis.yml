@@ -4,6 +4,8 @@ python:
 before_install:
 - openssl aes-256-cbc -K $encrypted_8d33baa02404_key -iv $encrypted_8d33baa02404_iv
   -in ./travis_deploy/travis_ci.enc -out ./travis_deploy/travis_ci.rsa -d
+- chmod +x ./travis_deploy/deploy.sh
+
 install: pip install -r requirements.txt
 services:
 - redis-server
@@ -18,6 +20,6 @@ notifications:
 
 deploy:
   provider: script
-  script: travis_deploy/deploy.sh
+  script: ./travis_deploy/deploy.sh
   on:
     branch: master
