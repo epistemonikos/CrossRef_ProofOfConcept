@@ -20,4 +20,5 @@ def test(ctx):
 
 @task
 def deploy(ctx):
-    ctx.run('ssh 52.3.221.80 "cd ReferenceLookupService && sh ./deploy.sh"')
+    ctx.run('ssh -o StrictHostKeyChecking=no 52.3.221.80 "cd '
+            'ReferenceLookupService && sh ./deploy.sh"')
