@@ -20,6 +20,11 @@ class CrossRefTest(basetest.BaseTest):
         assert url
         assert url[0].get('ids', None).get('doi', None) == self.cr_doi
 
+    def test_crossrefcrash(self):
+        params = {'ref': 'kangfkadslnfklasdmnfglkamfklafñlmnadlkfmsaklf'}
+        ret = self.app.post(self.prefix + '/crsearch', data=params)
+        assert ret
+        assert ret.status_code == 404
 
 
 if __name__ == '__main__':
