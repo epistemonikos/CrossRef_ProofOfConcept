@@ -29,7 +29,7 @@ def lookup_crossref(ref, ret, return_all=False):
   :param ret: Aux variable for result submitting
   :param return_all: Optional parameter indicating to return whole list of results instead of only the first.
   """
-    ret['result'] = cr_citation_lookup(ref, return_all)
+  ret['result'] = cr_citation_lookup(ref, return_all)
 
 
 def lookup_mendeley(ref, ret, return_all=False):
@@ -39,10 +39,10 @@ def lookup_mendeley(ref, ret, return_all=False):
   :param ret: Aux variable for result submitting
   :param return_all: Optional parameter indicating to return whole list of results instead of only the first.
   """
-    try:
-        ret['result'] = mendeley_lookup(ref, return_all)
-    except HTTPException:
-        ret = {}
+  try:
+    ret['result'] = mendeley_lookup(ref, return_all)
+  except HTTPException:
+    ret = {}
 
 
 def integrated_lookup(citation, return_all=False, return_both=False):
