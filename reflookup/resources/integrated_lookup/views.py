@@ -1,22 +1,18 @@
 import threading
-from datetime import datetime, timezone
 from email.utils import unquote
 
-import redis
 from flask import make_response, render_template
 from flask_restful import HTTPException
 from flask_restful import Resource, abort
 from flask_restful.reqparse import RequestParser
-from itsdangerous import BadSignature
 from werkzeug.utils import redirect
 
-from reflookup import app, rq, taskserializer
 from reflookup.resources.lookup_functions.citation_search import cr_citation_lookup, \
     mendeley_lookup
 from reflookup.search_form import ReferenceLookupForm
 from reflookup.utils.pubmed_id import getPubMedID
 from reflookup.utils.rating.chooser import Chooser
-from reflookup.utils.restful.utils import ExtResource, EncodingResource
+from reflookup.utils.restful.utils import ExtResource, DeferredResource
 from reflookup.utils.standardize_json import StandardDict
 
 
@@ -157,7 +153,7 @@ class SearchFormResource(Resource):
         return ret_dict
 
 
-class BatchLookupResource(EncodingResource):
+class BatchLookupResource(DeferredResource):
     """
     Endpoint for batch lookups.
     POST -> Receives a json containing a list of references to check,
@@ -166,17 +162,11 @@ class BatchLookupResource(EncodingResource):
     """
 
     def __init__(self):
-        self.post_parser = RequestParser()
+        super().__init__()
         self.post_parser.add_argument('refs', type=list, location='json',
                                       required=True)
         self.post_parser.add_argument('length', type=int, location='json',
                                       required=True)
-
-        self.get_parser = RequestParser()
-        self.get_parser.add_argument('id', type=str, location='values',
-                                     required=True)
-
-        self.result_ttl = app.config['RESULT_TTL_SECONDS']
 
     def post(self):
         params = self.post_parser.parse_args()
@@ -184,41 +174,4 @@ class BatchLookupResource(EncodingResource):
         if params['length'] != len(refs):
             abort(400)
 
-        try:
-            job = rq.enqueue(batch_lookup, refs, result_ttl=self.result_ttl)
-            job_id = taskserializer.dumps(job.id)
-        except redis.exceptions.ConnectionError:
-            abort(500)
-
-        return {
-                   'job': job_id,
-                   'submitted': datetime.now(timezone.utc).isoformat()
-               }, 202
-
-    def get(self):
-        job_id = self.get_parser.parse_args()['id']
-        try:
-            job_id = taskserializer.loads(job_id)
-        except BadSignature:
-            abort(400, message='Invalid job id')
-
-        job = rq.fetch_job(job_id)
-        if not job:
-            abort(400, message='Invalid job id')
-
-        if not job.result:
-            return {
-                       'done': False,
-                       'result': None,
-                       'length': 0,
-                       'result_ttl': self.result_ttl,
-                       'timestamp': None
-                   }, 202
-        else:
-            return {
-                       'done': True,
-                       'result': job.result,
-                       'length': len(job.result),
-                       'result_ttl': self.result_ttl,
-                       'timestamp': job.ended_at.isoformat()
-                   }, 200
+        return self.enqueue_task_and_return(batch_lookup, refs)
