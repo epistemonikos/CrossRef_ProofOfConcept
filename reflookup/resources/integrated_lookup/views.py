@@ -23,10 +23,22 @@ taskserializer = URLSafeSerializer(app.secret_key, salt='task')
 
 
 def lookup_crossref(ref, ret, return_all=False):
+  """
+  Crossref lookup wrapper, used for threading
+  :param ref: Citation for lookup in Crossref
+  :param ret: Aux variable for result submitting
+  :param return_all: Optional parameter indicating to return whole list of results instead of only the first.
+  """
     ret['result'] = cr_citation_lookup(ref, return_all)
 
 
 def lookup_mendeley(ref, ret, return_all=False):
+  """
+  Mendeley lookup wrapper, used for threading
+  :param ref: Citation for lookup in Mendeley
+  :param ret: Aux variable for result submitting
+  :param return_all: Optional parameter indicating to return whole list of results instead of only the first.
+  """
     try:
         ret['result'] = mendeley_lookup(ref, return_all)
     except HTTPException:
@@ -34,9 +46,14 @@ def lookup_mendeley(ref, ret, return_all=False):
 
 
 def integrated_lookup(citation, return_all=False, return_both=False):
-    # create threads to get results from Mendeley and Crossref at the
-    # same time
-
+    """
+    Mendeley & Crossref integrated lookup. By default this function returns the highest ranked 
+    result, but can be moified to return the whole list or the best result of each service  
+    :param citation: Given citation for lookup
+    :param return_all: Optional parameter indicating to return whole list of results instead of only the first.
+    :param return_both: Optional parameter indicating to return the best results of each serrvice.
+    :return: Respective citation lookup result
+    """
     cr = {}
     md = {}
 
@@ -79,6 +96,12 @@ def integrated_lookup(citation, return_all=False, return_both=False):
 
 
 def batch_lookup(refl):
+    """
+    Mendeley & Crossref integrated lookup. This one receives a list of references and resolves them based on the
+    integrated lookup, returning only the best result of each citation with it's respective pubmedI lookpu result
+    :param refl: List of references to resolve
+    :return: List of reference lookup results
+    """
     results = []
 
     for ref in refl:
