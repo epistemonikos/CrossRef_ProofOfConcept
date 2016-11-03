@@ -2,6 +2,7 @@ import os
 
 from flask import Flask
 from flask_restful import Api
+from itsdangerous import URLSafeSerializer
 from redis import Redis
 from rq import Queue
 
@@ -31,6 +32,8 @@ conn = Redis()
 
 # Redis queue:
 rq = Queue(connection=conn)
+
+taskserializer = URLSafeSerializer(app.secret_key, salt='task')
 
 from reflookup.resources import views
 
