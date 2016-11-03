@@ -1,27 +1,26 @@
 from urllib.parse import unquote
 
-from flask_restful import reqparse
 from reflookup.resources.lookup_functions.citation_extract import getRefID, \
     getReferenceInfo
+from reflookup.utils.restful.utils import DeferredResource
 
-from reflookup.utils.restful.utils import ExtResource
+
+def deferred_extract_references(pmid):
+    return getReferenceInfo(getRefID(pmid))
 
 
-class PubmedReferenceExtractResource(ExtResource):
+class PubmedReferenceExtractResource(DeferredResource):
     """
         This resource represents the /refs/pubmed endpoint on the API.
     """
 
     def __init__(self):
-        self.parser = reqparse.RequestParser()
-        self.parser.add_argument('pmid', type=str, required=True,
-                                 location='values')
-
-    def get(self):
-        data = self.parser.parse_args()
-        pmid = unquote(data['pmid']).strip()
-
-        return getReferenceInfo(getRefID(pmid))
+        super().__init__()
+        self.post_parser.add_argument('pmid', type=str, required=True,
+                                      location='values')
 
     def post(self):
-        return self.get()
+        data = self.post_parser.parse_args()
+        pmid = unquote(data['pmid']).strip()
+
+        return self.enqueue_task_and_return(deferred_extract_references, pmid)
