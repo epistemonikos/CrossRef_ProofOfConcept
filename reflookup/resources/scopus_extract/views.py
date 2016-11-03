@@ -10,7 +10,7 @@ This file contains the endpoint resources for retrieving references from Scopus
 """
 
 
-class ScopusResource(ExtResource):
+class ScopusReferenceExtractResource(ExtResource):
     """
         This resource represents the /refs/scopus endpoint on the API.
     """
