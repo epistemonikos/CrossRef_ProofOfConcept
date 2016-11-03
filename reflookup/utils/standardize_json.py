@@ -2,6 +2,7 @@ from reflookup import app
 from copy import deepcopy
 import xml.etree.ElementTree as ET
 
+
 class StandardDict:
     doc_dict = {
         'title': None,
@@ -34,6 +35,12 @@ class StandardDict:
 
     ref_dict = {
         'reference': None,
+        'ids': {
+            'doi': None,
+            'embase': None,
+            'pubmed': None,
+            'scopus': None
+        },
         'publication_type': {
             'pagination': {
                 'first': None,
@@ -130,7 +137,8 @@ def mendeley_to_standard(mjson):
 def scopus_to_standard(scopusXML, doi):
     xml = ET.fromstring(scopusXML)
 
-    references = xml.findall("default:originalText//ce:bib-reference", app.config['SCOPUS_DTD'])
+    references = xml.findall("default:originalText//ce:bib-reference",
+                             app.config['SCOPUS_DTD'])
     ref_json = {
         'doi': doi,
         'references': []
@@ -141,8 +149,10 @@ def scopus_to_standard(scopusXML, doi):
         ref_text = ""
         for a in r.findall(".//sb:author", app.config['SCOPUS_DTD']):
             a_dict = {}
-            a_dict["family"] = a.find("ce:surname", app.config['SCOPUS_DTD']).text
-            a_dict["given"] = a.find("ce:given-name", app.config['SCOPUS_DTD']).text
+            a_dict["family"] = a.find("ce:surname",
+                                      app.config['SCOPUS_DTD']).text
+            a_dict["given"] = a.find("ce:given-name",
+                                     app.config['SCOPUS_DTD']).text
             ref_text += a_dict["family"] + " " + a_dict["given"] + ", "
             ref_dict["authors"].append(a_dict)
         ref_text = ref_text[:-2]
@@ -163,15 +173,18 @@ def scopus_to_standard(scopusXML, doi):
                 ref_dict['publication_type']['title'] = title
                 ref_text += " " + title
 
-            volume = host.find("sb:issue/sb:series/sb:volume-nr", app.config['SCOPUS_DTD']).text
+            volume = host.find("sb:issue/sb:series/sb:volume-nr",
+                               app.config['SCOPUS_DTD']).text
             pages = host.find("sb:pages", app.config['SCOPUS_DTD'])
             if volume:
                 ref_dict['publication_type']['volume'] = int(volume)
                 if title:
                     ref_text += ", " + volume
             if pages:
-                first = int(pages.find("sb:first-page", app.config['SCOPUS_DTD']).text)
-                last = int(pages.find("sb:last-page", app.config['SCOPUS_DTD']).text)
+                first = int(
+                    pages.find("sb:first-page", app.config['SCOPUS_DTD']).text)
+                last = int(
+                    pages.find("sb:last-page", app.config['SCOPUS_DTD']).text)
                 ref_dict['publication_type']['pages'] = {
                     'first': first,
                     'last': last
@@ -181,8 +194,62 @@ def scopus_to_standard(scopusXML, doi):
             ref_dict['publication_type']['reference'] = ref_text
         if other_ref:
             # Reference in plain text.
-            ref_dict['publication_type']['reference'] = other_ref.find("ce:textref", app.config['SCOPUS_DTD']).text
+            ref_dict['publication_type']['reference'] = other_ref.find(
+                "ce:textref", app.config['SCOPUS_DTD']).text
 
         ref_json['references'].append(ref_dict)
 
     return ref_json
+
+
+def standardize_pubmed_summary(xml):
+    parsedSummany = StandardDict().getEmptyRef()
+
+    if xml.find('item', {'name': 'Title'}).get_text() != '':
+        parsedSummany['title'] = xml.find('item', {'name': 'Title'}).get_text()
+
+    if xml.find('item', {'name': 'PubDate'}).get_text() != '':
+        parsedSummany['publication_type']['year'] = xml.find('item', {
+            'name': 'PubDate'}).get_text()
+
+    if xml.find('item', {'name': 'FullJournalName'}).get_text() != '':
+        parsedSummany['publication_type']['title'] = xml.find('item', {
+            'name': 'FullJournalName'}).get_text()
+
+    if xml.find('item', {'name': 'AuthorList'}).get_text() != '':
+        authorList = []
+        for author in xml.find('item', {'name': 'AuthorList'}).find_all('item',
+                                                                        {
+                                                                            'name': 'Author'}):
+            authorList.append(author.get_text())
+        parsedSummany['authors'] = authorList
+
+    if (xml.find('item', {'name': 'doi'}) and xml.find('item', {
+        'name': 'doi'}).get_text() != ''):
+        parsedSummany['ids']['doi'] = xml.find('item',
+                                               {'name': 'doi'}).get_text()
+
+    if xml.find('item', {'name': 'pubmed'}).get_text() != '':
+        parsedSummany['ids']['pubmed'] = xml.find('item', {
+            'name': 'pubmed'}).get_text()
+
+    if xml.find('item', {'name': 'Issue'}).get_text() != '':
+        parsedSummany['publication_type']['issue'] = xml.find('item', {
+            'name': 'Issue'}).get_text()
+
+    if xml.find('item', {'name': 'ISSN'}).get_text() != '':
+        parsedSummany['publication_type']['ISSN'] = xml.find('item', {
+            'name': 'ISSN'}).get_text()
+
+    if xml.find('item', {'name': 'PubType'}).get_text() != '':
+        parsedSummany['publication_type']['type'] = xml.find('item', {
+            'name': 'PubType'}).get_text()
+
+    if xml.find('item', {'name': 'Volume'}).get_text() != '':
+        parsedSummany['publication_type']['volume'] = xml.find('item', {
+            'name': 'Volume'}).get_text()
+
+    if xml.find('item', {'name': 'Lang'}).get_text() != '':
+        parsedSummany['language'] = xml.find('item',
+                                             {'name': 'Lang'}).get_text()
+    return parsedSummany

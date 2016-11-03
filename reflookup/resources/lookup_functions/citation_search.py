@@ -6,7 +6,7 @@ from werkzeug.exceptions import abort
 from reflookup import app
 from reflookup.utils.rating.rating import Rating
 from reflookup.utils.standardize_json import crossref_to_standard, \
-    mendeley_to_standard, scopus_to_standard
+    mendeley_to_standard
 
 
 def cr_citation_lookup(citation, return_all=False):
@@ -163,20 +163,3 @@ def get_mendeley_access_token():
         if (now - then).total_seconds() > delta:
             token = refresh_mendeley_token()
     return token['token']
-
-
-def get_scopus_references(doi):
-    params = {
-        "apiKey": app.config["SCOPUS_API_KEY"]
-    }
-    headers = {
-        "Accept": "text/xml"
-    }
-    resp = requests.get(app.config["SCOPUS_URI"] + doi, params=params, headers=headers)
-
-    if resp.status_code == 200:
-        return scopus_to_standard(resp.text, doi)
-    elif resp.status_code == 404:
-        abort(404, 'Resource not found.')
-    else:
-        abort(resp.status_code, "Couldn't retrieve references for DOI:" + doi)

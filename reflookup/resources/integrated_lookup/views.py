@@ -4,20 +4,20 @@ from email.utils import unquote
 
 import redis
 from flask import make_response, render_template
+from flask_restful import HTTPException
 from flask_restful import Resource, abort
 from flask_restful.reqparse import RequestParser
+from itsdangerous import URLSafeSerializer, BadSignature
 from werkzeug.utils import redirect
 
-from reflookup.resources.lookup_functions import cr_citation_lookup, \
+from reflookup import app, rq
+from reflookup.resources.lookup_functions.citation_search import cr_citation_lookup, \
     mendeley_lookup
 from reflookup.search_form import ReferenceLookupForm
 from reflookup.utils.pubmed_id import getPubMedID
 from reflookup.utils.rating.chooser import Chooser
 from reflookup.utils.restful.utils import ExtResource, EncodingResource
 from reflookup.utils.standardize_json import StandardDict
-from itsdangerous import URLSafeSerializer, BadSignature
-from reflookup import app, rq
-from flask_restful import HTTPException
 
 taskserializer = URLSafeSerializer(app.secret_key, salt='task')
 
