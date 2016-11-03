@@ -64,6 +64,14 @@ def cr_doi_lookup(doi):
 
 
 def mendeley_lookup(citation, return_all=False):
+    """
+    This function does the actual Mendeley API call to search for a given
+    citation, and returns the first (and thus, according to Mendeley, the best)
+    result.
+    :param return_all: Optional parameter indicating to return whole list of results instead of only the first.
+    :param citation: Citation to look up in Mendeley.
+    :return: A Python dict representing the best result offered by Mendeley.
+    """
     params = {'query': citation}
     # Note that Mendeley requires authentication:
     headers = {
@@ -101,6 +109,13 @@ def mendeley_lookup(citation, return_all=False):
 
 
 def mendeley_doi_lookup(doi):
+    """
+    This function does the actual Mendeley API call to search for a given
+    doi, and returns the first (and thus, according to Mendeley, the best)
+    result.
+    :param doi: DOI to look up in Mendely.
+    :return: A Python dict representing the best result offered by Mendeley.
+    """
     params = {'doi': doi}
     # Note that Mendeley requires authentication:
     headers = {
