@@ -8,6 +8,7 @@ from flask_restful import abort
 from reflookup import app
 from reflookup.utils.standardize_json import scopus_to_standard
 from reflookup.utils.standardize_json import standardize_pubmed_summary
+import xml.etree.ElementTree as ET
 
 
 def get_scopus_references(doi):
@@ -21,7 +22,17 @@ def get_scopus_references(doi):
                         headers=headers)
 
     if resp.status_code == 200:
-        return scopus_to_standard(resp.text, doi)
+        xml = ET.fromstring(resp.text)
+
+        references = xml.findall("default:originalText//ce:bib-reference",
+                                 app.config['SCOPUS_DTD'])
+
+        refs = []
+        for r in references:
+            refs.append(getPubMedID(scopus_to_standard(r)))
+
+        return refs
+
     elif resp.status_code == 404:
         abort(404, message='Resource not found.')
     else:
