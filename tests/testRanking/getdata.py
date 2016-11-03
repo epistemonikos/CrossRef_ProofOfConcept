@@ -36,9 +36,11 @@ with open('data.tsv', 'w') as output_citas:
             headers= {
             'Accept-Encoding': 'base64'
             })
-          data_x = x.text
+          crossref_json = x.text
+          cr_line = u"{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(cita, episte_doi, episte_pubmedId, episte_clasification, episte_id, episte_ref_id.replace("\n","_"), crossref_json)
+
         except HTTPException:
-          data_x = 'ERROR'
+          cr_line = "LINEERROR"
 
         try:
           y = requests.get('http://52.3.221.80/api/v1/mdsearch', params={
@@ -47,15 +49,11 @@ with open('data.tsv', 'w') as output_citas:
             headers= {
             'Accept-Encoding': 'base64'
             })
-          data_y = y.text
+          mendeley_json = y.text
+          md_line = u"{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(cita, episte_doi, episte_pubmedId, episte_clasification, episte_id, episte_ref_id.replace("\n","_"), mendeley_json)
+
         except HTTPException:
-          data_y = 'ERROR'
-
-        crossref_json = data_x
-        mendeley_json = data_y
-
-        cr_line = u"{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(cita, episte_doi, episte_pubmedId, episte_clasification, episte_id, episte_ref_id.replace("\n","_"), crossref_json)
-        md_line = u"{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(cita, episte_doi, episte_pubmedId, episte_clasification, episte_id, episte_ref_id.replace("\n","_"), mendeley_json)
+          md_line = "LINEERROR"
 
         output_citas.write(cr_line)
         output_citas.write(md_line)  
