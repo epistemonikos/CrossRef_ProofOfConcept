@@ -15,7 +15,7 @@ This file contains the endpoint resources for retrieving references from Scopus
 
 class ScopusResource(Resource):
     """
-        This resource represents the /??? endpoint on the API.
+        This resource represents the /refs/scopus endpoint on the API.
     """
 
     def __init__(self):
