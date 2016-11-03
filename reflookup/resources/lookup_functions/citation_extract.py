@@ -29,7 +29,7 @@ def get_scopus_references(doi):
 
         refs = []
         for r in references:
-            refs.append(getPubMedID(scopus_to_standard(r)))
+            refs.append(scopus_to_standard(r))
 
         return refs
 

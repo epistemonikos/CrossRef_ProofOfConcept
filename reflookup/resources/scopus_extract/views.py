@@ -1,15 +1,16 @@
 from urllib.parse import unquote
 
-from flask_restful import reqparse, Resource
+from flask_restful import reqparse
 
 from reflookup.resources.lookup_functions.citation_extract import get_scopus_references
+from reflookup.utils.restful.utils import ExtResource
 
 """
 This file contains the endpoint resources for retrieving references from Scopus
 """
 
 
-class ScopusResource(Resource):
+class ScopusResource(ExtResource):
     """
         This resource represents the /refs/scopus endpoint on the API.
     """
