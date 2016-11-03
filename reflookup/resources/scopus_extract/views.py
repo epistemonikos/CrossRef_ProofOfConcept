@@ -2,7 +2,7 @@ from urllib.parse import unquote
 
 from flask_restful import reqparse, Resource
 
-from reflookup.resources.lookup_functions.citation_search import get_scopus_references
+from reflookup.resources.lookup_functions.citation_extract import get_scopus_references
 
 """
 This file contains the endpoint resources for retrieving references from Scopus
