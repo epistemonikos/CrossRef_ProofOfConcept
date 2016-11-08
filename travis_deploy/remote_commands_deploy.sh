@@ -12,9 +12,11 @@ source ./.env
 
 if [ -f /tmp/gunicorn.pid ]; then
     kill "$(cat /tmp/gunicorn.pid)"
+    rm /tmp/gunicorn.pid
 fi
 if [ -f /tmp/worker.pid ]; then
     kill "$(cat /tmp/worker.pid)"
+    rm /tmp/worker.pid
 fi
 
 echo "Starting service"
