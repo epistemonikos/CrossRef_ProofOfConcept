@@ -1,13 +1,18 @@
-from urllib.parse import unquote
-
+import os
+from reflookup import app
 from reflookup.resources.lookup_functions.citation_extract import \
     pdf_extract_references
 from reflookup.utils.restful.utils import DeferredResource
 from werkzeug.datastructures import FileStorage
+from werkzeug.utils import secure_filename
+from flask_restful import abort
 
 """
 This file contains the endpoint resources for retrieving references from a pdf file
 """
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1] == 'pdf'
 
 class PdfReferenceExtractResource(DeferredResource):
     """
@@ -20,4 +25,11 @@ class PdfReferenceExtractResource(DeferredResource):
 
     def post(self):
         data = self.post_parser.parse_args()
-        return self.enqueue_task_and_return(pdf_extract_references, data)
+        file = data.get('pdf_file')
+        if file and allowed_file(file.filename):
+            filename = os.path.join(app.config['PDF_UPLOAD_FOLDER'], secure_filename(file.filename))
+            file.save(filename)
+            return self.enqueue_task_and_return(pdf_extract_references, data)
+        else:
+            return abort(400)
+

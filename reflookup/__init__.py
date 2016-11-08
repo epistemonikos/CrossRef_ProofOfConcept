@@ -17,6 +17,8 @@ app.config['SCOPUS_DTD'] = {
     "ce": "http://www.elsevier.com/xml/common/dtd",
 }
 
+app.config['PDF_UPLOAD_FOLDER'] = ''
+
 # RefLookup
 app.config['CROSSREF_URI'] = 'http://api.crossref.org/works'
 app.config['MENDELEY_SEARCH_URI'] = 'https://api.mendeley.com/search/catalog'
