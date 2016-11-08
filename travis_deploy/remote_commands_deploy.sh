@@ -5,7 +5,7 @@ mkdir /tmp/www_reflookup
 virtualenv --python=python3.5 /tmp/www_reflookup/venv
 cd /tmp
 tar xzmfv /tmp/reflookup.tar.gz
-cp -r /tmp/ReferenceLookupService/* /tmp/www_reflookup/
+cp -r /tmp/ReferenceLookupService/. /tmp/www_reflookup/
 rm -rf /tmp/ReferenceLookupService /tmp/reflookup.tar.gz
 cd /tmp/www_reflookup
 echo ./.env

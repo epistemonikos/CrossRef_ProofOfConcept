@@ -4,7 +4,7 @@ if [ "$TRAVIS_BRANCH" = "master" ]; then
     echo "Packing distribution package..."
     cd ..
     DIST="/tmp/reflookup.tar.gz"
-    tar czfv "$DIST" --exclude='.idea' --exclude='venv' --exclude="__pycache__" ReferenceLookupService
+    tar czfv "$DIST" --exclude='.idea' --exclude='venv' --exclude="__pycache__" --exclude='.git' --exclude='.gitignore' ReferenceLookupService
     cd ReferenceLookupService
     echo "Pushing to remote..."
     scp -o StrictHostKeyChecking=no "$DIST" "ubuntu@52.3.221.80:$DIST"
