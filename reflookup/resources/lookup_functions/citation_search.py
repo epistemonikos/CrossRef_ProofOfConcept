@@ -18,7 +18,11 @@ def cr_citation_lookup(citation, return_all=False):
     :param citation: Citation to look up in CR.
     :return: A Python dict representing the best result offered by CrossRef.
     """
-    params = {'query': citation}
+    params = {
+        'query': citation,
+        'sort': 'score',
+        'order': 'desc'
+    }
     url = app.config['CROSSREF_URI']
 
     req = requests.get(url, params=params)
