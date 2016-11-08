@@ -7,7 +7,7 @@ if [ "$TRAVIS_BRANCH" = "master" ]; then
     tar czfv "$DIST" --exclude-vcs --exclude='.idea' --exclude='venv' --exclude="__pycache__" ReferenceLookupService
     cd ReferenceLookupService
     echo "Pushing to remote..."
-    scp -vvv -o StrictHostKeyChecking=no "$DIST" "ubuntu@52.3.221.80:$DIST"
-    cat travis_deploy/remote_commands_deploy.sh|ssh -vvv -o StrictHostKeyChecking=no ubuntu@52.3.221.80
+    scp -o StrictHostKeyChecking=no "$DIST" "ubuntu@52.3.221.80:$DIST"
+    cat travis_deploy/remote_commands_deploy.sh|ssh -o StrictHostKeyChecking=no ubuntu@52.3.221.80
     echo "Done"
 fi
