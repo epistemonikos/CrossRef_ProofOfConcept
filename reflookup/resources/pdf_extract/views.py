@@ -14,6 +14,11 @@ This file contains the endpoint resources for retrieving references from a pdf f
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] == 'pdf'
 
+def mama(filename):
+    return {
+        'nan' : filename
+    }
+
 class PdfReferenceExtractResource(DeferredResource):
     """
         This resource represents the /refs/pdf endpoint on the API.
@@ -31,5 +36,4 @@ class PdfReferenceExtractResource(DeferredResource):
             file.save(filename)
             return self.enqueue_task_and_return(pdf_extract_references, filename)
         else:
-            return abort(400)
-
+            return abort(400, message='no such file')
