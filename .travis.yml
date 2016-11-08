@@ -3,13 +3,13 @@ python:
 - '3.5'
 before_install:
 - openssl aes-256-cbc -K $encrypted_8d33baa02404_key -iv $encrypted_8d33baa02404_iv
-  -in travis_deploy/travis_rsa.enc -out /tmp/travis_rsa -d
+  -in secure.tar.enc -out travis_deploy/secure.tar -d
+- tar -xf ./travis_deploy/secure.tar ./travis_deploy/
+- cp ./travis_deploy/travis_rsa /tmp/travis_rsa
 - chmod +x ./travis_deploy/deploy.sh
 - chmod 600 /tmp/travis_rsa
 - eval "$(ssh-agent -s)"
 - ssh-add /tmp/travis_rsa
-- openssl aes-256-cbc -K $encrypted_8d33baa02404_key -iv $encrypted_8d33baa02404_iv
-  -in .env.enc -out .env -d
 install: pip install -r requirements.txt
 services:
 - redis-server
