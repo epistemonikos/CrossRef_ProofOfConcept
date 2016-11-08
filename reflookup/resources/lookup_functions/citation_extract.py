@@ -8,7 +8,10 @@ from flask_restful import abort
 from reflookup import app
 from reflookup.utils.standardize_json import scopus_to_standard
 from reflookup.utils.standardize_json import standardize_pubmed_summary
+
+from subprocess import check_output
 import xml.etree.ElementTree as ET
+import json
 
 
 def get_scopus_references(doi):
@@ -125,3 +128,18 @@ def getReferenceInfo(listPMID):
     for id in listPMID:
         reference_list.append(standardize_pubmed_summary(requestSummary(id)))
     return reference_list
+
+
+def pdf_extract_references(pdf):
+    res = {
+        'filename': pdf,
+        'references': []
+    }
+    try:
+        command = 'pdf-extract extract --references %s' % pdf
+        output = check_output(command, shell=True)
+        xml = ET.fromstring(output)
+        xml_references = xml.findall('reference')
+        res['references'] = [x.text for x in xml_references]
+    finally:
+        return json.dumps(res)
