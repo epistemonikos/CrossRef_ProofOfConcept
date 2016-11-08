@@ -17,7 +17,7 @@ app.config['SCOPUS_DTD'] = {
     "ce": "http://www.elsevier.com/xml/common/dtd",
 }
 
-app.config['PDF_UPLOAD_FOLDER'] = ''
+app.config['PDF_UPLOAD_FOLDER'] = 'uploads/pdf-extract/'
 
 # RefLookup
 app.config['CROSSREF_URI'] = 'http://api.crossref.org/works'
