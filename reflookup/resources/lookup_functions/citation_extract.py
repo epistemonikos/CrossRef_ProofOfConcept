@@ -5,6 +5,8 @@ import requests
 from bs4 import BeautifulSoup
 from flask_restful import abort
 
+import os
+
 from reflookup import app
 from reflookup.utils.standardize_json import scopus_to_standard
 from reflookup.utils.standardize_json import standardize_pubmed_summary
@@ -144,4 +146,5 @@ def pdf_extract_references(pdf):
         res['references'] = [x.text for x in xml_references]
         res['results'] = len(res['references'])
     finally:
+        os.remove(pdf)
         return res
