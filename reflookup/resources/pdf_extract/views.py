@@ -9,7 +9,7 @@ from werkzeug.datastructures import FileStorage
 This file contains the endpoint resources for retrieving references from a pdf file
 """
 
-class ScopusReferenceExtractResource(DeferredResource):
+class PdfReferenceExtractResource(DeferredResource):
     """
         This resource represents the /refs/pdf endpoint on the API.
     """
