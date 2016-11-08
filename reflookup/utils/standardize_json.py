@@ -1,7 +1,6 @@
 from reflookup import app
 from copy import deepcopy
 
-
 class StandardDict:
     doc_dict = {
         'title': None,
