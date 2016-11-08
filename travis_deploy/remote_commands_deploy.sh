@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
 rm -rf /tmp/www_reflookup
-mkdir /tmp/www_reflookup
-virtualenv --python=python3.5 /tmp/www_reflookup/venv
 cd /tmp
-tar xzmfv /tmp/reflookup.tar.gz
-cp -r /tmp/ReferenceLookupService/. /tmp/www_reflookup/
-rm -rf /tmp/ReferenceLookupService /tmp/reflookup.tar.gz
+tar xzmfv ./reflookup.tar.gz
+mv /tmp/ReferenceLookupService /tmp/www_reflookup
+virtualenv --python=python3.5 /tmp/www_reflookup/venv
 cd /tmp/www_reflookup
 echo ./.env
 source ./.env
