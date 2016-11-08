@@ -1,11 +1,16 @@
 import base64
+from datetime import datetime, timezone
 from functools import wraps
 
+import redis
 from flask import json
 from flask import make_response
 from flask import request
-from flask_restful import Resource
+from flask_restful import Resource, abort
+from flask_restful.reqparse import RequestParser
+from itsdangerous import BadSignature
 
+from reflookup import app, rq, taskserializer
 from reflookup.utils.pubmed_id import getPubMedID
 
 
@@ -65,3 +70,59 @@ class EncodingResource(Resource):
 
 class ExtResource(EncodingResource):
     method_decorators = [find_pubmedid_wrapper]
+
+
+class DeferredResource(EncodingResource):
+    """
+    Base Resource for deferred results resources.
+    """
+
+    def __init__(self):
+        self.post_parser = RequestParser()
+        self.get_parser = RequestParser()
+        self.get_parser.add_argument('id', type=str, location='values',
+                                     required=True)
+
+        self.result_ttl = app.config['RESULT_TTL_SECONDS']
+
+    def enqueue_task_and_return(self, function, args):
+        try:
+            job = rq.enqueue(function, args, result_ttl=self.result_ttl)
+            return {
+                       'job': taskserializer.dumps(job.id),
+                       'submitted': datetime.now(timezone.utc).isoformat()
+                   }, 202
+
+        except redis.exceptions.ConnectionError:
+            abort(500)
+
+    def post(self):
+        pass
+
+    def get(self):
+        job_id = self.get_parser.parse_args()['id']
+        try:
+            job_id = taskserializer.loads(job_id)
+        except BadSignature:
+            abort(400, message='Invalid job id')
+
+        job = rq.fetch_job(job_id)
+        if not job:
+            abort(400, message='Invalid job id')
+
+        if not job.result:
+            return {
+                       'done': False,
+                       'result': None,
+                       'length': 0,
+                       'result_ttl': self.result_ttl,
+                       'timestamp': None
+                   }, 202
+        else:
+            return {
+                       'done': True,
+                       'result': job.result,
+                       'length': len(job.result),
+                       'result_ttl': self.result_ttl,
+                       'timestamp': job.ended_at.isoformat()
+                   }, 200

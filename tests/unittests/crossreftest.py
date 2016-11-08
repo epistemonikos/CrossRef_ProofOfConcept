@@ -18,7 +18,7 @@ class CrossRefTest(basetest.BaseTest):
         assert jdata
         url = jdata.get('result', None)
         assert url
-        assert url[0].get('ids', None).get('doi', None) == self.cr_doi
+        self.assertEqual(url[0].get('ids', None).get('doi', None), self.cr_doi)
 
     def test_crossrefcrash(self):
         params = {'ref': 'kangfkadslnfklasdmnfglkamfklafñlmnadlkfmsaklf'}

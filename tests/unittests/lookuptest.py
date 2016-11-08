@@ -14,7 +14,7 @@ class LookupTest(basetest.BaseTest):
         assert jdata
         res = jdata.get('result', None)
         assert res
-        assert res[0].get('ids').get('doi', None) == self.cr_doi
+        self.assertEqual(res[0].get('ids').get('doi', None), self.cr_doi)
 
     def test_lookup2(self):
         # this test check an especial reference where mendeley service must win

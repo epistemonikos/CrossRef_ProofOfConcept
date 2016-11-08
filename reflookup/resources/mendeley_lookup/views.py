@@ -2,7 +2,7 @@ from urllib.parse import unquote
 
 from flask_restful import reqparse
 
-from reflookup.resources.lookup_functions import mendeley_lookup
+from reflookup.resources.lookup_functions.citation_search import mendeley_lookup
 from reflookup.utils.restful.utils import ExtResource
 
 """

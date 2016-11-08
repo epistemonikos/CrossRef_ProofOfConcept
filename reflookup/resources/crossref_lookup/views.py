@@ -2,7 +2,7 @@ from urllib.parse import unquote
 
 from flask_restful import reqparse
 
-from reflookup.resources.lookup_functions import cr_citation_lookup, \
+from reflookup.resources.lookup_functions.citation_search import cr_citation_lookup, \
     cr_doi_lookup
 from reflookup.utils.restful.utils import ExtResource
 
