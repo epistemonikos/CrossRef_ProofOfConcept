@@ -8,6 +8,7 @@ tar xzmfv /tmp/reflookup.tar.gz
 cp -r /tmp/ReferenceLookupService/* /tmp/www_reflookup/
 rm -rf /tmp/ReferenceLookupService /tmp/reflookup.tar.gz
 cd /tmp/www_reflookup
+source .env
 ./venv/bin/pip install -r requirements.txt
 killall gunicorn #TODO: FIX
 screen -d -m ./venv/bin/gunicorn --workers 3 --bind 0.0.0.0:5000 reflookup.wsgi:app --error-logfile errors.log

@@ -3,6 +3,8 @@ python:
 - '3.5'
 before_install:
 - openssl aes-256-cbc -K $encrypted_8d33baa02404_key -iv $encrypted_8d33baa02404_iv
+  -in .env.enc -out .env -d
+- openssl aes-256-cbc -K $encrypted_8d33baa02404_key -iv $encrypted_8d33baa02404_iv
   -in travis_deploy/travis_rsa.enc -out /tmp/travis_rsa -d
 - chmod +x ./travis_deploy/deploy.sh
 - chmod 600 /tmp/travis_rsa
