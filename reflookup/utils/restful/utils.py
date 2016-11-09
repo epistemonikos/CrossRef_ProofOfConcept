@@ -85,7 +85,7 @@ class DeferredResource(EncodingResource):
 
         self.result_ttl = app.config['RESULT_TTL_SECONDS']
 
-    def enqueue_task_and_return(self, function, args):
+    def enqueue_job_and_return(self, function, args):
         try:
             job = rq.enqueue(function, args, result_ttl=self.result_ttl)
             return {
@@ -96,10 +96,7 @@ class DeferredResource(EncodingResource):
         except redis.exceptions.ConnectionError:
             abort(500)
 
-    def post(self):
-        pass
-
-    def get(self):
+    def check_job(self):
         job_id = self.get_parser.parse_args()['id']
         try:
             job_id = taskserializer.loads(job_id)
@@ -108,7 +105,7 @@ class DeferredResource(EncodingResource):
 
         job = rq.fetch_job(job_id)
         if not job:
-            abort(400, message='Invalid job id')
+            abort(404, message='No such job, or job discarded on TTL timeout.')
 
         if not job.result:
             return {
@@ -126,3 +123,9 @@ class DeferredResource(EncodingResource):
                        'result_ttl': self.result_ttl,
                        'timestamp': job.ended_at.isoformat()
                    }, 200
+
+    def post(self):
+        pass
+
+    def get(self):
+        pass

@@ -218,4 +218,4 @@ class BatchLookupResource(DeferredResource):
         if params['length'] != len(refs):
             abort(400)
 
-        return self.enqueue_task_and_return(batch_lookup, refs)
+        return self.enqueue_job_and_return(batch_lookup, refs)

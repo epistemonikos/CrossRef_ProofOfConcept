@@ -34,6 +34,6 @@ class PdfReferenceExtractResource(DeferredResource):
         if file and allowed_file(file.filename):
             filename = os.path.join(app.config['PDF_UPLOAD_FOLDER'], secure_filename(file.filename))
             file.save(filename)
-            return self.enqueue_task_and_return(pdf_extract_references, filename)
+            return self.enqueue_job_and_return(pdf_extract_references, filename)
         else:
             return abort(400, message='no such file')

@@ -32,4 +32,4 @@ class ScopusReferenceExtractResource(DeferredResource):
         data = self.post_parser.parse_args()
         doi = unquote(data['doi']).strip()
 
-        return self.enqueue_task_and_return(deferred_extract_references, doi)
+        return self.enqueue_job_and_return(deferred_extract_references, doi)

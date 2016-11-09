@@ -23,4 +23,4 @@ class PubmedReferenceExtractResource(DeferredResource):
         data = self.post_parser.parse_args()
         pmid = unquote(data['pmid']).strip()
 
-        return self.enqueue_task_and_return(deferred_extract_references, pmid)
+        return self.enqueue_job_and_return(deferred_extract_references, pmid)
