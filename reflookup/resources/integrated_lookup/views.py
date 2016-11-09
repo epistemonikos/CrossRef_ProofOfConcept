@@ -7,7 +7,8 @@ from flask_restful import Resource, abort
 from flask_restful.reqparse import RequestParser
 from werkzeug.utils import redirect
 
-from reflookup.resources.lookup_functions.citation_search import cr_citation_lookup, \
+from reflookup.resources.lookup_functions.citation_search import \
+    cr_citation_lookup, \
     mendeley_lookup
 from reflookup.search_form import ReferenceLookupForm
 from reflookup.utils.pubmed_id import getPubMedID
@@ -17,32 +18,39 @@ from reflookup.utils.standardize_json import StandardDict
 
 
 def lookup_crossref(ref, ret, return_all=False):
-  """
+    """
   Crossref lookup wrapper, used for threading
   :param ref: Citation for lookup in Crossref
   :param ret: Aux variable for result submitting
   :param return_all: Optional parameter indicating to return whole list of results instead of only the first.
   """
-  ret['result'] = cr_citation_lookup(ref, return_all)
+    try:
+        ret['result'] = cr_citation_lookup(ref, return_all)
+    except HTTPException as e:
+        ret['result'] = None
+        ret['code'] = e.code
+        ret['description'] = e.description
 
 
 def lookup_mendeley(ref, ret, return_all=False):
-  """
+    """
   Mendeley lookup wrapper, used for threading
   :param ref: Citation for lookup in Mendeley
   :param ret: Aux variable for result submitting
   :param return_all: Optional parameter indicating to return whole list of results instead of only the first.
   """
-  try:
-    ret['result'] = mendeley_lookup(ref, return_all)
-  except HTTPException:
-    ret = {}
+    try:
+        ret['result'] = mendeley_lookup(ref, return_all)
+    except HTTPException as e:
+        ret['result'] = None
+        ret['code'] = e.code
+        ret['description'] = e.description
 
 
 def integrated_lookup(citation, return_all=False, return_both=False):
     """
-    Mendeley & Crossref integrated lookup. By default this function returns the highest ranked 
-    result, but can be moified to return the whole list or the best result of each service  
+    Mendeley & Crossref integrated lookup. By default this function returns the highest ranked
+    result, but can be moified to return the whole list or the best result of each service
     :param citation: Given citation for lookup
     :param return_all: Optional parameter indicating to return whole list of results instead of only the first.
     :param return_both: Optional parameter indicating to return the best results of each serrvice.
@@ -61,6 +69,19 @@ def integrated_lookup(citation, return_all=False, return_both=False):
 
     t1.join()
     t2.join()
+
+    if not cr.get('result', None) and not md.get('result', None):
+        if cr.get('code', None) == 404:
+            abort(404,
+                  message='No results found for query {}'.format(citation))
+        elif cr.get('code', None) == md.get('code', None):
+            abort(cr.get('code'), message=cr.get('description'))
+        else:
+            abort(500, message='Remote services returned with error codes.'
+                               'Crossref: {crcode} - {crdesc}'
+                               'Mendeley: {mdcode} - {mddesc}'.format(
+                crcode=cr.get('code'), crdesc=cr.get('description'),
+                mdcode=md.get('code'), mddesc=md.get('description')))
 
     if return_all:
         def get_rating(result):

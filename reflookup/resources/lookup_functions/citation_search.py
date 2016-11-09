@@ -1,7 +1,7 @@
 from datetime import datetime
 
 import requests
-from werkzeug.exceptions import abort
+from flask_restful import abort
 
 from reflookup import app
 from reflookup.utils.rating.rating import Rating
@@ -27,12 +27,12 @@ def cr_citation_lookup(citation, return_all=False):
 
     req = requests.get(url, params=params)
     if req.status_code != 200:
-        abort(req.status_code, 'Remote API error.')
+        abort(req.status_code, message='Remote API error.')
 
     rv = req.json()
 
     if len(rv['message']['items']) < 1:
-        abort(404, 'No results found for query.')
+        abort(404, message='No results found for query.')
 
     if return_all:
         result = []
@@ -58,9 +58,9 @@ def cr_doi_lookup(doi):
     url = app.config['CROSSREF_URI'] + "/" + doi
     req = requests.get(url)
     if req.status_code == 400:
-        abort(404, 'Resource not found')
+        abort(404, message='Resource not found')
     elif req.status_code != 200:
-        abort(req.status_code, 'Remote API error.')
+        abort(req.status_code, message='Remote API error.')
     else:
         result = req.json()['message']
         result = crossref_to_standard(result)
@@ -90,12 +90,12 @@ def mendeley_lookup(citation, return_all=False):
             refresh_mendeley_token()
             return mendeley_lookup(citation)
         else:
-            abort(req.status_code, 'Remote API error.')
+            abort(req.status_code, message='Remote API error.')
 
     rv = req.json()
 
     if len(rv) < 1:
-        abort(404, 'No results found for query.')
+        abort(404, message='No results found for query.')
 
     if return_all:
         result = []
@@ -134,7 +134,7 @@ def mendeley_doi_lookup(doi):
             refresh_mendeley_token()
             return mendeley_doi_lookup(doi)
         else:
-            abort(req.status_code, 'Remote API error.')
+            abort(req.status_code, message='Remote API error.')
 
     rv = req.json()
 
@@ -162,7 +162,7 @@ def refresh_mendeley_token():
 
         return app.config['MENDELEY_ACCESS_TOKEN']
 
-    abort(500, 'Error when renewing Mendeley access token.')
+    abort(500, message='Error when renewing Mendeley access token.')
 
 
 def get_mendeley_access_token():
