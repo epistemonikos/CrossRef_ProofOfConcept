@@ -123,9 +123,3 @@ class DeferredResource(EncodingResource):
                        'result_ttl': self.result_ttl,
                        'timestamp': job.ended_at.isoformat()
                    }, 200
-
-    def post(self):
-        pass
-
-    def get(self):
-        pass
