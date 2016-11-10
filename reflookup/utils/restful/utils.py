@@ -107,7 +107,17 @@ class DeferredResource(EncodingResource):
         if not job:
             abort(404, message='No such job, or job discarded on TTL timeout.')
 
-        if not job.result:
+        if job.exc_info:
+            # error
+            return {
+                       'done': True,
+                       'result': None,
+                       'length': -1,
+                       'result_ttl': 0,
+                       'timestamp': datetime.now().isoformat()
+                   }, 400
+
+        elif not job.result:
             return {
                        'done': False,
                        'result': None,
@@ -116,10 +126,11 @@ class DeferredResource(EncodingResource):
                        'timestamp': None
                    }, 202
         else:
+            result = job.result if type(job.result) == list else [job.result]
             return {
                        'done': True,
-                       'result': job.result,
-                       'length': len(job.result),
+                       'result': result,
+                       'length': len(result),
                        'result_ttl': self.result_ttl,
                        'timestamp': job.ended_at.isoformat()
                    }, 200

@@ -133,18 +133,13 @@ def getReferenceInfo(listPMID):
 
 
 def pdf_extract_references(pdf):
-    res = {
-        'filename': pdf,
-        'references': [],
-        'results' : 0
-    }
+    refs = []
     try:
         command = 'pdf-extract extract --references %s' % pdf
         output = check_output(command, shell=True)
         xml = ET.fromstring(output)
         xml_references = xml.findall('reference')
-        res['references'] = [x.text for x in xml_references]
-        res['results'] = len(res['references'])
+        refs = [x.text for x in xml_references]
     finally:
         os.remove(pdf)
-        return res
+        return refs
