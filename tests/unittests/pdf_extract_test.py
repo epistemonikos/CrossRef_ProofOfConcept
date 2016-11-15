@@ -16,13 +16,16 @@ class PdfExtractTest(BaseTest):
         self.references_path = os.path.join(os.path.dirname(__file__), 'sources/output_pdf_extract_test')
         self.pdf = open(self.pdf_path, 'rb')
         self.references = result
-        self.url_base = 'http://0.0.0.0:5001'
+        self.url_base = "http://%s:%s" % (
+                app.config['HOST'],
+                app.config['PORT']
+            ) + self.prefix
 
     def test_pdf_extract(self):
         files = {
             'pdf_file' : self.pdf
         }
-        ret = requests.post(self.url_base + self.prefix + '/refs/pdf', files=files)
+        ret = requests.post(self.url_base + '/refs/pdf', files=files)
         assert ret
         jdata = ret.json()
         assert jdata
@@ -32,7 +35,7 @@ class PdfExtractTest(BaseTest):
             'id' : token
         }
         while True:
-            ret = requests.get(self.url_base + '/api/v1/job', data=data)
+            ret = requests.get(self.url_base + '/job', data=data)
             jdata = ret.json()
             if jdata.get('done'):
                 references = jdata.get('result') or []
