@@ -8,6 +8,7 @@ from reflookup.resources.pdf_extract.views import PdfReferenceExtractResource
 from reflookup.resources.scopus_extract.views import ScopusReferenceExtractResource
 from reflookup.resources.pubmed_extract.views import PubmedReferenceExtractResource
 from reflookup.resources.jobs.views import JobResource
+from reflookup.resources.integrated_extract.views import IntegratedReferenceExtractResource
 
 prefix = app.config['API_PREFIX']
 api.add_resource(CrossRefLookupResource, prefix + '/crsearch')
@@ -20,3 +21,4 @@ api.add_resource(ScopusReferenceExtractResource, prefix + '/refs/scopus')
 api.add_resource(PubmedReferenceExtractResource, prefix + '/refs/pubmed')
 api.add_resource(PdfReferenceExtractResource, prefix + '/refs/pdf')
 api.add_resource(JobResource, prefix + '/job')
+api.add_resource(IntegratedReferenceExtractResource, prefix + '/refs')

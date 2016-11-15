@@ -111,10 +111,10 @@ class DeferredResource(EncodingResource):
             # error
             return {
                        'done': True,
-                       'result': None,
+                       'result': str(job.exc_info),
                        'length': -1,
                        'result_ttl': 0,
-                       'timestamp': datetime.now().isoformat()
+                       'timestamp': datetime.now().isoformat(),
                    }, 400
 
         elif not job.result:
