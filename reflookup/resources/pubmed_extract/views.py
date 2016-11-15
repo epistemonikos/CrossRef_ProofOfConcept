@@ -16,11 +16,11 @@ class PubmedReferenceExtractResource(DeferredResource):
 
     def __init__(self):
         super().__init__()
-        self.post_parser.add_argument('pmid', type=str, required=True,
+        self.post_parser.add_argument('pmid', type=int, required=True,
                                       location='values')
 
     def post(self):
         data = self.post_parser.parse_args()
-        pmid = unquote(data['pmid']).strip()
+        pmid = data['pmid']
 
-        return self.enqueue_job_and_return(deferred_extract_references, pmid)
+        return self.enqueue_job_and_return(deferred_extract_references, str(pmid))
