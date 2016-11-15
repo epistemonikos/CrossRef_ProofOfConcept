@@ -1,7 +1,7 @@
-from reflookup.resources.parsers.default_parser import Parser
+from reflookup.utils.parsers.default_parser import DefaultParser
 
 
-class WileyParser(Parser):
+class WileyParser(DefaultParser):
 
     def __init__(self):
         self.publication_info = None

@@ -1,8 +1,8 @@
 from urllib.parse import urlparse, parse_qs
-from reflookup.resources.parsers.default_parser import Parser
+from reflookup.utils.parsers.default_parser import DefaultParser
 
 
-class SpringerParser(Parser):
+class SpringerParser(DefaultParser):
 
     def get_title(self):
         title = self.soup.body.find('h1', 'ArticleTitle')

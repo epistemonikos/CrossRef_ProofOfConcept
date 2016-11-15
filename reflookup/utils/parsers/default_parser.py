@@ -1,10 +1,9 @@
 from bs4 import BeautifulSoup
 
+class DefaultParser():
 
-class Parser():
-
-    def parse(self, file):
-        self.soup = BeautifulSoup(open(file, encoding='utf-8'), 'html.parser')
+    def parse(self, url):
+        self.soup = BeautifulSoup(open(url, encoding='utf-8'), 'html.parser')
         return {
             'title': self.get_title(),
             'publication_info': self.get_publication_info(),
