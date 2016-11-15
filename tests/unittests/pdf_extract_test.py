@@ -1,3 +1,4 @@
+from io import BytesIO
 from flask import json
 import unittest
 from urllib.parse import quote
@@ -16,18 +17,20 @@ class PdfExtractTest(BaseTest):
         self.references_path = os.path.join(os.path.dirname(__file__), 'sources/output_pdf_extract_test')
         self.pdf = open(self.pdf_path, 'rb')
         self.references = result
-        self.url_base = "http://%s:%s" % (
-                app.config['HOST'],
-                app.config['PORT']
-            ) + self.prefix
+        self.url_base = self.prefix
 
     def test_pdf_extract(self):
-        files = {
-            'pdf_file' : self.pdf
+        data = {
+            'pdf_file' : (self.pdf, 'pdf_extract_test.pdf')
         }
-        ret = requests.post(self.url_base + '/refs/pdf', files=files)
+        ret = self.app.post(
+                self.url_base + '/refs/pdf',
+                content_type='multipart/form-data',
+                data=data,
+                follow_redirects=True
+            )
         assert ret
-        jdata = ret.json()
+        jdata = json.loads(ret.data)
         assert jdata
         token = jdata.get('job', None)
         assert token
@@ -35,10 +38,11 @@ class PdfExtractTest(BaseTest):
             'id' : token
         }
         while True:
-            ret = requests.get(self.url_base + '/job', data=data)
-            jdata = ret.json()
+            ret = self.app.get(self.url_base + '/job', data=data)
+            jdata = json.loads(ret.data)
             if jdata.get('done'):
                 references = jdata.get('result') or []
+                import pdb; pdb.set_trace()
                 self.assertEqual(references, self.references)
                 break
             time.sleep(3)
