@@ -14,11 +14,6 @@ This file contains the endpoint resources for retrieving references from a pdf f
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] == 'pdf'
 
-def mama(filename):
-    return {
-        'nan' : filename
-    }
-
 class PdfReferenceExtractResource(DeferredResource):
     """
         This resource represents the /refs/pdf endpoint on the API.

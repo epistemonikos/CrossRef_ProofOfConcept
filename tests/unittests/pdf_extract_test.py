@@ -8,8 +8,6 @@ import time
 from tests.unittests.sources.output_pdf_extract_test import result
 
 class PdfExtractTest(unittest.TestCase):
-    __module__ = __name__
-    __qualname__ = 'PdfExtractTest'
 
     def setUp(self):
         app.config['TESTING'] = True
@@ -26,7 +24,9 @@ class PdfExtractTest(unittest.TestCase):
             raise AssertionError
 
     def test_pdf_extract(self):
-        files = {}
+        files = {
+            'pdf_file' : self.pdf
+        }
         ret = requests.post(self.url_base + self.prefix + '/refs/pdf', files=files)
         if not ret:
             raise AssertionError
@@ -36,10 +36,17 @@ class PdfExtractTest(unittest.TestCase):
         token = jdata.get('job', None)
         if not token:
             raise AssertionError
-        while done:
-            references = (jdata.get('result') or {}).get('references', None)
-            self.assertEqual(references, self.references)
-            break
+        data = {
+            'id' : token
+        }
+        while True:    
+            ret = requests.get(self.url_base + '/api/v1/job', data=data)
+            jdata = ret.json()
+            if jdata.get('done'):
+                references = jdata.get('result') or []
+                self.assertEqual(references, self.references)
+                break
             time.sleep(10)
 
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()

@@ -140,6 +140,8 @@ def pdf_extract_references(pdf):
         xml = ET.fromstring(output)
         xml_references = xml.findall('reference')
         refs = [x.text for x in xml_references]
+        return refs
+    except:
+        raise Exception()
     finally:
         os.remove(pdf)
-        return refs
