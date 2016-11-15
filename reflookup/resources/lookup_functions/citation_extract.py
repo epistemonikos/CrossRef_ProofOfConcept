@@ -39,10 +39,10 @@ def get_scopus_references(doi):
         return refs
 
     elif resp.status_code == 404:
-        abort(404, message='Resource not found.')
+        abort(404, message='No references found for DOI: ' + doi)
     else:
         abort(resp.status_code,
-              message="Couldn't retrieve references for DOI:" + doi)
+              message="Couldn't retrieve references for DOI: " + doi)
 
 
 def getPubMedID(standardjson):
