@@ -39,10 +39,10 @@ def get_scopus_references(doi):
         return refs
 
     elif resp.status_code == 404:
-        abort(404, message='No references found for DOI: ' + doi)
+        abort(404, message='No references found for DOI ' + doi)
     else:
         abort(resp.status_code,
-              message="Couldn't retrieve references for DOI: " + doi)
+              message="Couldn't retrieve references for DOI " + doi)
 
 
 def getPubMedID(standardjson):
@@ -109,7 +109,7 @@ def getRefID(pubmedID):
         ref_list = soup.find('commentscorrectionslist').find_all('pmid')
         return list(map(lambda x: x.get_text(), ref_list))
     else:
-        return []
+        abort(404, message='No references found for Pubmed ID {}'.format(pubmedID))
 
 
 def requestPubMed(term):
