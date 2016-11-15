@@ -42,7 +42,6 @@ class PdfExtractTest(BaseTest):
             jdata = json.loads(ret.data)
             if jdata.get('done'):
                 references = jdata.get('result') or []
-                import pdb; pdb.set_trace()
                 self.assertEqual(references, self.references)
                 break
             time.sleep(3)
