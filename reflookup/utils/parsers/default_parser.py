@@ -1,9 +1,11 @@
 from bs4 import BeautifulSoup
+import urllib.request
 
 class DefaultParser():
 
     def parse(self, url):
-        self.soup = BeautifulSoup(open(url, encoding='utf-8'), 'html.parser')
+        html = urllib.request.urlopen(url).read()
+        self.soup = BeautifulSoup(html, 'html.parser')
         return {
             'title': self.get_title(),
             'publication_info': self.get_publication_info(),
