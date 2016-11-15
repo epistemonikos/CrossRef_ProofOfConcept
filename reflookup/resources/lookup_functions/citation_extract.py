@@ -139,7 +139,7 @@ def pdf_extract_references(pdf):
         output = check_output(command, shell=True)
         xml = ET.fromstring(output)
         xml_references = xml.findall('reference')
-        refs = [x.text for x in xml_references]
+        refs = [x.text.replace("\n"," ") for x in xml_references]
         return refs
     except:
         raise Exception()
