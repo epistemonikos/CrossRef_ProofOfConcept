@@ -8,6 +8,10 @@ from rq import Queue
 
 app = Flask(__name__)
 
+# SERVER
+app.config['HOST'] = '0.0.0.0'
+app.config['PORT'] = 5001
+
 # Quick References
 app.config['SCOPUS_URI'] = 'https://api.elsevier.com/content/article/doi/'
 app.config['SCOPUS_API_KEY'] = 'd1dd2bfada7ec327c3f4a3e316ec98b8'
