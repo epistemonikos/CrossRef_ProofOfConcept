@@ -28,16 +28,7 @@ def get_scopus_references(doi):
 
     if resp.status_code == 200:
         xml = ET.fromstring(resp.text)
-
-        references = xml.findall("default:originalText//ce:bib-reference",
-                                 app.config['SCOPUS_DTD'])
-
-        refs = []
-        for r in references:
-            refs.append(scopus_to_standard(r))
-
-        return refs
-
+        return scopus_to_standard(xml)
     elif resp.status_code == 404:
         abort(404, message='No references found for DOI ' + doi)
     else:

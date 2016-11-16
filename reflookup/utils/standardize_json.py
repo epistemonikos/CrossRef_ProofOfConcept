@@ -101,7 +101,70 @@ def mendeley_to_standard(mjson):
     return std
 
 
-def scopus_to_standard(r):
+def scopus_to_standard(xml):
+    resp = StandardDict().getEmpty()
+
+    coredata = xml.find("default:coredata", app.config['SCOPUS_DTD'])
+
+    # Title
+    title = coredata.find("dc:title", app.config['SCOPUS_DTD'])
+    resp["title"] = title.text.strip()
+
+    # Abstract
+    abstract = coredata.find("dc:description", app.config['SCOPUS_DTD'])
+    resp["abstract"] = abstract.text.strip()
+
+    # Type
+    type = coredata.find("default:pubType", app.config['SCOPUS_DTD'])
+    access = coredata.find("default:openaccessArticle", app.config['SCOPUS_DTD'])
+    if access.text.strip() == "false":
+        resp["type"] = type.text.strip() + " (Closed Access)"
+    else:
+        resp["type"] = type.text.strip() + " (Open Access)"
+
+    # IDs
+    doi = coredata.find("prism:doi", app.config['SCOPUS_DTD'])
+    resp["ids"]["doi"] = doi.text.strip()
+
+    scopus_id = xml.find("default:scopus-id", app.config['SCOPUS_DTD'])
+    resp["ids"]["scopus"] = int(scopus_id.text.strip())
+
+    # Publication Info
+    journal = coredata.find("prism:publicationName", app.config['SCOPUS_DTD'])
+    resp["publication_type"]["title"] = journal.text.strip()
+
+    volume = coredata.find("prism:volume", app.config['SCOPUS_DTD'])
+    resp["publication_type"]["volume"] = int(volume.text.strip())
+
+    year = coredata.find("prism:coverDisplayDate", app.config['SCOPUS_DTD'])
+    resp["publication_type"]["year"] = int(year.text.strip()[-4:])
+
+    issue = coredata.find("prism:issueIdentifier", app.config['SCOPUS_DTD'])
+    resp["publication_type"]["issue"] = int(issue.text.strip())
+
+    issn = coredata.find("prism:issn", app.config['SCOPUS_DTD'])
+    resp["publication_type"]["issn"] = int(issn.text.strip())
+
+    first_page = coredata.find("prism:startingPage", app.config['SCOPUS_DTD'])
+    last_page = coredata.find("prism:endingPage", app.config['SCOPUS_DTD'])
+    resp["publication_type"]["pagination"] = {
+        "first": first_page.text.strip(),      # La numeracion incluye letras, no se pueden
+        "last": last_page.text.strip()         # guardar como int
+    }
+
+    # Authors
+    resp["authors"] = [ x.text.strip() for x in coredata.findall("dc:creator", app.config['SCOPUS_DTD'])]
+
+    # References
+    references = xml.findall("default:originalText//ce:bib-reference",
+                             app.config['SCOPUS_DTD'])
+    resp["references"] = [scopus_ref_to_standard(r) for r in references]
+
+    resp["source"] = "Scopus API"
+    return resp
+
+
+def scopus_ref_to_standard(r):
     ref_dict = StandardDict().getEmpty()
     ref_text = ""
     for a in r.findall(".//sb:author", app.config['SCOPUS_DTD']):

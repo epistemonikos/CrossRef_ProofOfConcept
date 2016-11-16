@@ -19,6 +19,8 @@ app.config['SCOPUS_DTD'] = {
     "default": "http://www.elsevier.com/xml/svapi/article/dtd",
     "sb": "http://www.elsevier.com/xml/common/struct-bib/dtd",
     "ce": "http://www.elsevier.com/xml/common/dtd",
+    "prism": "http://prismstandard.org/namespaces/basic/2.0/",
+    "dc": "http://purl.org/dc/elements/1.1/"
 }
 
 app.config['PDF_UPLOAD_FOLDER'] = 'uploads/pdf-extract/'
