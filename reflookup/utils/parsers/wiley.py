@@ -19,8 +19,8 @@ class WileyParser(DefaultParser):
         return journal
 
     def load_publication_info(self):
-        self.publication_info = [x.strip() for x in
-                                 self.soup.body.find('p', 'issue-header__description').text.strip().split('\n')[1:]]
+        pub_info = self.soup.body.find('p', 'issue-header__description').prettify().split('\n')
+        self.publication_info = [x.strip() for x in pub_info if "<" not in x][1:]
 
     def get_year(self):
         if not self.publication_info:
@@ -53,7 +53,7 @@ class WileyParser(DefaultParser):
         return doi
 
     def get_authors(self):
-        return [a.text.strip() for a in self.soup.body.find_all('span', 'authors__name')]
+        return [a['data-author-name'] for a in self.soup.body.find_all('li', 'article-header__authors-item')]
 
     def get_abstract(self):
         abstract = self.soup.body.find('section', id='abstract')
