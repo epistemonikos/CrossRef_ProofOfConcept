@@ -40,7 +40,6 @@ class ScienceDirectParser(Parser):
           k.append(keywords.find('span').get_text())
       return k
 
-
     def get_journal(self):
         journal = self.soup.body.find('div','publicationHead')
         if journal:
@@ -77,19 +76,15 @@ class ScienceDirectParser(Parser):
            pages['last']= pgs.strip().split(' ')[1].split('–')[1]
         return pages
 
-
     def get_doi(self):
         return getCorrectDoi(self.soup.body.find('dd','doi').get_text())
 
-
-
     def get_references(self):
-            r = []
-            for groupofreferences in self.soup.body.find_all('ol','references'):
-                for references in groupofreferences.find_all('ul', 'reference'):
-                    r.append(self.get_reference_info(references))
-
-            return r
+        r = []
+        for groupofreferences in self.soup.body.find_all('ol','references'):
+            for references in groupofreferences.find_all('ul', 'reference'):
+                r.append(self.get_reference_info(references))
+        return r
 
     def get_ref_doi(self, ref):
         doi = ref.find('li','source')

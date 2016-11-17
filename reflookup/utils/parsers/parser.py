@@ -2,6 +2,8 @@ from reflookup.utils.parsers.default_parser import DefaultParser
 from reflookup.utils.parsers.bmc import BMCParser
 from reflookup.utils.parsers.springer import SpringerParser
 from reflookup.utils.parsers.wiley import WileyParser
+from reflookup.utils.parsers.sciencedirect import ScienceDirectParser
+from reflookup.utils.parsers.plos import PlosParser
 import requests
 
 class Parser:
@@ -21,6 +23,10 @@ class Parser:
             parser = SpringerParser()
         elif "biomedcentral" in url:
             parser = BMCParser()
+        elif "sciencedirect" in url:
+            parser = ScienceDirectParser()
+        elif "plos" in url:
+            parser = PlosParser()
         else:
             parser = DefaultParser()
         return parser.parse(url)
