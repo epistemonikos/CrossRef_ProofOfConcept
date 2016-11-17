@@ -25,7 +25,7 @@ class Parser:
             parser = BMCParser()
         elif "sciencedirect" in url:
             parser = ScienceDirectParser()
-        elif "plos" in url:
+        elif "plos.org" in url:
             parser = PlosParser()
         else:
             parser = DefaultParser()
