@@ -1,7 +1,6 @@
-
 import re
 from functools import reduce
-from parsers.default_parser import Parser
+from reflookup.utils.parsers.default_parser import DefaultParser
 
 def getCorrectDoi(url):
         stringSplit = url.split('/')
@@ -11,7 +10,7 @@ def getCorrectDoi(url):
         else:
             return  url
 
-class ScienceDirectParser(Parser):
+class ScienceDirectParser(DefaultParser):
 
     def get_title(self):
         title = self.soup.body.find('h1','svTitle')

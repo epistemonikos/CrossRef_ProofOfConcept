@@ -13,7 +13,6 @@ def parse(url):
     # Resolver el doi
     if "doi.org" in url:
         url = requests.get(url, allow_redirects=True).url
-
     # Ocupar el parser adecuado
     if "wiley" in url:
         parser = WileyParser()
@@ -23,7 +22,7 @@ def parse(url):
         parser = BMCParser()
     elif "sciencedirect" in url:
         parser = ScienceDirectParser()
-    elif "plos" in url:
+    elif "plos.org" in url:
         parser = PlosParser()
     else:
         parser = DefaultParser()
