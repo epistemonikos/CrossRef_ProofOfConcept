@@ -6,7 +6,8 @@ class BaseParserTest(TestCase):
 
     def setUp(self):
         self.parser = DefaultParser()
-        self.data = self.parser.parse("") # Cambiar por un json vacio?
+        self.url = "http://www.google.cl"
+        self.data = self.parser.parse(self.url) # Cambiar por un json vacio?
 
     def test_parse_title(self):
         title = self.parser.get_title()
