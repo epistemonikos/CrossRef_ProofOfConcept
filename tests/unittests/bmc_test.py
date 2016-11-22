@@ -6,16 +6,13 @@ import json
 
 class BMCParserTest(TestCase):
 
-    def __init__(self):     # Hay algo mejor que esto para hacer un setUp a nivel de clase?
-        super().__init__()
+    def setUp(self):
+        reflookup.app.config['TESTING'] = True
         self.url = "http://bmcnephrol.biomedcentral.com/articles/10.1186/s12882-016-0293-8"
         with open('sources/bmc.json', 'r') as result:
             self.data = json.load(result)
         self.parser = BMCParser()
         self.parser.parse(self.url)
-
-    def setUp(self):
-        reflookup.app.config['TESTING'] = True
 
     def test_parse_title(self):
         title = self.parser.get_title()
