@@ -5,8 +5,13 @@ from tests.unittests import basetest
 
 
 class LookupTest(basetest.BaseTest):
-    #this test check an especial reference where crossref service must win
+    """
+        This Test class check the /search endpoint.
+    """
     def test_lookup(self):
+        """
+            This test check an especial reference where crossref service must win
+        """
         params = {'ref': self.test_cite}
         ret = self.app.post(self.prefix + '/search', data=params)
         assert ret
@@ -17,7 +22,9 @@ class LookupTest(basetest.BaseTest):
         self.assertEqual(res[0].get('ids').get('doi', None), self.cr_doi)
 
     def test_lookup2(self):
-        # this test check an especial reference where mendeley service must win
+        """
+        This test check an especial reference where mendeley service must win
+        """
         params = {'ref': self.test_cite_mendeley}
         ret = self.app.post(self.prefix + '/search', data=params)
         assert ret
