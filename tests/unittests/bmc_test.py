@@ -2,19 +2,20 @@ import unittest
 from unittest import TestCase
 import reflookup
 from reflookup.utils.parsers.bmc import BMCParser
+import json
 
 class BMCParserTest(TestCase):
 
-    def __init__(self):
+    def __init__(self):     # Hay algo mejor que esto para hacer un setUp a nivel de clase?
         super().__init__()
-        self.url = ""
-        self.data = {}
+        self.url = "http://bmcnephrol.biomedcentral.com/articles/10.1186/s12882-016-0293-8"
+        with open('sources/bmc.json', 'r') as result:
+            self.data = json.load(result)
         self.parser = BMCParser()
         self.parser.parse(self.url)
 
     def setUp(self):
         reflookup.app.config['TESTING'] = True
-        self.app = reflookup.app.test_client()
 
     def test_parse_title(self):
         title = self.parser.get_title()
@@ -65,5 +66,10 @@ class BMCParserTest(TestCase):
         self.assertEqual(keywords, self.data["keywords"])
 
     def test_parse_references(self):
-        references = self.parser.get_references()
-        self.assertEqual(references, self.data["references"])
+        refs = self.parser.soup.body.find_all('cite', 'CitationContent')
+        for i in range(0, len(refs)):
+            with self.subTest(i=i):
+                self.assertEqual(self.parser.get_ref_text(refs[i]), self.data["references"][i]["reference"])
+                self.assertEqual(self.parser.get_ref_doi(refs[i]), self.data["references"][i]["ids"]["doi"])
+                self.assertEqual(self.parser.get_ref_pubmedID(refs[i]), self.data["references"][i]["ids"]["pmid"])
+                self.assertEqual(self.parser.get_ref_scholar(refs[i]), self.data["references"][i]["ids"]["scholar"])
