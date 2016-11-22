@@ -3,13 +3,15 @@ from unittest import TestCase
 import reflookup
 from reflookup.utils.parsers.bmc import BMCParser
 import json
+import os
 
 class BMCParserTest(TestCase):
 
     def setUp(self):
         reflookup.app.config['TESTING'] = True
         self.url = "http://bmcnephrol.biomedcentral.com/articles/10.1186/s12882-016-0293-8"
-        with open('sources/bmc.json', 'r') as result:
+        self.path = os.path.join(os.path.dirname(__file__), 'sources/bmc.json')
+        with open(self.path, 'r') as result:
             self.data = json.load(result)
         self.parser = BMCParser()
         self.parser.parse(self.url)
