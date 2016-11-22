@@ -4,7 +4,13 @@ import reflookup
 
 
 class BaseTest(TestCase):
+    """
+    This is a base testing class for crossref and mendeley services.
+    """
     def setUp(self):
+        """
+        This is an initial method to run the testing below and the testing in other class that inherit from this class
+        """
         reflookup.app.config['TESTING'] = True
         self.app = reflookup.app.test_client()
         self.prefix = reflookup.app.config['API_PREFIX']
@@ -14,6 +20,9 @@ class BaseTest(TestCase):
         self.md_doi = '10.1053/j.gastro.2008.09.013'
 
     def test_base(self):
+        """
+        This is a simple test to makesure that the services is running
+        """
         assert self.app
 
 
