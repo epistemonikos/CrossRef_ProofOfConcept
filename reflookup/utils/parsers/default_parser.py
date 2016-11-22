@@ -4,7 +4,7 @@ import urllib.request
 class DefaultParser():
 
     def parse(self, url):
-        html = urllib.request.urlopen(url).read()
+        html = ""
         self.soup = BeautifulSoup(html, 'html.parser')
         return {
             'title': self.get_title(),
