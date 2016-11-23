@@ -80,8 +80,6 @@ class DeferredResource(EncodingResource):
     def __init__(self):
         self.post_parser = RequestParser()
         self.get_parser = RequestParser()
-        self.get_parser.add_argument('id', type=str, location='values',
-                                     required=True)
 
         self.result_ttl = app.config['RESULT_TTL_SECONDS']
 
@@ -96,8 +94,7 @@ class DeferredResource(EncodingResource):
         except redis.exceptions.ConnectionError:
             abort(500)
 
-    def check_job(self):
-        job_id = self.get_parser.parse_args()['id']
+    def check_job(self, job_id):
         try:
             job_id = taskserializer.loads(job_id)
         except BadSignature:
