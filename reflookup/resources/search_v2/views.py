@@ -1,8 +1,13 @@
+from flask.ext.restful import abort
+
+from reflookup.utils.rating.chooser import Chooser
 from reflookup.utils.restful.utils import DeferredResource, \
     b64_encode_response, find_pubmedid_wrapper
 from reflookup.resources.lookup_functions.citation_search import \
     cr_citation_lookup, mendeley_lookup
 from threading import Thread
+
+from reflookup.utils.standardize_json import StandardDict
 
 
 class IntegratedReferenceSearchV2(DeferredResource):
@@ -36,16 +41,10 @@ class IntegratedReferenceSearchV2(DeferredResource):
             }
 
             def cr_thread():
-                try:
-                    results['crossref'] = cr_citation_lookup(citation)
-                finally:
-                    pass
+                results['crossref'] = cr_citation_lookup(citation)
 
             def md_thread():
-                try:
-                    results['mendeley'] = mendeley_lookup(citation)
-                finally:
-                    pass
+                results['mendeley'] = mendeley_lookup(citation)
 
             t1 = Thread(target=cr_thread())
             t2 = Thread(target=md_thread())
@@ -55,3 +54,22 @@ class IntegratedReferenceSearchV2(DeferredResource):
 
             t1.join()
             t2.join()
+
+            cr = results.get('crossref', None)
+            md = results.get('mendeley', None)
+
+            if not cr and not md:
+                abort(404,
+                      message='No results found for query {}'.format(citation))
+            elif not md:
+                return cr
+            elif not cr:
+                return md
+            elif args['dont_choose']:
+                return [cr, md]
+            else:
+                ch = Chooser(citation,
+                             [cr.get('result', StandardDict().getEmpty()),
+                              md.get('result', StandardDict().getEmpty())])
+
+                return ch.select()
