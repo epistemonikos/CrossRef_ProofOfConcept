@@ -16,6 +16,3 @@ class BMCParserTest(parsertest.BaseParserTest):
             self.data = json.load(result)
         self.parser = BMCParser()
         self.parser.parse(self.url)
-
-    # def test_dummy(self):
-    #     assert self.parser
