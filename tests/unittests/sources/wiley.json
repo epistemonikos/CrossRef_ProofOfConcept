@@ -1,0 +1,1361 @@
+{
+    "publication_info":{
+        "journal":"Birth Defects Research Part C: Embryo Today: Reviews",
+        "pages":{
+            "last":"180",
+            "first":"174"
+        },
+        "issue":"2",
+        "volume":"108",
+        "year":"2016"
+    },
+    "keywords":[
+        "fetal alcohol spectrum disorders",
+        "fetal alcohol syndrome",
+        "prenatal alcohol exposure",
+        "alcohol-related birth defects"
+    ],
+    "ids":{
+        "doi":"10.1002/bdrc.21129",
+        "pmid":null
+    },
+    "references":[
+        {
+            "year":"2001",
+            "authors":[
+                "Archibald SL",
+                "Fennema-Notestine C",
+                "Gamst A",
+                "Riley EP",
+                "Mattson SN",
+                "Jernigan TL."
+            ],
+            "volume":"43",
+            "journal":"Dev Med Child Neurol",
+            "title":"Brain dysmorphology in individuals with severe prenatal alcohol exposure",
+            "ids":{
+                "doi":"10.1111/j.1469-8749.2001.tb00179.x",
+                "scholar":null,
+                "pmid":"11263683"
+            },
+            "pages":{
+                "last":"154",
+                "first":"148"
+            },
+            "reference":null
+        },
+        {
+            "year":"2011",
+            "authors":[
+                "Aros S",
+                "Mills JL",
+                "I\u00f1iguez G",
+                "Avila A",
+                "Conley MR",
+                "Troendle J",
+                "Cox C",
+                "Cassorla F."
+            ],
+            "volume":"75",
+            "journal":"Horm Res Paediatr Hormone Res Paediatr",
+            "title":"Effects of prenatal ethanol exposure on postnatal growth and the insulin-like growth factor axis",
+            "ids":{
+                "doi":"10.1159%2F000319706",
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"173",
+                "first":"166"
+            },
+            "reference":null
+        },
+        {
+            "year":"1980",
+            "authors":[
+                "Bear T."
+            ],
+            "volume":"59",
+            "journal":"Adv Anat Embryol Cell Biol",
+            "title":"The vascular system of the cerebral cortex",
+            "ids":{
+                "doi":null,
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"62",
+                "first":"1"
+            },
+            "reference":null
+        },
+        {
+            "year":"2010",
+            "authors":[
+                "Bjorkquist OA",
+                "Fryer SL",
+                "Reiss AL",
+                "Mattson SN",
+                "Riley EP."
+            ],
+            "volume":"181",
+            "journal":"Psychiatry Res",
+            "title":"Cingulate gyrus morphology in children and adolescents with fetal alcohol spectrum disorders",
+            "ids":{
+                "doi":"10.1016%2Fj.pscychresns.2009.10.004",
+                "scholar":null,
+                "pmid":"20080394"
+            },
+            "pages":{
+                "last":"107",
+                "first":"101"
+            },
+            "reference":null
+        },
+        {
+            "year":"1996",
+            "authors":[
+                "Carmeliet P",
+                "Ferreira V",
+                "Breier G"
+            ],
+            "volume":"380",
+            "journal":"Nature",
+            "title":"Abnormal blood vessel development and lethality in embryos lacking a single VEGF allele",
+            "ids":{
+                "doi":"10.1038%2F380435a0",
+                "scholar":null,
+                "pmid":"8602241"
+            },
+            "pages":{
+                "last":"439",
+                "first":"435"
+            },
+            "reference":null
+        },
+        {
+            "year":"1978",
+            "authors":[
+                "Clarren SK",
+                "Alvord EC Jr",
+                "Sumi SM",
+                "Steissguth AP",
+                "Smith DW."
+            ],
+            "volume":"92",
+            "journal":"J Pediatr",
+            "title":"Brain malformations related to prenatal exposure to ethanol",
+            "ids":{
+                "doi":"10.1016%2FS0022-3476%2878%2980072-9",
+                "scholar":null,
+                "pmid":"619080"
+            },
+            "pages":{
+                "last":"67",
+                "first":"64"
+            },
+            "reference":null
+        },
+        {
+            "year":"2011",
+            "authors":[
+                "Coles CD",
+                "Zhihao L."
+            ],
+            "volume":"21",
+            "journal":"Neuropsychol Rev Neuropsychol Rev",
+            "title":"Functional neuroimaging in the examination of effects of prenatal alcohol exposure",
+            "ids":{
+                "doi":"10.1007%2Fs11065-011-9165-y",
+                "scholar":null,
+                "pmid":"21484401"
+            },
+            "pages":{
+                "last":"132",
+                "first":"119"
+            },
+            "reference":null
+        },
+        {
+            "year":"2006",
+            "authors":[
+                "Cortese BM",
+                "Moore GJ",
+                "Bailey BA"
+            ],
+            "volume":"28",
+            "journal":"Neurotoxicol Teratol",
+            "title":"Magnetic resonance and spectroscopic imaging in prenatal alcohol exposed children: Preliminary findings in the caudate nucleus",
+            "ids":{
+                "doi":"10.1016%2Fj.ntt.2006.08.002",
+                "scholar":null,
+                "pmid":"16996247"
+            },
+            "pages":{
+                "last":"606",
+                "first":"597"
+            },
+            "reference":null
+        },
+        {
+            "year":"1993",
+            "authors":[
+                "Coulter CL",
+                "Leech RW",
+                "Schaefer GB",
+                "Scheithauer BW",
+                "Brumback RA."
+            ],
+            "volume":"50",
+            "journal":"Arch Neurol",
+            "title":"Midline cerebral dysgenesis, dysfunction of the hypothalamic-pituitary axis, and fetal alcohol effects",
+            "ids":{
+                "doi":"10.1001%2Farchneur.1993.00540070083022",
+                "scholar":null,
+                "pmid":"8323485"
+            },
+            "pages":{
+                "last":"775",
+                "first":"771"
+            },
+            "reference":null
+        },
+        {
+            "year":"2009",
+            "authors":[
+                "Dirix CEH",
+                "Nijhuis JG",
+                "Jongsma HW",
+                "Hornstra G."
+            ],
+            "volume":"80",
+            "journal":"Child Dev",
+            "title":"Aspects of fetal learning and memory",
+            "ids":{
+                "doi":"10.1111/j.1467-8624.2009.01329.x",
+                "scholar":null,
+                "pmid":"19630906"
+            },
+            "pages":{
+                "last":"1258",
+                "first":"1251"
+            },
+            "reference":null
+        },
+        {
+            "year":"2011",
+            "authors":[
+                "Dolk H",
+                "Loane M",
+                "Garne E."
+            ],
+            "volume":"123",
+            "journal":"Circulation",
+            "title":"Congenital heart defects in Europe prevalence and perinatal mortality, 2000 to 2005",
+            "ids":{
+                "doi":"10.1161%2FCIRCULATIONAHA.110.958405",
+                "scholar":null,
+                "pmid":"21321151"
+            },
+            "pages":{
+                "last":"849",
+                "first":"841"
+            },
+            "reference":null
+        },
+        {
+            "year":"1996",
+            "authors":[
+                "Ferrara N",
+                "Carver-Moore K",
+                "Chen H"
+            ],
+            "volume":"380",
+            "journal":"Nature",
+            "title":"Heterozygous embryonic lethality induced by targeted inactivation of the VEGF gene",
+            "ids":{
+                "doi":"10.1038%2F380439a0",
+                "scholar":null,
+                "pmid":"8602242"
+            },
+            "pages":{
+                "last":"442",
+                "first":"439"
+            },
+            "reference":null
+        },
+        {
+            "year":"2014a",
+            "authors":[
+                "Flentke GR",
+                "Garic A",
+                "Hernandez M",
+                "Smith SM."
+            ],
+            "volume":"128",
+            "journal":"J Neurochem",
+            "title":"CaMKII represses transcriptionally active \u03b2-catenin to mediate acute ethanol neurodegeneration and can phosphorylate \u03b2-catenin",
+            "ids":{
+                "doi":"10.1111/jnc.12464",
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"535",
+                "first":"523"
+            },
+            "reference":null
+        },
+        {
+            "year":"2004",
+            "authors":[
+                "Floyd RL",
+                "Sidhu JS."
+            ],
+            "volume":"127",
+            "journal":"Am J Med Genet C Semin Med Genet",
+            "title":"Monitoring prenatal alcohol exposure",
+            "ids":{
+                "doi":"10.1002/ajmg.c.30010",
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"9",
+                "first":"3"
+            },
+            "reference":null
+        },
+        {
+            "year":"2015",
+            "authors":[
+                "Gauthier TWMD."
+            ],
+            "volume":"37",
+            "journal":null,
+            "title":null,
+            "ids":{
+                "doi":null,
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"7",
+                "first":"E1"
+            },
+            "reference":null
+        },
+        {
+            "year":"2001",
+            "authors":[
+                "Goodyer IM",
+                "Park R",
+                "Herbert J."
+            ],
+            "volume":"50",
+            "journal":"Biol Psychiatry",
+            "title":"Psychosocial and endocrine features of chronic first episode major depression in 8-16 year olds",
+            "ids":{
+                "doi":"10.1016%2FS0006-3223%2801%2901120-9",
+                "scholar":null,
+                "pmid":"11543738"
+            },
+            "pages":{
+                "last":"357",
+                "first":"351"
+            },
+            "reference":null
+        },
+        {
+            "year":"2007a",
+            "authors":[
+                "Henderson J",
+                "Gray R",
+                "Brocklehurst P."
+            ],
+            "volume":"114",
+            "journal":"Bjog",
+            "title":"Systematic review of effects of low-moderate prenatal alcohol exposure on pregnancy outcome",
+            "ids":{
+                "doi":"10.1111/j.1471-0528.2006.01163.x",
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"252",
+                "first":"243"
+            },
+            "reference":null
+        },
+        {
+            "year":"2007b",
+            "authors":[
+                "Henderson J",
+                "Kesmodel U",
+                "Gray R."
+            ],
+            "volume":"61",
+            "journal":"J Epidemiol Community Health",
+            "title":"Systematic review of the fetal effects of prenatal binge-drinking",
+            "ids":{
+                "doi":"10.1136%2Fjech.2006.054213",
+                "scholar":null,
+                "pmid":"18000129"
+            },
+            "pages":{
+                "last":"1073",
+                "first":"1069"
+            },
+            "reference":null
+        },
+        {
+            "year":"2012",
+            "authors":[
+                "Hepper P",
+                "Dornan J",
+                "Lynch C."
+            ],
+            "volume":"36",
+            "journal":"Alcohol Clin Exp Res",
+            "title":"Fetal brain function in response to maternal alcohol consumption: Early evidence of damage",
+            "ids":{
+                "doi":"10.1111/j.1530-0277.2012.01832.x",
+                "scholar":null,
+                "pmid":"22978459"
+            },
+            "pages":{
+                "last":"2175",
+                "first":"2168"
+            },
+            "reference":null
+        },
+        {
+            "year":"1996",
+            "authors":[
+                "Hepper PG",
+                "Leader LR."
+            ],
+            "volume":"8",
+            "journal":"Fet Matern Med Rev",
+            "title":"Fetal habituation",
+            "ids":{
+                "doi":"10.1017%2FS0965539500001534",
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"123",
+                "first":"109"
+            },
+            "reference":null
+        },
+        {
+            "year":"2009",
+            "authors":[
+                "Hofer R",
+                "Burd L."
+            ],
+            "volume":"85",
+            "journal":"Birth Defects Res A Clin Mol Teratol",
+            "title":"Review of published studies of kidney, liver, and gastrointestinal birth defects in fetal alcohol spectrum disorders",
+            "ids":{
+                "doi":"10.1002/bdra.20562",
+                "scholar":null,
+                "pmid":"19180632"
+            },
+            "pages":{
+                "last":"183",
+                "first":"179"
+            },
+            "reference":null
+        },
+        {
+            "year":"2005",
+            "authors":[
+                "Hoyme HE",
+                "May PA",
+                "Kalberg W"
+            ],
+            "volume":"115",
+            "journal":"Pediatrics",
+            "title":"A practical clinical approach to diagnosis of fetal alcohol spectrum disorders: Clarification of the 1996 Institute of Medicine criteria",
+            "ids":{
+                "doi":"10.1542%2Fpeds.2005-0702",
+                "scholar":null,
+                "pmid":"15629980"
+            },
+            "pages":{
+                "last":"47",
+                "first":"39"
+            },
+            "reference":null
+        },
+        {
+            "year":"2009",
+            "authors":[
+                "James JM",
+                "Gewolb C",
+                "Bautch VL."
+            ],
+            "volume":"136",
+            "journal":"Development",
+            "title":"Neurovascular development uses VEGF-A signaling to regulate blood vessel ingression into the neural tube",
+            "ids":{
+                "doi":"10.1242%2Fdev.028845",
+                "scholar":null,
+                "pmid":"19176586"
+            },
+            "pages":{
+                "last":"841",
+                "first":"833"
+            },
+            "reference":null
+        },
+        {
+            "year":"1971",
+            "authors":[
+                "Jeffrey WE",
+                "Cohen LB."
+            ],
+            "volume":null,
+            "journal":null,
+            "title":null,
+            "ids":{
+                "doi":null,
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"97",
+                "first":"63"
+            },
+            "reference":null
+        },
+        {
+            "year":"2012",
+            "authors":[
+                "J\u00e9gou S",
+                "El Ghazi F",
+                "Gonzalez B."
+            ],
+            "volume":"72",
+            "journal":"Ann Neurol",
+            "title":"Prenatal alcohol exposure affects vasculature development in the neonatal brain",
+            "ids":{
+                "doi":"10.1002/ana.23699",
+                "scholar":null,
+                "pmid":"23280843"
+            },
+            "pages":{
+                "last":"960",
+                "first":"952"
+            },
+            "reference":null
+        },
+        {
+            "year":"1973",
+            "authors":[
+                "Jones KL",
+                "Smith DW."
+            ],
+            "volume":"2",
+            "journal":"Lancet",
+            "title":"Recognition of the fetal alcohol syndrome in early infancy",
+            "ids":{
+                "doi":"10.1016%2FS0140-6736%2873%2991092-1",
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"1001",
+                "first":"999"
+            },
+            "reference":null
+        },
+        {
+            "year":"2000",
+            "authors":[
+                "Kelly SJ",
+                "Day N",
+                "Streissguth AP."
+            ],
+            "volume":"22",
+            "journal":"Neurotoxicol Teratol",
+            "title":"Effects of prenatal alcohol exposure on social behaviour in humans and other species",
+            "ids":{
+                "doi":"10.1016%2FS0892-0362%2899%2900073-2",
+                "scholar":null,
+                "pmid":"10758343"
+            },
+            "pages":{
+                "last":"149",
+                "first":"143"
+            },
+            "reference":null
+        },
+        {
+            "year":"1980",
+            "authors":[
+                "Kinney H",
+                "Faix R",
+                "Brazy J."
+            ],
+            "volume":"66",
+            "journal":"Pediatrics",
+            "title":"The fetal alcohol syndrome and neuroblastoma",
+            "ids":{
+                "doi":null,
+                "scholar":null,
+                "pmid":"7402777"
+            },
+            "pages":{
+                "last":"132",
+                "first":"130"
+            },
+            "reference":null
+        },
+        {
+            "year":"2010",
+            "authors":[
+                "Klingenberg CP",
+                "Wetherill L",
+                "Rogers J"
+            ],
+            "volume":"44",
+            "journal":"Alcohol",
+            "title":"Prenatal alcohol exposure alters the patterns of facial asymmetry",
+            "ids":{
+                "doi":"10.1016%2Fj.alcohol.2009.10.016",
+                "scholar":null,
+                "pmid":"20060678"
+            },
+            "pages":{
+                "last":"457",
+                "first":"649"
+            },
+            "reference":null
+        },
+        {
+            "year":"1998",
+            "authors":[
+                "Krasnegor NA",
+                "Fifer W",
+                "Maulik D",
+                "McNellis D",
+                "Romero R",
+                "Smotherman W."
+            ],
+            "volume":"8",
+            "journal":"J Matern Fetal Investig",
+            "title":"Fetal behavioural development: Measurement of habituation, state transitions, and movement to assess fetal well being and to predict outcome",
+            "ids":{
+                "doi":null,
+                "scholar":null,
+                "pmid":"9685556"
+            },
+            "pages":{
+                "last":"57",
+                "first":"51"
+            },
+            "reference":null
+        },
+        {
+            "year":"2012",
+            "authors":[
+                "Kuehn D",
+                "Aros S",
+                "Cassorla F",
+                "Avaria M",
+                "Unanue N",
+                "Henriquez C",
+                "Kleinsteuber K",
+                "Conca B",
+                "Avila A",
+                "Carter TC",
+                "Conley MR",
+                "Troendle J",
+                "Mills JL."
+            ],
+            "volume":"36",
+            "journal":"Clin Exp Res Alcoholism Clin Exp Res",
+            "title":"A prospective cohort study of the prevalence of growth, facial, and central nervous system abnormalities in children with heavy prenatal alcohol exposure. Alcohol",
+            "ids":{
+                "doi":"10.1111/j.1530-0277.2012.01794.x",
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"1819",
+                "first":"1811"
+            },
+            "reference":null
+        },
+        {
+            "year":"1995",
+            "authors":[
+                "Leader LR."
+            ],
+            "volume":null,
+            "journal":null,
+            "title":null,
+            "ids":{
+                "doi":null,
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"404",
+                "first":"383"
+            },
+            "reference":null
+        },
+        {
+            "year":"2008",
+            "authors":[
+                "Lebel C",
+                "Rasmussen C",
+                "Wyper K",
+                "Walker L",
+                "Andrew G",
+                "Yager J"
+            ],
+            "volume":"16",
+            "journal":null,
+            "title":null,
+            "ids":{
+                "doi":null,
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"1003",
+                "first":"1001"
+            },
+            "reference":null
+        },
+        {
+            "year":"2011",
+            "authors":[
+                "Lebel C",
+                "Roussotte F",
+                "Sowell ER."
+            ],
+            "volume":"21",
+            "journal":"Neuropsychol Rev Neuropsychol Rev",
+            "title":"Imaging the impact of prenatal alcohol exposure on the structure of the developing human brain",
+            "ids":{
+                "doi":"10.1007%2Fs11065-011-9163-0",
+                "scholar":null,
+                "pmid":"21369875"
+            },
+            "pages":{
+                "last":"118",
+                "first":"102"
+            },
+            "reference":null
+        },
+        {
+            "year":"1992",
+            "authors":[
+                "Mattson SN",
+                "Riley EP",
+                "Jernigan TL",
+                "Ehlers CL",
+                "Delis DC",
+                "Jones KL"
+            ],
+            "volume":"16",
+            "journal":"Alcoholism Clin Exp Res",
+            "title":"Fetal alcohol syndrome: A case report of neuropsychological MRI and EEG assessment of two children",
+            "ids":{
+                "doi":"10.1111/j.1530-0277.1992.tb01909.x",
+                "scholar":null,
+                "pmid":"1443415"
+            },
+            "pages":{
+                "last":"1003",
+                "first":"1001"
+            },
+            "reference":null
+        },
+        {
+            "year":"1996",
+            "authors":[
+                "Mattson SN",
+                "Riley EP",
+                "Sowell ER"
+            ],
+            "volume":"20",
+            "journal":"Alcoholism Clin Exp Res",
+            "title":"A decrease in size of the basal ganglia in children with fetal alcohol syndrome",
+            "ids":{
+                "doi":"10.1111/j.1530-0277.1996.tb01951.x",
+                "scholar":null,
+                "pmid":"8892532"
+            },
+            "pages":{
+                "last":"1093",
+                "first":"1088"
+            },
+            "reference":null
+        },
+        {
+            "year":"2011",
+            "authors":[
+                "Mattson SN",
+                "Riley EP."
+            ],
+            "volume":"34",
+            "journal":"Alchohol Res Health",
+            "title":"The quest for a neurobehavioural profile of heavy prenatal alcohol exposure",
+            "ids":{
+                "doi":null,
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"55",
+                "first":"51"
+            },
+            "reference":null
+        },
+        {
+            "year":"2011",
+            "authors":[
+                "Nardelli A",
+                "Lebel C",
+                "Rasmussen C",
+                "Andrew G",
+                "Beauliey C."
+            ],
+            "volume":null,
+            "journal":null,
+            "title":null,
+            "ids":{
+                "doi":null,
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":null,
+                "first":null
+            },
+            "reference":null
+        },
+        {
+            "year":"2011",
+            "authors":[
+                "Nunez C",
+                "Roussotte F",
+                "Sowell E."
+            ],
+            "volume":"34",
+            "journal":"Alcohol Res Health J Natl Inst Alcohol Abuse Alcohol",
+            "title":"Focus on: Structural and functional brain abnormalities in fetal alcohol spectrum disorders",
+            "ids":{
+                "doi":null,
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"131",
+                "first":"121"
+            },
+            "reference":null
+        },
+        {
+            "year":"2005",
+            "authors":[
+                "O'hare ED",
+                "Kan E",
+                "Yoshii J"
+            ],
+            "volume":"16",
+            "journal":"Neuroreport",
+            "title":"Mapping cerebellar vermal morphology and cognitive correlates in prenatal alcohol exposure",
+            "ids":{
+                "doi":"10.1097%2F01.wnr.0000176515.11723.a2",
+                "scholar":null,
+                "pmid":"16056126"
+            },
+            "pages":{
+                "last":"1290",
+                "first":"1285"
+            },
+            "reference":null
+        },
+        {
+            "year":"2012",
+            "authors":[
+                "O'Leary C",
+                "Jacoby P",
+                "D'Antoine H",
+                "Bartu A",
+                "Bower C."
+            ],
+            "volume":"119",
+            "journal":"BJOG Int J Obstet Gynaecol",
+            "title":"Heavy prenatal alcohol exposure and increased risk of stillbirth",
+            "ids":{
+                "doi":"10.1111/j.1471-0528.2012.03333.x",
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"952",
+                "first":"945"
+            },
+            "reference":null
+        },
+        {
+            "year":"2016",
+            "authors":[
+                "Ornoy A",
+                "Ergaz Z."
+            ],
+            "volume":"7",
+            "journal":"Int J Environ Res Public Health",
+            "title":"Alcohol abuse in pregnant women: Effects on the fetus and newborn, mode of action and maternal treatment",
+            "ids":{
+                "doi":"10.3390%2Fijerph7020364",
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"379",
+                "first":"364"
+            },
+            "reference":null
+        },
+        {
+            "year":"2011",
+            "authors":[
+                "Ouellet-Morin I",
+                "Dionne G",
+                "Lupien SJ",
+                "Muckle G",
+                "Cote S",
+                "Perusse D",
+                "Tremblay RE",
+                "Boivin M."
+            ],
+            "volume":"214",
+            "journal":"Psychopharmacology",
+            "title":"Prenatal alcohol exposure and cortisol activity in 19-month-old toddlers: An investigation of the moderating effects of sex and testosterone",
+            "ids":{
+                "doi":"10.1007%2Fs00213-010-1955-z",
+                "scholar":null,
+                "pmid":"20717651"
+            },
+            "pages":{
+                "last":"307",
+                "first":"297"
+            },
+            "reference":null
+        },
+        {
+            "year":"1979",
+            "authors":[
+                "Peiffer J",
+                "Majewski F",
+                "Fischbach H",
+                "Bierich JR",
+                "Volk B."
+            ],
+            "volume":"41",
+            "journal":"J Neurol Sci",
+            "title":"Alcohol embryo- and fetopathy. Neuropathology of 3 children and 3 fetuses",
+            "ids":{
+                "doi":"10.1016%2F0022-510X%2879%2990033-9",
+                "scholar":null,
+                "pmid":"438847"
+            },
+            "pages":{
+                "last":"137",
+                "first":"125"
+            },
+            "reference":null
+        },
+        {
+            "year":"2005",
+            "authors":[
+                "Riley EP",
+                "McGee CL."
+            ],
+            "volume":"230",
+            "journal":"Exp Biol Med",
+            "title":"Fetal alcohol spectrum disorders: An overview with emphasis on changes in brain and behaviour",
+            "ids":{
+                "doi":null,
+                "scholar":null,
+                "pmid":"15956765"
+            },
+            "pages":{
+                "last":"365",
+                "first":"357"
+            },
+            "reference":null
+        },
+        {
+            "year":"1990",
+            "authors":[
+                "Risau W",
+                "Wolburg H."
+            ],
+            "volume":"13",
+            "journal":"Trends Neurosci",
+            "title":"Development of the blood-brain barrier",
+            "ids":{
+                "doi":"10.1016%2F0166-2236%2890%2990043-A",
+                "scholar":null,
+                "pmid":"1693235"
+            },
+            "pages":{
+                "last":"178",
+                "first":"174"
+            },
+            "reference":null
+        },
+        {
+            "year":"1991",
+            "authors":[
+                "Ronen GM",
+                "Andrews WL."
+            ],
+            "volume":"40",
+            "journal":"Am J Med Genet",
+            "title":"Holoprosencephaly as a possible embryonic alcohol effect",
+            "ids":{
+                "doi":"10.1002/ajmg.1320400206",
+                "scholar":null,
+                "pmid":"1897567"
+            },
+            "pages":{
+                "last":"154",
+                "first":"151"
+            },
+            "reference":null
+        },
+        {
+            "year":null,
+            "authors":[
+                "Roussotte FF",
+                "Sulik K",
+                "Mattson SN",
+                "Riley EP",
+                "Jones KL",
+                "Adnams C"
+            ],
+            "volume":null,
+            "journal":"Hum Brain Mapp",
+            "title":"Regional brain volume reductions relate to facial dysmorphology and neurocognitive function in fetal alcohol spectrum disorders",
+            "ids":{
+                "doi":null,
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":null,
+                "first":null
+            },
+            "reference":null
+        },
+        {
+            "year":"2014",
+            "authors":[
+                "Smith S",
+                "Garic A",
+                "Flentke G",
+                "Berres M."
+            ],
+            "volume":"102",
+            "journal":"Part C Embryo Today Rev",
+            "title":"Neural crest development in fetal alcohol syndrome. Birth Defects Res",
+            "ids":{
+                "doi":"10.1002/bdrc.21078",
+                "scholar":null,
+                "pmid":"17278271"
+            },
+            "pages":{
+                "last":"220",
+                "first":"210"
+            },
+            "reference":null
+        },
+        {
+            "year":"2001a",
+            "authors":[
+                "Sowell ER",
+                "Mattson SN",
+                "Thompson PM",
+                "Jernigan TL",
+                "Riley E",
+                "Toga AW."
+            ],
+            "volume":"57",
+            "journal":"Neurology",
+            "title":"Mapping callosal morphology and cognitive correlates: Effects of heavy prenatal alcohol exposure",
+            "ids":{
+                "doi":"10.1212%2FWNL.57.2.235",
+                "scholar":null,
+                "pmid":"11468307"
+            },
+            "pages":{
+                "last":"244 [Database]",
+                "first":"235"
+            },
+            "reference":null
+        },
+        {
+            "year":"2001b",
+            "authors":[
+                "Sowell ER",
+                "Thompson PM",
+                "Mattson SN"
+            ],
+            "volume":"12",
+            "journal":"Neuroreport",
+            "title":"Voxelbased morphometric analyses of the brain in children and adolescents prenatally exposed to alcohol",
+            "ids":{
+                "doi":"10.1097%2F00001756-200103050-00018",
+                "scholar":null,
+                "pmid":"11234756"
+            },
+            "pages":{
+                "last":"523",
+                "first":"515"
+            },
+            "reference":null
+        },
+        {
+            "year":"2004",
+            "authors":[
+                "Sowell ER",
+                "Thompson PM",
+                "Toga AW."
+            ],
+            "volume":"10",
+            "journal":"Neuroreport",
+            "title":"Mapping changes in the human cortex throughout the span of life",
+            "ids":{
+                "doi":null,
+                "scholar":null,
+                "pmid":"15271264"
+            },
+            "pages":{
+                "last":"392",
+                "first":"372"
+            },
+            "reference":null
+        },
+        {
+            "year":"2008b",
+            "authors":[
+                "Sowell ER",
+                "Mattson SN",
+                "Kan E"
+            ],
+            "volume":"18",
+            "journal":"Cereb Cortex",
+            "title":"Abnormal cortical thickness and brain behavior correlation patterns in individuals with heavy prenatal alcohol exposure",
+            "ids":{
+                "doi":"10.1093%2Fcercor%2Fbhm039",
+                "scholar":null,
+                "pmid":"17443018"
+            },
+            "pages":{
+                "last":"144",
+                "first":"136"
+            },
+            "reference":null
+        },
+        {
+            "year":"2004",
+            "authors":[
+                "Streissguth AP",
+                "Bookstein FL",
+                "Barr HM",
+                "Sampson PD",
+                "O'Malley K",
+                "Young JK."
+            ],
+            "volume":"25",
+            "journal":"J Dev Behav Pediatr",
+            "title":"Risk factors for adverse life outcomes in fetal alcohol syndrome and fetal alcohol effects",
+            "ids":{
+                "doi":"10.1097%2F00004703-200408000-00002",
+                "scholar":null,
+                "pmid":"15308923"
+            },
+            "pages":{
+                "last":"238",
+                "first":"228"
+            },
+            "reference":null
+        },
+        {
+            "year":"2009",
+            "authors":[
+                "Strick PL",
+                "Dum RP",
+                "Fiez JA."
+            ],
+            "volume":"32",
+            "journal":"Annu Rev Neurosci",
+            "title":"Cerebellum and nonmotor function",
+            "ids":{
+                "doi":"10.1146%2Fannurev.neuro.31.060407.125606",
+                "scholar":null,
+                "pmid":"19555291"
+            },
+            "pages":{
+                "last":"434",
+                "first":"413"
+            },
+            "reference":null
+        },
+        {
+            "year":"1966",
+            "authors":[
+                "Thompson RF",
+                "Spencer WA."
+            ],
+            "volume":"173",
+            "journal":"Psychol Rev",
+            "title":"Habituation: A model phenomenon for the study of neuronal substrates of behaviour",
+            "ids":{
+                "doi":"10.1037%2Fh0022681",
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"43",
+                "first":"16"
+            },
+            "reference":null
+        },
+        {
+            "year":"2006",
+            "authors":[
+                "Toga AW",
+                "Thompson PM",
+                "Sowell ER."
+            ],
+            "volume":"29",
+            "journal":"Trends Neurosci",
+            "title":"Mapping brain maturation",
+            "ids":{
+                "doi":"10.1016%2Fj.tins.2006.01.007",
+                "scholar":null,
+                "pmid":"16472876"
+            },
+            "pages":{
+                "last":"159",
+                "first":"148"
+            },
+            "reference":null
+        },
+        {
+            "year":"1997",
+            "authors":[
+                "Uc A",
+                "Vasiliauskas E",
+                "Piccoli DA"
+            ],
+            "volume":"42",
+            "journal":"Dig Dis Sci",
+            "title":"Chronic intestinal pseudoobstruction associated with fetal alcohol syndrome",
+            "ids":{
+                "doi":"10.1023%2FA%3A1018833503080",
+                "scholar":null,
+                "pmid":"9201078"
+            },
+            "pages":{
+                "last":"1167",
+                "first":"1163"
+            },
+            "reference":null
+        },
+        {
+            "year":"1983",
+            "authors":[
+                "Wisniewski K",
+                "Dambska M",
+                "Sher J",
+                "Qazi Q."
+            ],
+            "volume":"14",
+            "journal":"Neuropediatrics",
+            "title":"A clinical neuropathological study of the fetal alcohol syndrome",
+            "ids":{
+                "doi":"10.1055%2Fs-2008-1059578",
+                "scholar":null,
+                "pmid":"6686290"
+            },
+            "pages":{
+                "last":"201",
+                "first":"197"
+            },
+            "reference":null
+        },
+        {
+            "year":"2015",
+            "authors":[
+                "Yang J",
+                "Qiu H",
+                "Qu P",
+                "Zhang R",
+                "Zeng L",
+                "Yan H."
+            ],
+            "volume":"10",
+            "journal":"PLoS One",
+            "title":"Prenatal alcohol exposure and congenital heart defects: A meta-analysis",
+            "ids":{
+                "doi":"10.1371%2Fjournal.pone.0130681",
+                "scholar":null,
+                "pmid":"26110619"
+            },
+            "pages":{
+                "last":null,
+                "first":"e0130681"
+            },
+            "reference":null
+        },
+        {
+            "year":"2014",
+            "authors":[
+                "Young JK",
+                "Giesbrecht HE",
+                "Eskin MN",
+                "Aliani M",
+                "Suh M."
+            ],
+            "volume":"5",
+            "journal":"Adv Nutr Int Rev J",
+            "title":"Nutrition implications for fetal alcohol spectrum disorder",
+            "ids":{
+                "doi":"10.3945%2Fan.113.004846",
+                "scholar":null,
+                "pmid":null
+            },
+            "pages":{
+                "last":"692",
+                "first":"675"
+            },
+            "reference":null
+        }
+    ],
+    "title":"Impact of fetal alcohol exposure on body systems: A systematic review",
+    "citation":null,
+    "authors":[
+        "Courtney Caputo",
+        "Erin Wood",
+        "Leila Jabbour"
+    ],
+    "abstract":{
+        "Method":"Articles in this review were found online using databases such as Medline, Medline Complete, PubMed, and Health Source: Nursing/Academic Edition. The following terms were searched: fetal alcohol spectrum disorders, fetal alcohol syndrome, prenatal alcohol exposure, and alcohol related birth defects.",
+        "Results":"Thirteen articles were gathered, five original investigations and eight reviews. This review identified several abnormalities in the body systems discussed and their associations to fetal alcohol syndrome.",
+        "Conclusions":"Evidence shows that the brain was the most severely impacted organ of the body systems discussed. However, prenatal alcohol exposure causes several abnormalities within the heart, kidney, liver, gastrointestinal tract, and the endocrine systems. In addition, preventative measures need to be taken by mothers during pregnancy. Birth Defects Research (Part C), 2016. \u00a9 2016 Wiley Periodicals, Inc. Birth Defects Research (Part C) 108:174\u2013180, 2016. \u00a9 2016 Wiley Periodicals, Inc."
+    }
+}
