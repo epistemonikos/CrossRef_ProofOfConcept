@@ -3,9 +3,6 @@ from reflookup.utils.parsers.default_parser import DefaultParser
 
 class WileyParser(DefaultParser):
 
-    def __init__(self):
-        self.publication_info = None
-
     def get_title(self):
         title = self.soup.body.find('h1', 'article-header__title')
         if title:
@@ -13,37 +10,35 @@ class WileyParser(DefaultParser):
         return title
 
     def get_journal(self):
-        journal = self.soup.body.find('strong', 'journal-header__name-title')
+        journal = self.soup.head.find('meta', attrs={"name": 'citation_journal_title'})
         if journal:
-            journal = journal.text.strip()
+            journal = journal["content"]
         return journal
 
-    def load_publication_info(self):
-        pub_info = self.soup.body.find('p', 'issue-header__description').prettify().split('\n')
-        self.publication_info = [x.strip() for x in pub_info if "<" not in x][1:]
-
     def get_year(self):
-        if not self.publication_info:
-            self.load_publication_info()
-        return self.publication_info[1][-4:]
+        year = self.soup.head.find('meta', attrs={"name":'citation_publication_date'})
+        if year:
+            year = year["content"].split('/')[0]
+        return year
 
     def get_volume(self):
-        if not self.publication_info:
-            self.load_publication_info()
-        return self.publication_info[0].split(',')[0][6:].strip()
+        volume = self.soup.head.find('meta', attrs={"name": 'citation_volume'})
+        if volume:
+            volume = volume["content"]
+        return volume
 
     def get_issue(self):
-        if not self.publication_info:
-            self.load_publication_info()
-        return self.publication_info[0].split(',')[1].strip()[5:].strip()
+        issue = self.soup.head.find('meta', attrs={"name": 'citation_issue'})
+        if issue:
+            issue = issue["content"]
+        return issue
 
     def get_pages(self):
-        if not self.publication_info:
-            self.load_publication_info()
-        pages = self.publication_info[2][5:].strip().split('–')
+        first = self.soup.head.find('meta', attrs={"name": 'citation_firstpage'})
+        last = self.soup.head.find('meta', attrs={"name": 'citation_lastpage'})
         return {
-            'first': pages[0],
-            'last': pages[1]
+            'first': first["content"] if first else None,
+            'last': last["content"] if last else None
         }
 
     def get_doi(self):
