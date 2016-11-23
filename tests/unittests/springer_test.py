@@ -5,7 +5,7 @@ import json
 import os
 
 
-class WileyParserTest(parsertest.BaseParserTest):
+class SpringerParserTest(parsertest.BaseParserTest):
 
     def setUp(self):
         reflookup.app.config['TESTING'] = True
