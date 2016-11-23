@@ -15,7 +15,8 @@ class IntegratedReferenceSearchV2(DeferredResource):
 
     def __init__(self):
         super().__init__()
-        self.get_parser.add_argument('q', required=True, type=str)
+        self.get_parser.add_argument('q', required=True, type=str,
+                                     action='append')
         self.get_parser.add_argument('cr_only', required=False, type=bool,
                                      default=False)
         self.get_parser.add_argument('md_only', required=False, type=bool,
@@ -23,10 +24,12 @@ class IntegratedReferenceSearchV2(DeferredResource):
         self.get_parser.add_argument('dont_choose', required=False, type=bool,
                                      default=False)
 
+        self.post_parser.add_argument('refs', required=True, type=list,
+                                      location='json')
+
     @find_pubmedid_wrapper
-    def get(self):
-        args = self.get_parser.parse_args()
-        citation = args['q']
+    def single_search(self, args):
+        citation = args['q'][0]
 
         if args['cr_only'] and not args['md_only']:
             return cr_citation_lookup(citation)
@@ -46,8 +49,8 @@ class IntegratedReferenceSearchV2(DeferredResource):
             def md_thread():
                 results['mendeley'] = mendeley_lookup(citation)
 
-            t1 = Thread(target=cr_thread())
-            t2 = Thread(target=md_thread())
+            t1 = Thread(target=cr_thread)
+            t2 = Thread(target=md_thread)
 
             t1.start()
             t2.start()
@@ -73,3 +76,14 @@ class IntegratedReferenceSearchV2(DeferredResource):
                               md.get('result', StandardDict().getEmpty())])
 
                 return ch.select()
+
+    def deferred_search(self, args):
+        pass
+
+    def get(self):
+        args = self.get_parser.parse_args()
+        if len(args['q']) == 1:
+            return self.single_search(args)
+        else:
+            return self.deferred_search()
+
