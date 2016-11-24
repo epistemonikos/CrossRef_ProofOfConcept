@@ -11,6 +11,7 @@ from reflookup.resources.jobs.views import JobResource
 from reflookup.resources.integrated_extract.views import IntegratedReferenceExtractResource
 from reflookup.resources.parsers.views import ParserResource
 from reflookup.resources.search_v2.views import IntegratedReferenceSearchV2
+from reflookup.resources.extract_v2.views import IntegratedReferenceExtractV2
 
 prefix_v1 = app.config['API_PREFIX_V1']
 prefix_v2 = app.config['API_PREFIX_V2']
@@ -29,3 +30,4 @@ api.add_resource(IntegratedReferenceExtractResource, prefix_v1 + '/refs')
 api.add_resource(ParserResource, prefix_v1 + '/parse')
 
 api.add_resource(IntegratedReferenceSearchV2, prefix_v2 + '/search')
+api.add_resource(IntegratedReferenceExtractV2, prefix_v2 + '/extract')
