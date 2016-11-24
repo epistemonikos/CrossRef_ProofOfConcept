@@ -1,0 +1,591 @@
+{
+    "citation": "Aurello, P., Petrucciani, N., Giulitti, D. et al. Med Oncol (2016) 33: 9. doi:10.1007/s12032-015-0718-4",
+    "references": [
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Siegel RL, Miller KD, Jemal A. Cancer statistics. CA Cancer J Clin. 2015;65:5–29.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "25559415",
+          "doi": "10.3322/caac.21254",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "GLOBOCAN 2012. Estimated cancer incidence, mortality and prevalence worldwide in 2012.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": null,
+          "doi": null,
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Ferlay J, Steliarova-Foucher E, Lortet-Tieulent J, et al. Cancer incidence and mortality patterns in Europe: estimates for 40 countries in 2012. Eur J Cancer. 2012;49:1374–403.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": null,
+          "doi": "10.1016/j.ejca.2012.12.027",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Spolverato G, Ejaz A, Kim Y, Squires MH, Poultsides GA, Fields RC, Schmidt C, Weber SM, Votanopoulos K, Maithel SK, Pawlik TM. Rates and patterns of recurrence after curative intent resection for gastric cancer: a United States multi-institutional analysis. J Am Coll Surg. 2014;219:664–75.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "25154671",
+          "doi": "10.1016/j.jamcollsurg.2014.03.062",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Li JH, Zhang SW, Liu J, Shao MZ, Chen L. Review of clinical investigation on recurrence of gastric cancer following curative resection. Chin Med J (Engl). 2012;125:1479–95.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "22613657",
+          "doi": null,
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Jin LX, Moses LE, Squires MH 3rd, Poultsides GA, Votanopoulos K, Weber SM, Bloomston M, Pawlik TM, Hawkins WG, Linehan DC, Strasberg SM, Schmidt C, Worhunsky DJ, Acher AW, Cardona K, Cho CS, Kooby DA, Levine E, Winslow ER, Saunders ND, Spolverato G, Maithel SK, Fields RC. Factors associated with recurrence and survival in lymph node-negative gastric adenocarcinoma: a 7-Institution Study of the US Gastric Cancer Collaborative. Ann Surg. 2015 Jan 20. [Epub ahead of print].",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": null,
+          "doi": null,
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "D’Angelica MD, Gonen M, Brennan MF, et al. Patterns of initial recurrence in completely resected gastric adenocarcinoma. Ann Surg. 2004;240:808–16.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "15492562",
+          "doi": "10.1097/01.sla.0000143245.28656.15",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Baiocchi GL, Marrelli D, Verlato G, Morgagni P, Giacopuzzi S, Coniglio A, Marchet A, Rosa F, Capponi MG, Di Leo A, Saragoni L, Ansaloni L, Pacelli F, Nitti D, D’Ugo D, Roviello F, Tiberio GA, Giulini SM, De Manzoni G. Follow-up after gastrectomy for cancer: an appraisal of the Italian research group for gastric cancer. Ann Surg Oncol. 2014;21:2005–11.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "24526547",
+          "doi": null,
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Aurello P, Petrucciani N, Nigri GR, La Torre M, Magistri P, Tierno S, D’Angelo F, Ramacciato G. Log odds of positive lymph nodes (LODDS): What are their role in the prognostic assessment of gastric adenocarcinoma? J Gastrointest Surg. 2014;18:1254–60.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "24841441",
+          "doi": "10.1007/s11605-014-2539-8",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "D’Angelica MD, Gonen M, Brennan MF, et al. Patterns of initial recurrence in completely resected gastric adenocarcinoma. Ann Surg. 2004;240:808–16.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "15492562",
+          "doi": "10.1097/01.sla.0000143245.28656.15",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Umehara Y, Miyahara T, Yoshida M, et al. Lung metastasis of stomach cancer-clinical and pathological assessment. Jpn J Gastrointestinal Surg. 1989;22:2772–7.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": null,
+          "doi": "10.5833/jjgs.22.2772",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Treasure T, Milošević M, Fiorentino F, Macbeth F. Pulmonary metastasectomy: What is the practice and where is the evidence for effectiveness? Thorax. 2014;69:946–9.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "24415715",
+          "doi": "10.1136/thoraxjnl-2013-204528",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Andres A, Mentha G, Adam R, Gerstel E, Skipenko OG, Barroso E, Lopez-Ben S, Hubert C, Majno PE, Toso C. Surgical management of patients with colorectal cancer and simultaneous liver and lung metastases. Br J Surg. 2015;102:691–9.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "25789941",
+          "doi": "10.1002/bjs.9783",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Suzuki H, Kiyoshima M, Kitahara M, Asato Y, Amemiya R. Long-term outcomes after surgical resection of pulmonary metastases from colorectal cancer. Ann Thorac Surg. 2015;99:435–40.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "25499475",
+          "doi": "10.1016/j.athoracsur.2014.09.027",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Treasure T. Pulmonary metastasectomy for colorectal cancer: recent reports prompt a review of the available evidence. Curr Colorectal Cancer Rep. 2014;10:296–302.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "25191154",
+          "doi": "10.1007/s11888-014-0234-5",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Gonzalez M, Poncet A, Combescure C, et al. Risk factors for survival after lung metastasectomy in colorectal cancer patients: a systematic review and meta-analysis. Ann Surg Oncol. 2013;20:572–9.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "23104709",
+          "doi": "10.1245/s10434-012-2726-3",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Funakoshi T, Yasui H, Boku N, Fukutomi A, Yamazaki K, Machida N, Todaka A, Tsushima T, Yokota T, Onozawa Y, Kenmotsu H, Endo M. Clinicopathological features and outcomes of gastric cancer patients with pulmonary lymphangitis carcinomatosa. Jpn J Clin Oncol. 2014;44:792–8.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "25057093",
+          "doi": "10.1093/jjco/hyu091",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Yamauchi M, Yamada E, Miyaishi S, Nakasato H, Kato O, Kitoh T, et al. Lung metastasis from gastric cancer. Gann no Rinsho (Jpn J Cancer Clin). 1982;28:1243–8.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": null,
+          "doi": null,
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Kemp CD, Kitano M, Kerkar S, Ripley RT, Marquardt JU, Schrump DS, Avital I. Pulmonary resection for metastatic gastric cancer. J Thorac Oncol. 2010;5:1796–805.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "20881648",
+          "doi": "10.1097/JTO.0b013e3181ed3514",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Kanemitsu Y, Kondo H, Katai H, Nakayama H, Asamura H, Tsuchiya R, Naruke T. Surgical resection of pulmonary metastases from gastric cancer. J Surg Oncol. 1998;69:147–50.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "9846500",
+          "doi": "10.1002/(SICI)1096-9098(199811)69%3A3<147%3A%3AAID-JSO5>3.0.CO%3B2-H",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Tsumatori G, Ozeki Y, Aoki T, Watanabe M, Tanaka S, Aida S, Takagi K, Ogata T. Five cases of surgically resected pulmonary metastases from gastric cancer: relation between the expression of carbohydrate antigens and metastasis. Jpn J Chest Surg. 1998;12:85–91.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": null,
+          "doi": "10.2995/jacsurg.12.85",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Tamura M, Hiroshima K, Sugita K, et al. Four cases of resected pulmonary tumor metastastic from gastric cancer. Jpn J Lung Cancer. 2002;42:611–3.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": null,
+          "doi": "10.2482/haigan.42.611",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Inoue Y, Kido T, Tanaka Y, et al. A long-term survivor after early gastric cancer with two times of lung metastases which were successfully resected. Nippon Rinshogeka Gakkai Zasshi. 2002;63:52–5.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": null,
+          "doi": null,
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Nakahashi C, Kinoshita T, Konishi M, et al. Long term survival achieved by repeated resections of metachronous pulmonary and adrenal metastases of alpha-fetoprotein producing gastric cancer: report of a case. Surg Today. 2004;34:784–7.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "15338356",
+          "doi": "10.1007/s00595-004-2796-3",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Nakayama H, Ichinose S, Kato Y, et al. Long term survival after a surgical resection of pulmonary metastases from gastric cancer: report of a case. Surg Today. 2008;38:150–3.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "18239874",
+          "doi": "10.1007/s00595-007-3577-6",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Tanai C, Hamaguchi T, Watanabe S, Katai H, Tochigi N, Shimada Y. A case of long-term survival after surgical resection of solitary pulmonary metastasis from gastric cancer. Jpn J Clin Oncol. 2010;40:85–9.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "19770131",
+          "doi": "10.1093/jjco/hyp098",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Hanyu T, Kanda T, Matsuki A, Hasegawa G, Yajima K, Tsuchida M, Kosugi S, Naito M, Hatakeyama K. Endobronchial metastasis from adenocarcinoma of gastric cardia 7 years after potentially curable resection. World J Gastrointest Surg. 2010;2:270–4.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "21160887",
+          "doi": "10.4240/wjgs.v2.i8.270",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Kobayashi Y, Fukui T, Ito S, Shitara K, Ito S, Hatooka S, Mitsudomi T. Pulmonary metastasectomy for gastric cancer: a 13-year single-institution experience. Surg Today. 2013;43:1382–9.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "23184359",
+          "doi": "10.1007/s00595-012-0432-1",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Yoshida Y, Imakiire T, Yoneda S, Obuchi T, Inada K, Iwasaki A. Ten cases of resected solitary pulmonary metastases arising from gastric cancer. Asian Cardiovasc Thorac Ann. 2013;22:578–82.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "24867033",
+          "doi": "10.1177/0218492313513777",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Treasure T, Mineo T, Ambrogi V, Fiorentino F. Survival is higher after repeat lung metastasectomy than after a first metastasectomy: too good to be true? J Thorac Cardiovasc Surg. 2015. doi:",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": null,
+          "doi": null,
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Okiror L, Peleki A, Moffat D, Bille A, Bishay E, Rajesh P, Steyn R, Naidu B, Grimer R, Kalkat M. Survival following Pulmonary Metastasectomy for Sarcoma. Thorac Cardiovasc Surg. 2015 [Epub ahead of print].",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": null,
+          "doi": null,
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Mineo TC, Ambrogi V, Tacconi F, Mineo D. Multi-reoperations for lung metastases. Future Oncol. 2015;11(2 Suppl):37–41.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "25662327",
+          "doi": "10.2217/fon.14.282",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Treasure T, Milošević M, Fiorentino F, Pfannschmidt J. History and present status of pulmonary metastasectomy in colorectal cancer. World J Gastroenterol. 2014;20:14517–26.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "25356017",
+          "doi": "10.3748/wjg.v20.i40.14517",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "NCCN clinical practice guidelines in Oncology, Colon Cancer.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": null,
+          "doi": null,
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Okiror L, Peleki A, Moffat D, Bille A, Bishay E, Rajesh P, Steyn R, Naidu B, Grimer R, Kalkat M. Survival following Pulmonary Metastasectomy for Sarcoma. Thorac Cardiovasc Surg 2015 Mar 5 [Epub ahead of print].",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": null,
+          "doi": null,
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Kemp CD, Ripley RT, Mathur A, Steinberg SM, Nguyen DM, Fojo T, Schrump DS. Pulmonary resection for metastatic adrenocortical carcinoma: the National Cancer Institute experience. Ann Thorac Surg. 2011;92:1195–200.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "21958764",
+          "doi": "10.1016/j.athoracsur.2011.05.013",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Arnaoutakis GJ, Rangachari D, Laheru DA, Iacobuzio-Donahue CA, Hruban RH, Herman JM, Edil BH, Pawlik TM, Schulick RD, Cameron JL, Meneshian A, Yang SC, Wolfgang CL. Pulmonary resection for isolated pancreatic adenocarcinoma metastasis: an analysis of outcomes and survival. J Gastrointest Surg. 2011;15(9):1611–7. doi:",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "21725701",
+          "doi": "10.1007/s11605-011-1605-8",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Neeff H, Hörth W, Makowiec F, Fischer E, Imdahl A, Hopt UT, Passlick B. Outcome after resection of hepatic and pulmonary metastases of colorectal cancer. J Gastrointest Surg. 2009;13(10):1813–20. doi:",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": "19593668",
+          "doi": "10.1007/s11605-009-0960-1",
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Urabe M, Sakakibara T, Daibo M, et al. Two cases of recurrent pulmonary metastasis resected after operation for gastric cancer. Arch Jpn Chir. 1996;65:22–9.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": null,
+          "doi": null,
+          "scholar": null
+        },
+        "volume": null
+      },
+      {
+        "year": null,
+        "journal": null,
+        "title": null,
+        "reference": "Kerkar SP, Kemp CD, Duffy A, Kammula US, Schrump DS, Kwong KF, Quezado M, Goldspiel BR, Venkatesan A, Berger A, Walker M, Toomey MA, Steinberg SM, Giaccone G, Rosenberg SA, Avital I. The GYMSSA trial: a prospective randomized trial comparing gastrectomy, metastasectomy plus systemic therapy versus systemic therapy alone. Trials. 2009;23(10):121.",
+        "authors": [],
+        "pages": null,
+        "ids": {
+          "pmid": null,
+          "doi": "10.1186/1745-6215-10-121",
+          "scholar": null
+        },
+        "volume": null
+      }
+    ],
+    "title": "Pulmonary metastases from gastric cancer: Is there any indication for lung metastasectomy? A systematic review",
+    "keywords": [
+      "Gastric cancer",
+      "Lung metastases",
+      "Pulmonary metastasectomy"
+    ],
+    "abstract": "It is still not clear whether pulmonary resection may have a role in the multidisciplinary management of gastric cancer lung metastases. A systematic literature search was performed to identify all studies published between January 1998 and December 2014 about pulmonary resection of gastric cancer metastases. Ten studies published between 1998 and 2013 were retrieved, including a total of 44 patients. After gastrectomy, median disease-free interval was 35 months. Thirty-eight patients had single lung metastases, whereas six presented with more than one lesion. Median overall survival after lung resection was 45 months, and median disease-free survival was 9 months. Our analysis of the recent literature shows that lung metastasectomy for gastric cancer pulmonary metastases has been reported only in the setting of anecdotic cases or small series of highly selected patients. Lung metastasectomy has no role in the standard management of metastatic gastric patients and may actually be proposed only in individual highly selected cases.",
+    "authors": [
+      "Paolo Aurello",
+      "Niccolo’ Petrucciani",
+      "Diego Giulitti",
+      "Laura Campanella",
+      "Francesco D’Angelo",
+      "Giovanni Ramacciato"
+    ],
+    "publication_info": {
+      "year": "January 2016",
+      "journal": "Medical Oncology",
+      "pages": null,
+      "issue": null,
+      "volume": "33:9"
+    },
+    "ids": {
+      "pmid": null,
+      "doi": "10.1007/s12032-015-0718-4"
+    }
+  }

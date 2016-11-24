@@ -1,0 +1,1090 @@
+{
+    "authors":[
+        "Rosa van den Berg",
+        "Raymond Noordam",
+        "Sander Kooijman",
+        "Steffy W. M. Jansen",
+        "Abimbola A. Akintola",
+        "P. Eline Slagboom",
+        "Hanno Pijl",
+        "Patrick C. N. Rensen",
+        "Nienke R. Biermasz",
+        "Diana van Heemst"
+    ],
+    "title":"Familial longevity is characterized by high circadian rhythmicity of serum cholesterol in healthy elderly individuals",
+    "ids":{
+        "pmid":null,
+        "doi":"10.1111/acel.12547"
+    },
+    "references":[
+        {
+            "authors":[
+                "Akintola AA",
+                "Jansen SW",
+                "Wilde RB",
+                "Hultzer G",
+                "Rodenburg R",
+                "van Heemst D"
+            ],
+            "reference":null,
+            "title":"A simple and versatile method for frequent 24\u00a0h blood sample collection in healthy older adults",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1016%2Fj.mex.2014.12.003",
+                "scholar":null
+            },
+            "year":"2015",
+            "pages":{
+                "last":"38",
+                "first":"33"
+            },
+            "journal":"MethodsX",
+            "volume":"2"
+        },
+        {
+            "authors":[
+                "Bailey M",
+                "Silver R"
+            ],
+            "reference":null,
+            "title":"Sex differences in circadian timing systems: implications for disease",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1016%2Fj.yfrne.2013.11.003",
+                "scholar":null
+            },
+            "year":"2014",
+            "pages":{
+                "last":"139",
+                "first":"111"
+            },
+            "journal":"Front. Neuroendocrinol.",
+            "volume":"35"
+        },
+        {
+            "authors":[
+                "Barzilai N",
+                "Gabriely I",
+                "Gabriely M",
+                "Iankowitz N",
+                "Sorkin JD"
+            ],
+            "reference":null,
+            "title":"Offspring of centenarians have a favorable lipid profile",
+            "ids":{
+                "pmid":"11207846",
+                "doi":"10.1046/j.1532-5415.2001.49013.x",
+                "scholar":null
+            },
+            "year":"2001",
+            "pages":{
+                "last":"79",
+                "first":"76"
+            },
+            "journal":"J. Am. Geriatr. Soc.",
+            "volume":"49"
+        },
+        {
+            "authors":[
+                "Barzilai N",
+                "Atzmon G",
+                "Schechter C",
+                "Schaefer EJ",
+                "Cupples AL",
+                "Lipton R",
+                "Cheng S",
+                "Shuldiner AR"
+            ],
+            "reference":null,
+            "title":"Unique lipoprotein phenotype and genotype associated with exceptional longevity",
+            "ids":{
+                "pmid":"14559957",
+                "doi":"10.1001%2Fjama.290.15.2030",
+                "scholar":null
+            },
+            "year":"2003",
+            "pages":{
+                "last":"2040",
+                "first":"2030"
+            },
+            "journal":"JAMA",
+            "volume":"290"
+        },
+        {
+            "authors":[
+                "Buysse DJ",
+                "Reynolds CF III",
+                "Monk TH",
+                "Berman SR",
+                "Kupfer DJ"
+            ],
+            "reference":null,
+            "title":"The Pittsburgh Sleep Quality Index: a new instrument for psychiatric practice and research",
+            "ids":{
+                "pmid":"2748771",
+                "doi":"10.1016%2F0165-1781%2889%2990047-4",
+                "scholar":null
+            },
+            "year":"1989",
+            "pages":{
+                "last":"213",
+                "first":"193"
+            },
+            "journal":"Psychiatry Res.",
+            "volume":"28"
+        },
+        {
+            "authors":[
+                "Carpenter JS",
+                "Andrykowski MA"
+            ],
+            "reference":null,
+            "title":"Psychometric evaluation of the Pittsburgh Sleep Quality Index",
+            "ids":{
+                "pmid":"9720850",
+                "doi":"10.1016%2FS0022-3999%2897%2900298-5",
+                "scholar":null
+            },
+            "year":"1998",
+            "pages":{
+                "last":"13",
+                "first":"5"
+            },
+            "journal":"J. Psychosom. Res.",
+            "volume":"45"
+        },
+        {
+            "authors":[
+                "Chua EC",
+                "Shui G",
+                "Lee IT",
+                "Lau P",
+                "Tan LC",
+                "Yeo SC",
+                "Lam BD",
+                "Bulchand S",
+                "Summers SA",
+                "Puvanendran K",
+                "Rozen SG",
+                "Wenk MR",
+                "Gooley JJ"
+            ],
+            "reference":null,
+            "title":"Extensive diversity in circadian regulation of plasma lipids and evidence for different circadian metabolic phenotypes in humans",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1073%2Fpnas.1222647110",
+                "scholar":null
+            },
+            "year":"2013",
+            "pages":{
+                "last":"14473",
+                "first":"14468"
+            },
+            "journal":"Proc. Natl Acad. Sci. USA",
+            "volume":"110"
+        },
+        {
+            "authors":[
+                "Coomans CP",
+                "van den Berg SA",
+                "Houben T",
+                "van Klinken JB",
+                "van den Berg R",
+                "Pronk AC",
+                "Havekes LM",
+                "Romijn JA",
+                "van Dijk KW",
+                "Biermasz NR",
+                "Meijer JH"
+            ],
+            "reference":null,
+            "title":"Detrimental effects of constant light exposure and high-fat diet on circadian energy metabolism and insulin sensitivity",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1096%2Ffj.12-210898",
+                "scholar":null
+            },
+            "year":"2013",
+            "pages":{
+                "last":"1732",
+                "first":"1721"
+            },
+            "journal":"FASEB J.",
+            "volume":"27"
+        },
+        {
+            "authors":[
+                "De Benedictis G",
+                "Falcone E",
+                "Rose G",
+                "Ruffolo R",
+                "Spadafora P",
+                "Baggio G",
+                "Bertolini S",
+                "Mari D",
+                "Mattace R",
+                "Monti D",
+                "Morellini M",
+                "Sansoni P",
+                "Franceschi C"
+            ],
+            "reference":null,
+            "title":"DNA multiallelic systems reveal gene/longevity associations not detected by diallelic systems. The APOB locus",
+            "ids":{
+                "pmid":"9050915",
+                "doi":"10.1007%2Fs004390050364",
+                "scholar":null
+            },
+            "year":"1997",
+            "pages":{
+                "last":"318",
+                "first":"312"
+            },
+            "journal":"Hum. Genet.",
+            "volume":"99"
+        },
+        {
+            "authors":[
+                "Froy O"
+            ],
+            "reference":null,
+            "title":"Circadian rhythms, aging, and life span in mammals",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1152%2Fphysiol.00012.2011",
+                "scholar":null
+            },
+            "year":"2011",
+            "pages":{
+                "last":"235",
+                "first":"225"
+            },
+            "journal":"Physiology",
+            "volume":"26"
+        },
+        {
+            "authors":[
+                "Garasto S",
+                "Rose G",
+                "Derango F",
+                "Berardelli M",
+                "Corsonello A",
+                "Feraco E",
+                "Mari V",
+                "Maletta R",
+                "Bruni A",
+                "Franceschi C",
+                "Carotenuto L",
+                "De Benedictis G"
+            ],
+            "reference":null,
+            "title":"The study of APOA1, APOC3 and APOA4 variability in healthy ageing people reveals another paradox in the oldest old subjects",
+            "ids":{
+                "pmid":"12556235",
+                "doi":"10.1046/j.1469-1809.2003.00008.x",
+                "scholar":null
+            },
+            "year":"2003",
+            "pages":{
+                "last":"62",
+                "first":"54"
+            },
+            "journal":"Ann. Hum. Genet.",
+            "volume":"67"
+        },
+        {
+            "authors":[
+                "Graham I",
+                "Cooney MT",
+                "Bradley D",
+                "Dudina A",
+                "Reiner Z"
+            ],
+            "reference":null,
+            "title":"Dyslipidemias in the prevention of cardiovascular disease: risks and causality",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1007%2Fs11886-012-0313-7",
+                "scholar":null
+            },
+            "year":"2012",
+            "pages":{
+                "last":"720",
+                "first":"709"
+            },
+            "journal":"Curr. Cardiol. Rep.",
+            "volume":"14"
+        },
+        {
+            "authors":[
+                "Hermida RC",
+                "Ayala DE",
+                "Mojon A",
+                "Fernandez JR"
+            ],
+            "reference":null,
+            "title":"Blunted sleep-time relative blood pressure decline increases cardiovascular risk independent of blood pressure level\u2013the \u201cnormotensive non-dipper\u201d paradox",
+            "ids":{
+                "pmid":null,
+                "doi":"10.3109%2F07420528.2012.701127",
+                "scholar":null
+            },
+            "year":"2013",
+            "pages":{
+                "last":"98",
+                "first":"87"
+            },
+            "journal":"Chronobiol. Int.",
+            "volume":"30"
+        },
+        {
+            "authors":[
+                "Hofman MA",
+                "Swaab DF"
+            ],
+            "reference":null,
+            "title":"Living by the clock: the circadian pacemaker in older people",
+            "ids":{
+                "pmid":"16126012",
+                "doi":"10.1016%2Fj.arr.2005.07.001",
+                "scholar":null
+            },
+            "year":"2006",
+            "pages":{
+                "last":"51",
+                "first":"33"
+            },
+            "journal":"Ageing Res. Rev.",
+            "volume":"5"
+        },
+        {
+            "authors":[
+                "Hofman MA",
+                "Zhou JN",
+                "Swaab DF"
+            ],
+            "reference":null,
+            "title":"Suprachiasmatic nucleus of the human brain: an immunocytochemical and morphometric analysis",
+            "ids":{
+                "pmid":"8694290",
+                "doi":"10.1002/(SICI)1097-0185(199604)244:4<552::AID-AR13>3.0.CO;2-O",
+                "scholar":null
+            },
+            "year":"1996",
+            "pages":{
+                "last":"562",
+                "first":"552"
+            },
+            "journal":"Anat. Rec.",
+            "volume":"244"
+        },
+        {
+            "authors":[
+                "Hurd MW",
+                "Ralph MR"
+            ],
+            "reference":null,
+            "title":"The significance of circadian organization for longevity in the golden hamster",
+            "ids":{
+                "pmid":"9783234",
+                "doi":"10.1177%2F074873098129000255",
+                "scholar":null
+            },
+            "year":"1998",
+            "pages":{
+                "last":"436",
+                "first":"430"
+            },
+            "journal":"J. Biol. Rhythms",
+            "volume":"13"
+        },
+        {
+            "authors":[
+                "Jansen SW",
+                "Akintola AA",
+                "Roelfsema F",
+                "van der Spoel E",
+                "Cobbaert CM",
+                "Ballieux BE",
+                "Egri P",
+                "Kvarta-Papp Z",
+                "Gereben B",
+                "Fekete C",
+                "Slagboom PE",
+                "van der Grond J",
+                "Demeneix BA",
+                "Pijl H",
+                "Westendorp RG",
+                "van Heemst D"
+            ],
+            "reference":null,
+            "title":"Human longevity is characterised by high thyroid stimulating hormone secretion without altered energy metabolism",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1038%2Fsrep11525",
+                "scholar":null
+            },
+            "year":"2015a",
+            "pages":{
+                "last":null,
+                "first":"11525"
+            },
+            "journal":"Sci. Rep.",
+            "volume":"5"
+        },
+        {
+            "authors":[
+                "Jansen SW",
+                "Roelfsema F",
+                "van der Spoel E",
+                "Akintola AA",
+                "Postmus I",
+                "Ballieux BE",
+                "Slagboom PE",
+                "Cobbaert CM",
+                "van der Grond J",
+                "Westendorp RG",
+                "Pijl H",
+                "van Heemst D"
+            ],
+            "reference":null,
+            "title":"Familial longevity is associated with higher TSH secretion and strong TSH-fT3 relationship",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1210%2Fjc.2015-2624",
+                "scholar":null
+            },
+            "year":"2015b",
+            "pages":{
+                "last":"3813",
+                "first":"3806"
+            },
+            "journal":"J. Clin. Endocrinol. Metab.",
+            "volume":"100"
+        },
+        {
+            "authors":[
+                "Jones PJ",
+                "Schoeller DA"
+            ],
+            "reference":null,
+            "title":"Evidence for diurnal periodicity in human cholesterol synthesis",
+            "ids":{
+                "pmid":"2351871",
+                "doi":null,
+                "scholar":null
+            },
+            "year":"1990",
+            "pages":{
+                "last":"673",
+                "first":"667"
+            },
+            "journal":"J. Lipid Res.",
+            "volume":"31"
+        },
+        {
+            "authors":[
+                "Kooijman S",
+                "van den Berg R",
+                "Ramkisoensing A",
+                "Boon MR",
+                "Kuipers EN",
+                "Loef M",
+                "Zonneveld TC",
+                "Lucassen EA",
+                "Sips HC",
+                "Chatzispyrou IA",
+                "Houtkooper RH",
+                "Meijer JH",
+                "Coomans CP",
+                "Biermasz NR",
+                "Rensen PC"
+            ],
+            "reference":null,
+            "title":"Prolonged daily light exposure increases body fat mass through attenuation of brown adipose tissue activity",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1073%2Fpnas.1504239112",
+                "scholar":null
+            },
+            "year":"2015",
+            "pages":{
+                "last":"6753",
+                "first":"6748"
+            },
+            "journal":"Proc. Natl Acad. Sci. USA",
+            "volume":"112"
+        },
+        {
+            "authors":[
+                "Miettinen TA"
+            ],
+            "reference":null,
+            "title":"Diurnal variation of cholesterol precursors squalene and methyl sterols in human plasma lipoproteins",
+            "ids":{
+                "pmid":"7200504",
+                "doi":null,
+                "scholar":null
+            },
+            "year":"1982",
+            "pages":{
+                "last":"473",
+                "first":"466"
+            },
+            "journal":"J. Lipid Res.",
+            "volume":"23"
+        },
+        {
+            "authors":[
+                "Mirani-Oostdijk CP",
+                "Havekes L",
+                "Terpstra J",
+                "Frolich M",
+                "Van Gent CM",
+                "Jansen H"
+            ],
+            "reference":null,
+            "title":"Diurnal changes in serum triglycerides as related to changes in lipolytic enzymes, (apo) lipoproteins and hormones in normal subjects on a carbohydrate-rich diet",
+            "ids":{
+                "pmid":"6413216",
+                "doi":"10.1111/j.1365-2362.1983.tb00105.x",
+                "scholar":null
+            },
+            "year":"1983",
+            "pages":{
+                "last":"309",
+                "first":"301"
+            },
+            "journal":"Eur. J. Clin. Invest.",
+            "volume":"13"
+        },
+        {
+            "authors":[
+                "Oeppen J",
+                "Vaupel JW"
+            ],
+            "reference":null,
+            "title":"Demography. Broken limits to life expectancy",
+            "ids":{
+                "pmid":"12004104",
+                "doi":"10.1126%2Fscience.1069675",
+                "scholar":null
+            },
+            "year":"2002",
+            "pages":{
+                "last":"1031",
+                "first":"1029"
+            },
+            "journal":"Science",
+            "volume":"296"
+        },
+        {
+            "authors":[
+                "Persson L",
+                "Cao G",
+                "Stahle L",
+                "Sjoberg BG",
+                "Troutt JS",
+                "Konrad RJ",
+                "Galman C",
+                "Wallen H",
+                "Eriksson M",
+                "Hafstrom I",
+                "Lind S",
+                "Dahlin M",
+                "Amark P",
+                "Angelin B",
+                "Rudling M"
+            ],
+            "reference":null,
+            "title":"Circulating proprotein convertase subtilisin kexin type 9 has a diurnal rhythm synchronous with cholesterol synthesis and is reduced by fasting in humans",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1161%2FATVBAHA.110.214130",
+                "scholar":null
+            },
+            "year":"2010",
+            "pages":{
+                "last":"2672",
+                "first":"2666"
+            },
+            "journal":"Arterioscler. Thromb. Vasc. Biol.",
+            "volume":"30"
+        },
+        {
+            "authors":[
+                "Pletcher MJ",
+                "Bibbins-Domingo K",
+                "Liu K",
+                "Sidney S",
+                "Lin F",
+                "Vittinghoff E",
+                "Hulley SB"
+            ],
+            "reference":null,
+            "title":"Nonoptimal lipids commonly present in young adults and coronary calcium later in life: the CARDIA (Coronary Artery Risk Development in Young Adults) study",
+            "ids":{
+                "pmid":null,
+                "doi":"10.7326%2F0003-4819-153-3-201008030-00004",
+                "scholar":null
+            },
+            "year":"2010",
+            "pages":{
+                "last":"146",
+                "first":"137"
+            },
+            "journal":"Ann. Intern. Med.",
+            "volume":"153"
+        },
+        {
+            "authors":[
+                "Postmus I",
+                "Deelen J",
+                "Sedaghat S",
+                "Trompet S",
+                "de Craen AJ",
+                "Heijmans BT",
+                "Franco OH",
+                "Hofman A",
+                "Dehghan A",
+                "Slagboom PE",
+                "Westendorp RG",
+                "Jukema JW"
+            ],
+            "reference":null,
+            "title":"LDL cholesterol still a problem in old age? A Mendelian randomization study",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1093%2Fije%2Fdyv031",
+                "scholar":null
+            },
+            "year":"2015",
+            "pages":{
+                "last":"612",
+                "first":"604"
+            },
+            "journal":"Int. J. Epidemiol.",
+            "volume":"44"
+        },
+        {
+            "authors":[
+                "Reppert SM",
+                "Weaver DR"
+            ],
+            "reference":null,
+            "title":"Coordination of circadian timing in mammals",
+            "ids":{
+                "pmid":"12198538",
+                "doi":"10.1038%2Fnature00965",
+                "scholar":null
+            },
+            "year":"2002",
+            "pages":{
+                "last":"941",
+                "first":"935"
+            },
+            "journal":"Nature",
+            "volume":"418"
+        },
+        {
+            "authors":[
+                "Rivera-Coll A",
+                "Fuentes-Arderiu X",
+                "Diez-Noguera A"
+            ],
+            "reference":null,
+            "title":"Circadian rhythmic variations in serum concentrations of clinically important lipids",
+            "ids":{
+                "pmid":"8044995",
+                "doi":null,
+                "scholar":null
+            },
+            "year":"1994",
+            "pages":{
+                "last":"1553",
+                "first":"1549"
+            },
+            "journal":"Clin. Chem.",
+            "volume":"40"
+        },
+        {
+            "authors":[
+                "Roenneberg T",
+                "Wirz-Justice A",
+                "Merrow M"
+            ],
+            "reference":null,
+            "title":"Life between clocks: daily temporal patterns of human chronotypes",
+            "ids":{
+                "pmid":"12568247",
+                "doi":"10.1177%2F0748730402239679",
+                "scholar":null
+            },
+            "year":"2003",
+            "pages":{
+                "last":"90",
+                "first":"80"
+            },
+            "journal":"J. Biol. Rhythms",
+            "volume":"18"
+        },
+        {
+            "authors":[
+                "Rose G",
+                "Crocco P",
+                "D'Aquila P",
+                "Montesanto A",
+                "Bellizzi D",
+                "Passarino G"
+            ],
+            "reference":null,
+            "title":"Two variants located in the upstream enhancer region of human UCP1 gene affect gene expression and are correlated with human longevity",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1016%2Fj.exger.2011.07.011",
+                "scholar":null
+            },
+            "year":"2011",
+            "pages":{
+                "last":"904",
+                "first":"897"
+            },
+            "journal":"Exp. Gerontol.",
+            "volume":"46"
+        },
+        {
+            "authors":[
+                "Roszkowska-Gancarz M",
+                "Bartoszewicz Z",
+                "Polosak J",
+                "Kurylowicz A",
+                "Jonas M",
+                "Mossakowska M",
+                "Franek E",
+                "Puzianowska-Kuznicka M"
+            ],
+            "reference":null,
+            "title":"Total and high molecular weight adiponectin and level-modifying polymorphisms of ADIPOQ in centenarians",
+            "ids":{
+                "pmid":null,
+                "doi":null,
+                "scholar":null
+            },
+            "year":"2012",
+            "pages":{
+                "last":"446",
+                "first":"439"
+            },
+            "journal":"Endokrynol. Pol.",
+            "volume":"63"
+        },
+        {
+            "authors":[
+                "Rozing MP",
+                "Westendorp RG",
+                "de Craen AJ",
+                "Frolich M",
+                "de Goeij MC",
+                "Heijmans BT",
+                "Beekman M",
+                "Wijsman CA",
+                "Mooijaart SP",
+                "Blauw GJ",
+                "Slagboom PE",
+                "van Heemst D"
+            ],
+            "reference":null,
+            "title":"Favorable glucose tolerance and lower prevalence of metabolic syndrome in offspring without diabetes mellitus of nonagenarian siblings: the Leiden longevity study",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1111/j.1532-5415.2010.02725.x",
+                "scholar":null
+            },
+            "year":"2010",
+            "pages":{
+                "last":"569",
+                "first":"564"
+            },
+            "journal":"J. Am. Geriatr. Soc.",
+            "volume":"58"
+        },
+        {
+            "authors":[
+                "Schoenmaker M",
+                "de Craen AJ",
+                "de Meijer PH",
+                "Beekman M",
+                "Blauw GJ",
+                "Slagboom PE",
+                "Westendorp RG"
+            ],
+            "reference":null,
+            "title":"Evidence of genetic enrichment for exceptional survival using a family approach: the Leiden Longevity Study",
+            "ids":{
+                "pmid":"16251894",
+                "doi":null,
+                "scholar":null
+            },
+            "year":"2006",
+            "pages":{
+                "last":"84",
+                "first":"79"
+            },
+            "journal":"Eur. J. Hum. Genet.",
+            "volume":"14"
+        },
+        {
+            "authors":[
+                "Soerensen M",
+                "Dato S",
+                "Tan Q",
+                "Thinggaard M",
+                "Kleindorp R",
+                "Beekman M",
+                "Suchiman HE",
+                "Jacobsen R",
+                "McGue M",
+                "Stevnsner T",
+                "Bohr VA",
+                "de Craen AJ",
+                "Westendorp RG",
+                "Schreiber S",
+                "Slagboom PE",
+                "Nebel A",
+                "Vaupel JW",
+                "Christensen K",
+                "Christiansen L"
+            ],
+            "reference":null,
+            "title":"Evidence from case-control and longitudinal studies supports associations of genetic variation in APOE, CETP, and IL6 with human longevity",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1007%2Fs11357-011-9373-7",
+                "scholar":null
+            },
+            "year":"2013",
+            "pages":{
+                "last":"500",
+                "first":"487"
+            },
+            "journal":"Age",
+            "volume":"35"
+        },
+        {
+            "authors":[
+                "Steinhagen-Thiessen E",
+                "Bramlage P",
+                "Losch C",
+                "Hauner H",
+                "Schunkert H",
+                "Vogt A",
+                "Wasem J",
+                "Jockel KH",
+                "Moebus S"
+            ],
+            "reference":null,
+            "title":"Dyslipidemia in primary care\u2013prevalence, recognition, treatment and control: data from the German Metabolic and Cardiovascular Risk Project (GEMCAS)",
+            "ids":{
+                "pmid":"18922160",
+                "doi":"10.1186%2F1475-2840-7-31",
+                "scholar":null
+            },
+            "year":"2008",
+            "pages":{
+                "last":null,
+                "first":"31"
+            },
+            "journal":"Cardiovasc. Diabetol.",
+            "volume":"7"
+        },
+        {
+            "authors":[
+                "Stowie AC",
+                "Glass JD"
+            ],
+            "reference":null,
+            "title":"Longitudinal study of changes in daily activity rhythms over the lifespan in individual male and female C57BL/6J mice",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1177%2F0748730415598023",
+                "scholar":null
+            },
+            "year":"2015",
+            "pages":{
+                "last":"568",
+                "first":"563"
+            },
+            "journal":"J. Biol. Rhythms",
+            "volume":"30"
+        },
+        {
+            "authors":[
+                "Vaarhorst AA",
+                "Beekman M",
+                "Suchiman EH",
+                "van Heemst D",
+                "Houwing-Duistermaat JJ",
+                "Westendorp RG",
+                "Slagboom PE",
+                "Heijmans BT"
+            ],
+            "reference":null,
+            "title":"Lipid metabolism in long-lived families: the Leiden Longevity Study",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1007%2Fs11357-010-9172-6",
+                "scholar":null
+            },
+            "year":"2011",
+            "pages":{
+                "last":"227",
+                "first":"219"
+            },
+            "journal":"Age",
+            "volume":"33"
+        },
+        {
+            "authors":[
+                "Wang JL",
+                "Lim AS",
+                "Chiang WY",
+                "Hsieh WH",
+                "Lo MT",
+                "Schneider JA",
+                "Buchman AS",
+                "Bennett DA",
+                "Hu K",
+                "Saper CB"
+            ],
+            "reference":null,
+            "title":"Suprachiasmatic neuron numbers and rest-activity circadian rhythms in older humans",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1002/ana.24432",
+                "scholar":null
+            },
+            "year":"2015",
+            "pages":{
+                "last":"322",
+                "first":"317"
+            },
+            "journal":"Ann. Neurol.",
+            "volume":"78"
+        },
+        {
+            "authors":[
+                "Westendorp RG",
+                "van Heemst D",
+                "Rozing MP",
+                "Frolich M",
+                "Mooijaart SP",
+                "Blauw GJ",
+                "Beekman M",
+                "Heijmans BT",
+                "de Craen AJ",
+                "Slagboom PE"
+            ],
+            "reference":null,
+            "title":"Nonagenarian siblings and their offspring display lower risk of mortality and morbidity than sporadic nonagenarians: the Leiden Longevity Study",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1111/j.1532-5415.2009.02381.x",
+                "scholar":null
+            },
+            "year":"2009",
+            "pages":{
+                "last":"1637",
+                "first":"1634"
+            },
+            "journal":"J. Am. Geriatr. Soc.",
+            "volume":"57"
+        },
+        {
+            "authors":[
+                "White WB"
+            ],
+            "reference":null,
+            "title":"Ambulatory blood pressure monitoring: dippers compared with non-dippers",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1097%2F00126097-200005001-00004",
+                "scholar":null
+            },
+            "year":"2000",
+            "pages":{
+                "last":"S23",
+                "first":"S17"
+            },
+            "journal":"Blood Press Monit.",
+            "volume":"5"
+        },
+        {
+            "authors":[
+                "Yoshino J",
+                "Almeda-Valdes P",
+                "Patterson BW",
+                "Okunade AL",
+                "Imai S",
+                "Mittendorfer B",
+                "Klein S"
+            ],
+            "reference":null,
+            "title":"Diurnal variation in insulin sensitivity of glucose metabolism is associated with diurnal variations in whole-body and cellular fatty acid metabolism in metabolically normal women",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1210%2Fjc.2014-1579",
+                "scholar":null
+            },
+            "year":"2014",
+            "pages":{
+                "last":"E1670",
+                "first":"E1666"
+            },
+            "journal":"J. Clin. Endocrinol. Metab.",
+            "volume":"99"
+        },
+        {
+            "authors":[
+                "Zavada A",
+                "Gordijn MC",
+                "Beersma DG",
+                "Daan S",
+                "Roenneberg T"
+            ],
+            "reference":null,
+            "title":"Comparison of the Munich chronotype questionnaire with the Horne-Ostberg's morningness-eveningness score",
+            "ids":{
+                "pmid":"16021843",
+                "doi":"10.1081%2FCBI-200053536",
+                "scholar":null
+            },
+            "year":"2005",
+            "pages":{
+                "last":"278",
+                "first":"267"
+            },
+            "journal":"Chronobiol. Int.",
+            "volume":"22"
+        }
+    ],
+    "keywords":[
+        "aging",
+        "biological clock",
+        "cholesterol",
+        "circadian rhythm",
+        "longevity"
+    ],
+    "publication_info":{
+        "journal":"Aging Cell",
+        "volume":null,
+        "pages":{
+            "last":null,
+            "first":null
+        },
+        "year":"2016",
+        "issue":null
+    },
+    "abstract":"The biological clock, whose function deteriorates with increasing age, determines bodily circadian (i.e. 24h) rhythms, including that of cholesterol metabolism. Dampening of circadian rhythms has been associated with aging and disease. Therefore, we hypothesized that individuals with a familial predisposition for longevity have a higher amplitude circadian serum cholesterol concentration rhythm. The aim of this study was to investigate circadian rhythmicity of serum cholesterol concentrations in offspring of nonagenarian siblings and their partners. Offspring from nonagenarian siblings (n\u00a0=\u00a019), and their partners as controls (n\u00a0=\u00a018), were recruited from the Leiden Longevity Study. Participants (mean age 65\u00a0years) were studied in a controlled in-hospital setting over a 24-h period, receiving three isocaloric meals at 9:00\u00a0h, 12:00\u00a0h and 18:00\u00a0h. Lights were off between 23:00\u00a0h and 8:00\u00a0h. Serum total cholesterol (TC), HDL cholesterol (HDL-C), non-HDL-C and triglycerides (TG) were determined every 30\u00a0min over a 24-h period. Serum TC concentrations were higher during day than during night in offspring (5.2 vs. 4.7\u00a0mm, P\u00a0<\u00a00.001) and in controls (5.3 vs. 5.0\u00a0mm, P\u00a0<\u00a00.001). The difference in TC concentrations between day and night tended to be greater in offspring than in controls (0.5 vs. 0.3\u00a0mm, P\u00a0=\u00a00.109), reaching statistical significance in females (P\u00a0=\u00a00.045). Notably, the day\u2013night serum differences in non-HDL-C were twofold greater in offspring than in controls (0.43 vs. 0.21\u00a0mm, P\u00a0=\u00a00.044) and most explicit in females (0.53 vs. 0.22, P\u00a0=\u00a00.078). We conclude that familial longevity is characterized by a high circadian rhythmicity of non-HDL-C in healthy elderly offspring from nonagenarian siblings.",
+    "citation":null
+}
