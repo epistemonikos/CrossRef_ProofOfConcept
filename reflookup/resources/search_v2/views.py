@@ -6,6 +6,7 @@ from reflookup.utils.restful.utils import DeferredResource, \
 from reflookup.resources.lookup_functions.citation_search import \
     cr_citation_lookup, mendeley_lookup
 from threading import Thread
+from reflookup.utils.pubmed_id import getPubMedID
 
 from reflookup.utils.standardize_json import StandardDict
 
@@ -27,15 +28,14 @@ class IntegratedReferenceSearchV2(DeferredResource):
         self.post_parser.add_argument('refs', required=True, type=list,
                                       location='json')
 
-    @find_pubmedid_wrapper
-    def single_search(self, args):
-        citation = args['q'][0]
+    @staticmethod
+    def single_search(cit, cr_only=False, md_only=False, dont_choose=False):
 
-        if args['cr_only'] and not args['md_only']:
-            return cr_citation_lookup(citation)
+        if cr_only and not md_only:
+            return cr_citation_lookup(cit)
 
-        elif args['md_only'] and not args['cr_only']:
-            return mendeley_lookup(citation)
+        elif md_only and not cr_only:
+            return mendeley_lookup(cit)
 
         else:
             results = {
@@ -44,10 +44,10 @@ class IntegratedReferenceSearchV2(DeferredResource):
             }
 
             def cr_thread():
-                results['crossref'] = cr_citation_lookup(citation)
+                results['crossref'] = cr_citation_lookup(cit)
 
             def md_thread():
-                results['mendeley'] = mendeley_lookup(citation)
+                results['mendeley'] = mendeley_lookup(cit)
 
             t1 = Thread(target=cr_thread)
             t2 = Thread(target=md_thread)
@@ -63,27 +63,38 @@ class IntegratedReferenceSearchV2(DeferredResource):
 
             if not cr and not md:
                 abort(404,
-                      message='No results found for query {}'.format(citation))
+                      message='No results found for query {}'.format(cit))
             elif not md:
                 return cr
             elif not cr:
                 return md
-            elif args['dont_choose']:
+            elif dont_choose:
                 return [cr, md]
             else:
-                ch = Chooser(citation,
+                ch = Chooser(cit,
                              [cr.get('result', StandardDict().getEmpty()),
                               md.get('result', StandardDict().getEmpty())])
 
                 return ch.select()
 
-    def deferred_search(self, args):
-        pass
+    @staticmethod
+    def deferred_search(citations):
+        results = []
+        for citation in citations:
+            results.append(getPubMedID(
+                IntegratedReferenceSearchV2.single_search(citation)))
+
+        return results
 
     def get(self):
         args = self.get_parser.parse_args()
-        if len(args['q']) == 1:
-            return self.single_search(args)
+        cit = args['q']
+        if len(cit) == 1:
+            return find_pubmedid_wrapper(
+                IntegratedReferenceSearchV2.single_search)(cit[0],
+                                                           args['cr_only'],
+                                                           args['md_only'],
+                                                           args['dont_choose'])
         else:
-            return self.deferred_search()
-
+            return b64_encode_response(self.enqueue_job_and_return)(
+                IntegratedReferenceSearchV2.deferred_search, cit)
