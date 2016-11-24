@@ -1,1361 +1,1090 @@
 {
-    "publication_info":{
-        "journal":"Birth Defects Research Part C: Embryo Today: Reviews",
-        "pages":{
-            "last":"180",
-            "first":"174"
-        },
-        "issue":"2",
-        "volume":"108",
-        "year":"2016"
-    },
-    "keywords":[
-        "fetal alcohol spectrum disorders",
-        "fetal alcohol syndrome",
-        "prenatal alcohol exposure",
-        "alcohol-related birth defects"
+    "authors":[
+        "Rosa van den Berg",
+        "Raymond Noordam",
+        "Sander Kooijman",
+        "Steffy W. M. Jansen",
+        "Abimbola A. Akintola",
+        "P. Eline Slagboom",
+        "Hanno Pijl",
+        "Patrick C. N. Rensen",
+        "Nienke R. Biermasz",
+        "Diana van Heemst"
     ],
+    "title":"Familial longevity is characterized by high circadian rhythmicity of serum cholesterol in healthy elderly individuals",
     "ids":{
-        "doi":"10.1002/bdrc.21129",
-        "pmid":null
+        "pmid":null,
+        "doi":"10.1111/acel.12547"
     },
     "references":[
         {
+            "authors":[
+                "Akintola AA",
+                "Jansen SW",
+                "Wilde RB",
+                "Hultzer G",
+                "Rodenburg R",
+                "van Heemst D"
+            ],
+            "reference":null,
+            "title":"A simple and versatile method for frequent 24\u00a0h blood sample collection in healthy older adults",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1016%2Fj.mex.2014.12.003",
+                "scholar":null
+            },
+            "year":"2015",
+            "pages":{
+                "last":"38",
+                "first":"33"
+            },
+            "journal":"MethodsX",
+            "volume":"2"
+        },
+        {
+            "authors":[
+                "Bailey M",
+                "Silver R"
+            ],
+            "reference":null,
+            "title":"Sex differences in circadian timing systems: implications for disease",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1016%2Fj.yfrne.2013.11.003",
+                "scholar":null
+            },
+            "year":"2014",
+            "pages":{
+                "last":"139",
+                "first":"111"
+            },
+            "journal":"Front. Neuroendocrinol.",
+            "volume":"35"
+        },
+        {
+            "authors":[
+                "Barzilai N",
+                "Gabriely I",
+                "Gabriely M",
+                "Iankowitz N",
+                "Sorkin JD"
+            ],
+            "reference":null,
+            "title":"Offspring of centenarians have a favorable lipid profile",
+            "ids":{
+                "pmid":"11207846",
+                "doi":"10.1046/j.1532-5415.2001.49013.x",
+                "scholar":null
+            },
             "year":"2001",
-            "authors":[
-                "Archibald SL",
-                "Fennema-Notestine C",
-                "Gamst A",
-                "Riley EP",
-                "Mattson SN",
-                "Jernigan TL."
-            ],
-            "volume":"43",
-            "journal":"Dev Med Child Neurol",
-            "title":"Brain dysmorphology in individuals with severe prenatal alcohol exposure",
-            "ids":{
-                "doi":"10.1111/j.1469-8749.2001.tb00179.x",
-                "scholar":null,
-                "pmid":"11263683"
-            },
             "pages":{
-                "last":"154",
-                "first":"148"
+                "last":"79",
+                "first":"76"
             },
-            "reference":null
+            "journal":"J. Am. Geriatr. Soc.",
+            "volume":"49"
         },
         {
+            "authors":[
+                "Barzilai N",
+                "Atzmon G",
+                "Schechter C",
+                "Schaefer EJ",
+                "Cupples AL",
+                "Lipton R",
+                "Cheng S",
+                "Shuldiner AR"
+            ],
+            "reference":null,
+            "title":"Unique lipoprotein phenotype and genotype associated with exceptional longevity",
+            "ids":{
+                "pmid":"14559957",
+                "doi":"10.1001%2Fjama.290.15.2030",
+                "scholar":null
+            },
+            "year":"2003",
+            "pages":{
+                "last":"2040",
+                "first":"2030"
+            },
+            "journal":"JAMA",
+            "volume":"290"
+        },
+        {
+            "authors":[
+                "Buysse DJ",
+                "Reynolds CF III",
+                "Monk TH",
+                "Berman SR",
+                "Kupfer DJ"
+            ],
+            "reference":null,
+            "title":"The Pittsburgh Sleep Quality Index: a new instrument for psychiatric practice and research",
+            "ids":{
+                "pmid":"2748771",
+                "doi":"10.1016%2F0165-1781%2889%2990047-4",
+                "scholar":null
+            },
+            "year":"1989",
+            "pages":{
+                "last":"213",
+                "first":"193"
+            },
+            "journal":"Psychiatry Res.",
+            "volume":"28"
+        },
+        {
+            "authors":[
+                "Carpenter JS",
+                "Andrykowski MA"
+            ],
+            "reference":null,
+            "title":"Psychometric evaluation of the Pittsburgh Sleep Quality Index",
+            "ids":{
+                "pmid":"9720850",
+                "doi":"10.1016%2FS0022-3999%2897%2900298-5",
+                "scholar":null
+            },
+            "year":"1998",
+            "pages":{
+                "last":"13",
+                "first":"5"
+            },
+            "journal":"J. Psychosom. Res.",
+            "volume":"45"
+        },
+        {
+            "authors":[
+                "Chua EC",
+                "Shui G",
+                "Lee IT",
+                "Lau P",
+                "Tan LC",
+                "Yeo SC",
+                "Lam BD",
+                "Bulchand S",
+                "Summers SA",
+                "Puvanendran K",
+                "Rozen SG",
+                "Wenk MR",
+                "Gooley JJ"
+            ],
+            "reference":null,
+            "title":"Extensive diversity in circadian regulation of plasma lipids and evidence for different circadian metabolic phenotypes in humans",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1073%2Fpnas.1222647110",
+                "scholar":null
+            },
+            "year":"2013",
+            "pages":{
+                "last":"14473",
+                "first":"14468"
+            },
+            "journal":"Proc. Natl Acad. Sci. USA",
+            "volume":"110"
+        },
+        {
+            "authors":[
+                "Coomans CP",
+                "van den Berg SA",
+                "Houben T",
+                "van Klinken JB",
+                "van den Berg R",
+                "Pronk AC",
+                "Havekes LM",
+                "Romijn JA",
+                "van Dijk KW",
+                "Biermasz NR",
+                "Meijer JH"
+            ],
+            "reference":null,
+            "title":"Detrimental effects of constant light exposure and high-fat diet on circadian energy metabolism and insulin sensitivity",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1096%2Ffj.12-210898",
+                "scholar":null
+            },
+            "year":"2013",
+            "pages":{
+                "last":"1732",
+                "first":"1721"
+            },
+            "journal":"FASEB J.",
+            "volume":"27"
+        },
+        {
+            "authors":[
+                "De Benedictis G",
+                "Falcone E",
+                "Rose G",
+                "Ruffolo R",
+                "Spadafora P",
+                "Baggio G",
+                "Bertolini S",
+                "Mari D",
+                "Mattace R",
+                "Monti D",
+                "Morellini M",
+                "Sansoni P",
+                "Franceschi C"
+            ],
+            "reference":null,
+            "title":"DNA multiallelic systems reveal gene/longevity associations not detected by diallelic systems. The APOB locus",
+            "ids":{
+                "pmid":"9050915",
+                "doi":"10.1007%2Fs004390050364",
+                "scholar":null
+            },
+            "year":"1997",
+            "pages":{
+                "last":"318",
+                "first":"312"
+            },
+            "journal":"Hum. Genet.",
+            "volume":"99"
+        },
+        {
+            "authors":[
+                "Froy O"
+            ],
+            "reference":null,
+            "title":"Circadian rhythms, aging, and life span in mammals",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1152%2Fphysiol.00012.2011",
+                "scholar":null
+            },
             "year":"2011",
-            "authors":[
-                "Aros S",
-                "Mills JL",
-                "I\u00f1iguez G",
-                "Avila A",
-                "Conley MR",
-                "Troendle J",
-                "Cox C",
-                "Cassorla F."
-            ],
-            "volume":"75",
-            "journal":"Horm Res Paediatr Hormone Res Paediatr",
-            "title":"Effects of prenatal ethanol exposure on postnatal growth and the insulin-like growth factor axis",
-            "ids":{
-                "doi":"10.1159%2F000319706",
-                "scholar":null,
-                "pmid":null
-            },
             "pages":{
-                "last":"173",
-                "first":"166"
+                "last":"235",
+                "first":"225"
             },
-            "reference":null
+            "journal":"Physiology",
+            "volume":"26"
         },
         {
-            "year":"1980",
             "authors":[
-                "Bear T."
+                "Garasto S",
+                "Rose G",
+                "Derango F",
+                "Berardelli M",
+                "Corsonello A",
+                "Feraco E",
+                "Mari V",
+                "Maletta R",
+                "Bruni A",
+                "Franceschi C",
+                "Carotenuto L",
+                "De Benedictis G"
             ],
-            "volume":"59",
-            "journal":"Adv Anat Embryol Cell Biol",
-            "title":"The vascular system of the cerebral cortex",
+            "reference":null,
+            "title":"The study of APOA1, APOC3 and APOA4 variability in healthy ageing people reveals another paradox in the oldest old subjects",
             "ids":{
-                "doi":null,
-                "scholar":null,
-                "pmid":null
+                "pmid":"12556235",
+                "doi":"10.1046/j.1469-1809.2003.00008.x",
+                "scholar":null
             },
+            "year":"2003",
             "pages":{
                 "last":"62",
-                "first":"1"
+                "first":"54"
             },
-            "reference":null
+            "journal":"Ann. Hum. Genet.",
+            "volume":"67"
         },
         {
-            "year":"2010",
             "authors":[
-                "Bjorkquist OA",
-                "Fryer SL",
-                "Reiss AL",
-                "Mattson SN",
-                "Riley EP."
+                "Graham I",
+                "Cooney MT",
+                "Bradley D",
+                "Dudina A",
+                "Reiner Z"
             ],
-            "volume":"181",
-            "journal":"Psychiatry Res",
-            "title":"Cingulate gyrus morphology in children and adolescents with fetal alcohol spectrum disorders",
+            "reference":null,
+            "title":"Dyslipidemias in the prevention of cardiovascular disease: risks and causality",
             "ids":{
-                "doi":"10.1016%2Fj.pscychresns.2009.10.004",
-                "scholar":null,
-                "pmid":"20080394"
+                "pmid":null,
+                "doi":"10.1007%2Fs11886-012-0313-7",
+                "scholar":null
             },
+            "year":"2012",
             "pages":{
-                "last":"107",
-                "first":"101"
+                "last":"720",
+                "first":"709"
             },
-            "reference":null
+            "journal":"Curr. Cardiol. Rep.",
+            "volume":"14"
         },
         {
-            "year":"1996",
             "authors":[
-                "Carmeliet P",
-                "Ferreira V",
-                "Breier G"
+                "Hermida RC",
+                "Ayala DE",
+                "Mojon A",
+                "Fernandez JR"
             ],
-            "volume":"380",
-            "journal":"Nature",
-            "title":"Abnormal blood vessel development and lethality in embryos lacking a single VEGF allele",
+            "reference":null,
+            "title":"Blunted sleep-time relative blood pressure decline increases cardiovascular risk independent of blood pressure level\u2013the \u201cnormotensive non-dipper\u201d paradox",
             "ids":{
-                "doi":"10.1038%2F380435a0",
-                "scholar":null,
-                "pmid":"8602241"
+                "pmid":null,
+                "doi":"10.3109%2F07420528.2012.701127",
+                "scholar":null
             },
+            "year":"2013",
             "pages":{
-                "last":"439",
-                "first":"435"
+                "last":"98",
+                "first":"87"
             },
-            "reference":null
+            "journal":"Chronobiol. Int.",
+            "volume":"30"
         },
         {
-            "year":"1978",
             "authors":[
-                "Clarren SK",
-                "Alvord EC Jr",
-                "Sumi SM",
-                "Steissguth AP",
-                "Smith DW."
+                "Hofman MA",
+                "Swaab DF"
             ],
-            "volume":"92",
-            "journal":"J Pediatr",
-            "title":"Brain malformations related to prenatal exposure to ethanol",
+            "reference":null,
+            "title":"Living by the clock: the circadian pacemaker in older people",
             "ids":{
-                "doi":"10.1016%2FS0022-3476%2878%2980072-9",
-                "scholar":null,
-                "pmid":"619080"
+                "pmid":"16126012",
+                "doi":"10.1016%2Fj.arr.2005.07.001",
+                "scholar":null
             },
-            "pages":{
-                "last":"67",
-                "first":"64"
-            },
-            "reference":null
-        },
-        {
-            "year":"2011",
-            "authors":[
-                "Coles CD",
-                "Zhihao L."
-            ],
-            "volume":"21",
-            "journal":"Neuropsychol Rev Neuropsychol Rev",
-            "title":"Functional neuroimaging in the examination of effects of prenatal alcohol exposure",
-            "ids":{
-                "doi":"10.1007%2Fs11065-011-9165-y",
-                "scholar":null,
-                "pmid":"21484401"
-            },
-            "pages":{
-                "last":"132",
-                "first":"119"
-            },
-            "reference":null
-        },
-        {
             "year":"2006",
-            "authors":[
-                "Cortese BM",
-                "Moore GJ",
-                "Bailey BA"
-            ],
-            "volume":"28",
-            "journal":"Neurotoxicol Teratol",
-            "title":"Magnetic resonance and spectroscopic imaging in prenatal alcohol exposed children: Preliminary findings in the caudate nucleus",
-            "ids":{
-                "doi":"10.1016%2Fj.ntt.2006.08.002",
-                "scholar":null,
-                "pmid":"16996247"
-            },
             "pages":{
-                "last":"606",
-                "first":"597"
+                "last":"51",
+                "first":"33"
             },
-            "reference":null
+            "journal":"Ageing Res. Rev.",
+            "volume":"5"
         },
         {
-            "year":"1993",
             "authors":[
-                "Coulter CL",
-                "Leech RW",
-                "Schaefer GB",
-                "Scheithauer BW",
-                "Brumback RA."
+                "Hofman MA",
+                "Zhou JN",
+                "Swaab DF"
             ],
-            "volume":"50",
-            "journal":"Arch Neurol",
-            "title":"Midline cerebral dysgenesis, dysfunction of the hypothalamic-pituitary axis, and fetal alcohol effects",
+            "reference":null,
+            "title":"Suprachiasmatic nucleus of the human brain: an immunocytochemical and morphometric analysis",
             "ids":{
-                "doi":"10.1001%2Farchneur.1993.00540070083022",
-                "scholar":null,
-                "pmid":"8323485"
+                "pmid":"8694290",
+                "doi":"10.1002/(SICI)1097-0185(199604)244:4<552::AID-AR13>3.0.CO;2-O",
+                "scholar":null
             },
-            "pages":{
-                "last":"775",
-                "first":"771"
-            },
-            "reference":null
-        },
-        {
-            "year":"2009",
-            "authors":[
-                "Dirix CEH",
-                "Nijhuis JG",
-                "Jongsma HW",
-                "Hornstra G."
-            ],
-            "volume":"80",
-            "journal":"Child Dev",
-            "title":"Aspects of fetal learning and memory",
-            "ids":{
-                "doi":"10.1111/j.1467-8624.2009.01329.x",
-                "scholar":null,
-                "pmid":"19630906"
-            },
-            "pages":{
-                "last":"1258",
-                "first":"1251"
-            },
-            "reference":null
-        },
-        {
-            "year":"2011",
-            "authors":[
-                "Dolk H",
-                "Loane M",
-                "Garne E."
-            ],
-            "volume":"123",
-            "journal":"Circulation",
-            "title":"Congenital heart defects in Europe prevalence and perinatal mortality, 2000 to 2005",
-            "ids":{
-                "doi":"10.1161%2FCIRCULATIONAHA.110.958405",
-                "scholar":null,
-                "pmid":"21321151"
-            },
-            "pages":{
-                "last":"849",
-                "first":"841"
-            },
-            "reference":null
-        },
-        {
             "year":"1996",
-            "authors":[
-                "Ferrara N",
-                "Carver-Moore K",
-                "Chen H"
-            ],
-            "volume":"380",
-            "journal":"Nature",
-            "title":"Heterozygous embryonic lethality induced by targeted inactivation of the VEGF gene",
-            "ids":{
-                "doi":"10.1038%2F380439a0",
-                "scholar":null,
-                "pmid":"8602242"
-            },
             "pages":{
-                "last":"442",
+                "last":"562",
+                "first":"552"
+            },
+            "journal":"Anat. Rec.",
+            "volume":"244"
+        },
+        {
+            "authors":[
+                "Hurd MW",
+                "Ralph MR"
+            ],
+            "reference":null,
+            "title":"The significance of circadian organization for longevity in the golden hamster",
+            "ids":{
+                "pmid":"9783234",
+                "doi":"10.1177%2F074873098129000255",
+                "scholar":null
+            },
+            "year":"1998",
+            "pages":{
+                "last":"436",
+                "first":"430"
+            },
+            "journal":"J. Biol. Rhythms",
+            "volume":"13"
+        },
+        {
+            "authors":[
+                "Jansen SW",
+                "Akintola AA",
+                "Roelfsema F",
+                "van der Spoel E",
+                "Cobbaert CM",
+                "Ballieux BE",
+                "Egri P",
+                "Kvarta-Papp Z",
+                "Gereben B",
+                "Fekete C",
+                "Slagboom PE",
+                "van der Grond J",
+                "Demeneix BA",
+                "Pijl H",
+                "Westendorp RG",
+                "van Heemst D"
+            ],
+            "reference":null,
+            "title":"Human longevity is characterised by high thyroid stimulating hormone secretion without altered energy metabolism",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1038%2Fsrep11525",
+                "scholar":null
+            },
+            "year":"2015a",
+            "pages":{
+                "last":null,
+                "first":"11525"
+            },
+            "journal":"Sci. Rep.",
+            "volume":"5"
+        },
+        {
+            "authors":[
+                "Jansen SW",
+                "Roelfsema F",
+                "van der Spoel E",
+                "Akintola AA",
+                "Postmus I",
+                "Ballieux BE",
+                "Slagboom PE",
+                "Cobbaert CM",
+                "van der Grond J",
+                "Westendorp RG",
+                "Pijl H",
+                "van Heemst D"
+            ],
+            "reference":null,
+            "title":"Familial longevity is associated with higher TSH secretion and strong TSH-fT3 relationship",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1210%2Fjc.2015-2624",
+                "scholar":null
+            },
+            "year":"2015b",
+            "pages":{
+                "last":"3813",
+                "first":"3806"
+            },
+            "journal":"J. Clin. Endocrinol. Metab.",
+            "volume":"100"
+        },
+        {
+            "authors":[
+                "Jones PJ",
+                "Schoeller DA"
+            ],
+            "reference":null,
+            "title":"Evidence for diurnal periodicity in human cholesterol synthesis",
+            "ids":{
+                "pmid":"2351871",
+                "doi":null,
+                "scholar":null
+            },
+            "year":"1990",
+            "pages":{
+                "last":"673",
+                "first":"667"
+            },
+            "journal":"J. Lipid Res.",
+            "volume":"31"
+        },
+        {
+            "authors":[
+                "Kooijman S",
+                "van den Berg R",
+                "Ramkisoensing A",
+                "Boon MR",
+                "Kuipers EN",
+                "Loef M",
+                "Zonneveld TC",
+                "Lucassen EA",
+                "Sips HC",
+                "Chatzispyrou IA",
+                "Houtkooper RH",
+                "Meijer JH",
+                "Coomans CP",
+                "Biermasz NR",
+                "Rensen PC"
+            ],
+            "reference":null,
+            "title":"Prolonged daily light exposure increases body fat mass through attenuation of brown adipose tissue activity",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1073%2Fpnas.1504239112",
+                "scholar":null
+            },
+            "year":"2015",
+            "pages":{
+                "last":"6753",
+                "first":"6748"
+            },
+            "journal":"Proc. Natl Acad. Sci. USA",
+            "volume":"112"
+        },
+        {
+            "authors":[
+                "Miettinen TA"
+            ],
+            "reference":null,
+            "title":"Diurnal variation of cholesterol precursors squalene and methyl sterols in human plasma lipoproteins",
+            "ids":{
+                "pmid":"7200504",
+                "doi":null,
+                "scholar":null
+            },
+            "year":"1982",
+            "pages":{
+                "last":"473",
+                "first":"466"
+            },
+            "journal":"J. Lipid Res.",
+            "volume":"23"
+        },
+        {
+            "authors":[
+                "Mirani-Oostdijk CP",
+                "Havekes L",
+                "Terpstra J",
+                "Frolich M",
+                "Van Gent CM",
+                "Jansen H"
+            ],
+            "reference":null,
+            "title":"Diurnal changes in serum triglycerides as related to changes in lipolytic enzymes, (apo) lipoproteins and hormones in normal subjects on a carbohydrate-rich diet",
+            "ids":{
+                "pmid":"6413216",
+                "doi":"10.1111/j.1365-2362.1983.tb00105.x",
+                "scholar":null
+            },
+            "year":"1983",
+            "pages":{
+                "last":"309",
+                "first":"301"
+            },
+            "journal":"Eur. J. Clin. Invest.",
+            "volume":"13"
+        },
+        {
+            "authors":[
+                "Oeppen J",
+                "Vaupel JW"
+            ],
+            "reference":null,
+            "title":"Demography. Broken limits to life expectancy",
+            "ids":{
+                "pmid":"12004104",
+                "doi":"10.1126%2Fscience.1069675",
+                "scholar":null
+            },
+            "year":"2002",
+            "pages":{
+                "last":"1031",
+                "first":"1029"
+            },
+            "journal":"Science",
+            "volume":"296"
+        },
+        {
+            "authors":[
+                "Persson L",
+                "Cao G",
+                "Stahle L",
+                "Sjoberg BG",
+                "Troutt JS",
+                "Konrad RJ",
+                "Galman C",
+                "Wallen H",
+                "Eriksson M",
+                "Hafstrom I",
+                "Lind S",
+                "Dahlin M",
+                "Amark P",
+                "Angelin B",
+                "Rudling M"
+            ],
+            "reference":null,
+            "title":"Circulating proprotein convertase subtilisin kexin type 9 has a diurnal rhythm synchronous with cholesterol synthesis and is reduced by fasting in humans",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1161%2FATVBAHA.110.214130",
+                "scholar":null
+            },
+            "year":"2010",
+            "pages":{
+                "last":"2672",
+                "first":"2666"
+            },
+            "journal":"Arterioscler. Thromb. Vasc. Biol.",
+            "volume":"30"
+        },
+        {
+            "authors":[
+                "Pletcher MJ",
+                "Bibbins-Domingo K",
+                "Liu K",
+                "Sidney S",
+                "Lin F",
+                "Vittinghoff E",
+                "Hulley SB"
+            ],
+            "reference":null,
+            "title":"Nonoptimal lipids commonly present in young adults and coronary calcium later in life: the CARDIA (Coronary Artery Risk Development in Young Adults) study",
+            "ids":{
+                "pmid":null,
+                "doi":"10.7326%2F0003-4819-153-3-201008030-00004",
+                "scholar":null
+            },
+            "year":"2010",
+            "pages":{
+                "last":"146",
+                "first":"137"
+            },
+            "journal":"Ann. Intern. Med.",
+            "volume":"153"
+        },
+        {
+            "authors":[
+                "Postmus I",
+                "Deelen J",
+                "Sedaghat S",
+                "Trompet S",
+                "de Craen AJ",
+                "Heijmans BT",
+                "Franco OH",
+                "Hofman A",
+                "Dehghan A",
+                "Slagboom PE",
+                "Westendorp RG",
+                "Jukema JW"
+            ],
+            "reference":null,
+            "title":"LDL cholesterol still a problem in old age? A Mendelian randomization study",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1093%2Fije%2Fdyv031",
+                "scholar":null
+            },
+            "year":"2015",
+            "pages":{
+                "last":"612",
+                "first":"604"
+            },
+            "journal":"Int. J. Epidemiol.",
+            "volume":"44"
+        },
+        {
+            "authors":[
+                "Reppert SM",
+                "Weaver DR"
+            ],
+            "reference":null,
+            "title":"Coordination of circadian timing in mammals",
+            "ids":{
+                "pmid":"12198538",
+                "doi":"10.1038%2Fnature00965",
+                "scholar":null
+            },
+            "year":"2002",
+            "pages":{
+                "last":"941",
+                "first":"935"
+            },
+            "journal":"Nature",
+            "volume":"418"
+        },
+        {
+            "authors":[
+                "Rivera-Coll A",
+                "Fuentes-Arderiu X",
+                "Diez-Noguera A"
+            ],
+            "reference":null,
+            "title":"Circadian rhythmic variations in serum concentrations of clinically important lipids",
+            "ids":{
+                "pmid":"8044995",
+                "doi":null,
+                "scholar":null
+            },
+            "year":"1994",
+            "pages":{
+                "last":"1553",
+                "first":"1549"
+            },
+            "journal":"Clin. Chem.",
+            "volume":"40"
+        },
+        {
+            "authors":[
+                "Roenneberg T",
+                "Wirz-Justice A",
+                "Merrow M"
+            ],
+            "reference":null,
+            "title":"Life between clocks: daily temporal patterns of human chronotypes",
+            "ids":{
+                "pmid":"12568247",
+                "doi":"10.1177%2F0748730402239679",
+                "scholar":null
+            },
+            "year":"2003",
+            "pages":{
+                "last":"90",
+                "first":"80"
+            },
+            "journal":"J. Biol. Rhythms",
+            "volume":"18"
+        },
+        {
+            "authors":[
+                "Rose G",
+                "Crocco P",
+                "D'Aquila P",
+                "Montesanto A",
+                "Bellizzi D",
+                "Passarino G"
+            ],
+            "reference":null,
+            "title":"Two variants located in the upstream enhancer region of human UCP1 gene affect gene expression and are correlated with human longevity",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1016%2Fj.exger.2011.07.011",
+                "scholar":null
+            },
+            "year":"2011",
+            "pages":{
+                "last":"904",
+                "first":"897"
+            },
+            "journal":"Exp. Gerontol.",
+            "volume":"46"
+        },
+        {
+            "authors":[
+                "Roszkowska-Gancarz M",
+                "Bartoszewicz Z",
+                "Polosak J",
+                "Kurylowicz A",
+                "Jonas M",
+                "Mossakowska M",
+                "Franek E",
+                "Puzianowska-Kuznicka M"
+            ],
+            "reference":null,
+            "title":"Total and high molecular weight adiponectin and level-modifying polymorphisms of ADIPOQ in centenarians",
+            "ids":{
+                "pmid":null,
+                "doi":null,
+                "scholar":null
+            },
+            "year":"2012",
+            "pages":{
+                "last":"446",
                 "first":"439"
             },
-            "reference":null
+            "journal":"Endokrynol. Pol.",
+            "volume":"63"
         },
         {
-            "year":"2014a",
             "authors":[
-                "Flentke GR",
-                "Garic A",
-                "Hernandez M",
-                "Smith SM."
+                "Rozing MP",
+                "Westendorp RG",
+                "de Craen AJ",
+                "Frolich M",
+                "de Goeij MC",
+                "Heijmans BT",
+                "Beekman M",
+                "Wijsman CA",
+                "Mooijaart SP",
+                "Blauw GJ",
+                "Slagboom PE",
+                "van Heemst D"
             ],
-            "volume":"128",
-            "journal":"J Neurochem",
-            "title":"CaMKII represses transcriptionally active \u03b2-catenin to mediate acute ethanol neurodegeneration and can phosphorylate \u03b2-catenin",
+            "reference":null,
+            "title":"Favorable glucose tolerance and lower prevalence of metabolic syndrome in offspring without diabetes mellitus of nonagenarian siblings: the Leiden longevity study",
             "ids":{
-                "doi":"10.1111/jnc.12464",
-                "scholar":null,
-                "pmid":null
+                "pmid":null,
+                "doi":"10.1111/j.1532-5415.2010.02725.x",
+                "scholar":null
             },
-            "pages":{
-                "last":"535",
-                "first":"523"
-            },
-            "reference":null
-        },
-        {
-            "year":"2004",
-            "authors":[
-                "Floyd RL",
-                "Sidhu JS."
-            ],
-            "volume":"127",
-            "journal":"Am J Med Genet C Semin Med Genet",
-            "title":"Monitoring prenatal alcohol exposure",
-            "ids":{
-                "doi":"10.1002/ajmg.c.30010",
-                "scholar":null,
-                "pmid":null
-            },
-            "pages":{
-                "last":"9",
-                "first":"3"
-            },
-            "reference":null
-        },
-        {
-            "year":"2015",
-            "authors":[
-                "Gauthier TWMD."
-            ],
-            "volume":"37",
-            "journal":null,
-            "title":null,
-            "ids":{
-                "doi":null,
-                "scholar":null,
-                "pmid":null
-            },
-            "pages":{
-                "last":"7",
-                "first":"E1"
-            },
-            "reference":null
-        },
-        {
-            "year":"2001",
-            "authors":[
-                "Goodyer IM",
-                "Park R",
-                "Herbert J."
-            ],
-            "volume":"50",
-            "journal":"Biol Psychiatry",
-            "title":"Psychosocial and endocrine features of chronic first episode major depression in 8-16 year olds",
-            "ids":{
-                "doi":"10.1016%2FS0006-3223%2801%2901120-9",
-                "scholar":null,
-                "pmid":"11543738"
-            },
-            "pages":{
-                "last":"357",
-                "first":"351"
-            },
-            "reference":null
-        },
-        {
-            "year":"2007a",
-            "authors":[
-                "Henderson J",
-                "Gray R",
-                "Brocklehurst P."
-            ],
-            "volume":"114",
-            "journal":"Bjog",
-            "title":"Systematic review of effects of low-moderate prenatal alcohol exposure on pregnancy outcome",
-            "ids":{
-                "doi":"10.1111/j.1471-0528.2006.01163.x",
-                "scholar":null,
-                "pmid":null
-            },
-            "pages":{
-                "last":"252",
-                "first":"243"
-            },
-            "reference":null
-        },
-        {
-            "year":"2007b",
-            "authors":[
-                "Henderson J",
-                "Kesmodel U",
-                "Gray R."
-            ],
-            "volume":"61",
-            "journal":"J Epidemiol Community Health",
-            "title":"Systematic review of the fetal effects of prenatal binge-drinking",
-            "ids":{
-                "doi":"10.1136%2Fjech.2006.054213",
-                "scholar":null,
-                "pmid":"18000129"
-            },
-            "pages":{
-                "last":"1073",
-                "first":"1069"
-            },
-            "reference":null
-        },
-        {
-            "year":"2012",
-            "authors":[
-                "Hepper P",
-                "Dornan J",
-                "Lynch C."
-            ],
-            "volume":"36",
-            "journal":"Alcohol Clin Exp Res",
-            "title":"Fetal brain function in response to maternal alcohol consumption: Early evidence of damage",
-            "ids":{
-                "doi":"10.1111/j.1530-0277.2012.01832.x",
-                "scholar":null,
-                "pmid":"22978459"
-            },
-            "pages":{
-                "last":"2175",
-                "first":"2168"
-            },
-            "reference":null
-        },
-        {
-            "year":"1996",
-            "authors":[
-                "Hepper PG",
-                "Leader LR."
-            ],
-            "volume":"8",
-            "journal":"Fet Matern Med Rev",
-            "title":"Fetal habituation",
-            "ids":{
-                "doi":"10.1017%2FS0965539500001534",
-                "scholar":null,
-                "pmid":null
-            },
-            "pages":{
-                "last":"123",
-                "first":"109"
-            },
-            "reference":null
-        },
-        {
-            "year":"2009",
-            "authors":[
-                "Hofer R",
-                "Burd L."
-            ],
-            "volume":"85",
-            "journal":"Birth Defects Res A Clin Mol Teratol",
-            "title":"Review of published studies of kidney, liver, and gastrointestinal birth defects in fetal alcohol spectrum disorders",
-            "ids":{
-                "doi":"10.1002/bdra.20562",
-                "scholar":null,
-                "pmid":"19180632"
-            },
-            "pages":{
-                "last":"183",
-                "first":"179"
-            },
-            "reference":null
-        },
-        {
-            "year":"2005",
-            "authors":[
-                "Hoyme HE",
-                "May PA",
-                "Kalberg W"
-            ],
-            "volume":"115",
-            "journal":"Pediatrics",
-            "title":"A practical clinical approach to diagnosis of fetal alcohol spectrum disorders: Clarification of the 1996 Institute of Medicine criteria",
-            "ids":{
-                "doi":"10.1542%2Fpeds.2005-0702",
-                "scholar":null,
-                "pmid":"15629980"
-            },
-            "pages":{
-                "last":"47",
-                "first":"39"
-            },
-            "reference":null
-        },
-        {
-            "year":"2009",
-            "authors":[
-                "James JM",
-                "Gewolb C",
-                "Bautch VL."
-            ],
-            "volume":"136",
-            "journal":"Development",
-            "title":"Neurovascular development uses VEGF-A signaling to regulate blood vessel ingression into the neural tube",
-            "ids":{
-                "doi":"10.1242%2Fdev.028845",
-                "scholar":null,
-                "pmid":"19176586"
-            },
-            "pages":{
-                "last":"841",
-                "first":"833"
-            },
-            "reference":null
-        },
-        {
-            "year":"1971",
-            "authors":[
-                "Jeffrey WE",
-                "Cohen LB."
-            ],
-            "volume":null,
-            "journal":null,
-            "title":null,
-            "ids":{
-                "doi":null,
-                "scholar":null,
-                "pmid":null
-            },
-            "pages":{
-                "last":"97",
-                "first":"63"
-            },
-            "reference":null
-        },
-        {
-            "year":"2012",
-            "authors":[
-                "J\u00e9gou S",
-                "El Ghazi F",
-                "Gonzalez B."
-            ],
-            "volume":"72",
-            "journal":"Ann Neurol",
-            "title":"Prenatal alcohol exposure affects vasculature development in the neonatal brain",
-            "ids":{
-                "doi":"10.1002/ana.23699",
-                "scholar":null,
-                "pmid":"23280843"
-            },
-            "pages":{
-                "last":"960",
-                "first":"952"
-            },
-            "reference":null
-        },
-        {
-            "year":"1973",
-            "authors":[
-                "Jones KL",
-                "Smith DW."
-            ],
-            "volume":"2",
-            "journal":"Lancet",
-            "title":"Recognition of the fetal alcohol syndrome in early infancy",
-            "ids":{
-                "doi":"10.1016%2FS0140-6736%2873%2991092-1",
-                "scholar":null,
-                "pmid":null
-            },
-            "pages":{
-                "last":"1001",
-                "first":"999"
-            },
-            "reference":null
-        },
-        {
-            "year":"2000",
-            "authors":[
-                "Kelly SJ",
-                "Day N",
-                "Streissguth AP."
-            ],
-            "volume":"22",
-            "journal":"Neurotoxicol Teratol",
-            "title":"Effects of prenatal alcohol exposure on social behaviour in humans and other species",
-            "ids":{
-                "doi":"10.1016%2FS0892-0362%2899%2900073-2",
-                "scholar":null,
-                "pmid":"10758343"
-            },
-            "pages":{
-                "last":"149",
-                "first":"143"
-            },
-            "reference":null
-        },
-        {
-            "year":"1980",
-            "authors":[
-                "Kinney H",
-                "Faix R",
-                "Brazy J."
-            ],
-            "volume":"66",
-            "journal":"Pediatrics",
-            "title":"The fetal alcohol syndrome and neuroblastoma",
-            "ids":{
-                "doi":null,
-                "scholar":null,
-                "pmid":"7402777"
-            },
-            "pages":{
-                "last":"132",
-                "first":"130"
-            },
-            "reference":null
-        },
-        {
             "year":"2010",
-            "authors":[
-                "Klingenberg CP",
-                "Wetherill L",
-                "Rogers J"
-            ],
-            "volume":"44",
-            "journal":"Alcohol",
-            "title":"Prenatal alcohol exposure alters the patterns of facial asymmetry",
-            "ids":{
-                "doi":"10.1016%2Fj.alcohol.2009.10.016",
-                "scholar":null,
-                "pmid":"20060678"
-            },
             "pages":{
-                "last":"457",
-                "first":"649"
+                "last":"569",
+                "first":"564"
             },
-            "reference":null
+            "journal":"J. Am. Geriatr. Soc.",
+            "volume":"58"
         },
         {
-            "year":"1998",
             "authors":[
-                "Krasnegor NA",
-                "Fifer W",
-                "Maulik D",
-                "McNellis D",
-                "Romero R",
-                "Smotherman W."
+                "Schoenmaker M",
+                "de Craen AJ",
+                "de Meijer PH",
+                "Beekman M",
+                "Blauw GJ",
+                "Slagboom PE",
+                "Westendorp RG"
             ],
-            "volume":"8",
-            "journal":"J Matern Fetal Investig",
-            "title":"Fetal behavioural development: Measurement of habituation, state transitions, and movement to assess fetal well being and to predict outcome",
+            "reference":null,
+            "title":"Evidence of genetic enrichment for exceptional survival using a family approach: the Leiden Longevity Study",
             "ids":{
+                "pmid":"16251894",
                 "doi":null,
-                "scholar":null,
-                "pmid":"9685556"
+                "scholar":null
             },
-            "pages":{
-                "last":"57",
-                "first":"51"
-            },
-            "reference":null
-        },
-        {
-            "year":"2012",
-            "authors":[
-                "Kuehn D",
-                "Aros S",
-                "Cassorla F",
-                "Avaria M",
-                "Unanue N",
-                "Henriquez C",
-                "Kleinsteuber K",
-                "Conca B",
-                "Avila A",
-                "Carter TC",
-                "Conley MR",
-                "Troendle J",
-                "Mills JL."
-            ],
-            "volume":"36",
-            "journal":"Clin Exp Res Alcoholism Clin Exp Res",
-            "title":"A prospective cohort study of the prevalence of growth, facial, and central nervous system abnormalities in children with heavy prenatal alcohol exposure. Alcohol",
-            "ids":{
-                "doi":"10.1111/j.1530-0277.2012.01794.x",
-                "scholar":null,
-                "pmid":null
-            },
-            "pages":{
-                "last":"1819",
-                "first":"1811"
-            },
-            "reference":null
-        },
-        {
-            "year":"1995",
-            "authors":[
-                "Leader LR."
-            ],
-            "volume":null,
-            "journal":null,
-            "title":null,
-            "ids":{
-                "doi":null,
-                "scholar":null,
-                "pmid":null
-            },
-            "pages":{
-                "last":"404",
-                "first":"383"
-            },
-            "reference":null
-        },
-        {
-            "year":"2008",
-            "authors":[
-                "Lebel C",
-                "Rasmussen C",
-                "Wyper K",
-                "Walker L",
-                "Andrew G",
-                "Yager J"
-            ],
-            "volume":"16",
-            "journal":null,
-            "title":null,
-            "ids":{
-                "doi":null,
-                "scholar":null,
-                "pmid":null
-            },
-            "pages":{
-                "last":"1003",
-                "first":"1001"
-            },
-            "reference":null
-        },
-        {
-            "year":"2011",
-            "authors":[
-                "Lebel C",
-                "Roussotte F",
-                "Sowell ER."
-            ],
-            "volume":"21",
-            "journal":"Neuropsychol Rev Neuropsychol Rev",
-            "title":"Imaging the impact of prenatal alcohol exposure on the structure of the developing human brain",
-            "ids":{
-                "doi":"10.1007%2Fs11065-011-9163-0",
-                "scholar":null,
-                "pmid":"21369875"
-            },
-            "pages":{
-                "last":"118",
-                "first":"102"
-            },
-            "reference":null
-        },
-        {
-            "year":"1992",
-            "authors":[
-                "Mattson SN",
-                "Riley EP",
-                "Jernigan TL",
-                "Ehlers CL",
-                "Delis DC",
-                "Jones KL"
-            ],
-            "volume":"16",
-            "journal":"Alcoholism Clin Exp Res",
-            "title":"Fetal alcohol syndrome: A case report of neuropsychological MRI and EEG assessment of two children",
-            "ids":{
-                "doi":"10.1111/j.1530-0277.1992.tb01909.x",
-                "scholar":null,
-                "pmid":"1443415"
-            },
-            "pages":{
-                "last":"1003",
-                "first":"1001"
-            },
-            "reference":null
-        },
-        {
-            "year":"1996",
-            "authors":[
-                "Mattson SN",
-                "Riley EP",
-                "Sowell ER"
-            ],
-            "volume":"20",
-            "journal":"Alcoholism Clin Exp Res",
-            "title":"A decrease in size of the basal ganglia in children with fetal alcohol syndrome",
-            "ids":{
-                "doi":"10.1111/j.1530-0277.1996.tb01951.x",
-                "scholar":null,
-                "pmid":"8892532"
-            },
-            "pages":{
-                "last":"1093",
-                "first":"1088"
-            },
-            "reference":null
-        },
-        {
-            "year":"2011",
-            "authors":[
-                "Mattson SN",
-                "Riley EP."
-            ],
-            "volume":"34",
-            "journal":"Alchohol Res Health",
-            "title":"The quest for a neurobehavioural profile of heavy prenatal alcohol exposure",
-            "ids":{
-                "doi":null,
-                "scholar":null,
-                "pmid":null
-            },
-            "pages":{
-                "last":"55",
-                "first":"51"
-            },
-            "reference":null
-        },
-        {
-            "year":"2011",
-            "authors":[
-                "Nardelli A",
-                "Lebel C",
-                "Rasmussen C",
-                "Andrew G",
-                "Beauliey C."
-            ],
-            "volume":null,
-            "journal":null,
-            "title":null,
-            "ids":{
-                "doi":null,
-                "scholar":null,
-                "pmid":null
-            },
-            "pages":{
-                "last":null,
-                "first":null
-            },
-            "reference":null
-        },
-        {
-            "year":"2011",
-            "authors":[
-                "Nunez C",
-                "Roussotte F",
-                "Sowell E."
-            ],
-            "volume":"34",
-            "journal":"Alcohol Res Health J Natl Inst Alcohol Abuse Alcohol",
-            "title":"Focus on: Structural and functional brain abnormalities in fetal alcohol spectrum disorders",
-            "ids":{
-                "doi":null,
-                "scholar":null,
-                "pmid":null
-            },
-            "pages":{
-                "last":"131",
-                "first":"121"
-            },
-            "reference":null
-        },
-        {
-            "year":"2005",
-            "authors":[
-                "O'hare ED",
-                "Kan E",
-                "Yoshii J"
-            ],
-            "volume":"16",
-            "journal":"Neuroreport",
-            "title":"Mapping cerebellar vermal morphology and cognitive correlates in prenatal alcohol exposure",
-            "ids":{
-                "doi":"10.1097%2F01.wnr.0000176515.11723.a2",
-                "scholar":null,
-                "pmid":"16056126"
-            },
-            "pages":{
-                "last":"1290",
-                "first":"1285"
-            },
-            "reference":null
-        },
-        {
-            "year":"2012",
-            "authors":[
-                "O'Leary C",
-                "Jacoby P",
-                "D'Antoine H",
-                "Bartu A",
-                "Bower C."
-            ],
-            "volume":"119",
-            "journal":"BJOG Int J Obstet Gynaecol",
-            "title":"Heavy prenatal alcohol exposure and increased risk of stillbirth",
-            "ids":{
-                "doi":"10.1111/j.1471-0528.2012.03333.x",
-                "scholar":null,
-                "pmid":null
-            },
-            "pages":{
-                "last":"952",
-                "first":"945"
-            },
-            "reference":null
-        },
-        {
-            "year":"2016",
-            "authors":[
-                "Ornoy A",
-                "Ergaz Z."
-            ],
-            "volume":"7",
-            "journal":"Int J Environ Res Public Health",
-            "title":"Alcohol abuse in pregnant women: Effects on the fetus and newborn, mode of action and maternal treatment",
-            "ids":{
-                "doi":"10.3390%2Fijerph7020364",
-                "scholar":null,
-                "pmid":null
-            },
-            "pages":{
-                "last":"379",
-                "first":"364"
-            },
-            "reference":null
-        },
-        {
-            "year":"2011",
-            "authors":[
-                "Ouellet-Morin I",
-                "Dionne G",
-                "Lupien SJ",
-                "Muckle G",
-                "Cote S",
-                "Perusse D",
-                "Tremblay RE",
-                "Boivin M."
-            ],
-            "volume":"214",
-            "journal":"Psychopharmacology",
-            "title":"Prenatal alcohol exposure and cortisol activity in 19-month-old toddlers: An investigation of the moderating effects of sex and testosterone",
-            "ids":{
-                "doi":"10.1007%2Fs00213-010-1955-z",
-                "scholar":null,
-                "pmid":"20717651"
-            },
-            "pages":{
-                "last":"307",
-                "first":"297"
-            },
-            "reference":null
-        },
-        {
-            "year":"1979",
-            "authors":[
-                "Peiffer J",
-                "Majewski F",
-                "Fischbach H",
-                "Bierich JR",
-                "Volk B."
-            ],
-            "volume":"41",
-            "journal":"J Neurol Sci",
-            "title":"Alcohol embryo- and fetopathy. Neuropathology of 3 children and 3 fetuses",
-            "ids":{
-                "doi":"10.1016%2F0022-510X%2879%2990033-9",
-                "scholar":null,
-                "pmid":"438847"
-            },
-            "pages":{
-                "last":"137",
-                "first":"125"
-            },
-            "reference":null
-        },
-        {
-            "year":"2005",
-            "authors":[
-                "Riley EP",
-                "McGee CL."
-            ],
-            "volume":"230",
-            "journal":"Exp Biol Med",
-            "title":"Fetal alcohol spectrum disorders: An overview with emphasis on changes in brain and behaviour",
-            "ids":{
-                "doi":null,
-                "scholar":null,
-                "pmid":"15956765"
-            },
-            "pages":{
-                "last":"365",
-                "first":"357"
-            },
-            "reference":null
-        },
-        {
-            "year":"1990",
-            "authors":[
-                "Risau W",
-                "Wolburg H."
-            ],
-            "volume":"13",
-            "journal":"Trends Neurosci",
-            "title":"Development of the blood-brain barrier",
-            "ids":{
-                "doi":"10.1016%2F0166-2236%2890%2990043-A",
-                "scholar":null,
-                "pmid":"1693235"
-            },
-            "pages":{
-                "last":"178",
-                "first":"174"
-            },
-            "reference":null
-        },
-        {
-            "year":"1991",
-            "authors":[
-                "Ronen GM",
-                "Andrews WL."
-            ],
-            "volume":"40",
-            "journal":"Am J Med Genet",
-            "title":"Holoprosencephaly as a possible embryonic alcohol effect",
-            "ids":{
-                "doi":"10.1002/ajmg.1320400206",
-                "scholar":null,
-                "pmid":"1897567"
-            },
-            "pages":{
-                "last":"154",
-                "first":"151"
-            },
-            "reference":null
-        },
-        {
-            "year":null,
-            "authors":[
-                "Roussotte FF",
-                "Sulik K",
-                "Mattson SN",
-                "Riley EP",
-                "Jones KL",
-                "Adnams C"
-            ],
-            "volume":null,
-            "journal":"Hum Brain Mapp",
-            "title":"Regional brain volume reductions relate to facial dysmorphology and neurocognitive function in fetal alcohol spectrum disorders",
-            "ids":{
-                "doi":null,
-                "scholar":null,
-                "pmid":null
-            },
-            "pages":{
-                "last":null,
-                "first":null
-            },
-            "reference":null
-        },
-        {
-            "year":"2014",
-            "authors":[
-                "Smith S",
-                "Garic A",
-                "Flentke G",
-                "Berres M."
-            ],
-            "volume":"102",
-            "journal":"Part C Embryo Today Rev",
-            "title":"Neural crest development in fetal alcohol syndrome. Birth Defects Res",
-            "ids":{
-                "doi":"10.1002/bdrc.21078",
-                "scholar":null,
-                "pmid":"17278271"
-            },
-            "pages":{
-                "last":"220",
-                "first":"210"
-            },
-            "reference":null
-        },
-        {
-            "year":"2001a",
-            "authors":[
-                "Sowell ER",
-                "Mattson SN",
-                "Thompson PM",
-                "Jernigan TL",
-                "Riley E",
-                "Toga AW."
-            ],
-            "volume":"57",
-            "journal":"Neurology",
-            "title":"Mapping callosal morphology and cognitive correlates: Effects of heavy prenatal alcohol exposure",
-            "ids":{
-                "doi":"10.1212%2FWNL.57.2.235",
-                "scholar":null,
-                "pmid":"11468307"
-            },
-            "pages":{
-                "last":"244 [Database]",
-                "first":"235"
-            },
-            "reference":null
-        },
-        {
-            "year":"2001b",
-            "authors":[
-                "Sowell ER",
-                "Thompson PM",
-                "Mattson SN"
-            ],
-            "volume":"12",
-            "journal":"Neuroreport",
-            "title":"Voxelbased morphometric analyses of the brain in children and adolescents prenatally exposed to alcohol",
-            "ids":{
-                "doi":"10.1097%2F00001756-200103050-00018",
-                "scholar":null,
-                "pmid":"11234756"
-            },
-            "pages":{
-                "last":"523",
-                "first":"515"
-            },
-            "reference":null
-        },
-        {
-            "year":"2004",
-            "authors":[
-                "Sowell ER",
-                "Thompson PM",
-                "Toga AW."
-            ],
-            "volume":"10",
-            "journal":"Neuroreport",
-            "title":"Mapping changes in the human cortex throughout the span of life",
-            "ids":{
-                "doi":null,
-                "scholar":null,
-                "pmid":"15271264"
-            },
-            "pages":{
-                "last":"392",
-                "first":"372"
-            },
-            "reference":null
-        },
-        {
-            "year":"2008b",
-            "authors":[
-                "Sowell ER",
-                "Mattson SN",
-                "Kan E"
-            ],
-            "volume":"18",
-            "journal":"Cereb Cortex",
-            "title":"Abnormal cortical thickness and brain behavior correlation patterns in individuals with heavy prenatal alcohol exposure",
-            "ids":{
-                "doi":"10.1093%2Fcercor%2Fbhm039",
-                "scholar":null,
-                "pmid":"17443018"
-            },
-            "pages":{
-                "last":"144",
-                "first":"136"
-            },
-            "reference":null
-        },
-        {
-            "year":"2004",
-            "authors":[
-                "Streissguth AP",
-                "Bookstein FL",
-                "Barr HM",
-                "Sampson PD",
-                "O'Malley K",
-                "Young JK."
-            ],
-            "volume":"25",
-            "journal":"J Dev Behav Pediatr",
-            "title":"Risk factors for adverse life outcomes in fetal alcohol syndrome and fetal alcohol effects",
-            "ids":{
-                "doi":"10.1097%2F00004703-200408000-00002",
-                "scholar":null,
-                "pmid":"15308923"
-            },
-            "pages":{
-                "last":"238",
-                "first":"228"
-            },
-            "reference":null
-        },
-        {
-            "year":"2009",
-            "authors":[
-                "Strick PL",
-                "Dum RP",
-                "Fiez JA."
-            ],
-            "volume":"32",
-            "journal":"Annu Rev Neurosci",
-            "title":"Cerebellum and nonmotor function",
-            "ids":{
-                "doi":"10.1146%2Fannurev.neuro.31.060407.125606",
-                "scholar":null,
-                "pmid":"19555291"
-            },
-            "pages":{
-                "last":"434",
-                "first":"413"
-            },
-            "reference":null
-        },
-        {
-            "year":"1966",
-            "authors":[
-                "Thompson RF",
-                "Spencer WA."
-            ],
-            "volume":"173",
-            "journal":"Psychol Rev",
-            "title":"Habituation: A model phenomenon for the study of neuronal substrates of behaviour",
-            "ids":{
-                "doi":"10.1037%2Fh0022681",
-                "scholar":null,
-                "pmid":null
-            },
-            "pages":{
-                "last":"43",
-                "first":"16"
-            },
-            "reference":null
-        },
-        {
             "year":"2006",
-            "authors":[
-                "Toga AW",
-                "Thompson PM",
-                "Sowell ER."
-            ],
-            "volume":"29",
-            "journal":"Trends Neurosci",
-            "title":"Mapping brain maturation",
-            "ids":{
-                "doi":"10.1016%2Fj.tins.2006.01.007",
-                "scholar":null,
-                "pmid":"16472876"
-            },
             "pages":{
-                "last":"159",
-                "first":"148"
+                "last":"84",
+                "first":"79"
             },
-            "reference":null
+            "journal":"Eur. J. Hum. Genet.",
+            "volume":"14"
         },
         {
-            "year":"1997",
             "authors":[
-                "Uc A",
-                "Vasiliauskas E",
-                "Piccoli DA"
+                "Soerensen M",
+                "Dato S",
+                "Tan Q",
+                "Thinggaard M",
+                "Kleindorp R",
+                "Beekman M",
+                "Suchiman HE",
+                "Jacobsen R",
+                "McGue M",
+                "Stevnsner T",
+                "Bohr VA",
+                "de Craen AJ",
+                "Westendorp RG",
+                "Schreiber S",
+                "Slagboom PE",
+                "Nebel A",
+                "Vaupel JW",
+                "Christensen K",
+                "Christiansen L"
             ],
-            "volume":"42",
-            "journal":"Dig Dis Sci",
-            "title":"Chronic intestinal pseudoobstruction associated with fetal alcohol syndrome",
+            "reference":null,
+            "title":"Evidence from case-control and longitudinal studies supports associations of genetic variation in APOE, CETP, and IL6 with human longevity",
             "ids":{
-                "doi":"10.1023%2FA%3A1018833503080",
-                "scholar":null,
-                "pmid":"9201078"
+                "pmid":null,
+                "doi":"10.1007%2Fs11357-011-9373-7",
+                "scholar":null
             },
+            "year":"2013",
             "pages":{
-                "last":"1167",
-                "first":"1163"
+                "last":"500",
+                "first":"487"
             },
-            "reference":null
+            "journal":"Age",
+            "volume":"35"
         },
         {
-            "year":"1983",
             "authors":[
-                "Wisniewski K",
-                "Dambska M",
-                "Sher J",
-                "Qazi Q."
+                "Steinhagen-Thiessen E",
+                "Bramlage P",
+                "Losch C",
+                "Hauner H",
+                "Schunkert H",
+                "Vogt A",
+                "Wasem J",
+                "Jockel KH",
+                "Moebus S"
             ],
-            "volume":"14",
-            "journal":"Neuropediatrics",
-            "title":"A clinical neuropathological study of the fetal alcohol syndrome",
+            "reference":null,
+            "title":"Dyslipidemia in primary care\u2013prevalence, recognition, treatment and control: data from the German Metabolic and Cardiovascular Risk Project (GEMCAS)",
             "ids":{
-                "doi":"10.1055%2Fs-2008-1059578",
-                "scholar":null,
-                "pmid":"6686290"
+                "pmid":"18922160",
+                "doi":"10.1186%2F1475-2840-7-31",
+                "scholar":null
             },
-            "pages":{
-                "last":"201",
-                "first":"197"
-            },
-            "reference":null
-        },
-        {
-            "year":"2015",
-            "authors":[
-                "Yang J",
-                "Qiu H",
-                "Qu P",
-                "Zhang R",
-                "Zeng L",
-                "Yan H."
-            ],
-            "volume":"10",
-            "journal":"PLoS One",
-            "title":"Prenatal alcohol exposure and congenital heart defects: A meta-analysis",
-            "ids":{
-                "doi":"10.1371%2Fjournal.pone.0130681",
-                "scholar":null,
-                "pmid":"26110619"
-            },
+            "year":"2008",
             "pages":{
                 "last":null,
-                "first":"e0130681"
+                "first":"31"
             },
-            "reference":null
+            "journal":"Cardiovasc. Diabetol.",
+            "volume":"7"
         },
         {
-            "year":"2014",
             "authors":[
-                "Young JK",
-                "Giesbrecht HE",
-                "Eskin MN",
-                "Aliani M",
-                "Suh M."
+                "Stowie AC",
+                "Glass JD"
             ],
-            "volume":"5",
-            "journal":"Adv Nutr Int Rev J",
-            "title":"Nutrition implications for fetal alcohol spectrum disorder",
+            "reference":null,
+            "title":"Longitudinal study of changes in daily activity rhythms over the lifespan in individual male and female C57BL/6J mice",
             "ids":{
-                "doi":"10.3945%2Fan.113.004846",
-                "scholar":null,
-                "pmid":null
+                "pmid":null,
+                "doi":"10.1177%2F0748730415598023",
+                "scholar":null
             },
+            "year":"2015",
             "pages":{
-                "last":"692",
-                "first":"675"
+                "last":"568",
+                "first":"563"
             },
-            "reference":null
+            "journal":"J. Biol. Rhythms",
+            "volume":"30"
+        },
+        {
+            "authors":[
+                "Vaarhorst AA",
+                "Beekman M",
+                "Suchiman EH",
+                "van Heemst D",
+                "Houwing-Duistermaat JJ",
+                "Westendorp RG",
+                "Slagboom PE",
+                "Heijmans BT"
+            ],
+            "reference":null,
+            "title":"Lipid metabolism in long-lived families: the Leiden Longevity Study",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1007%2Fs11357-010-9172-6",
+                "scholar":null
+            },
+            "year":"2011",
+            "pages":{
+                "last":"227",
+                "first":"219"
+            },
+            "journal":"Age",
+            "volume":"33"
+        },
+        {
+            "authors":[
+                "Wang JL",
+                "Lim AS",
+                "Chiang WY",
+                "Hsieh WH",
+                "Lo MT",
+                "Schneider JA",
+                "Buchman AS",
+                "Bennett DA",
+                "Hu K",
+                "Saper CB"
+            ],
+            "reference":null,
+            "title":"Suprachiasmatic neuron numbers and rest-activity circadian rhythms in older humans",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1002/ana.24432",
+                "scholar":null
+            },
+            "year":"2015",
+            "pages":{
+                "last":"322",
+                "first":"317"
+            },
+            "journal":"Ann. Neurol.",
+            "volume":"78"
+        },
+        {
+            "authors":[
+                "Westendorp RG",
+                "van Heemst D",
+                "Rozing MP",
+                "Frolich M",
+                "Mooijaart SP",
+                "Blauw GJ",
+                "Beekman M",
+                "Heijmans BT",
+                "de Craen AJ",
+                "Slagboom PE"
+            ],
+            "reference":null,
+            "title":"Nonagenarian siblings and their offspring display lower risk of mortality and morbidity than sporadic nonagenarians: the Leiden Longevity Study",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1111/j.1532-5415.2009.02381.x",
+                "scholar":null
+            },
+            "year":"2009",
+            "pages":{
+                "last":"1637",
+                "first":"1634"
+            },
+            "journal":"J. Am. Geriatr. Soc.",
+            "volume":"57"
+        },
+        {
+            "authors":[
+                "White WB"
+            ],
+            "reference":null,
+            "title":"Ambulatory blood pressure monitoring: dippers compared with non-dippers",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1097%2F00126097-200005001-00004",
+                "scholar":null
+            },
+            "year":"2000",
+            "pages":{
+                "last":"S23",
+                "first":"S17"
+            },
+            "journal":"Blood Press Monit.",
+            "volume":"5"
+        },
+        {
+            "authors":[
+                "Yoshino J",
+                "Almeda-Valdes P",
+                "Patterson BW",
+                "Okunade AL",
+                "Imai S",
+                "Mittendorfer B",
+                "Klein S"
+            ],
+            "reference":null,
+            "title":"Diurnal variation in insulin sensitivity of glucose metabolism is associated with diurnal variations in whole-body and cellular fatty acid metabolism in metabolically normal women",
+            "ids":{
+                "pmid":null,
+                "doi":"10.1210%2Fjc.2014-1579",
+                "scholar":null
+            },
+            "year":"2014",
+            "pages":{
+                "last":"E1670",
+                "first":"E1666"
+            },
+            "journal":"J. Clin. Endocrinol. Metab.",
+            "volume":"99"
+        },
+        {
+            "authors":[
+                "Zavada A",
+                "Gordijn MC",
+                "Beersma DG",
+                "Daan S",
+                "Roenneberg T"
+            ],
+            "reference":null,
+            "title":"Comparison of the Munich chronotype questionnaire with the Horne-Ostberg's morningness-eveningness score",
+            "ids":{
+                "pmid":"16021843",
+                "doi":"10.1081%2FCBI-200053536",
+                "scholar":null
+            },
+            "year":"2005",
+            "pages":{
+                "last":"278",
+                "first":"267"
+            },
+            "journal":"Chronobiol. Int.",
+            "volume":"22"
         }
     ],
-    "title":"Impact of fetal alcohol exposure on body systems: A systematic review",
-    "citation":null,
-    "authors":[
-        "Courtney Caputo",
-        "Erin Wood",
-        "Leila Jabbour"
+    "keywords":[
+        "aging",
+        "biological clock",
+        "cholesterol",
+        "circadian rhythm",
+        "longevity"
     ],
-    "abstract":{
-        "Method":"Articles in this review were found online using databases such as Medline, Medline Complete, PubMed, and Health Source: Nursing/Academic Edition. The following terms were searched: fetal alcohol spectrum disorders, fetal alcohol syndrome, prenatal alcohol exposure, and alcohol related birth defects.",
-        "Results":"Thirteen articles were gathered, five original investigations and eight reviews. This review identified several abnormalities in the body systems discussed and their associations to fetal alcohol syndrome.",
-        "Conclusions":"Evidence shows that the brain was the most severely impacted organ of the body systems discussed. However, prenatal alcohol exposure causes several abnormalities within the heart, kidney, liver, gastrointestinal tract, and the endocrine systems. In addition, preventative measures need to be taken by mothers during pregnancy. Birth Defects Research (Part C), 2016. \u00a9 2016 Wiley Periodicals, Inc. Birth Defects Research (Part C) 108:174\u2013180, 2016. \u00a9 2016 Wiley Periodicals, Inc."
-    }
+    "publication_info":{
+        "journal":"Aging Cell",
+        "volume":null,
+        "pages":{
+            "last":null,
+            "first":null
+        },
+        "year":"2016",
+        "issue":null
+    },
+    "abstract":"The biological clock, whose function deteriorates with increasing age, determines bodily circadian (i.e. 24h) rhythms, including that of cholesterol metabolism. Dampening of circadian rhythms has been associated with aging and disease. Therefore, we hypothesized that individuals with a familial predisposition for longevity have a higher amplitude circadian serum cholesterol concentration rhythm. The aim of this study was to investigate circadian rhythmicity of serum cholesterol concentrations in offspring of nonagenarian siblings and their partners. Offspring from nonagenarian siblings (n\u00a0=\u00a019), and their partners as controls (n\u00a0=\u00a018), were recruited from the Leiden Longevity Study. Participants (mean age 65\u00a0years) were studied in a controlled in-hospital setting over a 24-h period, receiving three isocaloric meals at 9:00\u00a0h, 12:00\u00a0h and 18:00\u00a0h. Lights were off between 23:00\u00a0h and 8:00\u00a0h. Serum total cholesterol (TC), HDL cholesterol (HDL-C), non-HDL-C and triglycerides (TG) were determined every 30\u00a0min over a 24-h period. Serum TC concentrations were higher during day than during night in offspring (5.2 vs. 4.7\u00a0mm, P\u00a0<\u00a00.001) and in controls (5.3 vs. 5.0\u00a0mm, P\u00a0<\u00a00.001). The difference in TC concentrations between day and night tended to be greater in offspring than in controls (0.5 vs. 0.3\u00a0mm, P\u00a0=\u00a00.109), reaching statistical significance in females (P\u00a0=\u00a00.045). Notably, the day\u2013night serum differences in non-HDL-C were twofold greater in offspring than in controls (0.43 vs. 0.21\u00a0mm, P\u00a0=\u00a00.044) and most explicit in females (0.53 vs. 0.22, P\u00a0=\u00a00.078). We conclude that familial longevity is characterized by a high circadian rhythmicity of non-HDL-C in healthy elderly offspring from nonagenarian siblings.",
+    "citation":null
 }
