@@ -12,19 +12,20 @@ from reflookup.resources.integrated_extract.views import IntegratedReferenceExtr
 from reflookup.resources.parsers.views import ParserResource
 from reflookup.resources.search_v2.views import IntegratedReferenceSearchV2
 
-prefix = app.config['API_PREFIX']
-api.add_resource(CrossRefLookupResource, prefix + '/crsearch')
-api.add_resource(CrossRefDoiLookupResource, prefix + '/crsearch/doi')
+prefix_v1 = app.config['API_PREFIX_V1']
+prefix_v2 = app.config['API_PREFIX_V2']
+api.add_resource(CrossRefLookupResource, prefix_v1 + '/crsearch')
+api.add_resource(CrossRefDoiLookupResource, prefix_v1 + '/crsearch/doi')
 api.add_resource(SearchFormResource, '/')
-api.add_resource(MendeleyLookupResource, prefix + '/mdsearch')
-api.add_resource(IntegratedLookupResource, prefix + '/search')
-api.add_resource(BatchLookupResource, prefix + '/search/batch')
-api.add_resource(ScopusReferenceExtractResource, prefix + '/refs/scopus')
-api.add_resource(PubmedReferenceExtractResource, prefix + '/refs/pubmed')
-api.add_resource(PdfReferenceExtractResource, prefix + '/refs/pdf')
-api.add_resource(JobResource, prefix + '/job')
-api.add_resource(IntegratedReferenceExtractResource, prefix + '/refs')
+api.add_resource(MendeleyLookupResource, prefix_v1 + '/mdsearch')
+api.add_resource(IntegratedLookupResource, prefix_v1 + '/search')
+api.add_resource(BatchLookupResource, prefix_v1 + '/search/batch')
+api.add_resource(ScopusReferenceExtractResource, prefix_v1 + '/refs/scopus')
+api.add_resource(PubmedReferenceExtractResource, prefix_v1 + '/refs/pubmed')
+api.add_resource(PdfReferenceExtractResource, prefix_v1 + '/refs/pdf')
+api.add_resource(JobResource, prefix_v1 + '/job')
+api.add_resource(IntegratedReferenceExtractResource, prefix_v1 + '/refs')
 
-api.add_resource(ParserResource, prefix + '/parse')
+api.add_resource(ParserResource, prefix_v1 + '/parse')
 
-api.add_resource(IntegratedReferenceSearchV2, '/api/v2/search')
+api.add_resource(IntegratedReferenceSearchV2, prefix_v2 + '/search')
