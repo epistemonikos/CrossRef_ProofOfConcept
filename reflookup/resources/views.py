@@ -10,6 +10,7 @@ from reflookup.resources.pubmed_extract.views import PubmedReferenceExtractResou
 from reflookup.resources.jobs.views import JobResource
 from reflookup.resources.integrated_extract.views import IntegratedReferenceExtractResource
 from reflookup.resources.parsers.views import ParserResource
+from reflookup.resources.search_v2.views import IntegratedReferenceSearchV2
 
 prefix = app.config['API_PREFIX']
 api.add_resource(CrossRefLookupResource, prefix + '/crsearch')
@@ -25,3 +26,5 @@ api.add_resource(JobResource, prefix + '/job')
 api.add_resource(IntegratedReferenceExtractResource, prefix + '/refs')
 
 api.add_resource(ParserResource, prefix + '/parse')
+
+api.add_resource(IntegratedReferenceSearchV2, '/api/v2/search')
