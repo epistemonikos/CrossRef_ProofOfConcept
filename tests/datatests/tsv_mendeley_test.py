@@ -4,6 +4,12 @@ import requests
 import pprint
 import os
 
+"""
+This script take a file with references and dois of systematic reviews from epistemonikos database, and testing the Mendeley API.
+It make two file with the correct and incorrect outputs of endpoint mdsearch (which use mendeley API).
+We consider a right output, when mendeley API output has the same doi than epistemonikos database.
+"""
+
 with open('result/output_correctos.tsv', 'w') as output_correctos:
     with open('result/output_incorrectos.tsv', 'w') as output_incorrectos:
         with open('./src/random_results_systematic_review') as rrsr:
