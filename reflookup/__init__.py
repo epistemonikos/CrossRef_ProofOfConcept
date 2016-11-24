@@ -2,6 +2,7 @@ import os
 
 from flask import Flask
 from flask_restful import Api
+from flask_cors import CORS, cross_origin
 from itsdangerous import URLSafeSerializer
 from redis import Redis
 from rq import Queue
