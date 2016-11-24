@@ -8,7 +8,7 @@ from redis import Redis
 from rq import Queue
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True)
 
 # SERVER
 app.config['HOST'] = '0.0.0.0'
