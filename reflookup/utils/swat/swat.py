@@ -10,14 +10,22 @@ n = 0
 while line:
     # por cada linea, resolver referencias con los servicios de la API
     [episteID, doi, pmid] = line.split('\t') # episteID, doi, pmid
-    res_parser = parser.parse(doi)
-    res_scopus = get_scopus_ref(doi)
+    res_parser = []
+    try:
+        res_parser = parser.parse(doi)
+    except:
+        pass
+    res_scopus = []
+    try:
+        res_scopus = get_scopus_ref(doi)
+    except:
+        pass
     res_pubmed = []
     try:
         res_pubmed = getReferenceInfo(getRefID(pmid))
     except:
         pass
-    if n == 1:
+    if n == 2:
         print(str(res_parser) + "\n")
         print(str(res_scopus) + "\n")
         print(str(res_pubmed) + "\n")
@@ -44,7 +52,7 @@ while line:
     }
     line = dump.readline()
     n +=1
-    if n == 2:
+    if n == 3:
         print(json.dumps(j))
         break
 
