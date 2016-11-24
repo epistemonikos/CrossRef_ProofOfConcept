@@ -4,7 +4,7 @@ import requests
 import pprint
 import os
 """
-This files its similar to auto_test.py, but it print on the standar output the results of testing.
+This files its similar to auto_test.py, but it print on the standard output the results of testing.
 """
 class Color:
     PINK = '\033[95m'
