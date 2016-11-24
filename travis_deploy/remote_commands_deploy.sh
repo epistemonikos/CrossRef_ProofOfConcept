@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# script for remote deploy. It create virtualenv, install requirements and start service
 rm -rf /tmp/www_reflookup
 cd /tmp
 tar xzmfv ./reflookup.tar.gz
