@@ -4,6 +4,11 @@ import requests
 import pprint
 import os
 
+"""
+This Testing file, make a tsv with four columns, which are:
+rating (calculate from crsearch result), crossref's doi, epistemonikos's doi and the original reference.
+It was use, for make a graphic, in order to show the correctness of Crossref API.
+"""
 rrsr = open('./src/random_results_systematic_review')
 
 line = rrsr.readline()
