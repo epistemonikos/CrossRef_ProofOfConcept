@@ -83,9 +83,9 @@ class DeferredResource(EncodingResource):
 
         self.result_ttl = app.config['RESULT_TTL_SECONDS']
 
-    def enqueue_job_and_return(self, function, args):
+    def enqueue_job_and_return(self, function, *args):
         try:
-            job = rq.enqueue(function, args, result_ttl=self.result_ttl)
+            job = rq.enqueue(function, *args, result_ttl=self.result_ttl)
             return {
                        'job': taskserializer.dumps(job.id),
                        'submitted': datetime.now(timezone.utc).isoformat()
