@@ -164,7 +164,7 @@ class DefaultParser():
         if isinstance(ref, dict):
             authors = ref.get("authors", [])
             return [a.strip() for a in authors]
-        return None
+        return []
 
     def get_ref_year(self, ref):
         if isinstance(ref, dict):
