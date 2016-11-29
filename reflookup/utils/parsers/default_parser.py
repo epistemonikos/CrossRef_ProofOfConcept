@@ -161,34 +161,35 @@ class DefaultParser():
         }
 
     def get_ref_authors(self, ref):
-        if isinstance(ref, dict):
+        if type(ref) ==  type({}):
+            print("entre!!")
             authors = ref.get("authors", [])
             return [a.strip() for a in authors]
         return []
 
     def get_ref_year(self, ref):
-        if isinstance(ref, dict):
-            return ref.get("citation_year", None)
+        if type(ref) ==  type({}):
+            return ref.get("year", None)
         return None
 
     def get_ref_title(self, ref):
-        if isinstance(ref, dict):
-            return ref.get("citation_title", None)
+        if type(ref) ==  type({}):
+            return ref.get("title", None)
         return None
 
     def get_ref_journal(self, ref):
-        if isinstance(ref, dict):
-            return ref.get("citation_journal_title", None)
+        if type(ref) ==  type({}):
+            return ref.get("journal_title", None)
         return None
 
     def get_ref_volume(self, ref):
-        if isinstance(ref, dict):
-            return ref.get("citation_volume", None)
+        if type(ref) ==  type({}):
+            return ref.get("volume", None)
         return None
 
     def get_ref_pages(self, ref):
-        if isinstance(ref, dict):
-            pages = ref.get("citation_pages", None)
+        if type(ref) ==  type({}):
+            pages = ref.get("pages", None)
             if pages:
                 pages = pages.split('-')
                 return {
@@ -209,12 +210,12 @@ class DefaultParser():
 
     def get_ref_doi(self, ref):
         if isinstance(ref, dict):
-            return ref.get("citation_doi", None)
+            return ref.get("doi", None)
         return None
 
     def get_ref_pubmedID(self, ref):
         if isinstance(ref, dict):
-            return ref.get("citation_pmid", None)
+            return ref.get("pmid", None)
         return None
 
     def get_ref_scholar(self, ref):
