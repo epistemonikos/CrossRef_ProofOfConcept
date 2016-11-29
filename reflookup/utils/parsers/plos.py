@@ -1,7 +1,5 @@
-#from reflookup.utils.parsers.default_parser import DefaultParser
-from default_parser import DefaultParser
+from reflookup.utils.parsers.default_parser import DefaultParser
 import re
-import json
 
 def trim_string(word):
     s = re.sub('\s+', ' ', word)
@@ -122,9 +120,4 @@ class PlosParser(DefaultParser):
         lista = text.split('\n')
         lista.pop(0)
         return trim_string(' '.join(lista[:-6]))
-
-url = "http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030208"
-parser = PlosParser()
-j= parser.parse(url)
-
-print(json.dumps(j))
+    
