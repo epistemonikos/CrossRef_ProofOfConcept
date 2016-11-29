@@ -1,0 +1,660 @@
+{
+  "authors": [
+    "Kevin P Keegan",
+    "Suraj Pradhan",
+    "Ji-Ping Wang",
+    "Ravi Allada"
+  ],
+  "abstract": "Five independent groups have reported microarray studies that identify dozens of rhythmically expressed genes in the fruit fly Drosophila melanogaster. Limited overlap among the lists of discovered genes makes it difficult to determine which, if any, exhibit truly rhythmic patterns of expression. We reanalyzed data from all five reports and found two sources for the observed discrepancies, the use of different expression pattern detection algorithms and underlying variation among the datasets. To improve upon the methods originally employed, we developed a new analysis that involves compilation of all existing data, application of identical transformation and standardization procedures followed by ANOVA-based statistical prescreening, and three separate classes of post hoc analysis: cross-correlation to various cycling waveforms, autocorrelation, and a previously described fast Fourier transform-based technique [1-3]. Permutation-based statistical tests were used to derive significance measures for all post hoc tests. We find application of our method, most significantly the ANOVA prescreening procedure, significantly reduces the false discovery rate relative to that observed among the results of the original five reports while maintaining desirable statistical power. We identify a set of 81 cycling transcripts previously found in one or more of the original reports as well as a novel set of 133 transcripts not found in any of the original studies. We introduce a novel analysis method that compensates for variability observed among the original five Drosophila circadian array reports. Based on the statistical fidelity of our meta-analysis results, and the results of our initial validation experiments (quantitative RT-PCR), we predict many of our newly found genes to be bona fide cyclers, and suggest that they may lead to new insights into the pathways through which clock mechanisms regulate behavioral rhythms.",
+  "ids": {
+    "doi": "10.1371\/journal.pcbi.0030208",
+    "url": "http:\/\/journals.plos.org\/ploscompbiol\/article\/file?id=10.1371\/journal.pcbi.0030208&type=printable",
+    "pmid": null
+  },
+  "publication_info": {
+    "year": "2007",
+    "volume": "3",
+    "pages": "e208",
+    "issn": "1553-7358",
+    "issue": "11",
+    "journal": "PLOS Computational Biology"
+  },
+  "citation": " Keegan KP, Pradhan S, Wang J-P, Allada R (2007) Meta-Analysis of Drosophila Circadian Microarray Studies Identifies a Novel Set of Rhythmically Expressed Genes. PLoS Comput Biol 3(11): e208. doi:10.1371\/journal.pcbi.0030208",
+  "references": [
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Claridge-Chang A, Wijnen H, Naef F, Boothroyd C, Rajewsky N, et al. (2001) Circadian regulation of gene expression systems in the Drosophila head. Neuron 32: 657-671.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Wijnen H, Naef F, Young MW (2005) Molecular and statistical tools for circadian transcript profiling. Methods Enzymol 393: 341-365.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Wijnen H, Naef F, Boothroyd C, Claridge-Chang A, Young MW (2006) Control of daily transcript oscillations in Drosophila by light and the circadian clock. PLoS Genet 2: e39. doi:10.1371\/journal.pgen.0020039.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Allada R (2003) Circadian clocks: A tale of two feedback loops. Cell 112: 284-286.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Allada R, Emery P, Takahashi JS, Rosbash M (2001) Stopping time: The genetics of fly and mouse circadian clocks. Annu Rev Neurosci 24: 1091-1119.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Hardin PE (2004) Transcription regulation within the circadian clock: The E-box and beyond. J Biol Rhythms 19: 348-360.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Helfrich-Forster C (2005) Neurobiology of the fruit fly's circadian clock. Genes Brain Behav 4: 65-76.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "McDonald MJ, Rosbash M (2001) Microarray analysis and organization of circadian gene expression in Drosophila. Cell 107: 567-578.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Lin Y, Han M, Shimada B, Wang L, Gibler TM, et al. (2002) Influence of the period-dependent circadian clock on diurnal, circadian, and aperiodic gene expression in Drosophila melanogaster. Proc Natl Acad Sci U S A 99: 9562-9567.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Ueda HR, Matsumoto A, Kawamura M, Iino M, Tanimura T, et al. (2002) Genome-wide transcriptional orchestration of circadian rhythms in Drosophila. J Biol Chem 277: 14048-14052.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Ceriani MF, Hogenesch JB, Yanovsky M, Panda S, Straume M, et al. (2002) Genome-wide expression analysis in Drosophila reveals genes controlling circadian behavior. J Neurosci 22: 9305-9319.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Jackson FR, Schroeder AJ (2001) A timely expression profile. Dev Cell 1: 730-731.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Etter PD, Ramaswami M (2002) The ups and downs of daily life: Profiling circadian gene expression in Drosophila. Bioessays 24: 494-498.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Duffield GE (2003) DNA microarray analyses of circadian timing: The genomic basis of biological time. J Neuroendocrinol 15: 991-1002.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Walker JR, Hogenesch JB (2005) RNA profiling in circadian biology. Methods Enzymol 393: 366-376.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Allison DB, Cui X, Page GP, Sabripour M (2006) Microarray data analysis: From disarray to consolidation and consensus. Nat Rev Genet 7: 55-65.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Miller RA, Galecki A, Shmookler-Reis RJ (2001) Interpretation, design, and analysis of gene array expression experiments. J Gerontol A Biol Sci Med Sci 56: B52-B57.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Blalock EM, Chen KC, Sharrow K, Herman JP, Porter NM, et al. (2003) Gene microarrays in hippocampal aging: Statistical profiling identifies novel processes correlated with cognitive impairment. J Neurosci 23: 3807-3819.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Blalock EM, Geddes JW, Chen KC, Porter NM, Markesbery WR, et al. (2004) Incipient Alzheimer's disease: Microarray correlation analyses reveal major transcriptional and tumor suppressor responses. Proc Natl Acad Sci U S A 101: 2173-2178.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "So WV, Rosbash M (1997) Post-transcriptional regulation contributes to Drosophila clock gene mRNA cycling. EMBO J 16: 7146-7155.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Tusher VG, Tibshirani R, Chu G (2001) Significance analysis of microarrays applied to the ionizing radiation response. Proc Natl Acad Sci U S A 98: 5116-5121.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Eisen MB, Spellman PT, Brown PO, Botstein D (1998) Cluster analysis and display of genome-wide expression patterns. Proc Natl Acad Sci U S A 95: 14863-14868.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Saeed AI, Sharov V, White J, Li J, Liang W, et al. (2003) TM4: A free, open-source system for microarray data management and analysis. Biotechniques 34: 374-378.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Kadener S, Stoleru D, McDonald M, Nawathean P, Rosbash M (2007) Clockwork Orange is a transcriptional repressor and a new Drosophila circadian pacemaker component. Genes Dev 21: 1675-1686.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Lim C, Chung BY, Pitman JL, McGill JJ, Pradhan S, et al. (2007) Clockwork orange encodes a transcriptional repressor important for circadian-clock amplitude in Drosophila. Curr Biol 17: 1082-1089.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Matsumoto A, Ukai-Tadenuma M, Yamada RG, Houl J, Uno KD, et al. (2007) A functional genomics strategy reveals clockwork orange as a transcriptional regulator in the Drosophila circadian clock. Genes Dev 21: 1687-1700.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Panda S, Antoch MP, Miller BH, Su AI, Schook AB, et al. (2002) Coordinated transcription of key pathways in the mouse by the circadian clock. Cell 109: 307-320.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Oishi K, Miyazaki K, Kadota K, Kikuno R, Nagase T, et al. (2003) Genome-wide expression analysis of mouse liver reveals CLOCK-regulated circadian output genes. J Biol Chem 278: 41519-41527.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Storch KF, Lipan O, Leykin I, Viswanathan N, Davis FC, et al. (2002) Extensive and divergent circadian gene expression in liver and heart. Nature 417: 78-83.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Akhtar RA, Reddy AB, Maywood ES, Clayton JD, King VM, et al. (2002) Circadian cycling of the mouse liver transcriptome, as revealed by cDNA microarray, is driven by the suprachiasmatic nucleus. Curr Biol 12: 540-550.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Irizarry RA, Warren D, Spencer F, Kim IF, Biswal S, et al. (2005) Multiple-laboratory comparison of microarray platforms. Nat Methods 2: 345-350.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Bammler T, Beyer RP, Bhattacharya S, Boorman GA, Boyles A, et al. (2005) Standardizing global gene expression analysis between laboratories and across platforms. Nat Methods 2: 351-356.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Larkin JE, Frank BC, Gavras H, Sultana R, Quackenbush J (2005) Independence and reproducibility across microarray platforms. Nat Methods 2: 337-344.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Sherlock G (2005) Of fish and chips. Nat Methods 2: 329-330.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Simon I, Siegfried Z, Ernst J, Bar-Joseph Z (2005) Combined static and dynamic analysis for determining the quality of time-series expression profiles. Nat Biotechnol 23: 1503-1508.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Storey JD, Xiao W, Leek JT, Tompkins RG, Davis RW (2005) Significance analysis of time course microarray experiments. Proc Natl Acad Sci U S A 102: 12837-12842.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Bild A, Febbo PG (2005) Application of a priori established gene sets to discover biologically important differential expression in microarray data. Proc Natl Acad Sci U S A 102: 15278-15279.",
+      "journal": null,
+      "title": null
+    },
+    {
+      "authors": [
+
+      ],
+      "year": null,
+      "volume": null,
+      "pages": null,
+      "ids": {
+        "doi": null,
+        "scholar": null,
+        "pmid": null
+      },
+      "reference": "Chomczynski P, Sacchi N (1987) Single-step method of RNA isolation by acid guanidinium thiocyanate-phenol-chloroform extraction. Anal Biochem 162: 156-159.",
+      "journal": null,
+      "title": null
+    }
+  ],
+  "keywords": [
+    "Analysis of variance",
+    "Algorithms",
+    "Autocorrelation",
+    "Reverse transcriptase-polymerase chain reaction",
+    "Drosophila melanogaster",
+    "Circadian oscillators",
+    "Gene expression",
+    "Microarrays"
+  ],
+  "title": "Meta-Analysis of Drosophila Circadian Microarray Studies Identifies a Novel Set of Rhythmically Expressed Genes"
+}
