@@ -18,7 +18,12 @@ class DefaultParser():
         }
 
     def get_title(self):
-        return None
+        title  = self.soup.head.find('meta', attrs={"name": 'DC.title'})
+        if not title:
+            title = self.soup.head.find('meta', attrs={"name": 'citation_title'})
+        if title:
+            title = title["content"]
+        return title
 
     def get_publication_info(self):
         """
@@ -34,21 +39,39 @@ class DefaultParser():
         }
 
     def get_journal(self):
-        return None
+        journal = self.soup.head.find('meta', attrs={"name": 'citation_journal_title'})
+        if journal:
+            journal = journal["content"]
+        return journal
 
     def get_year(self):
-        return None
+        year = self.soup.head.find('meta', attrs={"name": 'citation_publication_date'})
+        if year:
+            year = year["content"].split('/')[0]
+        if not year:
+            year = self.soup.head.find('meta', attrs={"name": 'DC.Date'})
+            if year:
+                year = year["content"].split('-')[0]
+        return year
 
     def get_volume(self):
-        return None
+        volume = self.soup.head.find('meta', attrs={"name": 'citation_volume'})
+        if volume:
+            volume = volume["content"]
+        return volume
 
     def get_issue(self):
-        return None
+        issue = self.soup.head.find('meta', attrs={"name": 'citation_issue'})
+        if issue:
+            issue = issue["content"]
+        return issue
 
     def get_pages(self):
+        first = self.soup.head.find('meta', attrs={"name": 'citation_firstpage'})
+        last = self.soup.head.find('meta', attrs={"name": 'citation_lastpage'})
         return {
-            'first': None,
-            'last': None
+            'first': first["content"] if first else None,
+            'last': last["content"] if last else None
         }
 
     def get_citation(self):
@@ -65,24 +88,38 @@ class DefaultParser():
         }
 
     def get_doi(self):
-        return None
+        doi = self.soup.head.find('meta', attrs={"name": 'citation_doi'})
+        if doi:
+            doi = doi["content"]
+        if not doi:
+            doi = self.soup.head.find('meta', attrs={"name": 'DC.Identifier'})
+            if doi:
+                doi = doi["content"]
+        return doi
 
     def get_pubmedID(self):
-        return None
+        pmid = self.soup.head.find('meta', attrs={"name": 'citation_pmid'})
+        if pmid:
+            pmid = pmid["content"]
+        return pmid
 
     def get_authors(self):
         """
             this function get authors from html.
             :params soup: instance of BeautifulSoup class
         """
-        return []
+        authors = self.soup.head.findAll('meta', attrs={"name": 'citation_author'})
+        return [a["content"] for a in authors]
 
     def get_abstract(self):
         """
             this function get abstract from html.
             :params soup: instance of BeautifulSoup class
         """
-        return None
+        abstract = self.soup.head.find('meta', attrs={"name": 'DC.Description'})
+        if abstract:
+            abstract = abstract["content"]
+        return abstract
 
     def get_keywords(self):
         """
@@ -96,7 +133,20 @@ class DefaultParser():
         this function get all references from html.
         :params soup: instance of BeautifulSoup class
         """
-        return []
+        refs = self.soup.head.findAll('meta', attrs={"name": 'citation_reference'})
+        resp = []
+        for r in refs:
+            dic = {}
+            authors = []
+            for p in r['content'][9:].split(';citation_'):
+                [k, v] = p.split('=')
+                if k == "author":
+                    authors.append(v)
+                else:
+                    dic[k] = v
+            dic["authors"] = authors
+            resp.append(dic)
+        return [self.get_reference_info(r) for r in resp]
 
     def get_reference_info(self, ref):
         return {
@@ -111,21 +161,40 @@ class DefaultParser():
         }
 
     def get_ref_authors(self, ref):
-        return []
+        if isinstance(ref, dict):
+            authors = ref.get("authors", [])
+            return [a.strip() for a in authors]
+        return None
 
     def get_ref_year(self, ref):
+        if isinstance(ref, dict):
+            return ref.get("citation_year", None)
         return None
 
     def get_ref_title(self, ref):
+        if isinstance(ref, dict):
+            return ref.get("citation_title", None)
         return None
 
     def get_ref_journal(self, ref):
+        if isinstance(ref, dict):
+            return ref.get("citation_journal_title", None)
         return None
 
     def get_ref_volume(self, ref):
+        if isinstance(ref, dict):
+            return ref.get("citation_volume", None)
         return None
 
     def get_ref_pages(self, ref):
+        if isinstance(ref, dict):
+            pages = ref.get("citation_pages", None)
+            if pages:
+                pages = pages.split('-')
+                return {
+                    "first": pages[0],
+                    "last": pages[1]
+                }
         return None
 
     def get_ref_text(self, ref):
@@ -139,9 +208,13 @@ class DefaultParser():
         }
 
     def get_ref_doi(self, ref):
+        if isinstance(ref, dict):
+            return ref.get("citation_doi", None)
         return None
 
     def get_ref_pubmedID(self, ref):
+        if isinstance(ref, dict):
+            return ref.get("citation_pmid", None)
         return None
 
     def get_ref_scholar(self, ref):
