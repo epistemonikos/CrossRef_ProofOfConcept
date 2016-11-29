@@ -1,6 +1,7 @@
 from reflookup.utils.parsers.default_parser import DefaultParser
 import re
 
+
 def trim_string(word):
     s = re.sub('\s+', ' ', word)
     s = re.sub(u"\u2013", "-", s)
@@ -120,4 +121,3 @@ class PlosParser(DefaultParser):
         lista = text.split('\n')
         lista.pop(0)
         return trim_string(' '.join(lista[:-6]))
-    
