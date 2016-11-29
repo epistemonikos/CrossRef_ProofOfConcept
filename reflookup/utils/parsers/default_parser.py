@@ -18,9 +18,9 @@ class DefaultParser():
         }
 
     def get_title(self):
-        title  = self.soup.head.find('meta', attrs={"name": 'DC.title'})
+        title  = self.soup.find('meta', attrs={"name": 'DC.title'})
         if not title:
-            title = self.soup.head.find('meta', attrs={"name": 'citation_title'})
+            title = self.soup.find('meta', attrs={"name": 'citation_title'})
         if title:
             title = title["content"]
         return title
@@ -39,36 +39,36 @@ class DefaultParser():
         }
 
     def get_journal(self):
-        journal = self.soup.head.find('meta', attrs={"name": 'citation_journal_title'})
+        journal = self.soup.find('meta', attrs={"name": 'citation_journal_title'})
         if journal:
             journal = journal["content"]
         return journal
 
     def get_year(self):
-        year = self.soup.head.find('meta', attrs={"name": 'citation_publication_date'})
+        year = self.soup.find('meta', attrs={"name": 'citation_publication_date'})
         if year:
             year = year["content"].split('/')[0]
         if not year:
-            year = self.soup.head.find('meta', attrs={"name": 'DC.Date'})
+            year = self.soup.find('meta', attrs={"name": 'DC.Date'})
             if year:
                 year = year["content"].split('-')[0]
         return year
 
     def get_volume(self):
-        volume = self.soup.head.find('meta', attrs={"name": 'citation_volume'})
+        volume = self.soup.find('meta', attrs={"name": 'citation_volume'})
         if volume:
             volume = volume["content"]
         return volume
 
     def get_issue(self):
-        issue = self.soup.head.find('meta', attrs={"name": 'citation_issue'})
+        issue = self.soup.find('meta', attrs={"name": 'citation_issue'})
         if issue:
             issue = issue["content"]
         return issue
 
     def get_pages(self):
-        first = self.soup.head.find('meta', attrs={"name": 'citation_firstpage'})
-        last = self.soup.head.find('meta', attrs={"name": 'citation_lastpage'})
+        first = self.soup.find('meta', attrs={"name": 'citation_firstpage'})
+        last = self.soup.find('meta', attrs={"name": 'citation_lastpage'})
         return {
             'first': first["content"] if first else None,
             'last': last["content"] if last else None
@@ -88,17 +88,17 @@ class DefaultParser():
         }
 
     def get_doi(self):
-        doi = self.soup.head.find('meta', attrs={"name": 'citation_doi'})
+        doi = self.soup.find('meta', attrs={"name": 'citation_doi'})
         if doi:
             doi = doi["content"]
         if not doi:
-            doi = self.soup.head.find('meta', attrs={"name": 'DC.Identifier'})
+            doi = self.soup.find('meta', attrs={"name": 'DC.Identifier'})
             if doi:
                 doi = doi["content"]
         return doi
 
     def get_pubmedID(self):
-        pmid = self.soup.head.find('meta', attrs={"name": 'citation_pmid'})
+        pmid = self.soup.find('meta', attrs={"name": 'citation_pmid'})
         if pmid:
             pmid = pmid["content"]
         return pmid
@@ -108,7 +108,7 @@ class DefaultParser():
             this function get authors from html.
             :params soup: instance of BeautifulSoup class
         """
-        authors = self.soup.head.findAll('meta', attrs={"name": 'citation_author'})
+        authors = self.soup.find_all('meta', attrs={"name": 'citation_author'})
         return [a["content"] for a in authors]
 
     def get_abstract(self):
@@ -116,7 +116,7 @@ class DefaultParser():
             this function get abstract from html.
             :params soup: instance of BeautifulSoup class
         """
-        abstract = self.soup.head.find('meta', attrs={"name": 'DC.Description'})
+        abstract = self.soup.find('meta', attrs={"name": 'DC.Description'})
         if abstract:
             abstract = abstract["content"]
         return abstract
@@ -133,7 +133,7 @@ class DefaultParser():
         this function get all references from html.
         :params soup: instance of BeautifulSoup class
         """
-        refs = self.soup.head.findAll('meta', attrs={"name": 'citation_reference'})
+        refs = self.soup.findAll('meta', attrs={"name": 'citation_reference'})
         resp = []
         for r in refs:
             dic = {}
