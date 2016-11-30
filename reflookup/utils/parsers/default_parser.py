@@ -52,6 +52,10 @@ class DefaultParser():
             year = self.soup.find('meta', attrs={"name": 'DC.Date'})
             if year:
                 year = year["content"].split('-')[0]
+        if not year:
+            year = self.soup.find('meta', attrs={"name": 'citation_online_date'})
+            if year:
+                year = year["content"].split('/')[0]
         return year
 
     def get_volume(self):
@@ -162,7 +166,6 @@ class DefaultParser():
 
     def get_ref_authors(self, ref):
         if type(ref) ==  type({}):
-            print("entre!!")
             authors = ref.get("authors", [])
             return [a.strip() for a in authors]
         return []
@@ -209,12 +212,12 @@ class DefaultParser():
         }
 
     def get_ref_doi(self, ref):
-        if isinstance(ref, dict):
+        if type(ref) == type({}):
             return ref.get("doi", None)
         return None
 
     def get_ref_pubmedID(self, ref):
-        if isinstance(ref, dict):
+        if type(ref) == type({}):
             return ref.get("pmid", None)
         return None
 
