@@ -88,7 +88,6 @@ def single_search(cit, cr_only=False, md_only=False, dont_choose=False):
 def deferred_search(citations):
     results = []
     for citation in citations:
-        results.append(getPubMedID(
-            single_search(citation)))
+        results.append(getPubMedID(single_search(citation)))
 
     return results
