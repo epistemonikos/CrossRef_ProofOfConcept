@@ -16,7 +16,7 @@ def lookup_and_extract(citation):
     urls = [url] if url else []
 
     extracted_refs = extract_refs(dois, urls, pmids)
-    ref['refs'] = extracted_refs
+    ref['references'] = extracted_refs
 
     return ref
 
