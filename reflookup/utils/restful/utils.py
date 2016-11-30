@@ -108,7 +108,9 @@ class DeferredResource(EncodingResource):
             # error
             return {
                        'done': True,
-                       'result': str(job.exc_info),
+                       'result': {
+                           'message': (job.exc_info.data.get('message', 'Unknown Error') if hasattr(job.exc_info, 'data') else 'Unknown Error')
+                       },
                        'length': -1,
                        'result_ttl': 0,
                        'timestamp': datetime.now().isoformat(),
