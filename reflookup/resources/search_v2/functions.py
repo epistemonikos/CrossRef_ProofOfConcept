@@ -1,6 +1,6 @@
 from threading import Thread
 
-from flask.ext.restful import abort
+from flask_restful import abort
 
 from reflookup.resources.lookup_functions.citation_search import \
     cr_citation_lookup, mendeley_lookup
