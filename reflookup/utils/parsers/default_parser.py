@@ -164,6 +164,20 @@ class DefaultParser():
             'ids': self.get_ref_identifiers(ref)
         }
 
+    # Si fuera necesario pasar las referencias al "estandar", aunque lo veo innecesario.
+    # (Modificar los output esperados de los tests!)
+    # def get_reference_info(self, ref):
+    #     ref_dict = StandardDict().getEmpty()
+    #     ref_dict['authors'] = self.get_ref_authors(ref)
+    #     ref_dict['title'] = self.get_ref_title(ref)
+    #     ref_dict['publication_info']['journal'] = self.get_ref_journal(ref)
+    #     ref_dict['publication_info']['year'] = self.get_ref_year(ref)
+    #     ref_dict['publication_info']['volume'] = self.get_ref_volume(ref)
+    #     ref_dict['publication_info']['pages'] = self.get_ref_pages(ref)
+    #     ref_dict['reference'] = self.get_ref_text(ref)
+    #     ref_dict['ids'] = self.get_ref_identifiers(ref)
+    #     return ref_dict
+
     def get_ref_authors(self, ref):
         if type(ref) ==  type({}):
             authors = ref.get("authors", [])
