@@ -4,6 +4,12 @@ import requests
 import pprint
 import os
 
+"""
+This is a testing script that it was used for check the correctness behavior of Crossref API.
+It takes an dataset file, with references and doi (from epistemonikos), and use our endpoint crsearch,
+to resolve references and calculate rating, for measure the correct calculus of rating.
+We consider a right output when epistemonikos's doi its equal to crossref's doi.
+"""
 class Color:
     PINK = '\033[95m'
     GREEN = '\033[92m'

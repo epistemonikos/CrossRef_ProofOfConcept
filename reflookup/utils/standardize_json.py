@@ -1,6 +1,7 @@
 from reflookup import app
 from copy import deepcopy
 
+
 class StandardDict:
     doc_dict = {
         'title': None,
@@ -104,117 +105,121 @@ def mendeley_to_standard(mjson):
 def scopus_to_standard(xml):
     resp = StandardDict().getEmpty()
 
-    coredata = xml.find("default:coredata", app.config['SCOPUS_DTD'])
+    coredata = xml.find('default:coredata', app.config['SCOPUS_DTD'])
 
     # Title
-    title = coredata.find("dc:title", app.config['SCOPUS_DTD'])
-    resp["title"] = title.text.strip()
+    title = coredata.find('dc:title', app.config['SCOPUS_DTD'])
+    resp['title'] = title.text.strip()
 
     # Abstract
-    abstract = coredata.find("dc:description", app.config['SCOPUS_DTD'])
-    resp["abstract"] = abstract.text.strip()
+    abstract = coredata.find('dc:description', app.config['SCOPUS_DTD'])
+    resp['abstract'] = abstract.text.strip()
 
     # Type
-    type = coredata.find("default:pubType", app.config['SCOPUS_DTD'])
-    access = coredata.find("default:openaccessArticle", app.config['SCOPUS_DTD'])
-    if access.text.strip() == "false":
-        resp["type"] = type.text.strip() + " (Closed Access)"
+    type = coredata.find('default:pubType', app.config['SCOPUS_DTD'])
+    access = coredata.find('default:openaccessArticle',
+                           app.config['SCOPUS_DTD'])
+    if access.text.strip() == 'false':
+        resp['type'] = type.text.strip() + ' (Closed Access)'
     else:
-        resp["type"] = type.text.strip() + " (Open Access)"
+        resp['type'] = type.text.strip() + ' (Open Access)'
 
     # IDs
-    doi = coredata.find("prism:doi", app.config['SCOPUS_DTD'])
-    resp["ids"]["doi"] = doi.text.strip()
+    doi = coredata.find('prism:doi', app.config['SCOPUS_DTD'])
+    resp['ids']['doi'] = doi.text.strip()
 
-    scopus_id = xml.find("default:scopus-id", app.config['SCOPUS_DTD'])
-    resp["ids"]["scopus"] = int(scopus_id.text.strip())
+    scopus_id = xml.find('default:scopus-id', app.config['SCOPUS_DTD'])
+    resp['ids']['scopus'] = int(scopus_id.text.strip())
 
     # Publication Info
-    journal = coredata.find("prism:publicationName", app.config['SCOPUS_DTD'])
-    resp["publication_type"]["title"] = journal.text.strip()
+    journal = coredata.find('prism:publicationName', app.config['SCOPUS_DTD'])
+    resp['publication_type']['title'] = journal.text.strip()
 
-    volume = coredata.find("prism:volume", app.config['SCOPUS_DTD'])
-    resp["publication_type"]["volume"] = int(volume.text.strip())
+    volume = coredata.find('prism:volume', app.config['SCOPUS_DTD'])
+    resp['publication_type']['volume'] = int(volume.text.strip())
 
-    year = coredata.find("prism:coverDisplayDate", app.config['SCOPUS_DTD'])
-    resp["publication_type"]["year"] = int(year.text.strip()[-4:])
+    year = coredata.find('prism:coverDisplayDate', app.config['SCOPUS_DTD'])
+    resp['publication_type']['year'] = int(year.text.strip()[-4:])
 
-    issue = coredata.find("prism:issueIdentifier", app.config['SCOPUS_DTD'])
-    resp["publication_type"]["issue"] = int(issue.text.strip())
+    issue = coredata.find('prism:issueIdentifier', app.config['SCOPUS_DTD'])
+    resp['publication_type']['issue'] = int(issue.text.strip())
 
-    issn = coredata.find("prism:issn", app.config['SCOPUS_DTD'])
-    resp["publication_type"]["issn"] = int(issn.text.strip())
+    issn = coredata.find('prism:issn', app.config['SCOPUS_DTD'])
+    resp['publication_type']['issn'] = int(issn.text.strip())
 
-    first_page = coredata.find("prism:startingPage", app.config['SCOPUS_DTD'])
-    last_page = coredata.find("prism:endingPage", app.config['SCOPUS_DTD'])
-    resp["publication_type"]["pagination"] = {
-        "first": first_page.text.strip(),      # La numeracion incluye letras, no se pueden
-        "last": last_page.text.strip()         # guardar como int
+    first_page = coredata.find('prism:startingPage', app.config['SCOPUS_DTD'])
+    last_page = coredata.find('prism:endingPage', app.config['SCOPUS_DTD'])
+    resp['publication_type']['pagination'] = {
+        'first': first_page.text.strip(),
+    # La numeracion incluye letras, no se pueden
+        'last': last_page.text.strip()  # guardar como int
     }
 
     # Authors
-    resp["authors"] = [ x.text.strip() for x in coredata.findall("dc:creator", app.config['SCOPUS_DTD'])]
+    resp['authors'] = [x.text.strip() for x in coredata.findall('dc:creator',
+                                                                app.config[
+                                                                    'SCOPUS_DTD'])]
 
     # References
-    references = xml.findall("default:originalText//ce:bib-reference",
+    references = xml.findall('default:originalText//ce:bib-reference',
                              app.config['SCOPUS_DTD'])
-    resp["references"] = [scopus_ref_to_standard(r) for r in references]
+    resp['references'] = [scopus_ref_to_standard(r) for r in references]
 
-    resp["source"] = "Scopus API"
+    resp['source'] = 'Scopus API'
     return resp
 
 
 def scopus_ref_to_standard(r):
     ref_dict = StandardDict().getEmpty()
-    ref_text = ""
-    for a in r.findall(".//sb:author", app.config['SCOPUS_DTD']):
-        a_dict = {"family": a.find("ce:surname",
+    ref_text = ''
+    for a in r.findall('.//sb:author', app.config['SCOPUS_DTD']):
+        a_dict = {'family': a.find('ce:surname',
                                    app.config['SCOPUS_DTD']).text,
-                  "given": a.find("ce:given-name",
+                  'given': a.find('ce:given-name',
                                   app.config['SCOPUS_DTD']).text}
-        ref_text += a_dict["family"] + " " + a_dict["given"] + ", "
-        ref_dict["authors"].append(a_dict)
+        ref_text += a_dict['family'] + ' ' + a_dict['given'] + ', '
+        ref_dict['authors'].append(a_dict)
     ref_text = ref_text[:-2]
 
-    host = r.find(".//sb:host", app.config['SCOPUS_DTD'])
-    other_ref = r.find("ce:other-ref", app.config['SCOPUS_DTD'])
+    host = r.find('.//sb:host', app.config['SCOPUS_DTD'])
+    other_ref = r.find('ce:other-ref', app.config['SCOPUS_DTD'])
     if host:
         # Reference split in authors and publication info.
-        date = host.find("sb:issue/sb:date", app.config['SCOPUS_DTD']).text
+        date = host.find('sb:issue/sb:date', app.config['SCOPUS_DTD']).text
         if date:
             ref_dict['publication_type']['year'] = int(date)
-            ref_text += " ({}).".format(date)
+            ref_text += ' ({}).'.format(date)
         else:
-            ref_text += "."
+            ref_text += '.'
 
-        title = host.find(".//sb:maintitle", app.config['SCOPUS_DTD']).text
+        title = host.find('.//sb:maintitle', app.config['SCOPUS_DTD']).text
         if title:
             ref_dict['publication_type']['title'] = title
-            ref_text += " " + title
+            ref_text += ' ' + title
 
-        volume = host.find("sb:issue/sb:series/sb:volume-nr",
+        volume = host.find('sb:issue/sb:series/sb:volume-nr',
                            app.config['SCOPUS_DTD']).text
-        pages = host.find("sb:pages", app.config['SCOPUS_DTD'])
+        pages = host.find('sb:pages', app.config['SCOPUS_DTD'])
         if volume:
             ref_dict['publication_type']['volume'] = int(volume)
             if title:
-                ref_text += ", " + volume
+                ref_text += ', ' + volume
         if pages:
             first = int(
-                pages.find("sb:first-page", app.config['SCOPUS_DTD']).text)
+                pages.find('sb:first-page', app.config['SCOPUS_DTD']).text)
             last = int(
-                pages.find("sb:last-page", app.config['SCOPUS_DTD']).text)
+                pages.find('sb:last-page', app.config['SCOPUS_DTD']).text)
             ref_dict['publication_type']['pages'] = {
                 'first': first,
                 'last': last
             }
             if title:
-                ref_text += ", {}-{}".format(first, last)
+                ref_text += ', {}-{}'.format(first, last)
         ref_dict['publication_type']['reference'] = ref_text
     if other_ref:
         # Reference in plain text.
         ref_dict['publication_type']['reference'] = other_ref.find(
-            "ce:textref", app.config['SCOPUS_DTD']).text
+            'ce:textref', app.config['SCOPUS_DTD']).text
 
     return ref_dict
 

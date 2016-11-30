@@ -36,7 +36,8 @@ app.config['MENDELEY_AUTH'] = ('3578', 'y43xcFyn1lNG7VT5')  # TODO: MOVE TO ENV
 
 app.config['RESULT_TTL_SECONDS'] = 300
 app.secret_key = os.environ.get('REFSERVICE_SECRETKEY', '12345')
-app.config['API_PREFIX'] = '/api/v1'
+app.config['API_PREFIX_V1'] = '/api/v1'
+app.config['API_PREFIX_V2'] = '/api/v2'
 api = Api(app)
 conn = Redis()
 

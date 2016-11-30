@@ -80,14 +80,12 @@ class DeferredResource(EncodingResource):
     def __init__(self):
         self.post_parser = RequestParser()
         self.get_parser = RequestParser()
-        self.get_parser.add_argument('id', type=str, location='values',
-                                     required=True)
 
         self.result_ttl = app.config['RESULT_TTL_SECONDS']
 
-    def enqueue_job_and_return(self, function, args):
+    def enqueue_job_and_return(self, function, *args):
         try:
-            job = rq.enqueue(function, args, result_ttl=self.result_ttl)
+            job = rq.enqueue(function, *args, result_ttl=self.result_ttl)
             return {
                        'job': taskserializer.dumps(job.id),
                        'submitted': datetime.now(timezone.utc).isoformat()
@@ -96,8 +94,7 @@ class DeferredResource(EncodingResource):
         except redis.exceptions.ConnectionError:
             abort(500)
 
-    def check_job(self):
-        job_id = self.get_parser.parse_args()['id']
+    def check_job(self, job_id):
         try:
             job_id = taskserializer.loads(job_id)
         except BadSignature:
@@ -111,7 +108,9 @@ class DeferredResource(EncodingResource):
             # error
             return {
                        'done': True,
-                       'result': str(job.exc_info),
+                       'result': {
+                           'message': (job.exc_info.data.get('message', 'Unknown Error') if hasattr(job.exc_info, 'data') else 'Unknown Error')
+                       },
                        'length': -1,
                        'result_ttl': 0,
                        'timestamp': datetime.now().isoformat(),
