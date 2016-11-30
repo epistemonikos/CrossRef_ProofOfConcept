@@ -21,7 +21,7 @@ def lookup_and_extract(citation):
     return ref
 
 
-class IntegratedSearchAndExtract(DeferredResource):
+class IntegratedSearchAndExtractV2(DeferredResource):
     def __init__(self):
         super().__init__()
         self.get_parser.add_argument('q', required=True, type=str)

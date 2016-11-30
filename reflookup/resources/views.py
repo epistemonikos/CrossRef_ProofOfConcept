@@ -12,6 +12,7 @@ from reflookup.resources.integrated_extract.views import IntegratedReferenceExtr
 from reflookup.resources.parsers.views import ParserResource
 from reflookup.resources.search_v2.views import IntegratedReferenceSearchV2
 from reflookup.resources.extract_v2.views import IntegratedReferenceExtractV2
+from reflookup.resources.integrated_v2.views import IntegratedSearchAndExtractV2
 
 prefix_v1 = app.config['API_PREFIX_V1']
 prefix_v2 = app.config['API_PREFIX_V2']
@@ -31,3 +32,5 @@ api.add_resource(ParserResource, prefix_v1 + '/parse')
 
 api.add_resource(IntegratedReferenceSearchV2, prefix_v2 + '/search')
 api.add_resource(IntegratedReferenceExtractV2, prefix_v2 + '/extract')
+api.add_resource(IntegratedSearchAndExtractV2, prefix_v2 + '/resolve')
+
