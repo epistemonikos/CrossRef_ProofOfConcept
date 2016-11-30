@@ -4,7 +4,7 @@ from reflookup.resources.lookup_functions.citation_extract import getRefID, getR
 import json
 #Paso 1: leer tsv
 dump = open('./src/dump_pdq_chechis.tsv')
-output= open('./result/input_grafo.txt', 'w')
+output = open('./result/input_grafo.txt', 'w')
 line = dump.readline()
 n = 0
 
@@ -33,7 +33,7 @@ def get_param(param, res_parser, res_scopus, res_pubmed):
 while line:
 
     # por cada linea, resolver referencias con los servicios de la API
-    [episteID, doi, pmid] = line.split('\t') # episteID, doi, pmid
+    [episteID, doi, pmid] = line.strip().split('\t') # episteID, doi, pmid
     res_parser = {}
     try:
         res_parser = parser.parse(doi)
@@ -84,7 +84,7 @@ while line:
         print("Cantidad de RS resueltas: "+str(n)+"\n")
     output.write(json.dumps(j)+'\n')
     line = dump.readline()
-    if n%5 == 0:
+    if n%100 == 0:
         break
 
 if output:
