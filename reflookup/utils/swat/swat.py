@@ -5,6 +5,8 @@ import json
 #Paso 1: leer tsv
 dump = open('./src/dump_pdq_chechis.tsv')
 output = open('./result/input_grafo.txt', 'w')
+errors = open('./result/unresolved_grafo.txt', 'w')
+
 line = dump.readline()
 n = 0
 
@@ -31,9 +33,17 @@ def get_param(param, res_parser, res_scopus, res_pubmed):
 
 
 while line:
-
+    n += 1
+    # if n < 100:
+    #     line = dump.readline()
+    #     continue
     # por cada linea, resolver referencias con los servicios de la API
-    [episteID, doi, pmid] = line.strip().split('\t') # episteID, doi, pmid
+    try:
+        [episteID, doi, pmid] = line.strip().split('\t') # episteID, doi, pmid
+    except:
+        line = dump.readline()
+        errors.write(line + '\n')
+        continue
     res_parser = {}
     try:
         res_parser = parser.parse(doi)
@@ -51,14 +61,6 @@ while line:
         pass
     #imprimir a archivo nuevo llamado
     #  input_grafo.txt
-    if n < 5:
-        import json
-        print(json.dumps(res_parser))
-        print(json.dumps(res_pubmed))
-        print(json.dumps(res_scopus))
-        print(episteID)
-        print(doi)
-        print(pmid)
     j = {
         "title": get_param("title",res_parser ,res_scopus, res_pubmed),
         "authors": get_param("authors", res_parser, res_scopus, res_pubmed),
@@ -79,14 +81,10 @@ while line:
         "citation": get_param("citation", res_parser, res_scopus, res_pubmed),
         "references": get_param("references", res_parser, res_scopus, res_pubmed)
     }
-    n +=1
     if n%10 == 0:
         print("Cantidad de RS resueltas: "+str(n)+"\n")
     output.write(json.dumps(j)+'\n')
     line = dump.readline()
-    if n%100 == 0:
-        break
-
 if output:
     output.close()
 
