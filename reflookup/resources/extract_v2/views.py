@@ -5,6 +5,25 @@ from reflookup.utils.restful.utils import DeferredResource
 
 
 class IntegratedReferenceExtractV2(DeferredResource):
+    """
+    Endpoint for extracting references from a given list of identifiers.
+    Returns a job containing the result of the query in the format
+    {
+        '<id_1>': [ <list of references> ],
+        '<id_2>': [ <list of references> ],
+        ...
+    }
+
+    The endpoint aggregates all the given id's in lists, so the request can
+    contain multiple queries for the same type of id. For example:
+
+    <url>?doi=32424.32344?doi=34234?doi=sdf.23123
+
+    Is treated as
+
+    dois = ['32424.32344', '34234', 'sdf.23123']
+    """
+
     def __init__(self):
         super().__init__()
         self.get_parser.add_argument('doi', type=str, required=False,

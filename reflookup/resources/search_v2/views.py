@@ -5,6 +5,25 @@ from reflookup.utils.restful.utils import DeferredResource, \
 
 
 class IntegratedReferenceSearchV2(DeferredResource):
+    """
+    Endpoint for converting a plain text reference string into a JSON structure
+    through searching in multiple reference services for the best match.
+
+    This endpoint can work both in instant and deferred fashion:
+
+    - If the request contains only one query, it is handled instantly.
+    - Else, the request returns a job containing the results for the query, a
+    list of JSONs.
+
+    If the request is for only one reference, it can also include some optional
+    parameters:
+
+    - cr_only=true indicates to only return the top result from CrossRef.
+    - md_only=true indicates to only return the top result from Mendeley.
+    - dont_choose=true indicates to not choose the best result from the results
+    of Crossref and Mendeley, and to return both.
+    """
+
     method_decorators = []
 
     def __init__(self):
@@ -30,5 +49,3 @@ class IntegratedReferenceSearchV2(DeferredResource):
         else:
             return b64_encode_response(self.enqueue_job_and_return)(
                 deferred_search, cit)
-
-

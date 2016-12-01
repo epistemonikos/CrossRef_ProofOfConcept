@@ -4,27 +4,41 @@ from reflookup.resources.search_v2.functions import single_search
 from reflookup.resources.extract_v2.functions import extract_refs
 
 
-def lookup_and_extract(citation):
-    ref = getPubMedID(single_search(citation))
+def lookup_and_extract(citation_list):
+    results = []
 
-    doi = ref.get('ids', {}).get('doi', None)
-    pmid = ref.get('ids', {}).get('pubmed', None)
-    url = ref.get('ids', {}).get('scopus', None)
+    for citation in citation_list:
+        ref = getPubMedID(single_search(citation))
 
-    dois = [doi] if doi else []
-    pmids = [pmid] if pmid else []
-    urls = [url] if url else []
+        doi = ref.get('ids', {}).get('doi', None)
+        pmid = ref.get('ids', {}).get('pubmed', None)
+        url = ref.get('ids', {}).get('scopus', None)
 
-    extracted_refs = extract_refs(dois, urls, pmids)
-    ref['references'] = extracted_refs
+        dois = [doi] if doi else []
+        pmids = [pmid] if pmid else []
+        urls = [url] if url else []
 
-    return ref
+        extracted_refs = extract_refs(dois, urls, pmids)
+        ref['references'] = extracted_refs
+        results.append(ref)
+
+    return results
 
 
 class IntegratedSearchAndExtractV2(DeferredResource):
+    """
+    A convenience endpoint to handle the complete workflow of this service.
+    It takes a list of plaintext references, resolves them to JSON structures
+    containing the relevant information and then it resolves its references.
+
+    It works in a deferred fashion, so it returns a job id with which to check
+    the results.
+    """
+
     def __init__(self):
         super().__init__()
-        self.get_parser.add_argument('q', required=True, type=str)
+        self.get_parser.add_argument('q', required=True, type=str,
+                                     action='append')
 
     def get(self):
         args = self.get_parser.parse_args()
