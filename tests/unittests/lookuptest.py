@@ -1,11 +1,8 @@
+import time
 import unittest
 
-import time
-
-import sys
-
-import pprint
 from flask import json
+
 from tests.unittests import basetest
 
 
