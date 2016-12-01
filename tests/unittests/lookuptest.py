@@ -1,5 +1,10 @@
 import unittest
 
+import time
+
+import sys
+
+import pprint
 from flask import json
 from tests.unittests import basetest
 
@@ -14,7 +19,7 @@ class LookupTest(basetest.BaseTest):
             This test check an especial reference where crossref service must win
         """
         params = {'ref': self.test_cite}
-        ret = self.app.post(self.prefix + '/search', data=params)
+        ret = self.app.post(self.prefix + '/search', query_string=params)
         assert ret
         jdata = json.loads(ret.data)
         assert jdata
@@ -27,7 +32,7 @@ class LookupTest(basetest.BaseTest):
         This test check an especial reference where mendeley service must win
         """
         params = {'ref': self.test_cite_mendeley}
-        ret = self.app.post(self.prefix + '/search', data=params)
+        ret = self.app.post(self.prefix + '/search', query_string=params)
         assert ret
         jdata = json.loads(ret.data)
         assert jdata
@@ -38,7 +43,7 @@ class LookupTest(basetest.BaseTest):
     def test_search_v2_single_query(self):
         # first cr
         params = {'q': self.test_cite}
-        ret = self.app.get(self.prefix2 + '/search', data=params)
+        ret = self.app.get(self.prefix2 + '/search', query_string=params)
         assert ret
         jdata = json.loads(ret.data)
         assert jdata
@@ -48,7 +53,7 @@ class LookupTest(basetest.BaseTest):
 
         # then md
         params = {'q': self.test_cite_mendeley}
-        ret = self.app.get(self.prefix2 + '/search', data=params)
+        ret = self.app.get(self.prefix2 + '/search', query_string=params)
         assert ret
         jdata = json.loads(ret.data)
         assert jdata
@@ -58,7 +63,7 @@ class LookupTest(basetest.BaseTest):
 
         # then cr, but with md_only
         params = {'q': self.test_cite, 'md_only': True}
-        ret = self.app.get(self.prefix2 + '/search', data=params)
+        ret = self.app.get(self.prefix2 + '/search', query_string=params)
         assert ret
         jdata = json.loads(ret.data)
         assert jdata
@@ -68,7 +73,7 @@ class LookupTest(basetest.BaseTest):
 
         # then md, but with cr_only
         params = {'q': self.test_cite_mendeley, 'cr_only': True}
-        ret = self.app.get(self.prefix2 + '/search', data=params)
+        ret = self.app.get(self.prefix2 + '/search', query_string=params)
         assert ret
         jdata = json.loads(ret.data)
         assert jdata
@@ -78,7 +83,7 @@ class LookupTest(basetest.BaseTest):
 
         # then cr and return both
         params = {'q': self.test_cite, 'dont_choose': True}
-        ret = self.app.get(self.prefix2 + '/search', data=params)
+        ret = self.app.get(self.prefix2 + '/search', query_string=params)
         assert ret
         jdata = json.loads(ret.data)
         assert jdata
@@ -86,6 +91,42 @@ class LookupTest(basetest.BaseTest):
         assert res
         assert len(res) == 2
         assert jdata.get('length', 0) == 2
+
+    def test_search_v2_deferred_queries(self):
+        params = {'q': [self.test_cite, self.test_cite_mendeley]}
+
+        ret = self.app.get(self.prefix2 + '/search', query_string=params)
+        assert ret
+
+        jdata = json.loads(ret.data)
+        assert jdata
+        job_id = jdata.get('job')
+        assert job_id
+
+        for i in range(0, 10):
+            time.sleep(2)
+
+            ret = self.app.get(self.prefix + '/job',
+                               query_string={'id': job_id})
+            assert ret
+
+            jdata = json.loads(ret.data)
+            assert jdata
+            if jdata.get('done', False):
+                break
+
+            self.assertLess(i, 10, msg='Exceeded timeout for job completion.')
+
+        self.assertLess(0, jdata.get('length', 0),
+                        msg='Job returned with error.'
+                            ' Length = {}, Error = {}'.format(
+                            jdata.get('length'), jdata.get('result')))
+
+        result = jdata.get('result', None)
+        self.assertEqual(type(result), list)
+
+        for r in result:
+            self.assertTrue(r.get('ids', {}).get('doi') in {self.cr_doi, self.md_doi})
 
 
 if __name__ == '__main__':
