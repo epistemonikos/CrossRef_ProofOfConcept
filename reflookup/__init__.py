@@ -3,12 +3,15 @@ import os
 from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api
-from itsdangerous import URLSafeSerializer
+from itsdangerous import URLSafeSerializer, URLSafeTimedSerializer
 from redis import Redis
 from rq import Queue
 from sys import stderr
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/refservice.db'
+db = SQLAlchemy(app)
 CORS(app, supports_credentials=True)
 
 # SERVER
@@ -37,6 +40,8 @@ app.config['MENDELEY_AUTH'] = (os.environ.get('MENDELEY_ID'), os.environ.get('ME
 
 app.config['RESULT_TTL_SECONDS'] = 300
 app.secret_key = os.environ.get('REFSERVICE_SECRETKEY')
+
+app.config['ACCESS_TOKEN_TTL'] = 300
 app.config['API_PREFIX_V1'] = '/api/v1'
 app.config['API_PREFIX_V2'] = '/api/v2'
 
@@ -63,6 +68,7 @@ conn = Redis()
 rq = Queue(connection=conn)
 
 taskserializer = URLSafeSerializer(app.secret_key, salt='task')
+tokenserializer = URLSafeTimedSerializer(app.secret_key, salt='token')
 
 from reflookup.resources import views
 
