@@ -1,8 +1,8 @@
 import os
 
 from flask import Flask
+from flask_cors import CORS
 from flask_restful import Api
-from flask_cors import CORS, cross_origin
 from itsdangerous import URLSafeSerializer
 from redis import Redis
 from rq import Queue
@@ -16,7 +16,7 @@ app.config['PORT'] = 5001
 
 # Quick References
 app.config['SCOPUS_URI'] = 'https://api.elsevier.com/content/article/doi/'
-app.config['SCOPUS_API_KEY'] = 'd1dd2bfada7ec327c3f4a3e316ec98b8'
+app.config['SCOPUS_API_KEY'] = os.environ.get('SCOPUS_API_KEY')
 app.config['SCOPUS_DTD'] = {
     "default": "http://www.elsevier.com/xml/svapi/article/dtd",
     "sb": "http://www.elsevier.com/xml/common/struct-bib/dtd",
@@ -32,7 +32,7 @@ app.config['CROSSREF_URI'] = 'http://api.crossref.org/works'
 app.config['MENDELEY_SEARCH_URI'] = 'https://api.mendeley.com/search/catalog'
 app.config['MENDELEY_CATALOG_URI'] = 'https://api.mendeley.com/catalog'
 app.config['MENDELEY_AUTH_URI'] = 'https://api.mendeley.com/oauth/token'
-app.config['MENDELEY_AUTH'] = ('3578', 'y43xcFyn1lNG7VT5')  # TODO: MOVE TO ENV
+app.config['MENDELEY_AUTH'] = (os.environ.get('MENDELEY_ID'), os.environ.get('MENDELEY_SECRET'))
 
 app.config['RESULT_TTL_SECONDS'] = 300
 app.secret_key = os.environ.get('REFSERVICE_SECRETKEY', '12345')
