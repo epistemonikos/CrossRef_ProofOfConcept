@@ -109,51 +109,64 @@ def scopus_to_standard(xml):
 
     # Title
     title = coredata.find('dc:title', app.config['SCOPUS_DTD'])
-    resp['title'] = title.text.strip()
+    if title:
+        resp['title'] = title.text.strip()
 
     # Abstract
     abstract = coredata.find('dc:description', app.config['SCOPUS_DTD'])
-    resp['abstract'] = abstract.text.strip()
+    if abstract:
+        resp['abstract'] = abstract.text.strip()
 
     # Type
     type = coredata.find('default:pubType', app.config['SCOPUS_DTD'])
     access = coredata.find('default:openaccessArticle',
                            app.config['SCOPUS_DTD'])
-    if access.text.strip() == 'false':
-        resp['type'] = type.text.strip() + ' (Closed Access)'
-    else:
-        resp['type'] = type.text.strip() + ' (Open Access)'
+
+    if type and access:
+        if access.text.strip() == 'false':
+            resp['type'] = type.text.strip() + ' (Closed Access)'
+        else:
+            resp['type'] = type.text.strip() + ' (Open Access)'
 
     # IDs
     doi = coredata.find('prism:doi', app.config['SCOPUS_DTD'])
-    resp['ids']['doi'] = doi.text.strip()
+    if doi:
+        resp['ids']['doi'] = doi.text.strip()
 
     scopus_id = xml.find('default:scopus-id', app.config['SCOPUS_DTD'])
-    resp['ids']['scopus'] = int(scopus_id.text.strip())
+    if scopus_id:
+        resp['ids']['scopus'] = int(scopus_id.text.strip())
 
     # Publication Info
     journal = coredata.find('prism:publicationName', app.config['SCOPUS_DTD'])
-    resp['publication_type']['title'] = journal.text.strip()
+    if journal:
+        resp['publication_type']['title'] = journal.text.strip()
 
     volume = coredata.find('prism:volume', app.config['SCOPUS_DTD'])
-    resp['publication_type']['volume'] = int(volume.text.strip())
+    if volume:
+        resp['publication_type']['volume'] = int(volume.text.strip())
 
     year = coredata.find('prism:coverDisplayDate', app.config['SCOPUS_DTD'])
-    resp['publication_type']['year'] = int(year.text.strip()[-4:])
+    if year:
+        resp['publication_type']['year'] = int(year.text.strip()[-4:])
 
     issue = coredata.find('prism:issueIdentifier', app.config['SCOPUS_DTD'])
-    resp['publication_type']['issue'] = int(issue.text.strip())
+    if issue:
+        resp['publication_type']['issue'] = int(issue.text.strip())
 
     issn = coredata.find('prism:issn', app.config['SCOPUS_DTD'])
-    resp['publication_type']['issn'] = int(issn.text.strip())
+    if issn:
+        resp['publication_type']['issn'] = int(issn.text.strip())
 
     first_page = coredata.find('prism:startingPage', app.config['SCOPUS_DTD'])
     last_page = coredata.find('prism:endingPage', app.config['SCOPUS_DTD'])
-    resp['publication_type']['pagination'] = {
-        'first': first_page.text.strip(),
-    # La numeracion incluye letras, no se pueden
-        'last': last_page.text.strip()  # guardar como int
-    }
+
+    if first_page and last_page:
+        resp['publication_type']['pagination'] = {
+            'first': first_page.text.strip(),
+            # La numeracion incluye letras, no se pueden
+            'last': last_page.text.strip()  # guardar como int
+        }
 
     # Authors
     resp['authors'] = [x.text.strip() for x in coredata.findall('dc:creator',
@@ -163,7 +176,8 @@ def scopus_to_standard(xml):
     # References
     references = xml.findall('default:originalText//ce:bib-reference',
                              app.config['SCOPUS_DTD'])
-    resp['references'] = [scopus_ref_to_standard(r) for r in references]
+    if references:
+        resp['references'] = [scopus_ref_to_standard(r) for r in references]
 
     resp['source'] = 'Scopus API'
     return resp
