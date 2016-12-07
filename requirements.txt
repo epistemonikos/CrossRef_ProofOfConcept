@@ -12,4 +12,4 @@ rq
 redis
 invoke
 flask-cors
-cryptography
+click
