@@ -3,6 +3,8 @@ from reflookup.resources.search_v2.functions import single_search, \
 from reflookup.utils.restful.utils import DeferredResource, \
     b64_encode_response, find_pubmedid_wrapper
 
+from reflookup.auth.models import auth_required
+
 
 class IntegratedReferenceSearchV2(DeferredResource):
     """
@@ -37,6 +39,7 @@ class IntegratedReferenceSearchV2(DeferredResource):
         self.get_parser.add_argument('dont_choose', required=False, type=bool,
                                      default=False)
 
+    @auth_required()
     def get(self):
         args = self.get_parser.parse_args()
         cit = args['q']

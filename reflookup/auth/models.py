@@ -45,14 +45,26 @@ def create_tokens(owner):
 
 
 def auth_required(scope=scopes['client']):
+
     def decorator(view):
+
         @wraps(view)
         def wrapper(*args, **kwargs):
-            if app.debug or app.testing:
-                return view(*args, **kwargs)
+            auth = request.headers.get('Authorization')
+            if not auth:
+                abort(401)
 
-            token = request.headers.get('Authorization').split(' ')[1]
-            User.validate_access_token(token, scope)
+            try:
+                token = auth.split(' ')
+
+                if token[0] != 'Bearer':
+                    abort(400, message='Malformed Authorization header.')
+
+                User.validate_access_token(token[1], scope)
+            except AttributeError:
+                abort(400, message='Malformed Authorization header.')
+            except:
+                raise
 
             return view(*args, **kwargs)
 
@@ -114,7 +126,8 @@ class User(db.Model):
             client_id = token.get('client', None)
             if not client_id:
                 print('No client ID.')
-                raise BadSignature('Access token does not contain a client ID.')
+                raise BadSignature(
+                    'Access token does not contain a client ID.')
 
             client = User.query.filter(User.id == client_id).first()
             if not client:
@@ -129,7 +142,8 @@ class User(db.Model):
                 refresh_serial = refresh_token.get('serial')
                 refresh_client = refresh_token.get('client')
 
-                if refresh_serial != token.get('serial') != client.token_serial or refresh_client != client_id != client.id:
+                if refresh_serial != token.get(
+                        'serial') != client.token_serial or refresh_client != client_id != client.id:
                     abort(403, message='Invalid refresh token.')
 
                 return create_tokens(client)
