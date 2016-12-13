@@ -50,6 +50,10 @@ def auth_required(scope=scopes['client']):
 
         @wraps(view)
         def wrapper(*args, **kwargs):
+
+            if app.testing:
+                return view(*args, **kwargs)
+
             auth = request.headers.get('Authorization')
             if not auth:
                 abort(401)
