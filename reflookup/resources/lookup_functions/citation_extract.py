@@ -16,6 +16,22 @@ import xml.etree.ElementTree as ET
 import json
 
 
+def get_scopus_ref(doi):
+    params = {
+        "apiKey": app.config["SCOPUS_API_KEY"]
+    }
+    headers = {
+        "Accept": "text/xml"
+    }
+    resp = requests.get(app.config["SCOPUS_URI"] + doi, params=params,
+                        headers=headers)
+    if resp.status_code == 200:
+        xml = ET.fromstring(resp.text)
+        return scopus_to_standard(xml)
+    else:
+        return {}
+
+
 def get_scopus_references(doi):
     params = {
         "apiKey": app.config["SCOPUS_API_KEY"]
@@ -101,6 +117,7 @@ def getRefID(pubmedID):
         return list(map(lambda x: x.get_text(), ref_list))
     else:
         abort(404, message='No references found for Pubmed ID {}'.format(pubmedID))
+
 
 
 def requestPubMed(term):

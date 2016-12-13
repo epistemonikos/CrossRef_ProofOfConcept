@@ -94,6 +94,10 @@ ENV/
 # mac
 .DS_Store
 
+#tsv
+*.tsv
+reflookup/utils/swat/src/dump_pdq_chechis.tsv
+
 # WARNING: DO NOT REMOVE THIS LINE
 travis_deploy/travis_rsa*
 /travis_deploy/secure.tar
