@@ -45,7 +45,6 @@ def create_tokens(owner):
 
 
 def auth_required(scope=scopes['client']):
-
     def decorator(view):
 
         @wraps(view)
@@ -142,7 +141,9 @@ class User(db.Model):
                 abort(401, message='Please provide a refresh token.')
 
             try:
-                refresh_token = tokenserializer.loads(refresh_token)
+                refresh_token = tokenserializer.loads(refresh_token,
+                                                      max_age=app.config[
+                                                          'REFRESH_TOKEN_TTL'])
                 refresh_serial = refresh_token.get('serial')
                 refresh_client = refresh_token.get('client')
 
@@ -157,6 +158,8 @@ class User(db.Model):
             except:
                 raise
 
+        except SignatureExpired:
+            abort(401, message='Expired refresh token. Please log in again.')
         except BadSignature:
             print('Error deserializing.')
             abort(403, message='Bad access token.')

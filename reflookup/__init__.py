@@ -43,6 +43,7 @@ app.config['RESULT_TTL_SECONDS'] = 300
 app.secret_key = os.environ.get('REFSERVICE_SECRETKEY')
 
 app.config['ACCESS_TOKEN_TTL'] = 300
+app.config['REFRESH_TOKEN_TTL'] = 86400
 app.config['API_PREFIX_V1'] = '/api/v1'
 app.config['API_PREFIX_V2'] = '/api/v2'
 
