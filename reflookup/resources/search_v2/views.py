@@ -37,10 +37,17 @@ class IntegratedReferenceSearchV2(DeferredResource):
         self.get_parser.add_argument('dont_choose', required=False, type=bool,
                                      default=False)
 
-    def get(self):
-        args = self.get_parser.parse_args()
-        cit = args['q']
+        self.post_parser.add_argument('q', required=True, type=list,
+                                      location='json')
+        self.post_parser.add_argument('cr_only', required=False, type=bool,
+                                      default=False, location='json')
+        self.post_parser.add_argument('md_only', required=False, type=bool,
+                                      default=False, location='json')
+        self.post_parser.add_argument('dont_choose', required=False, type=bool,
+                                      default=False, location='json')
 
+    def search(self, args):
+        cit = args['q']
         if len(cit) == 1:
             return find_pubmedid_wrapper(single_search)(cit[0],
                                                         args['cr_only'],
@@ -49,3 +56,11 @@ class IntegratedReferenceSearchV2(DeferredResource):
         else:
             return b64_encode_response(self.enqueue_job_and_return)(
                 deferred_search, cit)
+
+    def get(self):
+        args = self.get_parser.parse_args()
+        return self.search(args)
+
+    def post(self):
+        args = self.post_parser.parse_args()
+        return self.search(args)
