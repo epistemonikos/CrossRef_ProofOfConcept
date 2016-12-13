@@ -13,3 +13,4 @@ redis
 invoke
 flask-cors
 click
+cryptography
