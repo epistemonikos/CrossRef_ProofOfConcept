@@ -6,6 +6,7 @@ from flask_restful import Api
 from itsdangerous import URLSafeSerializer
 from redis import Redis
 from rq import Queue
+from sys import stderr
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
@@ -35,9 +36,26 @@ app.config['MENDELEY_AUTH_URI'] = 'https://api.mendeley.com/oauth/token'
 app.config['MENDELEY_AUTH'] = (os.environ.get('MENDELEY_ID'), os.environ.get('MENDELEY_SECRET'))
 
 app.config['RESULT_TTL_SECONDS'] = 300
-app.secret_key = os.environ.get('REFSERVICE_SECRETKEY', '12345')
+app.secret_key = os.environ.get('REFSERVICE_SECRETKEY')
 app.config['API_PREFIX_V1'] = '/api/v1'
 app.config['API_PREFIX_V2'] = '/api/v2'
+
+abort_run = False
+if not app.secret_key:
+    print('Please define a REFSERVICE_SECRETKEY environment variable!', file=stderr)
+    abort_run = True
+md_id, md_secret = app.config['MENDELEY_AUTH']
+if not md_id or not md_secret:
+    print('Please define MENDELEY_ID and MENDELEY_SECRET environment variables!', file=stderr)
+    abort_run = True
+if not app.config['SCOPUS_API_KEY']:
+    print('Please define a SCOPUS_API_KEY environment variable!', file=stderr)
+    abort_run = True
+
+if abort_run:
+    exit(-1)
+
+
 api = Api(app)
 conn = Redis()
 
