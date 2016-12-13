@@ -19,6 +19,10 @@ if [ -f /tmp/worker.pid ]; then
     rm /tmp/worker.pid
 fi
 
+if [ ! -f /tmp/refservice.db ]; then
+    ./venv/bin/python db_manage.py create_db
+fi
+
 echo "Starting service"
 screen -d -m ./venv/bin/gunicorn --workers 3 --bind 0.0.0.0:5000 reflookup.wsgi:app --error-logfile errors.log --pid /tmp/gunicorn.pid
 screen -d -m ./venv/bin/rq worker --pid /tmp/worker.pid
