@@ -62,11 +62,11 @@ def auth_required(scope=scopes['client']):
                 token = auth.split(' ')
 
                 if token[0] != 'Bearer':
-                    abort(400, message='Malformed Authorization header.')
+                    abort(401, message='Malformed Authorization header.')
 
                 User.validate_access_token(token[1], scope)
             except AttributeError:
-                abort(400, message='Malformed Authorization header.')
+                abort(401, message='Malformed Authorization header.')
             except:
                 raise
 
