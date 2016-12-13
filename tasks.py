@@ -16,9 +16,3 @@ def test(ctx):
         exit(-1)
     else:
         exit(0)
-
-
-@task
-def deploy(ctx):
-    ctx.run('ssh -vv -o StrictHostKeyChecking=no '
-            'ubuntu@52.3.221.80 "cd ReferenceLookupService && sh ./deploy.sh"')
