@@ -85,7 +85,7 @@ class AuthTest(BaseTest):
                           headers={
                               'Authorization': 'Bearer {}'.format(a_token)
                           })
-        self.assertEqual(rv.status_code, 200)
+        self.assertEqual(rv.status_code, 202)
 
         app.testing = True
 
