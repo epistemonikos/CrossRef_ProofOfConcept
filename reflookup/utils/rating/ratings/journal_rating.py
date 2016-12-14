@@ -4,6 +4,5 @@ class JournalRating:
         self.pagination = journal or ''
 
     def value(self):
-        print (self.pagination)
-        print(self.cita)
+        #TODO: an aproximate string match for journal and the cite
         return 1

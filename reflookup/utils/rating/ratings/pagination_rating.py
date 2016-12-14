@@ -4,4 +4,5 @@ class PaginationRating:
         self.pagination = pagination or ''
 
     def value(self):
+        #TODO: an aproximate string match for pagination and the cite
         return 1
