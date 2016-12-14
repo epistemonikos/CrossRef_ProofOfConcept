@@ -9,7 +9,7 @@ from reflookup.utils.rating.chooser import Chooser
 from reflookup.utils.standardize_json import StandardDict
 
 
-def single_search(cit, cr_only=False, md_only=False, dont_choose=False):
+def single_search(cit, cr_only=False, md_only=False):
     if cr_only and not md_only:
         return cr_citation_lookup(cit)
 
@@ -47,17 +47,24 @@ def single_search(cit, cr_only=False, md_only=False, dont_choose=False):
             return cr
         elif not cr:
             return md
-        elif dont_choose:
-            return [cr, md]
         else:
             ch = Chooser(cit, [cr, md])
 
             return ch.select()
 
 
-def deferred_search(citations):
+def multi_search(citations, cr_only=False, md_only=False):
     results = []
     for citation in citations:
-        results.append(getPubMedID(single_search(citation)))
+        results.append(single_search(citation, cr_only, md_only))
 
     return results
+
+
+def deferred_search(citations, cr_only=False, md_only=False):
+    results = multi_search(citations, cr_only, md_only)
+    final = []
+    for res in results:
+        final.append(getPubMedID(res))
+
+    return final

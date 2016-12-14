@@ -39,7 +39,7 @@ class LookupTest(basetest.BaseTest):
 
     def test_search_v2_single_query(self):
         # first cr
-        params = {'q': self.test_cite}
+        params = {'q': self.test_cite, 'sync': True}
         ret = self.app.get(self.prefix2 + '/search', query_string=params)
         assert ret
         jdata = json.loads(ret.data)
@@ -49,7 +49,7 @@ class LookupTest(basetest.BaseTest):
         self.assertEqual(res[0].get('ids').get('doi', None), self.cr_doi)
 
         # then md
-        params = {'q': self.test_cite_mendeley}
+        params = {'q': self.test_cite_mendeley, 'sync': True}
         ret = self.app.get(self.prefix2 + '/search', query_string=params)
         assert ret
         jdata = json.loads(ret.data)
@@ -59,7 +59,7 @@ class LookupTest(basetest.BaseTest):
         assert res[0].get('ids').get('doi', None) == self.md_doi
 
         # then cr, but with md_only
-        params = {'q': self.test_cite, 'md_only': True}
+        params = {'q': self.test_cite, 'md_only': True, 'sync': True}
         ret = self.app.get(self.prefix2 + '/search', query_string=params)
         assert ret
         jdata = json.loads(ret.data)
@@ -69,7 +69,7 @@ class LookupTest(basetest.BaseTest):
         assert res[0].get('source') == 'Mendeley'
 
         # then md, but with cr_only
-        params = {'q': self.test_cite_mendeley, 'cr_only': True}
+        params = {'q': self.test_cite_mendeley, 'cr_only': True, 'sync': True}
         ret = self.app.get(self.prefix2 + '/search', query_string=params)
         assert ret
         jdata = json.loads(ret.data)
@@ -77,17 +77,6 @@ class LookupTest(basetest.BaseTest):
         res = jdata.get('result', None)
         assert res
         assert res[0].get('source') == 'CrossRef'
-
-        # then cr and return both
-        params = {'q': self.test_cite, 'dont_choose': True}
-        ret = self.app.get(self.prefix2 + '/search', query_string=params)
-        assert ret
-        jdata = json.loads(ret.data)
-        assert jdata
-        res = jdata.get('result', None)
-        assert res
-        assert len(res) == 2
-        assert jdata.get('length', 0) == 2
 
     def test_search_v2_deferred_queries(self):
         params = {'q': [self.test_cite, self.test_cite_mendeley]}
@@ -123,7 +112,8 @@ class LookupTest(basetest.BaseTest):
         self.assertEqual(type(result), list)
 
         for r in result:
-            self.assertTrue(r.get('ids', {}).get('doi') in {self.cr_doi, self.md_doi})
+            self.assertTrue(
+                r.get('ids', {}).get('doi') in {self.cr_doi, self.md_doi})
 
 
 if __name__ == '__main__':
