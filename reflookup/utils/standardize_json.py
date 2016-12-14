@@ -29,7 +29,8 @@ class StandardDict:
             #     'family': None
             # }
         ],
-        'source': None
+        'source': None,
+        'md5': None
     }
 
     def getEmpty(self):

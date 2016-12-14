@@ -1,4 +1,4 @@
-from threading import Thread
+import hashlib
 
 from flask_restful import abort
 
@@ -56,6 +56,7 @@ def single_search(cit, cr_only=False, md_only=False, threshold=0.5):
         if not_cr:
             cr_result = StandardDict().getEmpty()
 
+        result = cr_result
         if cr_result.get('rating', {}).get('total', 0.0) < threshold:
             md_result = mendeley_lookup(cit)
             not_md = md_result is None
@@ -63,10 +64,13 @@ def single_search(cit, cr_only=False, md_only=False, threshold=0.5):
                 abort(404, message='No results found for query {}'.format(cit))
 
             if not_md:
-                return cr_result              
+                return cr_result
             ch = Chooser(cit, [cr_result, md_result])
-            return ch.select()
-        return cr_result
+            result = ch.select()
+
+        result['md5'] = hashlib.md5(cit.encode('utf-8')).hexdigest()
+
+        return result
 
 
 def multi_search(citations, cr_only=False, md_only=False):

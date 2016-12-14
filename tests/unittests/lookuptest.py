@@ -1,6 +1,7 @@
 import time
 import unittest
 
+import hashlib
 from flask import json
 
 from tests.unittests import basetest
@@ -38,6 +39,9 @@ class LookupTest(basetest.BaseTest):
         assert res[0].get('ids').get('doi', None) == self.md_doi
 
     def test_search_v2_single_query(self):
+        cr_md5 = hashlib.md5(self.test_cite.encode('utf-8')).hexdigest()
+        md_md5 = hashlib.md5(self.test_cite_mendeley.encode('utf-8')).hexdigest()
+
         # first cr
         params = {'q': self.test_cite, 'sync': True}
         ret = self.app.get(self.prefix2 + '/search', query_string=params)
@@ -47,6 +51,7 @@ class LookupTest(basetest.BaseTest):
         res = jdata.get('result', None)
         assert res
         self.assertEqual(res[0].get('ids').get('doi', None), self.cr_doi)
+        self.assertEqual(res[0].get('md5'), cr_md5)
 
         # then md
         params = {'q': self.test_cite_mendeley, 'sync': True}
@@ -57,6 +62,7 @@ class LookupTest(basetest.BaseTest):
         res = jdata.get('result', None)
         assert res
         assert res[0].get('ids').get('doi', None) == self.md_doi
+        self.assertEqual(res[0].get('md5'), md_md5)
 
         # then cr, but with md_only
         params = {'q': self.test_cite, 'md_only': True, 'sync': True}
