@@ -19,8 +19,6 @@ class BaseParserTest(TestCase):
 
     def test_parse_year(self):
         year = self.parser.get_year()
-        print (year)
-        print (self.parser.get_year())
         self.assertEqual(year, self.data["publication_info"]["year"])
 
     def test_parse_volume(self):

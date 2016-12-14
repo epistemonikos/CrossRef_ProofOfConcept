@@ -24,7 +24,7 @@ class Rating:
         title_rating = self.title_rating.value()
         authors_rating = self.authors_rating.value()
         year_rating = self.year_rating.value()
-        final_rating = title_rating * 0.65 + authors_rating * 0.25 + year_rating * 0.1
+        final_rating = title_rating * 0.55 + authors_rating * 0.1 + year_rating * 0.35
         if verbose:
             print(self.cita)
             print(self.json)
