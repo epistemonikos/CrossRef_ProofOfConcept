@@ -4,4 +4,6 @@ class JournalRating:
         self.pagination = journal or ''
 
     def value(self):
+        print (self.pagination)
+        print(self.cita)
         return 1
