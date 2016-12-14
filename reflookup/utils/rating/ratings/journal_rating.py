@@ -1,5 +1,3 @@
-__author__ = 'fmosso'
-
 class JournalRating:
     def __init__(self, raw_cita, journal):
         self.cita = raw_cita or ''
