@@ -53,6 +53,6 @@ class Rating:
             'title': title_rating,
             'authors': authors_rating,
             'year': year_rating,
-            #'pagination': pagination_rating,
-            #'journal': journal_rating
+            'pagination': pagination_rating,
+            'journal': journal_rating
         }

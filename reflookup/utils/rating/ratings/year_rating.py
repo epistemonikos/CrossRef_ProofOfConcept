@@ -11,7 +11,7 @@ class YearRating:
     def value(self):
         if not self.year:
             return 0
-        year = r'[\b]'+re.escape(self.year)+r'[\b]'
+        year = r'\b'+re.escape(str(self.year))+r'\b'
         if re.search(year, self.cita):
             if re.search(year, self.title):
                 # TODO: ver si está igual en la cita, porque podria estar 2 veces.
