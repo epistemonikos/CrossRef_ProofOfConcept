@@ -16,31 +16,6 @@ scopes = {
 }
 
 
-# Function for token generation.
-def create_tokens(owner):
-    serial_code = int.from_bytes(os.urandom(4), byteorder="big")
-
-    atoken = {
-        'type': 'access_token',
-        'client': owner.id,
-        'scope': owner.scope,
-        'serial': serial_code
-    }
-
-    rtoken = {
-        'type': 'refresh_token',
-        'client': owner.id,
-        'serial': serial_code
-    }
-
-    owner.token_serial = serial_code
-
-    db.session.add(owner)
-    db.session.commit()
-
-    return tokenserializer.dumps(atoken), tokenserializer.dumps(rtoken)
-
-
 # --------------------------------------
 
 
@@ -83,7 +58,7 @@ class User(db.Model):
     email = db.Column(db.String, nullable=False, unique=True)
     password = db.Column(db.String, nullable=False)
 
-    token_serial = db.Column(db.Integer, nullable=True, default=None)
+    token = db.Column(db.String, nullable=True)
 
     created = db.Column(db.Date, default=datetime.now)
     modified = db.Column(db.Date, default=datetime.now, onupdate=datetime.now)
@@ -97,80 +72,30 @@ class User(db.Model):
 
         self.password = h.finalize()
 
-    @staticmethod
-    def get_access_token(email, password):
-        """
-        Forces creation of new access and refresh token pair.
-        :return:
-        """
+    # Function for token generation.
+    def create_token(self):
+        a_token = {
+            'type': 'access_token',
+            'client': self.id,
+            'scope': self.scope,
+        }
 
-        user = User.query.filter(User.email == email).first()
-        if not user:
-            abort(401)
+        token_ser = tokenserializer.dumps(a_token)
 
         h = Hash(SHA256(), default_backend())
-        h.update(password.encode('utf-8'))
-        h_pass = h.finalize()
+        h.update(token_ser.encode('utf-8'))
 
-        if not user.password == h_pass:
-            abort(401)
+        self.token = h.finalize()
 
-        return create_tokens(user)
+        db.session.add(self)
+        db.session.commit()
 
-    @staticmethod
-    def refresh_access_token(access_token, refresh_token):
-        """
-        Returns a new access and refresh token pair.
-        :return: A tuple containing the access token and a refresh token.
-        """
-
-        try:
-            token = tokenserializer.loads(access_token)
-            client_id = token.get('client', None)
-            if not client_id:
-                print('No client ID.')
-                raise BadSignature(
-                    'Access token does not contain a client ID.')
-
-            client = User.query.filter(User.id == client_id).first()
-            if not client:
-                print('No valid client.')
-                raise BadSignature('No such client.')
-
-            if not refresh_token:
-                abort(401, message='Please provide a refresh token.')
-
-            try:
-                refresh_token = tokenserializer.loads(refresh_token,
-                                                      max_age=app.config[
-                                                          'REFRESH_TOKEN_TTL'])
-                refresh_serial = refresh_token.get('serial')
-                refresh_client = refresh_token.get('client')
-
-                if refresh_serial != token.get(
-                        'serial') != client.token_serial or refresh_client != client_id != client.id:
-                    abort(403, message='Invalid refresh token.')
-
-                return create_tokens(client)
-
-            except BadSignature:
-                abort(403, message='Invalid refresh token.')
-            except:
-                raise
-
-        except SignatureExpired:
-            abort(401, message='Expired refresh token. Please log in again.')
-        except BadSignature:
-            print('Error deserializing.')
-            abort(403, message='Bad access token.')
-        except:
-            raise
+        return token_ser
 
     @staticmethod
     def validate_access_token(access_token, access_scope=scopes['client']):
         try:
-            token = tokenserializer.loads(access_token, max_age=app.config.get(
-                'ACCESS_TOKEN_TTL'))
+            token = tokenserializer.loads(access_token)
             client_id = token.get('client', None)
             if not client_id:
                 raise BadSignature('Token does not contain a client ID.')
@@ -178,6 +103,12 @@ class User(db.Model):
             client = User.query.filter(User.id == client_id).first()
             if not client:
                 raise BadSignature('No such client.')
+
+            h = Hash(SHA256(), default_backend())
+            h.update(access_token.encode('utf-8'))
+
+            if not client.token == h.finalize():
+                abort(401, message='Invalid access token.')
 
             if token.get('scope') > access_scope:
                 abort(403, message='Insufficient Privileges.')
@@ -188,3 +119,16 @@ class User(db.Model):
             abort(401, message='Bad access token.')
         except:
             raise
+
+    @staticmethod
+    def login(email, password):
+
+        user = User.query.filter(User.email == email).first()
+
+        h = Hash(SHA256(), default_backend())
+        h.update(password.encode('utf-8'))
+
+        if not user.password == h.finalize():
+            return None
+        else:
+            return user
