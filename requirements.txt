@@ -1,5 +1,7 @@
 flask
 flask-wtf
+sqlalchemy
+flask-sqlalchemy
 requests
 flask-restful
 gunicorn
@@ -10,3 +12,5 @@ rq
 redis
 invoke
 flask-cors
+click
+cryptography

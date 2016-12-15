@@ -3,6 +3,8 @@ from reflookup.resources.search_v2.functions import single_search, \
 from reflookup.utils.restful.utils import DeferredResource, \
     b64_encode_response, find_pubmedid_wrapper
 
+from reflookup.auth.models import auth_required
+
 
 class IntegratedReferenceSearchV2(DeferredResource):
     """
@@ -56,10 +58,12 @@ class IntegratedReferenceSearchV2(DeferredResource):
             return b64_encode_response(self.enqueue_job_and_return)(
                 deferred_search, cit, args['cr_only'], args['md_only'])
 
+    @auth_required()
     def get(self):
         args = self.get_parser.parse_args()
         return self.search(args)
 
+    @auth_required()
     def post(self):
         args = self.post_parser.parse_args()
         return self.search(args)

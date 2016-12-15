@@ -1,5 +1,6 @@
 from flask_restful import abort
 
+from reflookup.auth.models import auth_required
 from reflookup.resources.extract_v2.functions import extract_refs
 from reflookup.utils.restful.utils import DeferredResource
 
@@ -33,6 +34,7 @@ class IntegratedReferenceExtractV2(DeferredResource):
         self.get_parser.add_argument('pmid', type=str, required=False,
                                      action='append')
 
+    @auth_required()
     def get(self):
         args = self.get_parser.parse_args()
 

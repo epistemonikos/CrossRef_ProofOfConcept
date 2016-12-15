@@ -14,6 +14,7 @@ before_install:
 - ssh-add /tmp/travis_rsa
 install:
 - pip install -r requirements.txt
+- python db_manage.py create_db
 - curl -sSL https://get.rvm.io | bash
 - source "$HOME/.rvm/scripts/rvm"
 - rvm reload

@@ -1,3 +1,4 @@
+from reflookup.auth.models import auth_required
 from reflookup.utils.restful.utils import DeferredResource
 from reflookup.utils.pubmed_id import getPubMedID
 from reflookup.resources.search_v2.functions import single_search
@@ -40,6 +41,7 @@ class IntegratedSearchAndExtractV2(DeferredResource):
         self.get_parser.add_argument('q', required=True, type=str,
                                      action='append')
 
+    @auth_required()
     def get(self):
         args = self.get_parser.parse_args()
         return self.enqueue_job_and_return(lookup_and_extract, args['q'])

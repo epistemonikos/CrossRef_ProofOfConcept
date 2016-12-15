@@ -11,6 +11,7 @@ from tests.unittests.springer_test import SpringerParserTest
 from tests.unittests.wiley_test import WileyParserTest
 from tests.unittests.plos_test import PlosParserTest
 # from tests.unittests.sciencedirect_test import ScienceDirectParserTest
+from tests.unittests.authtest import AuthTest
 
 if __name__ == '__main__':
     unittest.main()
