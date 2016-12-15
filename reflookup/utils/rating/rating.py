@@ -42,6 +42,8 @@ class Rating:
         if verbose:
             print(self.cita)
             print(self.json)
+            print("pagination: %s" % pagination_rating)
+            print("journal: %s" % journal_rating)
             print("authors: %s" % authors_rating)
             print("year: %s" % year_rating)
             print("t_rate: %s" % title_rating)
@@ -50,5 +52,7 @@ class Rating:
             'total': final_rating,
             'title': title_rating,
             'authors': authors_rating,
-            'year': year_rating
+            'year': year_rating,
+            'pagination': pagination_rating,
+            'journal': journal_rating
         }
