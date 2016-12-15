@@ -7,7 +7,7 @@ import os
 
 class WileyParserTest(parsertest.BaseParserTest):
 
-    def setUp(self):
+    def setUpClass(self):
         reflookup.app.config['TESTING'] = True
         self.url = "http://onlinelibrary.wiley.com/doi/10.1111/acel.12547/full"
         self.path = os.path.join(os.path.dirname(__file__), 'sources/wiley.json')

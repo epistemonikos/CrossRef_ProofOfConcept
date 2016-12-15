@@ -7,7 +7,7 @@ import os
 
 class PlosParserTest(parsertest.BaseParserTest):
 
-    def setUp(self):
+    def setUpClass(self):
         reflookup.app.config['TESTING'] = True
         self.url = "http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030208"
         self.path = os.path.join(os.path.dirname(__file__), 'sources/plos.json')

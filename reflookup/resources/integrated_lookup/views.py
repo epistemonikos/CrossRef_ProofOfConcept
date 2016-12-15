@@ -47,13 +47,14 @@ def lookup_mendeley(ref, ret, return_all=False):
         ret['description'] = e.description
 
 
-def integrated_lookup(citation, return_all=False, return_both=False):
+def integrated_lookup(citation, return_all=False, return_both=False, return_empty=False):
     """
     Mendeley & Crossref integrated lookup. By default this function returns the highest ranked
     result, but can be moified to return the whole list or the best result of each service
     :param citation: Given citation for lookup
     :param return_all: Optional parameter indicating to return whole list of results instead of only the first.
     :param return_both: Optional parameter indicating to return the best results of each serrvice.
+    :param return_empty: Optional parameter indicating to return an empty dict instead of 404 if no results were found.
     :return: Respective citation lookup result
     """
     cr = {}
@@ -71,7 +72,9 @@ def integrated_lookup(citation, return_all=False, return_both=False):
     t2.join()
 
     if not cr.get('result', None) and not md.get('result', None):
-        if cr.get('code', None) == 404:
+        if return_empty:
+            return StandardDict().getEmpty()
+        elif cr.get('code', None) == 404:
             abort(404,
                   message='No results found for query {}'.format(citation))
         elif cr.get('code', None) == md.get('code', None):
@@ -120,7 +123,7 @@ def batch_lookup(refl):
     results = []
 
     for ref in refl:
-        res = integrated_lookup(ref, return_all=False)
+        res = integrated_lookup(ref, return_all=False, return_empty=True)
         res = getPubMedID(res)
         results.append(res)
 

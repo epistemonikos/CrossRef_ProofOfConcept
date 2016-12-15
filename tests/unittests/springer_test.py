@@ -7,7 +7,7 @@ import os
 
 class SpringerParserTest(parsertest.BaseParserTest):
 
-    def setUp(self):
+    def setUpClass(self):
         reflookup.app.config['TESTING'] = True
         self.url = "http://link.springer.com/article/10.1007%2Fs12032-015-0718-4"
         self.path = os.path.join(os.path.dirname(__file__), 'sources/springer.json')

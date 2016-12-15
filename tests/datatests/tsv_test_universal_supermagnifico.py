@@ -4,6 +4,14 @@ import requests
 import pprint
 import os
 
+"""
+This Testing file, make a tsv with four columns, which are:
+rating (calculate from search endpoint result), result doi, epistemonikos's doi and the original reference.
+It was use, for make a graphic, in order to show the correctness of our solution that compare the crossref and mendeley answer,
+and delivery one with the best rating. For testing the behavior of the search endpoint,
+we consider a right output, which it has de same doi than epistemonikos database.
+"""
+
 with open('result/output_universal_correctos.tsv', 'w') as output_correctos:
     with open('result/output_universal_incorrectos.tsv', 'w') as output_incorrectos:
         with open('./src/random_results_systematic_review') as rrsr:
