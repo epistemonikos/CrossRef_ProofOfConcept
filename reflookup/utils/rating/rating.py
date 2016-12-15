@@ -24,7 +24,7 @@ class Rating:
         self.year_rating = YearRating(cita, year, title)
         #self.journal_rating = JournalRating(cita,journal)
         self.journal_rating = TitleRating(cita, journal)
-        self.pagination_rating = PaginationRating(cita,pagination)
+        self.pagination_rating = PaginationRating(cita, pagination)
 
     def value(self, verbose=False):
         title_rating = self.title_rating.value()
@@ -37,7 +37,7 @@ class Rating:
         if journal_rating <= 0.2 or pagination_rating <= 0.2:
             final_rating = title_rating * 0.55 + authors_rating * 0.1 + year_rating * 0.35
         else:
-            final_rating = title_rating * 0.35 + authors_rating * 0.1 + year_rating * 0.2 +journal_rating* 0.2 + pagination_rating * 0.15
+            final_rating = title_rating * 0.35 + authors_rating * 0.1 + year_rating * 0.2 + journal_rating* 0.2 + pagination_rating * 0.15
 
         if verbose:
             print(self.cita)
@@ -53,6 +53,6 @@ class Rating:
             'title': title_rating,
             'authors': authors_rating,
             'year': year_rating,
-            #'pagination': pagination_rating
+            #'pagination': pagination_rating,
             #'journal': journal_rating
         }
