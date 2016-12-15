@@ -10,3 +10,4 @@ rq
 redis
 invoke
 flask-cors
+fuzzywuzzy
