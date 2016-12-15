@@ -6,12 +6,11 @@ import os
 
 
 class PlosParserTest(parsertest.BaseParserTest):
-
+    @classmethod
     def setUpClass(self):
         reflookup.app.config['TESTING'] = True
-        # TODO: bucar una URL para testear plos + output esperado
-        self.url = "http://www.google.cl/"
-        self.path = os.path.join(os.path.dirname(__file__), 'sources/bmc.json')
+        self.url = "http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030208"
+        self.path = os.path.join(os.path.dirname(__file__), 'sources/plos.json')
         with open(self.path, 'r') as result:
             self.data = json.load(result)
         self.parser = PlosParser()

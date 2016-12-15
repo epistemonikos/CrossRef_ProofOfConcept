@@ -7,7 +7,7 @@ import os
 
 
 class BMCParserTest(parsertest.BaseParserTest):
-
+    @classmethod
     def setUpClass(self):
         reflookup.app.config['TESTING'] = True
         self.url = "http://bmcnephrol.biomedcentral.com/articles/10.1186/s12882-016-0293-8"

@@ -6,7 +6,7 @@ import os
 
 
 class WileyParserTest(parsertest.BaseParserTest):
-
+    @classmethod
     def setUpClass(self):
         reflookup.app.config['TESTING'] = True
         self.url = "http://onlinelibrary.wiley.com/doi/10.1111/acel.12547/full"
