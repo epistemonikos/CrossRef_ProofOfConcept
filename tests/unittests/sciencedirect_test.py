@@ -6,7 +6,7 @@ import os
 
 
 class ScienceDirectParserTest(parsertest.BaseParserTest):
-
+    @classmethod
     def setUpClass(self):
         reflookup.app.config['TESTING'] = True
         # TODO: bucar una URL para testear ScienceDirect + output esperado

@@ -3,7 +3,7 @@ from unittest import TestCase
 from reflookup.utils.parsers.default_parser import DefaultParser
 
 class BaseParserTest(TestCase):
-
+    @classmethod
     def setUpClass(self):
         self.parser = DefaultParser()
         self.url = "http://www.google.cl"

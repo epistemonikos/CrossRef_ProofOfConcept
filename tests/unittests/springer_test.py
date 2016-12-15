@@ -6,7 +6,7 @@ import os
 
 
 class SpringerParserTest(parsertest.BaseParserTest):
-
+    @classmethod
     def setUpClass(self):
         reflookup.app.config['TESTING'] = True
         self.url = "http://link.springer.com/article/10.1007%2Fs12032-015-0718-4"
