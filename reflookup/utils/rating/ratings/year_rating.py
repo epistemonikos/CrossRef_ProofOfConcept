@@ -11,11 +11,10 @@ class YearRating:
     def value(self):
         if not self.year:
             return 0
-        year1 = r"(\s|\-|/|\.|\\|\(|^)" + re.escape(self.year) + r"([^\d]|$)"
-        year2 = r"([^\d]|^)" + re.escape(self.year) + r"(\s|\-|/|\.|\\|\)|$)"
-        if re.search(year1, self.cita) or re.search(year2, self.cita):
-            if re.search(year1, self.title) or re.search(year2, self.title):
+        year = r'[\.\s\(^]'+re.escape(self.year)+'[\.\s\)$]'
+        if re.search(year, self.cita):
+            if re.search(year, self.title):
                 # TODO: ver si está igual en la cita, porque podria estar 2 veces.
-                return 0
+                return 0.8
             return 1
         return 0
