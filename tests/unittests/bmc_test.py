@@ -8,7 +8,7 @@ import os
 
 class BMCParserTest(parsertest.BaseParserTest):
 
-    def setUp(self):
+    def setUpClass(self):
         reflookup.app.config['TESTING'] = True
         self.url = "http://bmcnephrol.biomedcentral.com/articles/10.1186/s12882-016-0293-8"
         self.path = os.path.join(os.path.dirname(__file__), 'sources/bmc.json')

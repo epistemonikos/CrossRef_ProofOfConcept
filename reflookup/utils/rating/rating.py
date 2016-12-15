@@ -32,6 +32,8 @@ class Rating:
         year_rating = self.year_rating.value()
         journal_rating = self.journal_rating.value()
         pagination_rating = self.pagination_rating.value()
+
+        #Rating ponderations
         if journal_rating <= 0.2 or pagination_rating <= 0.2:
             final_rating = title_rating * 0.55 + authors_rating * 0.1 + year_rating * 0.35
         else:

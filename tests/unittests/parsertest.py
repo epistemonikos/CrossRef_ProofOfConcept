@@ -4,7 +4,7 @@ from reflookup.utils.parsers.default_parser import DefaultParser
 
 class BaseParserTest(TestCase):
 
-    def setUp(self):
+    def setUpClass(self):
         self.parser = DefaultParser()
         self.url = "http://www.google.cl"
         self.data = self.parser.parse(self.url) # Cambiar por un json vacio?

@@ -7,7 +7,7 @@ import os
 
 class PlosParserTest(parsertest.BaseParserTest):
 
-    def setUp(self):
+    def setUpClass(self):
         reflookup.app.config['TESTING'] = True
         # TODO: bucar una URL para testear plos + output esperado
         self.url = "http://www.google.cl/"
