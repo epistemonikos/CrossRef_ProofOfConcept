@@ -22,4 +22,5 @@ class PaginationRating:
                     regex = r"[\b]" + re.escape(self.pagination) + r"[\b]"
                     if re.search(regex, self.cita):
                         return 1
+                    
         return 0
