@@ -14,7 +14,7 @@ class Rating:
                          json.get('authors', [])]
         authors_family = [aut.get('family', '') for aut in
                           json.get('authors', [])]
-        year = json.get('publication_type', {}).get('title', '')
+        year = json.get('publication_type', {}).get('year', '')
         journal = json.get('publication_type', {}).get('title', '')
         pagination = json.get('publication_type', {}).get('pagination', '')
         title = json.get('title', '')
@@ -22,7 +22,8 @@ class Rating:
                                             authors_family)
         self.title_rating = TitleRating(cita, title)
         self.year_rating = YearRating(cita, year, title)
-        self.journal_rating = JournalRating(cita,journal)
+        #self.journal_rating = JournalRating(cita,journal)
+        self.journal_rating = TitleRating(cita, journal)
         self.pagination_rating = PaginationRating(cita,pagination)
 
     def value(self, verbose=False):
