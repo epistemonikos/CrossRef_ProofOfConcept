@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import os
 
 from flask import Flask
@@ -8,7 +9,17 @@ from redis import Redis
 from rq import Queue
 from sys import stderr
 from flask_sqlalchemy import SQLAlchemy
+from configparser import ConfigParser
 
+
+
+config = ConfigParser()
+config.read (
+    os.path.join (
+        os.path.dirname(os.path.realpath(__file__)),
+        'config.cfg'
+    )
+)
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/refservice.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -21,7 +32,7 @@ app.config['PORT'] = 5001
 
 # Quick References
 app.config['SCOPUS_URI'] = 'https://api.elsevier.com/content/article/doi/'
-app.config['SCOPUS_API_KEY'] = os.environ.get('SCOPUS_API_KEY')
+app.config['SCOPUS_API_KEY'] = config['SCOPUS']['SCOPUS_API_KEY']
 app.config['SCOPUS_DTD'] = {
     "default": "http://www.elsevier.com/xml/svapi/article/dtd",
     "sb": "http://www.elsevier.com/xml/common/struct-bib/dtd",
@@ -37,10 +48,10 @@ app.config['CROSSREF_URI'] = 'http://api.crossref.org/works'
 app.config['MENDELEY_SEARCH_URI'] = 'https://api.mendeley.com/search/catalog'
 app.config['MENDELEY_CATALOG_URI'] = 'https://api.mendeley.com/catalog'
 app.config['MENDELEY_AUTH_URI'] = 'https://api.mendeley.com/oauth/token'
-app.config['MENDELEY_AUTH'] = (os.environ.get('MENDELEY_ID'), os.environ.get('MENDELEY_SECRET'))
+app.config['MENDELEY_AUTH'] = (config['MENDELEY']['MENDELEY_ID'], config['MENDELEY']['MENDELEY_SECRET'])
 
 app.config['RESULT_TTL_SECONDS'] = 300
-app.secret_key = os.environ.get('REFSERVICE_SECRETKEY')
+app.secret_key = config['REFSOLVER']['REFSERVICE_SECRETKEY']
 
 app.config['ACCESS_TOKEN_TTL'] = 300
 app.config['REFRESH_TOKEN_TTL'] = 86400
